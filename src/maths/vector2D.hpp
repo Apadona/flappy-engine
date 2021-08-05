@@ -11,7 +11,8 @@ template<typename T>
 struct Vector2D
 {
     public:
-        friend std::ostream& operator<<( std::ostream& out, const Vector2D<T>& _this );
+        template<typename U>
+        friend std::ostream& operator<<( std::ostream& out, const Vector2D<U>& _this );
 
         Vector2D() = default;
         Vector2D( T first, T second );

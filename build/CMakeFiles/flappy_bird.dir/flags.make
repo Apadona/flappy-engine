@@ -3,13 +3,13 @@
 
 # compile C with E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/gcc.exe
 # compile CXX with E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/g++.exe
-C_FLAGS = -g   -m32
+C_FLAGS =   -m32
 
 C_DEFINES = 
 
 C_INCLUDES = @CMakeFiles/flappy_bird.dir/includes_C.rsp
 
-CXX_FLAGS = -g   -m32 -std=gnu++1z
+CXX_FLAGS =   -m32 -std=gnu++1z
 
 CXX_DEFINES = 
 

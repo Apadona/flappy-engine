@@ -1,4 +1,5 @@
 #include "window.hpp"
+#include <utils/logger.hpp>
 
 #include <iostream>
 

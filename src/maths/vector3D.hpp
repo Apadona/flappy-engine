@@ -9,7 +9,8 @@ template<typename T>
 struct Vector3D
 {
     public:
-        friend std::ostream& operator<<( std::ostream& out, const Vector3D<T>& _this );
+        template<typename U>
+        friend std::ostream& operator<<( std::ostream& out, const Vector3D<U>& _this );
 
         Vector3D() = default;
         Vector3D( T first, T second, T third );

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 #include <utility>
 
 enum class SinkType
@@ -55,13 +56,6 @@ enum Color
     BRIGHT_WHITE        = 97
 };
 
-// ansi string codes for each console color.
-struct ColorCodes
-{
-    std::string_view str;
-    Color color;            
-};
-
 struct LogLevelColor
 {
     LogLevel level;
@@ -89,6 +83,8 @@ class Logger
         //template<typename T, typename ... args>
         //void Log( T arg1, args ... other, LogLevel = LogLevel::NORMAL );
 
+        static Logger& Get();
+
     private:
         void InitLogLevelColors();
         const char* LevelToStr( LogLevel level );
@@ -104,5 +100,26 @@ class Logger
 
         static const std::string_view m_escape_sequence_begin;
         static const std::string_view m_escape_sequence_end;
-        static const std::vector<ColorCodes> m_color_codes;
+        static std::map<Color,std::string> m_color_codes; // ansi string codes for each console color.
+
+        static Logger logger;
 };
+
+#define LOG_ASSERT(condition,message) \
+    if(!condition) \
+    LOG_ERROR(message)
+
+#define LOG_NORMAL(message) \
+    Logger::Get().Log(message,LogLevel::NORMAL)
+
+#define LOG_HINT(message) \
+    Logger::Get().Log(message,LogLevel::HINT)
+
+#define LOG_WARNING(message) \
+    Logger::Get().Log(message,LogLevel::WARNING)
+
+#define LOG_ERROR(message) \
+    Logger::Get().Log(message,LogLevel::ERROR)
+
+#define LOG_DEBUG(message) \
+    Logger::Get().Log(message,LogLevel::DEBUG)

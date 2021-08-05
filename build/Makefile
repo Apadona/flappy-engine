@@ -47,10 +47,10 @@ RM = "E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "E:\Barnamenevisi\Prozhe ha\Man\flappy_bird"
+CMAKE_SOURCE_DIR = E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "E:\Barnamenevisi\Prozhe ha\Man\flappy_bird\build"
+CMAKE_BINARY_DIR = E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "E:\Barnamenevisi\Prozhe ha\Man\flappy_bird\build\CMakeFiles" "E:\Barnamenevisi\Prozhe ha\Man\flappy_bird\build\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "E:\Barnamenevisi\Prozhe ha\Man\flappy_bird\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -257,6 +257,33 @@ src/maths/math_exception.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.s
 .PHONY : src/maths/math_exception.cpp.s
 
+src/utils/file_loader.obj: src/utils/file_loader.cpp.obj
+
+.PHONY : src/utils/file_loader.obj
+
+# target to build an object file
+src/utils/file_loader.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj
+.PHONY : src/utils/file_loader.cpp.obj
+
+src/utils/file_loader.i: src/utils/file_loader.cpp.i
+
+.PHONY : src/utils/file_loader.i
+
+# target to preprocess a source file
+src/utils/file_loader.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.i
+.PHONY : src/utils/file_loader.cpp.i
+
+src/utils/file_loader.s: src/utils/file_loader.cpp.s
+
+.PHONY : src/utils/file_loader.s
+
+# target to generate assembly for a file
+src/utils/file_loader.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.s
+.PHONY : src/utils/file_loader.cpp.s
+
 src/utils/logger.obj: src/utils/logger.cpp.obj
 
 .PHONY : src/utils/logger.obj
@@ -335,6 +362,9 @@ help:
 	@echo ... src/maths/math_exception.obj
 	@echo ... src/maths/math_exception.i
 	@echo ... src/maths/math_exception.s
+	@echo ... src/utils/file_loader.obj
+	@echo ... src/utils/file_loader.i
+	@echo ... src/utils/file_loader.s
 	@echo ... src/utils/logger.obj
 	@echo ... src/utils/logger.i
 	@echo ... src/utils/logger.s

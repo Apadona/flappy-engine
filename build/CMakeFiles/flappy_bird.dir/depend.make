@@ -10,6 +10,7 @@ CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/application.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/maths/math_exception.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/maths/vector2D.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/maths/vector2D.inl
+CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/window.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/flappy_app.cpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/flappy_app.hpp
@@ -22,6 +23,8 @@ CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/maths/vector3D.hp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/maths/vector3D.inl
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/maths/vector4D.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/maths/vector4D.inl
+CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/utils/file_loader.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.cpp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.hpp
 
@@ -29,15 +32,24 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glad/glad.h
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glfw/glfw3.h
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/application.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/flappy_app.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/shader.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/math_exception.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector2D.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector2D.inl
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector3D.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector3D.inl
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector4D.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector4D.inl
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/utils/file_loader.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/window.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/main.cpp
 
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj: ../src/maths/math_exception.cpp
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj: ../src/maths/math_exception.hpp
+
+CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj: ../src/utils/file_loader.cpp
+CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj: ../src/utils/file_loader.hpp
 
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj: ../src/utils/logger.cpp
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj: ../src/utils/logger.hpp
@@ -46,6 +58,7 @@ CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../dependencies/include/glfw/glfw
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/maths/math_exception.hpp
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/maths/vector2D.hpp
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/maths/vector2D.inl
+CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/window.cpp
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/window.hpp
 

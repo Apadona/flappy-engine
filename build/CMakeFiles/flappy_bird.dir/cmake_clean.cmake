@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/main.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj"
+  "CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/window.cpp.obj"
   "libflappy_bird.dll.a"

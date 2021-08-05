@@ -80,6 +80,22 @@ glad/glad.h
 window.hpp
 -
 
+../src/graphics/shader.hpp
+maths/vector2D.hpp
+-
+maths/vector3D.hpp
+-
+maths/vector4D.hpp
+-
+glad/glad.h
+-
+string
+-
+fstream
+-
+map
+-
+
 ../src/maths/math_exception.hpp
 exception
 -
@@ -98,6 +114,34 @@ vector2D.inl
 
 ../src/maths/vector2D.inl
 
+../src/maths/vector3D.hpp
+math_exception.hpp
+../src/maths/math_exception.hpp
+iostream
+-
+cmath
+-
+vector3D.inl
+../src/maths/vector3D.inl
+
+../src/maths/vector3D.inl
+
+../src/maths/vector4D.hpp
+math_exception.hpp
+../src/maths/math_exception.hpp
+iostream
+-
+cmath
+-
+vector4D.inl
+../src/maths/vector4D.inl
+
+../src/maths/vector4D.inl
+
+../src/utils/file_loader.hpp
+string
+-
+
 ../src/utils/logger.hpp
 string
 -
@@ -108,6 +152,8 @@ iostream
 fstream
 -
 vector
+-
+map
 -
 utility
 -
@@ -122,9 +168,13 @@ cstdint
 maths/vector2D.hpp
 -
 
-E:/Barnamenevisi/Prozhe ha/Man/flappy_bird/src/main.cpp
+E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/main.cpp
 flappy_app.hpp
 -
 utils/logger.hpp
+-
+utils/file_loader.hpp
+-
+graphics/shader.hpp
 -
 

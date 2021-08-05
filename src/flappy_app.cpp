@@ -1,4 +1,5 @@
 #include "flappy_app.hpp"
+#include <utils/logger.hpp>
 
 #include <iostream>
 #include <cstdlib>
@@ -10,7 +11,7 @@ bool FlappyApp::Init()
 {
     if( !glfwInit() )
     {
-        std::cerr << "cannot init glfw!" << std::endl;
+        LOG_ERROR("cannot init glfw!");
         glfwTerminate();
         return -1;
     }
@@ -21,14 +22,14 @@ void FlappyApp::OnCreate()
     game_window = new Window(m_width,m_height,name,3,1);
     if( !game_window->IsOpen() )
     {
-        std::cerr << "cannot create the glfw window!\n";
+        LOG_ERROR("cannot create the glfw window!\n");
         glfwTerminate();
         std::exit(EXIT_FAILURE);
     }
 
     if( !gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) )
     {
-        std::cerr << "cannot glue glad and glfw!\n";
+        LOG_ERROR("cannot get OpenGL functions!\n");
         glfwTerminate();
         std::exit(EXIT_FAILURE);
     }

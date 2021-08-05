@@ -1,5 +1,5 @@
-template<typename T>
-std::ostream& operator<<( std::ostream& out, const Vector3D<T>& _this )
+template<typename U>
+std::ostream& operator<<( std::ostream& out, const Vector3D<U>& _this )
 {
     out << "x:" << _this.x << " y:" << _this.y << " z:" << _this.z << std::endl;
     return out;

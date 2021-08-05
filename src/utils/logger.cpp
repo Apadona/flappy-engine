@@ -15,25 +15,27 @@
 const std::string_view Logger::m_escape_sequence_begin = "\x1b[";
 const std::string_view Logger::m_escape_sequence_end = "\x1b[0m";
 
-const std::vector<ColorCodes> Logger::m_color_codes =
-{
-    { std::to_string(static_cast<int>(BLACK)), BLACK },
-    { std::to_string(static_cast<int>(RED)), RED },
-    { std::to_string(static_cast<int>(GREEN)), GREEN },
-    { std::to_string(static_cast<int>(YELLOW)), YELLOW },
-    { std::to_string(static_cast<int>(BLUE)), BLUE },
-    { std::to_string(static_cast<int>(MAGENTA)), MAGENTA },
-    { std::to_string(static_cast<int>(CYAN)), CYAN },
-    { std::to_string(static_cast<int>(WHITE)), WHITE },
+Logger Logger::logger;
 
-    { std::to_string(static_cast<int>(BRIGHT_BLACK)), BRIGHT_BLACK },
-    { std::to_string(static_cast<int>(BRIGHT_RED)), BRIGHT_RED },
-    { std::to_string(static_cast<int>(BRIGHT_GREEN)), BRIGHT_GREEN },
-    { std::to_string(static_cast<int>(BRIGHT_YELLOW)), BRIGHT_YELLOW },
-    { std::to_string(static_cast<int>(BRIGHT_BLUE)), BRIGHT_BLUE },
-    { std::to_string(static_cast<int>(BRIGHT_MAGENTA)), BRIGHT_MAGENTA },
-    { std::to_string(static_cast<int>(BRIGHT_CYAN)), BRIGHT_CYAN },
-    { std::to_string(static_cast<int>(BRIGHT_WHITE)), BRIGHT_WHITE }
+std::map<Color,std::string> Logger::m_color_codes =
+{
+    { BLACK, std::to_string(static_cast<int>(BLACK)) },
+    { RED, std::to_string(static_cast<int>(RED)) },
+    { GREEN, std::to_string(static_cast<int>(GREEN)) },
+    { YELLOW, std::to_string(static_cast<int>(YELLOW)) },
+    { BLUE, std::to_string(static_cast<int>(BLUE)) },
+    { MAGENTA, std::to_string(static_cast<int>(MAGENTA)) },
+    { CYAN, std::to_string(static_cast<int>(CYAN)) },
+    { WHITE, std::to_string(static_cast<int>(WHITE)) },
+
+    { BRIGHT_BLACK, std::to_string(static_cast<int>(BRIGHT_BLACK)) },
+    { BRIGHT_RED, std::to_string(static_cast<int>(BRIGHT_RED)) },
+    { BRIGHT_GREEN, std::to_string(static_cast<int>(BRIGHT_GREEN)) },
+    { BRIGHT_YELLOW, std::to_string(static_cast<int>(BRIGHT_YELLOW)) },
+    { BRIGHT_BLUE, std::to_string(static_cast<int>(BRIGHT_BLUE)) },
+    { BRIGHT_MAGENTA, std::to_string(static_cast<int>(BRIGHT_MAGENTA)) },
+    { BRIGHT_CYAN, std::to_string(static_cast<int>(BRIGHT_CYAN)) },
+    { BRIGHT_WHITE, std::to_string(static_cast<int>(BRIGHT_WHITE)) }
 };
 
 bool Logger::Init()
@@ -120,7 +122,7 @@ void Logger::Log( const std::string& message, LogLevel level )
     if( message.empty() )
         return;
 
-    const char* level_str;
+    const char* level_str = nullptr;
 
     switch( m_place )
     {
@@ -138,7 +140,7 @@ void Logger::Log( const std::string& message, LogLevel level )
 
         case SinkType::CONSOLE:
             level_str = LevelToStr(level);
-            std::clog << m_escape_sequence_begin << m_color_codes[ m_level_colors[ static_cast<int>(level) ].color ].str
+            std::cout << m_escape_sequence_begin << m_color_codes[ m_level_colors[ static_cast<int>(level) ].color ] << "m"
                       << level_str << message << m_escape_sequence_end << std::endl;
         break;
 
@@ -147,15 +149,20 @@ void Logger::Log( const std::string& message, LogLevel level )
     }
 }
 
+Logger& Logger::Get()
+{
+    return logger;
+}
+
 void Logger::InitLogLevelColors()
 {
     m_level_colors =
     {
-        { LogLevel::NORMAL, WHITE },
-        { LogLevel::HINT, GREEN },
-        { LogLevel::WARNING, YELLOW },
-        { LogLevel::ERROR, RED },
-        { LogLevel::DEBUG, BLUE }
+        { LogLevel::NORMAL, BRIGHT_WHITE },
+        { LogLevel::HINT, BRIGHT_GREEN },
+        { LogLevel::WARNING, BRIGHT_YELLOW },
+        { LogLevel::ERROR, BRIGHT_RED },
+        { LogLevel::DEBUG, BRIGHT_BLUE }
     };
 }
 
