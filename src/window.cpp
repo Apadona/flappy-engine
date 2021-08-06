@@ -58,19 +58,24 @@ void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version
 {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,1);
+    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
-bool Window::Update()
+bool Window::Update() const
 {
     if( IsOpen() )
     {
         glfwPollEvents();
-        glfwSwapBuffers(m_window);
-
+        
         return true;
     }
 
     return false;
+}
+
+void Window::ReDraw() const
+{
+    glfwSwapBuffers(m_window);
 }
 
 void Window::HandleCreation()

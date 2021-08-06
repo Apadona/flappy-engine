@@ -50,3 +50,119 @@ inline constexpr int CalculateSize( GLDataType type )
 {
     return static_cast<int>(type);
 }
+
+inline constexpr int CalculateComponent( GLDataType type )
+{
+    switch (type)
+    {
+        case BOOL:
+        case INT:
+        case UINT:
+        case FLOAT:
+        case DOUBLE:
+            return 1;
+        break;
+
+        case BVEC2:
+        case IVEC2:
+        case UVEC2:
+        case VEC2:
+        case DVEC2:
+            return 2;
+        break;
+
+        case BVEC3:
+        case IVEC3:
+        case UVEC3:
+        case VEC3:
+        case DVEC3:
+            return 3;
+        break;
+
+        case BVEC4:
+        case IVEC4:
+        case UVEC4:
+        case VEC4:
+        case DVEC4:
+            return 4;
+        break;
+
+        case MAT22:
+            return 4;
+        break;
+
+        case MAT23:
+        case MAT32:
+            return 6;
+        break;
+
+        case MAT24:
+        case MAT42:
+            return 8;
+        break;
+
+        case MAT33:
+            return 9;
+        break;
+
+        case MAT34:
+        case MAT43:
+            return 12;
+        break;
+
+        case MAT44:
+            return 16;
+        break;    
+    }
+}
+
+inline constexpr CalculateType( GLDataType type )
+{
+    switch( type )
+    {
+        case BOOL:
+        case BVEC2:
+        case BVEC3:
+        case BVEC4:
+            return GL_BOOL;
+        break;
+
+        case INT:
+        case IVEC2:
+        case IVEC3:
+        case IVEC4:
+            return GL_INT;
+        break;
+
+        case UINT:
+        case UVEC2:
+        case UVEC3:
+        case UVEC4:
+            return GL_UINT;
+        break;
+
+        case FLOAT:
+        case VEC2:
+        case VEC3:
+        case VEC4:
+        
+        case MAT22:
+        case MAT23:
+        case MAT24:
+        case MAT32:
+        case MAT33:
+        case MAT34:
+        case MAT42:
+        case MAT43:
+        case MAT44:
+            return GL_FLOAT;
+        break;
+
+        case DOUBLE:
+        case DVEC2:
+        case DVEC3:
+        case DVEC4:
+            return GL_DOUBLE;
+        break;
+    }
+}

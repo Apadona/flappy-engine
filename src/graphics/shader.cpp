@@ -97,6 +97,11 @@ GLint Shader::GetUniformLocation( const std::string& uniform_name )
         return glGetUniformLocation(m_program_id,uniform_name.c_str());
 }
 
+void Shader::SetAttribLocation( GLint location, const std::string& attrib_name )
+{
+    glBindAttribLocation(m_program_id,0,attrib_name.c_str());
+}
+
 bool Shader::SetUniform2f( const std::string& uniform_name, const Vec2& _data )
 {
     glUniform2f(GetUniformLocation(uniform_name),_data.x,_data.y);
@@ -124,7 +129,7 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
         glShaderSource(_ref,1,&shader_source,nullptr);
         glCompileShader(_ref);
 
-        GLint compile_status;
+        GLint compile_status = 0;
         glGetShaderiv(_ref,GL_COMPILE_STATUS,&compile_status);
 
         if( compile_status == GL_FALSE )
@@ -139,7 +144,7 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
         }
 
         else
-            LOG_NORMAL("shader compiled successfully!\n");
+            LOG_NORMAL("shader compiled successfully!");
     };
 
     LOG_NORMAL("compiling vertex shader.");
@@ -155,7 +160,7 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
         glAttachShader(m_program_id,m_fs_id);
         glLinkProgram(m_program_id);
 
-        GLint link_status;
+        GLint link_status = 0;
         glGetProgramiv(m_program_id,GL_LINK_STATUS,&link_status);
 
         if( link_status == GL_FALSE )

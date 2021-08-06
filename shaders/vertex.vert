@@ -1,8 +1,8 @@
-#version 130 core
+#version 330 core
 
-in vec2 pos;
+layout(location = 0) in vec2 pos;
 
 void main()
 {
-    gl_Position = vec4(pos.x,pos.y,0.0f,0.0f);
+    gl_Position = vec4(pos,0.0f,1.0);
 }

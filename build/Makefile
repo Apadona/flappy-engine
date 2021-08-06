@@ -176,6 +176,33 @@ src/flappy_app.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.s
 .PHONY : src/flappy_app.cpp.s
 
+src/graphics/gl_data_types.obj: src/graphics/gl_data_types.cpp.obj
+
+.PHONY : src/graphics/gl_data_types.obj
+
+# target to build an object file
+src/graphics/gl_data_types.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.obj
+.PHONY : src/graphics/gl_data_types.cpp.obj
+
+src/graphics/gl_data_types.i: src/graphics/gl_data_types.cpp.i
+
+.PHONY : src/graphics/gl_data_types.i
+
+# target to preprocess a source file
+src/graphics/gl_data_types.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.i
+.PHONY : src/graphics/gl_data_types.cpp.i
+
+src/graphics/gl_data_types.s: src/graphics/gl_data_types.cpp.s
+
+.PHONY : src/graphics/gl_data_types.s
+
+# target to generate assembly for a file
+src/graphics/gl_data_types.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.s
+.PHONY : src/graphics/gl_data_types.cpp.s
+
 src/graphics/shader.obj: src/graphics/shader.cpp.obj
 
 .PHONY : src/graphics/shader.obj
@@ -353,6 +380,9 @@ help:
 	@echo ... src/flappy_app.obj
 	@echo ... src/flappy_app.i
 	@echo ... src/flappy_app.s
+	@echo ... src/graphics/gl_data_types.obj
+	@echo ... src/graphics/gl_data_types.i
+	@echo ... src/graphics/gl_data_types.s
 	@echo ... src/graphics/shader.obj
 	@echo ... src/graphics/shader.i
 	@echo ... src/graphics/shader.s

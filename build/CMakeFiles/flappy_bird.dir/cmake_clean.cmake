@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "../bin/flappy_bird.pdb"
   "CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj"
   "CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj"
+  "CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/main.cpp.obj"
   "CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj"

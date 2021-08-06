@@ -27,7 +27,8 @@ class Window
 
         bool IsOpen() const;
 
-        bool Update();
+        bool Update() const;
+        void ReDraw() const;
         
         static void MakeGLContext( std::int8_t major_version, std::int8_t minor_version );
 

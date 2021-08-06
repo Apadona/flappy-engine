@@ -20,6 +20,8 @@ class GLBuffer
     public:
         GLBuffer() = default;
         GLBuffer( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
+        GLBuffer( const GLBuffer<T,type>& buffer );
+        GLBuffer( GLBuffer&& buffer );
 
         void Fill( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
 

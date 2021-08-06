@@ -1,10 +1,8 @@
-#version 130 core
+#version 330 core
 
 out vec4 final_color;
 
-uniform float test2;
-
 void main()
 {
-    final_color = vec4(0.37f,0.51f,0.44f,0.5f);
+    final_color = vec4(0.0f,0.0f,1.0f,1.0f);
 }

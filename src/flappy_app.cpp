@@ -48,3 +48,8 @@ void FlappyApp::OnClose()
     game_window->Close();
     glfwTerminate();
 }
+
+void FlappyApp::UpdateScreen() const
+{
+    game_window->ReDraw();
+}

@@ -27,13 +27,13 @@ class Shader
         GLint GetAttribLocation( const std::string& attrib_name );
         GLint GetUniformLocation( const std::string& uniform_name );
 
-        bool SetAttribLocation( GLint attrib_location );
+        void SetAttribLocation( GLint attrib_location, const std::string& attrib_name );
 
         bool SetUniform2f( const std::string& uniform_name, const Vec2& value );
         bool SetUniform3f( const std::string& uniform_name, const Vec3& value );
         bool SetUniform4f( const std::string& uniform_name, const Vec4& value );
 
-    public:
+    private:
         bool CompileShader( const std::string& vs_source, const std::string& fs_source );
         void GetAllAttribs();
         void GetAllUniforms();

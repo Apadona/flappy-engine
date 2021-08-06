@@ -96,6 +96,18 @@ fstream
 map
 -
 
+../src/graphics/vertex_buffer.hpp
+glad/glad.h
+-
+vector
+-
+vertex_buffer.inl
+../src/graphics/vertex_buffer.inl
+
+../src/graphics/vertex_buffer.inl
+vertex_buffer.hpp
+../src/graphics/vertex_buffer.hpp
+
 ../src/maths/math_exception.hpp
 exception
 -
@@ -176,5 +188,7 @@ utils/logger.hpp
 utils/file_loader.hpp
 -
 graphics/shader.hpp
+-
+graphics/vertex_buffer.hpp
 -
 

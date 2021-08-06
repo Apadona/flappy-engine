@@ -14,6 +14,8 @@ class FlappyApp : public Application
         void OnCreate() override;
         bool OnUpdate( float dt ) override;
         void OnClose() override;
+
+        void UpdateScreen() const override;
     
     private:
         std::string name;
