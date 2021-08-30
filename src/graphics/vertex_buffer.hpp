@@ -16,10 +16,13 @@ template<typename T, GLenum type>
 class GLBuffer
 {
     friend class VertexArray;
+    friend class Renderer;
+    friend int main();
 
-    public:
+    private:
         GLBuffer() = default;
         GLBuffer( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
+        GLBuffer( std::vector<T>&& data, VertexDataUsage usage = VertexDataUsage::STATIC );
         GLBuffer( const GLBuffer<T,type>& buffer );
         GLBuffer( GLBuffer&& buffer );
 

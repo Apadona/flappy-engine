@@ -1,3 +1,5 @@
+#include <utils/logger.hpp>
+
 template<typename U>
 std::ostream& operator<<( std::ostream& out, const Vector2D<U>& _this )
 {
@@ -21,6 +23,18 @@ template<typename T>
 T Vector2D<T>::Length() const
 {
     return sqrt( x * x + y * y );
+}
+
+template<typename T>
+Vector2D<T> Vector2D<T>::Normal() const
+{
+    T length = Length();
+
+    if( length )
+        return { x / length, y / length };
+
+    LOG_SOURCE(LogLevel::DEBUG);
+    throw MathException(VECTOR_ZERO_LENGTH_NORAML_CALCULATE);
 }
 
 template<typename T>

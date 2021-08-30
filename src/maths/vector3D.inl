@@ -32,6 +32,18 @@ T Vector3D<T>::Length() const
 }
 
 template<typename T>
+Vector3D<T> Vector3D<T>::Normal() const
+{
+    T length = Length();
+
+    if( length )
+        return { x / length, y / length, z / length };
+
+    LOG_SOURCE(LogLevel::DEBUG);
+    throw MathException(VECTOR_ZERO_LENGTH_NORAML_CALCULATE);
+}
+
+template<typename T>
 Vector3D<T>& Vector3D<T>::operator=( const Vector3D<T>& other )
 {
     if( this == &other )

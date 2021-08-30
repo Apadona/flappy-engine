@@ -1,14 +1,18 @@
 #pragma once
 
+#include "gl_data_types.hpp"
 #include <maths/vector2D.hpp>
 #include <maths/vector3D.hpp>
 #include <maths/vector4D.hpp>
+#include <maths/matrix.hpp>
 
 #include <glad/glad.h>
+#include <glm/matrix.hpp>
 
+#include <iostream>
 #include <string>
 #include <fstream>
-#include <map>
+#include <vector>
 
 // represends an OpenGL shader.
 class Shader
@@ -21,22 +25,90 @@ class Shader
         ~Shader();
 
         bool Create( const std::string& vs_path, const std::string& fs_path );
-        bool IsMade() const { return m_is_made; }
+        bool CompileShader( const std::string& vs_source, const std::string& fs_source );
+
         bool Use( bool use = true ) const;
 
-        GLint GetAttribLocation( const std::string& attrib_name );
-        GLint GetUniformLocation( const std::string& uniform_name );
+        void SetAttributeLocation( const std::string& attrib_name, GLint attrib_location );
+        bool HasAttribute( const std::string& name ) const;
+        // recives the location from OpenGL dirver.
+        GLint GetAttributeLocation( const std::string& attrib_name );
+        // recives the location from the cached location( std::vector ).
+        GLint GetAttributeCachedLocation( const std::string& uniform_name ) const;
 
-        void SetAttribLocation( GLint attrib_location, const std::string& attrib_name );
+        void PrintAttributes() const;
 
-        bool SetUniform2f( const std::string& uniform_name, const Vec2& value );
-        bool SetUniform3f( const std::string& uniform_name, const Vec3& value );
-        bool SetUniform4f( const std::string& uniform_name, const Vec4& value );
+        template<typename T>
+        bool SetUniform( const std::string& uniform_name, const T& data )
+        {
+            if( !HasUniform(uniform_name) )
+            {
+                LOG_ERROR("attempted to set a non existing uniform.");
+                return false;
+            }
+
+            if constexpr( std::is_same<T,bool>::value )
+                return SetUniformBool(uniform_name,data);
+
+            if constexpr( std::is_same<T,int>::value )
+                return SetUniformInt(uniform_name,data);
+
+            if constexpr( std::is_same<T,float>::value )
+                return SetUniformFloat(uniform_name,data);
+
+            if constexpr( std::is_same<T,Vec2>::value )
+                return SetUniformVec2f(uniform_name,data);
+
+            if constexpr( std::is_same<T,Vec3>::value )
+                return SetUniformVec3f(uniform_name,data);
+
+            if constexpr( std::is_same<T,Vec4>::value )
+                return SetUniformVec4f(uniform_name,data);
+
+            if constexpr( std::is_same<T,Mat2f>::value )
+                return SetUniformMatrix2f(uniform_name,data);
+
+            if constexpr( std::is_same<T,Mat3f>::value )
+                return SetUniformMatrix3f(uniform_name,data);
+
+            if constexpr( std::is_same<T,Mat4f>::value )
+                return SetUniformMatrix4f(uniform_name,data);
+
+            if constexpr( std::is_same<T,glm::mat4>::value )
+                return SetUniformMatrix4f(uniform_name,data);
+        }
+
+        bool HasUniform( const std::string& name ) const;
+        // recives the location from OpenGL dirver.
+        GLint GetUniformLocation( const std::string& uniform_name ) const;
+        // recives the location from the cached location( std::vector ).
+        GLint GetUniformCachedLocation( const std::string& uniform_name ) const;
+
+        void PrintUnifroms() const;
+
+        bool SetUniformBool( const std::string& uniform_name, bool value );
+        bool SetUniformInt( const std::string& uniform_name, int value );
+        bool SetUniformFloat( const std::string& uniform_name, float value );
+        //bool SetUniformDouble( const std::string& uniform_name, double value ); not supported yet.
+
+        bool SetUniformVec2f( const std::string& uniform_name, const Vec2& value );
+        bool SetUniformVec3f( const std::string& uniform_name, const Vec3& value );
+        bool SetUniformVec4f( const std::string& uniform_name, const Vec4& value );
+
+        bool SetUniformMatrix2f( const std::string& uniform_name, const Mat2f& value );
+        bool SetUniformMatrix3f( const std::string& uniform_name, const Mat3f& value );
+        bool SetUniformMatrix4f( const std::string& uniform_name, const Mat4f& value );
+        bool SetUniformMatrix4f( const std::string& uniform_name, const glm::mat4& value );
+
+        bool IsMade() const { return m_is_made; }
 
     private:
-        bool CompileShader( const std::string& vs_source, const std::string& fs_source );
         void GetAllAttribs();
         void GetAllUniforms();
+
+        /*template<typename GLFunction,typename... Args>
+        bool SetUniformImplemention( const std::string& uniform_name, GLFunction function, 
+                                                            const Args&... value) const;*/
 
     private:
         std::string m_vertex_source;
@@ -47,6 +119,33 @@ class Shader
         GLuint m_fs_id;
         bool m_is_made = false;
 
-        std::map<GLint,std::string> uniforms;
-        std::map<GLint,std::string> attribs;
+        // represends an Uniform or an attrib.
+        class GLData
+        {
+            // Only shader class Should be able to modify the Data in GLData.
+            friend class Shader;
+            public:
+                GLData( const std::string& name, GLDataType type, GLint location );
+                GLData( GLData&& other );
+
+                GLData() = delete;
+                GLData( const GLData& other ) = delete;
+
+                const std::string& GetName() const { return m_name; }
+                GLDataType GetType() const { return m_type; }
+                GLuint GetSize() const { return m_size; }
+                GLuint GetLocation() const { return m_location; }
+
+            private:
+                std::string m_name;
+                GLDataType m_type;
+                GLuint m_size;
+                GLint m_location;
+        };
+
+        using UniformSet = std::vector<GLData>;
+        using AttributeSet = std::vector<GLData>;
+
+        UniformSet m_uniforms;
+        AttributeSet m_attributes;
 };

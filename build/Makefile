@@ -176,32 +176,32 @@ src/flappy_app.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.s
 .PHONY : src/flappy_app.cpp.s
 
-src/graphics/gl_data_types.obj: src/graphics/gl_data_types.cpp.obj
+src/graphics/renderer.obj: src/graphics/renderer.cpp.obj
 
-.PHONY : src/graphics/gl_data_types.obj
+.PHONY : src/graphics/renderer.obj
 
 # target to build an object file
-src/graphics/gl_data_types.cpp.obj:
-	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.obj
-.PHONY : src/graphics/gl_data_types.cpp.obj
+src/graphics/renderer.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj
+.PHONY : src/graphics/renderer.cpp.obj
 
-src/graphics/gl_data_types.i: src/graphics/gl_data_types.cpp.i
+src/graphics/renderer.i: src/graphics/renderer.cpp.i
 
-.PHONY : src/graphics/gl_data_types.i
+.PHONY : src/graphics/renderer.i
 
 # target to preprocess a source file
-src/graphics/gl_data_types.cpp.i:
-	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.i
-.PHONY : src/graphics/gl_data_types.cpp.i
+src/graphics/renderer.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.i
+.PHONY : src/graphics/renderer.cpp.i
 
-src/graphics/gl_data_types.s: src/graphics/gl_data_types.cpp.s
+src/graphics/renderer.s: src/graphics/renderer.cpp.s
 
-.PHONY : src/graphics/gl_data_types.s
+.PHONY : src/graphics/renderer.s
 
 # target to generate assembly for a file
-src/graphics/gl_data_types.cpp.s:
-	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_data_types.cpp.s
-.PHONY : src/graphics/gl_data_types.cpp.s
+src/graphics/renderer.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.s
+.PHONY : src/graphics/renderer.cpp.s
 
 src/graphics/shader.obj: src/graphics/shader.cpp.obj
 
@@ -229,6 +229,33 @@ src/graphics/shader.s: src/graphics/shader.cpp.s
 src/graphics/shader.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.s
 .PHONY : src/graphics/shader.cpp.s
+
+src/graphics/vertex_array.obj: src/graphics/vertex_array.cpp.obj
+
+.PHONY : src/graphics/vertex_array.obj
+
+# target to build an object file
+src/graphics/vertex_array.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj
+.PHONY : src/graphics/vertex_array.cpp.obj
+
+src/graphics/vertex_array.i: src/graphics/vertex_array.cpp.i
+
+.PHONY : src/graphics/vertex_array.i
+
+# target to preprocess a source file
+src/graphics/vertex_array.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.i
+.PHONY : src/graphics/vertex_array.cpp.i
+
+src/graphics/vertex_array.s: src/graphics/vertex_array.cpp.s
+
+.PHONY : src/graphics/vertex_array.s
+
+# target to generate assembly for a file
+src/graphics/vertex_array.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.s
+.PHONY : src/graphics/vertex_array.cpp.s
 
 src/main.obj: src/main.cpp.obj
 
@@ -311,6 +338,33 @@ src/utils/file_loader.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.s
 .PHONY : src/utils/file_loader.cpp.s
 
+src/utils/lerp.obj: src/utils/lerp.cpp.obj
+
+.PHONY : src/utils/lerp.obj
+
+# target to build an object file
+src/utils/lerp.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj
+.PHONY : src/utils/lerp.cpp.obj
+
+src/utils/lerp.i: src/utils/lerp.cpp.i
+
+.PHONY : src/utils/lerp.i
+
+# target to preprocess a source file
+src/utils/lerp.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.i
+.PHONY : src/utils/lerp.cpp.i
+
+src/utils/lerp.s: src/utils/lerp.cpp.s
+
+.PHONY : src/utils/lerp.s
+
+# target to generate assembly for a file
+src/utils/lerp.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.s
+.PHONY : src/utils/lerp.cpp.s
+
 src/utils/logger.obj: src/utils/logger.cpp.obj
 
 .PHONY : src/utils/logger.obj
@@ -380,12 +434,15 @@ help:
 	@echo ... src/flappy_app.obj
 	@echo ... src/flappy_app.i
 	@echo ... src/flappy_app.s
-	@echo ... src/graphics/gl_data_types.obj
-	@echo ... src/graphics/gl_data_types.i
-	@echo ... src/graphics/gl_data_types.s
+	@echo ... src/graphics/renderer.obj
+	@echo ... src/graphics/renderer.i
+	@echo ... src/graphics/renderer.s
 	@echo ... src/graphics/shader.obj
 	@echo ... src/graphics/shader.i
 	@echo ... src/graphics/shader.s
+	@echo ... src/graphics/vertex_array.obj
+	@echo ... src/graphics/vertex_array.i
+	@echo ... src/graphics/vertex_array.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
@@ -395,6 +452,9 @@ help:
 	@echo ... src/utils/file_loader.obj
 	@echo ... src/utils/file_loader.i
 	@echo ... src/utils/file_loader.s
+	@echo ... src/utils/lerp.obj
+	@echo ... src/utils/lerp.i
+	@echo ... src/utils/lerp.s
 	@echo ... src/utils/logger.obj
 	@echo ... src/utils/logger.i
 	@echo ... src/utils/logger.s

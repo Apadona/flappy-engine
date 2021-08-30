@@ -10,8 +10,6 @@
     #undef ERROR
 #endif
 
-#include <cstring>
-
 const std::string_view Logger::m_escape_sequence_begin = "\x1b[";
 const std::string_view Logger::m_escape_sequence_end = "\x1b[0m";
 
@@ -19,23 +17,23 @@ Logger Logger::logger;
 
 std::map<Color,std::string> Logger::m_color_codes =
 {
-    { BLACK, std::to_string(static_cast<int>(BLACK)) },
-    { RED, std::to_string(static_cast<int>(RED)) },
-    { GREEN, std::to_string(static_cast<int>(GREEN)) },
-    { YELLOW, std::to_string(static_cast<int>(YELLOW)) },
-    { BLUE, std::to_string(static_cast<int>(BLUE)) },
-    { MAGENTA, std::to_string(static_cast<int>(MAGENTA)) },
-    { CYAN, std::to_string(static_cast<int>(CYAN)) },
-    { WHITE, std::to_string(static_cast<int>(WHITE)) },
+    { BLACK, std::to_string(static_cast<int>(BLACK)) + "m" },
+    { RED, std::to_string(static_cast<int>(RED)) + "m" },
+    { GREEN, std::to_string(static_cast<int>(GREEN)) + "m" },
+    { YELLOW, std::to_string(static_cast<int>(YELLOW)) + "m" },
+    { BLUE, std::to_string(static_cast<int>(BLUE)) + "m" },
+    { MAGENTA, std::to_string(static_cast<int>(MAGENTA)) + "m" },
+    { CYAN, std::to_string(static_cast<int>(CYAN)) + "m" },
+    { WHITE, std::to_string(static_cast<int>(WHITE)) + "m" },
 
-    { BRIGHT_BLACK, std::to_string(static_cast<int>(BRIGHT_BLACK)) },
-    { BRIGHT_RED, std::to_string(static_cast<int>(BRIGHT_RED)) },
-    { BRIGHT_GREEN, std::to_string(static_cast<int>(BRIGHT_GREEN)) },
-    { BRIGHT_YELLOW, std::to_string(static_cast<int>(BRIGHT_YELLOW)) },
-    { BRIGHT_BLUE, std::to_string(static_cast<int>(BRIGHT_BLUE)) },
-    { BRIGHT_MAGENTA, std::to_string(static_cast<int>(BRIGHT_MAGENTA)) },
-    { BRIGHT_CYAN, std::to_string(static_cast<int>(BRIGHT_CYAN)) },
-    { BRIGHT_WHITE, std::to_string(static_cast<int>(BRIGHT_WHITE)) }
+    { BRIGHT_BLACK, std::to_string(static_cast<int>(BRIGHT_BLACK)) + "m" },
+    { BRIGHT_RED, std::to_string(static_cast<int>(BRIGHT_RED)) + "m" },
+    { BRIGHT_GREEN, std::to_string(static_cast<int>(BRIGHT_GREEN)) + "m" },
+    { BRIGHT_YELLOW, std::to_string(static_cast<int>(BRIGHT_YELLOW)) + "m" },
+    { BRIGHT_BLUE, std::to_string(static_cast<int>(BRIGHT_BLUE)) + "m" },
+    { BRIGHT_MAGENTA, std::to_string(static_cast<int>(BRIGHT_MAGENTA)) + "m" },
+    { BRIGHT_CYAN, std::to_string(static_cast<int>(BRIGHT_CYAN)) + "m" },
+    { BRIGHT_WHITE, std::to_string(static_cast<int>(BRIGHT_WHITE)) + "m" }
 };
 
 bool Logger::Init()
@@ -112,41 +110,29 @@ void Logger::SetType( LogType type )
     m_type = type;
 }
 
+void Logger::SetFlags( LoggerFlags flags, bool set )
+{
+    if( set )
+    {
+        if( flags == LoggerFlags::DISABLE_ALL_FLAGS )
+            m_flags &= 0;
+
+        else
+            m_flags |= static_cast<int>(flags);
+    }
+
+    else
+        m_flags |= ~static_cast<int>(flags);
+}
+
+bool Logger::HasFlags( LoggerFlags flags )
+{
+    return m_flags & static_cast<int>(flags);
+}
+
 void Logger::SetLogLevelColor( LogLevel level, Color color )
 {
     m_level_colors[ static_cast<int>(level) ].color = color;
-}
-
-void Logger::Log( const std::string& message, LogLevel level )
-{
-    if( message.empty() )
-        return;
-
-    const char* level_str = nullptr;
-
-    switch( m_place )
-    {
-        case SinkType::MEMORY:
-            level_str = LevelToStr(level);
-            std::strcat(m_out_memory,level_str);
-            std::strcat(m_out_memory,message.c_str());
-            std::strcat(m_out_memory,"\n");
-        break;
-
-        case SinkType::FILE:
-            level_str = LevelToStr(level);
-            m_out_file << level_str << message << std::endl;
-        break;
-
-        case SinkType::CONSOLE:
-            level_str = LevelToStr(level);
-            std::cout << m_escape_sequence_begin << m_color_codes[ m_level_colors[ static_cast<int>(level) ].color ] << "m"
-                      << level_str << message << m_escape_sequence_end << std::endl;
-        break;
-
-        default:
-            std::cerr << "sink place not recognised!\n";
-    }
 }
 
 Logger& Logger::Get()
@@ -171,23 +157,23 @@ const char* Logger::LevelToStr( LogLevel level )
     switch( level )
         {
             case LogLevel::NORMAL:
-                return "[Normal]:";
+                return "[Normal]";
             break;
 
             case LogLevel::HINT:
-                return "[Hint]:";
+                return "[Hint]";
             break;
 
             case LogLevel::WARNING:
-                return "[Warning]:";
+                return "[Warning]";
             break;
 
             case LogLevel::ERROR:
-                return "[Error]:";
+                return "[Error]";
             break;
 
             case LogLevel::DEBUG:
-                return "[Debug]:";
+                return "[Debug]";
             break;
         }
 }

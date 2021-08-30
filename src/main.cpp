@@ -1,8 +1,8 @@
-#include <flappy_app.hpp>
+#include "flappy_app.hpp"
 #include <utils/logger.hpp>
 #include <utils/file_loader.hpp>
-#include <graphics/shader.hpp>
-#include <graphics/vertex_buffer.hpp>
+#include <utils/lerp.hpp>
+#include <graphics/renderer.hpp>
 
 int main()
 {
@@ -11,48 +11,35 @@ int main()
         std::cerr << "could not initialize Logger!\n";
         return -1;
     }
+
+    Logger::Get().SetFlags(LoggerFlags::MENTION_LOG_LEVEL);
+    Logger::Get().SetType(LogType::CORE);
+    Logger::Get().SetFlags(LoggerFlags::MENTION_TYPE);
     
     Application* app = new FlappyApp("flappy_game",800,600);
     app->Init();
 
     app->OnCreate();
-    
-    app->OnUpdate(1);
 
-    Shader shader("shaders/vertex.vert","shaders/fragment.frag");
-    if( shader.IsMade() )
-        shader.Use();
-
-    std::vector<float> triangle =
+    Renderer renderer;
+    if( !renderer.Init() )
     {
-        0.0f,0.5f,
-        -0.5f,-0.5f,
-        0.5f,-0.5f
-    };
+        LOG_ERROR("could not initialize Renderer!");
+        return -1;
+    }
 
-    std::vector<unsigned int> indicies =
+    Lerp lerp1(0,1,0.001f), lerp2(0,1,0.005f), lerp3(0,1,0.01f);
+
+    while( app->OnUpdate(1.0f) )
     {
-        0,1,2
-    };
+        auto color_r = lerp1.GetValue();
+        auto color_g = lerp2.GetValue();
+        auto color_b = lerp3.GetValue();
 
-    GLuint vao;
-    glGenVertexArrays(1,&vao);
-    glBindVertexArray(vao);
+        lerp1.Update(), lerp2.Update(), lerp3.Update();
 
-    VertexBuffer buffer(triangle);
-    buffer.Bind();
-
-    IndexBuffer i_buffer(indicies);
-    i_buffer.Bind();
-
-    glVertexAttribPointer(0,2,GL_FLOAT,GL_FALSE,2 * sizeof(float),(void*)0);
-    glEnableVertexAttribArray(0);
-
-    while(app->OnUpdate(1.0f))
-    {
-        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,nullptr);
+        renderer.ClearColor(0.2f,0.6f,0.4f,1.0f);
+        renderer.DrawTriangle(0.0f,0.0f,1.0f,1.0f,0.0f,{color_r,color_g,color_b,1.0f});
 
         app->UpdateScreen();
     }

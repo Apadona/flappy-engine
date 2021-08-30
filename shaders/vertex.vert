@@ -1,8 +1,12 @@
 #version 330 core
 
-layout(location = 0) in vec2 pos;
+layout(location = 0) in vec3 pos;
+
+uniform mat4 transform_matrix;
+uniform vec4 input_color;
 
 void main()
 {
-    gl_Position = vec4(pos,0.0f,1.0);
+    vec4 transformed_vertex = vec4(pos,1.0f) * transform_matrix;
+    gl_Position = transformed_vertex;
 }

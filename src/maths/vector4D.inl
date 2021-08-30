@@ -24,6 +24,18 @@ T Vector4D<T>::Length() const
 }
 
 template<typename T>
+Vector4D<T> Vector4D<T>::Normal() const
+{
+    T length = Normal();
+
+    if( length )
+        return { x / length, y / length, z / length, w / length };
+
+    LOG_SOURCE(LogLevel::DEBUG);
+    throw MathException(VECTOR_ZERO_LENGTH_NORAML_CALCULATE);
+}
+
+template<typename T>
 Vector4D<T>& Vector4D<T>::operator=( const Vector4D<T>& other )
 {
     if( this == &other )
