@@ -13,4 +13,3 @@ for running the project, simply just execute run.bat for normal build, and run_d
 run.bat will supply the nessacery dynamic link files for the executable, if you wish to copy the executable somewhere else or ship it, you need to also copy the dynamic link files into the executable directory itself, or if you want to use the .bat file, you need to copy them with respect to the relative path they have with the run.bat file.
 
 ---
-![flappy_bird](https://filecache.garrysmods.org/41133/2/1024x768.jpg "flappy")
