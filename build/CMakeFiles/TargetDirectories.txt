@@ -1,3 +1,0 @@
-E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/rebuild_cache.dir
-E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir
-E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/edit_cache.dir
