@@ -1,7 +1,5 @@
 #pragma once
 
-#include "vector2D.hpp"
-
 #include "math_exception.hpp"
 
 #include <iostream>
@@ -20,6 +18,7 @@ struct Vector2D
         
         T Dot( const Vector2D<T>& other ) const;
         T Length() const;
+        Vector2D<T> Normal() const;
 
         Vector2D<T>& operator=( const Vector2D<T>& other );
         bool operator==( const Vector2D<T>& other ) const;

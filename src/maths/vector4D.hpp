@@ -18,6 +18,7 @@ struct Vector4D
 
         T Dot( const Vector4D<T>& other ) const;
         T Length() const;
+        Vector4D<T> Normal() const;
 
         Vector4D<T>& operator=( const Vector4D<T>& other );
         bool operator==( const Vector4D<T>& other ) const;

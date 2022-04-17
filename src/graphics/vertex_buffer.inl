@@ -1,27 +1,35 @@
 #include "vertex_buffer.hpp"
+#include <utils/logger.hpp>
 
 template<typename T,GLenum type>
 GLBuffer<T,type>::GLBuffer( const std::vector<T>& data, VertexDataUsage usage )
 {
-    Fill(data);
+    Fill(data,usage);
+}
+
+template<typename T,GLenum type>
+GLBuffer<T,type>::GLBuffer( std::vector<T>&& data, VertexDataUsage usage )
+{
+    Fill(data,usage);
 }
 
 template<typename T,GLenum type>
 GLBuffer<T,type>::GLBuffer( const GLBuffer<T,type>& buffer )
 {
-    Fill(buffer.m_data);
+    Fill(buffer.m_data,buffer.usage);
 }
 
 template<typename T,GLenum type>
 GLBuffer<T,type>::GLBuffer( GLBuffer<T,type>&& buffer ) : m_data(std::move(buffer.m_data))
 {
-    Fill(m_data);
+    Fill(m_data,buffer.usage);
 }
 
 template<typename T,GLenum type>
 void GLBuffer<T,type>::Fill( const std::vector<T>& data, VertexDataUsage usage )
 {
     m_data = data;
+    m_usage = usage;
 
     if( m_data.empty() )
     {
@@ -31,7 +39,7 @@ void GLBuffer<T,type>::Fill( const std::vector<T>& data, VertexDataUsage usage )
 
     glGenBuffers(1,&m_id);
     glBindBuffer(type,m_id);
-    glBufferData(type,sizeof(m_data) * m_data.size(),m_data.data(), (GLenum)usage );
+    glBufferData(type,sizeof(m_data[0]) * m_data.size(),m_data.data(), (GLenum)m_usage );
     
     Bind(false);
 }
@@ -59,4 +67,10 @@ void GLBuffer<T,type>::Bind( bool bind )
         else if( bind == false && m_is_bound == true )
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,0);
     }
+}
+
+template<typename T, GLenum type>
+GLBuffer<T,type>::~GLBuffer()
+{
+    // glDeleteBuffers(1,&m_id);
 }

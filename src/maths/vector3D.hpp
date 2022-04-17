@@ -19,6 +19,7 @@ struct Vector3D
         T Dot( const Vector3D<T>& other ) const;
         Vector3D<T> Cross( const Vector3D<T>& other ) const;
         T Length() const;
+        Vector3D<T> Normal() const;
 
         Vector3D<T>& operator=( const Vector3D<T>& other );
         bool operator==( const Vector3D<T>& other ) const;

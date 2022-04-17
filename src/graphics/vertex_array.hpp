@@ -3,34 +3,26 @@
 #include "vertex_buffer.hpp"
 #include "gl_data_types.hpp"
 
-/*
-struct Attribute
-{
-    GLDataType type;
-    GLsizei size;
-    std::string name;
-};
-
-class Layout;
-*/
-
 class VertexArray
 {
     public:
-        static constexpr std::uint8_t max_layouts = 16; // according to OpenGL standard.
+        static constexpr GLint max_layouts = 16; // according to OpenGL standard.
 
     public:
         VertexArray();
 
         void Bind( bool bind = true );
-        VertexArray& AddVertexBuffer( VertexBuffer& buffer, GLDataType type );
-        VertexArray& RemoveVertexBuffer( VertexBuffer& buffer );
+        VertexArray& AddLayout( VertexBuffer& buffer, GLDataType type );
+        VertexArray& AddLayout( VertexBuffer&& buffer, GLDataType type );
+        //VertexArray& RemoveVertexBuffer( VertexBuffer& buffer );
 
         VertexArray& SetIndexBuffer( IndexBuffer& buffer );
-        VertexArray& RemoveIndexBuffer();
+        VertexArray& SetIndexBuffer( IndexBuffer&& buffer );
+        //VertexArray& RemoveIndexBuffer();
 
     private:
         GLuint m_id;
-        std::uint8_t m_count;
+        GLint m_count; //number of layouts.
+        GLint m_offset; //for figuring out the offset of the current buffer.
         bool m_is_bind;
 };
