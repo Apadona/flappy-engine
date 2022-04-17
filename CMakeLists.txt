@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 file( GLOB_RECURSE source
       "${CMAKE_SOURCE_DIR}/dependencies/include/glad/glad.c"
       "${CMAKE_SOURCE_DIR}/src/*.cpp"
+      "${CMAKE_SOURCE_DIR}/dependencies/include/stb_image/stb_image.cpp"
       #"${CMAKE_SOURCE_DIR}/src/utils/*.cpp"
       #"${CMAKE_SOURCE_DIR}/src/graphics/*.cpp"
       #"${CMAKE_SOURCE_DIR}/src/maths/*.cpp"
