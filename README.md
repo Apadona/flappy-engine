@@ -9,7 +9,7 @@ For compiling the project, you need to have:
 
 #### make sure that their instalation path is set in the PATH enviroment variable.
 
-For compiling the project simply just run the build.bat file and it will build automatically.for compiling in debug mode, run build_debug.bat.
+For compiling the project simply just run the **build.bat** file and it will build automatically. for compiling in debug mode, run build_debug.bat.
 
 For running the program, you will need **OpenGL 3.0+**. all other nessacery dynamic link files are supplied in the repository.
 
