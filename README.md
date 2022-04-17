@@ -11,3 +11,4 @@ for running the program, you will need OpenGL 3+. all other nessacery dynamic li
 for running the project, simply just execute run.bat for normal build, and run_debug.bat for debugging ( debug build ).
 
 run.bat will supply the nessacery dynamic link files for the executable, if you wish to copy the executable somewhere else or ship it, you need to also copy the dynamic link files into the executable directory itself, or if you want to use the .bat file, you need to copy them with respect to the relative path they have with the run.bat file.
+---
