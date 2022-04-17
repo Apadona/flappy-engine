@@ -1,6 +1,6 @@
 ## flappy-bird
 
-flappy bird clone using C++/glfw/OpenGL.
+flappy bird clone using C++/glfw/OpenGL.***
 for compiling the project, you need to have gcc (that supports C++17) and cmake(atleast 3.10) installed. (On windows their instalation path must be set in the PATH enviroment variable).
 for compiling the project simply just run the build.bat file and it will build automatically.for compiling in debug mode, run build_debug.bat.
 for running the program, you will need OpenGL 3+. all other nessacery dynamic link files are supplied in the repository.
