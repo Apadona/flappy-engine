@@ -4,6 +4,9 @@
 CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/dependencies/include/glad/glad.c
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/dependencies/include/glad/glad.h
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/dependencies/include/stb_image/stb_image.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/dependencies/include/stb_image/stb_image.h
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj
  ../dependencies/include/glad/glad.h
  ../dependencies/include/glfw/glfw3.h
@@ -15,6 +18,10 @@ CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj
  ../src/window.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/flappy_app.cpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/flappy_app.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj
+ ../dependencies/include/glad/glad.h
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/gl_driver_info.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/gl_driver_info.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj
  ../dependencies/include/glad/glad.h
  ../dependencies/include/glm/common.hpp
@@ -207,6 +214,7 @@ CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj
  ../dependencies/include/glm/vec3.hpp
  ../dependencies/include/glm/vec4.hpp
  ../dependencies/include/glm/vector_relational.hpp
+ ../dependencies/include/stb_image/stb_image.h
  ../src/maths/math_exception.hpp
  ../src/maths/matrix.hpp
  ../src/maths/matrix.inl
@@ -224,6 +232,10 @@ CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/renderer.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/shader.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/shapes.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/sprite.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture_manager.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/transform_2D.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/vertex_array.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/vertex_buffer.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/vertex_buffer.inl
@@ -433,6 +445,48 @@ CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/gl_data_types.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/shader.cpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/shader.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj
+ ../dependencies/include/glad/glad.h
+ ../src/maths/math_exception.hpp
+ ../src/maths/matrix.hpp
+ ../src/maths/matrix.inl
+ ../src/maths/vector2D.hpp
+ ../src/maths/vector2D.inl
+ ../src/maths/vector4D.hpp
+ ../src/maths/vector4D.inl
+ ../src/utils/logger.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/sprite.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/sprite.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/transform_2D.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj
+ ../dependencies/include/glad/glad.h
+ ../dependencies/include/stb_image/stb_image.h
+ ../src/utils/file_loader.hpp
+ ../src/utils/logger.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture_manager.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj
+ ../dependencies/include/glad/glad.h
+ ../src/utils/logger.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/gl_driver_info.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture_manager.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture_manager.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj
+ ../src/maths/math_exception.hpp
+ ../src/maths/matrix.hpp
+ ../src/maths/matrix.inl
+ ../src/maths/matrix_operations.hpp
+ ../src/maths/matrix_operations.inl
+ ../src/maths/vector2D.hpp
+ ../src/maths/vector2D.inl
+ ../src/maths/vector3D.hpp
+ ../src/maths/vector3D.inl
+ ../src/utils/logger.hpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/transform_2D.cpp
+ E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/transform_2D.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj
  ../dependencies/include/glad/glad.h
  ../src/utils/logger.hpp
@@ -581,10 +635,14 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.obj
  ../dependencies/include/glm/vec3.hpp
  ../dependencies/include/glm/vec4.hpp
  ../dependencies/include/glm/vector_relational.hpp
+ ../dependencies/include/stb_image/stb_image.h
  ../src/application.hpp
  ../src/graphics/gl_data_types.hpp
  ../src/graphics/renderer.hpp
  ../src/graphics/shader.hpp
+ ../src/graphics/sprite.hpp
+ ../src/graphics/texture.hpp
+ ../src/graphics/transform_2D.hpp
  ../src/graphics/vertex_array.hpp
  ../src/graphics/vertex_buffer.hpp
  ../src/graphics/vertex_buffer.inl
@@ -598,7 +656,6 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.obj
  ../src/maths/vector4D.hpp
  ../src/maths/vector4D.inl
  ../src/utils/file_loader.hpp
- ../src/utils/lerp.hpp
  ../src/utils/logger.hpp
  ../src/window.hpp
  E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/flappy_app.hpp

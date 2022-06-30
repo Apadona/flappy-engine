@@ -1,7 +1,38 @@
 #include "lerp.hpp"
 
-Lerp::Lerp( float lower, float upper, float step ) : m_lower(lower), m_upper(upper), m_step(step),
-                                                    m_current_value(m_lower){}
+#include <utility>
+
+namespace
+{
+    //TODO: must be implemented in some util file.
+    template<typename T>
+    std::pair<T,T> MinMax( T arg1, T arg2 )
+    {
+        T min,max;
+        
+        if( arg1 < arg2 )
+        {
+            min = arg1;
+            max = arg2;
+        }
+
+        else
+        {
+            min = arg2;
+            max = arg1;
+        }
+
+        return {min,max};
+    }
+}
+
+Lerp::Lerp( float lower, float upper, float step ) : m_step(step), m_current_value(m_lower)
+{
+   std::pair<float,float> _pair = MinMax(lower,upper);
+
+    m_lower = _pair.first;
+    m_upper = _pair.second;
+}
 
 void Lerp::Update()
 {

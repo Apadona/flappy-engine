@@ -149,6 +149,33 @@ dependencies/include/glad/glad.c.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.s
 .PHONY : dependencies/include/glad/glad.c.s
 
+dependencies/include/stb_image/stb_image.obj: dependencies/include/stb_image/stb_image.cpp.obj
+
+.PHONY : dependencies/include/stb_image/stb_image.obj
+
+# target to build an object file
+dependencies/include/stb_image/stb_image.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj
+.PHONY : dependencies/include/stb_image/stb_image.cpp.obj
+
+dependencies/include/stb_image/stb_image.i: dependencies/include/stb_image/stb_image.cpp.i
+
+.PHONY : dependencies/include/stb_image/stb_image.i
+
+# target to preprocess a source file
+dependencies/include/stb_image/stb_image.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.i
+.PHONY : dependencies/include/stb_image/stb_image.cpp.i
+
+dependencies/include/stb_image/stb_image.s: dependencies/include/stb_image/stb_image.cpp.s
+
+.PHONY : dependencies/include/stb_image/stb_image.s
+
+# target to generate assembly for a file
+dependencies/include/stb_image/stb_image.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.s
+.PHONY : dependencies/include/stb_image/stb_image.cpp.s
+
 src/flappy_app.obj: src/flappy_app.cpp.obj
 
 .PHONY : src/flappy_app.obj
@@ -175,6 +202,33 @@ src/flappy_app.s: src/flappy_app.cpp.s
 src/flappy_app.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.s
 .PHONY : src/flappy_app.cpp.s
+
+src/graphics/gl_driver_info.obj: src/graphics/gl_driver_info.cpp.obj
+
+.PHONY : src/graphics/gl_driver_info.obj
+
+# target to build an object file
+src/graphics/gl_driver_info.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj
+.PHONY : src/graphics/gl_driver_info.cpp.obj
+
+src/graphics/gl_driver_info.i: src/graphics/gl_driver_info.cpp.i
+
+.PHONY : src/graphics/gl_driver_info.i
+
+# target to preprocess a source file
+src/graphics/gl_driver_info.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.i
+.PHONY : src/graphics/gl_driver_info.cpp.i
+
+src/graphics/gl_driver_info.s: src/graphics/gl_driver_info.cpp.s
+
+.PHONY : src/graphics/gl_driver_info.s
+
+# target to generate assembly for a file
+src/graphics/gl_driver_info.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.s
+.PHONY : src/graphics/gl_driver_info.cpp.s
 
 src/graphics/renderer.obj: src/graphics/renderer.cpp.obj
 
@@ -229,6 +283,114 @@ src/graphics/shader.s: src/graphics/shader.cpp.s
 src/graphics/shader.cpp.s:
 	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.s
 .PHONY : src/graphics/shader.cpp.s
+
+src/graphics/sprite.obj: src/graphics/sprite.cpp.obj
+
+.PHONY : src/graphics/sprite.obj
+
+# target to build an object file
+src/graphics/sprite.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj
+.PHONY : src/graphics/sprite.cpp.obj
+
+src/graphics/sprite.i: src/graphics/sprite.cpp.i
+
+.PHONY : src/graphics/sprite.i
+
+# target to preprocess a source file
+src/graphics/sprite.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.i
+.PHONY : src/graphics/sprite.cpp.i
+
+src/graphics/sprite.s: src/graphics/sprite.cpp.s
+
+.PHONY : src/graphics/sprite.s
+
+# target to generate assembly for a file
+src/graphics/sprite.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.s
+.PHONY : src/graphics/sprite.cpp.s
+
+src/graphics/texture.obj: src/graphics/texture.cpp.obj
+
+.PHONY : src/graphics/texture.obj
+
+# target to build an object file
+src/graphics/texture.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj
+.PHONY : src/graphics/texture.cpp.obj
+
+src/graphics/texture.i: src/graphics/texture.cpp.i
+
+.PHONY : src/graphics/texture.i
+
+# target to preprocess a source file
+src/graphics/texture.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.i
+.PHONY : src/graphics/texture.cpp.i
+
+src/graphics/texture.s: src/graphics/texture.cpp.s
+
+.PHONY : src/graphics/texture.s
+
+# target to generate assembly for a file
+src/graphics/texture.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.s
+.PHONY : src/graphics/texture.cpp.s
+
+src/graphics/texture_manager.obj: src/graphics/texture_manager.cpp.obj
+
+.PHONY : src/graphics/texture_manager.obj
+
+# target to build an object file
+src/graphics/texture_manager.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj
+.PHONY : src/graphics/texture_manager.cpp.obj
+
+src/graphics/texture_manager.i: src/graphics/texture_manager.cpp.i
+
+.PHONY : src/graphics/texture_manager.i
+
+# target to preprocess a source file
+src/graphics/texture_manager.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.i
+.PHONY : src/graphics/texture_manager.cpp.i
+
+src/graphics/texture_manager.s: src/graphics/texture_manager.cpp.s
+
+.PHONY : src/graphics/texture_manager.s
+
+# target to generate assembly for a file
+src/graphics/texture_manager.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.s
+.PHONY : src/graphics/texture_manager.cpp.s
+
+src/graphics/transform_2D.obj: src/graphics/transform_2D.cpp.obj
+
+.PHONY : src/graphics/transform_2D.obj
+
+# target to build an object file
+src/graphics/transform_2D.cpp.obj:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj
+.PHONY : src/graphics/transform_2D.cpp.obj
+
+src/graphics/transform_2D.i: src/graphics/transform_2D.cpp.i
+
+.PHONY : src/graphics/transform_2D.i
+
+# target to preprocess a source file
+src/graphics/transform_2D.cpp.i:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.i
+.PHONY : src/graphics/transform_2D.cpp.i
+
+src/graphics/transform_2D.s: src/graphics/transform_2D.cpp.s
+
+.PHONY : src/graphics/transform_2D.s
+
+# target to generate assembly for a file
+src/graphics/transform_2D.cpp.s:
+	$(MAKE) -f CMakeFiles\flappy_bird.dir\build.make CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.s
+.PHONY : src/graphics/transform_2D.cpp.s
 
 src/graphics/vertex_array.obj: src/graphics/vertex_array.cpp.obj
 
@@ -431,15 +593,33 @@ help:
 	@echo ... dependencies/include/glad/glad.obj
 	@echo ... dependencies/include/glad/glad.i
 	@echo ... dependencies/include/glad/glad.s
+	@echo ... dependencies/include/stb_image/stb_image.obj
+	@echo ... dependencies/include/stb_image/stb_image.i
+	@echo ... dependencies/include/stb_image/stb_image.s
 	@echo ... src/flappy_app.obj
 	@echo ... src/flappy_app.i
 	@echo ... src/flappy_app.s
+	@echo ... src/graphics/gl_driver_info.obj
+	@echo ... src/graphics/gl_driver_info.i
+	@echo ... src/graphics/gl_driver_info.s
 	@echo ... src/graphics/renderer.obj
 	@echo ... src/graphics/renderer.i
 	@echo ... src/graphics/renderer.s
 	@echo ... src/graphics/shader.obj
 	@echo ... src/graphics/shader.i
 	@echo ... src/graphics/shader.s
+	@echo ... src/graphics/sprite.obj
+	@echo ... src/graphics/sprite.i
+	@echo ... src/graphics/sprite.s
+	@echo ... src/graphics/texture.obj
+	@echo ... src/graphics/texture.i
+	@echo ... src/graphics/texture.s
+	@echo ... src/graphics/texture_manager.obj
+	@echo ... src/graphics/texture_manager.i
+	@echo ... src/graphics/texture_manager.s
+	@echo ... src/graphics/transform_2D.obj
+	@echo ... src/graphics/transform_2D.i
+	@echo ... src/graphics/transform_2D.s
 	@echo ... src/graphics/vertex_array.obj
 	@echo ... src/graphics/vertex_array.i
 	@echo ... src/graphics/vertex_array.s

@@ -22,8 +22,11 @@ Mat4<T> Scale( T scale_x, T scale_y, T scale_z, const Mat4<T>& base = Mat4<T>() 
 template<typename T>
 Mat4<T> Rotate( T rotate_x, T rotate_y, T rotate_z, const Mat4<T>& base = Mat4<T>() );
 
-Mat4f LookAt( Vec3 pos, Vec3 target, Vec3 y_up );
-Mat4f Orhto( float right, float left, float up, float down, float front, float back );
-Mat4f Perspective( float aspect_ratio, float field_of_view, float plane_near, float plane_far );
+template<typename T>
+Matrix<4,4,T> LookAt( Vector3D<T> pos, Vector3D<T> target, Vector3D<T> y_up );
+template<typename T>
+Matrix<4,4,T> Ortho( T right, T left, T up, T down, T front, T back );
+template<typename T>
+Matrix<4,4,T> Perspective( T aspect_ratio, T field_of_view, T plane_near, T plane_far );
 
 #include "matrix_operations.inl"

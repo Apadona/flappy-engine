@@ -17,7 +17,6 @@ class GLBuffer
 {
     friend class VertexArray;
     friend class Renderer;
-    friend int main();
 
     private:
         GLBuffer() = default;
@@ -26,7 +25,9 @@ class GLBuffer
         GLBuffer( const GLBuffer<T,type>& buffer );
         GLBuffer( GLBuffer&& buffer );
 
-        void Fill( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
+        ~GLBuffer();
+
+        void Fill( const std::vector<T>& data, VertexDataUsage usage );
 
         void Bind( bool bind = true );
         bool IsFilled() const { return m_data.size() != 0; };
@@ -36,6 +37,7 @@ class GLBuffer
     private:
         GLuint m_id;
         std::vector<T> m_data;
+        VertexDataUsage m_usage;
         bool m_is_bound = false;
 };
 

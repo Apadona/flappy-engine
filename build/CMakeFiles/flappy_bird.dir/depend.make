@@ -4,6 +4,9 @@
 CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj: ../dependencies/include/glad/glad.c
 CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj: ../dependencies/include/glad/glad.h
 
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj: ../dependencies/include/stb_image/stb_image.cpp
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj: ../dependencies/include/stb_image/stb_image.h
+
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../dependencies/include/glad/glad.h
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../dependencies/include/glfw/glfw3.h
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/application.hpp
@@ -14,6 +17,10 @@ CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/window.hpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/flappy_app.cpp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/flappy_app.hpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: ../dependencies/include/glad/glad.h
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: ../src/graphics/gl_driver_info.cpp
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: ../src/graphics/gl_driver_info.hpp
 
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/glad/glad.h
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/glm/common.hpp
@@ -206,6 +213,7 @@ CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/includ
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/glm/vec3.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/glm/vec4.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/glm/vector_relational.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../dependencies/include/stb_image/stb_image.h
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/maths/math_exception.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/maths/matrix.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/maths/matrix.inl
@@ -223,6 +231,10 @@ CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/render
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/renderer.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/shader.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/shapes.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/sprite.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/texture.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/texture_manager.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/transform_2D.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/vertex_array.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/vertex_buffer.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/vertex_buffer.inl
@@ -433,6 +445,48 @@ CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/gl_data_
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.cpp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.hpp
 
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../dependencies/include/glad/glad.h
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/math_exception.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/matrix.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/matrix.inl
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/vector2D.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/vector2D.inl
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/vector4D.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/maths/vector4D.inl
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/utils/logger.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/graphics/sprite.cpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/graphics/sprite.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/graphics/texture.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/graphics/transform_2D.hpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../dependencies/include/glad/glad.h
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../dependencies/include/stb_image/stb_image.h
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/utils/file_loader.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/utils/logger.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/graphics/texture.cpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/graphics/texture.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/graphics/texture_manager.hpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../dependencies/include/glad/glad.h
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/utils/logger.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/gl_driver_info.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/texture.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/texture_manager.cpp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/texture_manager.hpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/math_exception.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/matrix.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/matrix.inl
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/matrix_operations.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/matrix_operations.inl
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/vector2D.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/vector2D.inl
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/vector3D.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/maths/vector3D.inl
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/utils/logger.hpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/graphics/transform_2D.cpp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/graphics/transform_2D.hpp
+
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: ../dependencies/include/glad/glad.h
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: ../src/graphics/gl_data_types.hpp
@@ -580,10 +634,14 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glm/vec2.hp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glm/vec3.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glm/vec4.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/glm/vector_relational.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../dependencies/include/stb_image/stb_image.h
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/application.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/gl_data_types.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/renderer.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/shader.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/sprite.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/texture.hpp
+CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/transform_2D.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/vertex_array.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/vertex_buffer.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/graphics/vertex_buffer.inl
@@ -597,7 +655,6 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector3D.inl
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector4D.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/maths/vector4D.inl
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/utils/file_loader.hpp
-CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/utils/lerp.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/utils/logger.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/window.hpp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/flappy_app.hpp

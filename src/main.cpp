@@ -1,8 +1,10 @@
 #include "flappy_app.hpp"
 #include <utils/logger.hpp>
 #include <utils/file_loader.hpp>
-#include <utils/lerp.hpp>
 #include <graphics/renderer.hpp>
+#include <stb_image/stb_image.h>
+
+const std::string texture_path = "Data/Textures/";
 
 int main()
 {
@@ -28,18 +30,48 @@ int main()
         return -1;
     }
 
-    Lerp lerp1(0,1,0.001f), lerp2(0,1,0.005f), lerp3(0,1,0.01f);
+    //glEnable(GL_BLEND);
+    //Texture wood_texture(texture_path + "awesomeface.bmp");
+    //Sprite sprite(&wood_texture,{{0.0f,0.0f},{1.0f,1.0f},0.0f},{0.4f,0.2f,0.8f,1.0f});
 
+    /*int width, height, bpp;
+    unsigned char* data = stbi_load("Data/Textures/white.bmp",&width,&height,&bpp,0);
+
+    if( data )
+    {
+        //memset(data,255,width * height);
+
+        glActiveTexture(GL_TEXTURE1);
+
+        GLuint texture_id;
+        glGenTextures(1,&texture_id);
+        glBindTexture(GL_TEXTURE_2D,texture_id);
+
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_REPEAT);
+
+        glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,width,height,0,GL_RGB,GL_UNSIGNED_BYTE,data);
+    }
+
+    else
+    {
+        LOG_ERROR("unable to load the texture!\n");
+        std::cin.get();
+        return -1;
+    }*/
+
+    float color_r = static_cast<float>(std::sin(glfwGetTime()));
+    float color_g = static_cast<float>(std::cos(glfwGetTime()));
+    float color_b = static_cast<float>(std::sin(glfwGetTime()) * cos(glfwGetTime()));
+    
     while( app->OnUpdate(1.0f) )
     {
-        auto color_r = lerp1.GetValue();
-        auto color_g = lerp2.GetValue();
-        auto color_b = lerp3.GetValue();
-
-        lerp1.Update(), lerp2.Update(), lerp3.Update();
-
-        renderer.ClearColor(0.2f,0.6f,0.4f,1.0f);
-        renderer.DrawTriangle(0.0f,0.0f,1.0f,1.0f,0.0f,{color_r,color_g,color_b,1.0f});
+        renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
+        renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
+        
+        //renderer.DrawSprite(sprite);
 
         app->UpdateScreen();
     }

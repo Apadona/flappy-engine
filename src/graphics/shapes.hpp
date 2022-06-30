@@ -6,7 +6,7 @@ struct Shape
 {
     std::vector<float> vertex_pos;
     std::vector<unsigned int> indecies;
-    std::vector<float> colors;
+    std::vector<float> color;
     std::vector<float> texture_uv;
 };
 
@@ -22,6 +22,18 @@ namespace
 
         {
             0,1,2
+        },
+
+        {
+            1.0f,0.0f,0.0f,
+            0.0f,1.0f,0.0f,
+            0.0f,0.0f,1.0f
+        },
+
+        {
+            0.5f,1.0f,
+            0.0f,0.0f,
+            1.0f,0.0f
         }
     };
 
@@ -37,6 +49,20 @@ namespace
         {
             0,1,2,
             2,3,0
+        },
+
+        {
+            1.0f,0.0f,0.0f,
+            0.0f,1.0f,0.0f,
+            0.0f,0.0f,1.0f,
+            1.0f,1.0f,0.0f
+        },
+
+        {
+            1.0f,1.0f,
+            0.0f,1.0f,
+            0.0f,0.0f,
+            1.0f,0.0f
         }
     };
 }

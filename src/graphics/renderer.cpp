@@ -1,24 +1,36 @@
 #include "renderer.hpp"
 #include "shapes.hpp"
+#include "texture_manager.hpp"
 #include <maths/matrix_operations.hpp>
 
 #include <glm/matrix.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <stb_image/stb_image.h>
 
 bool Renderer::Init()
 {
-    m_triangle_vao.AddLayout(triangle.vertex_pos,VEC3);
+    TextureManager::Init();
+    //TextureManager::Get().PrintStatus();
+
+    m_triangle_vao.AddLayout(triangle.vertex_pos,GLDataType::VEC3);
+    m_triangle_vao.AddLayout(triangle.texture_uv,GLDataType::VEC2);
     m_triangle_vao.SetIndexBuffer(triangle.indecies);
 
-    m_rectangle_vao.AddLayout(rectangle.vertex_pos,VEC3);
+    m_rectangle_vao.AddLayout(rectangle.vertex_pos,GLDataType::VEC3);
+    m_rectangle_vao.AddLayout(rectangle.texture_uv,GLDataType::VEC2);
     m_rectangle_vao.SetIndexBuffer(rectangle.indecies);
-    m_rectangle_vao.Bind();
+
+    stbi_set_flip_vertically_on_load(true);
+
+    if( !m_default_texture.Create("Data/Textures/white.bmp") )
+        LOG_ERROR("could not create default white texture!\n");
 
     if( m_shader.Create("shaders/vertex.vert","shaders/fragment.frag") )
     {
         m_shader.PrintAttributes();
         m_shader.PrintUnifroms();
+
         return true;
     }
 
@@ -43,43 +55,67 @@ std::ostream& operator<<( std::ostream& out, const glm::mat4& matrix )
     return out;
 }
 
-void Renderer::DrawTriangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate, Vec4 color )
+void Renderer::DrawTriangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate, const Vec4& color )
 {    
-    static Mat4f transform;
-    transform = Translate(pos_x,pos_y,0.0f,transform);
-    transform = Scale(scale_x,scale_y,1.0f,transform);
-    transform = Rotate(0.0f,0.0f,rotate,transform);
+    Transform2D transform( {pos_x,pos_y}, {scale_x, scale_y}, rotate );
+    DrawTriangle(transform,color);
+}
 
+void Renderer::DrawRectangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate, const Vec4& color )
+{
+    Transform2D transform( {pos_x,pos_y}, {scale_x, scale_y}, rotate );
+    DrawRectangle(transform,color);
+}
+
+void Renderer::DrawTriangle( const Transform2D& transform, const Vec4& color )
+{
     Prepare();
 
     m_triangle_vao.Bind();
+    //glActiveTexture(0);
 
-    m_shader.SetUniform("input_color",color);
-    m_shader.SetUniform("transform_matrix",transform);
+    m_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
+    m_shader.SetUniform("texture_image",0);
+    m_shader.SetUniform("blend_color",color);
 
     glDrawElements(GL_TRIANGLES,3,GL_UNSIGNED_INT,nullptr);
 }
 
-void Renderer::DrawRectangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate, Vec4 color )
+void Renderer::DrawRectangle( const Transform2D& transform, const Vec4& color )
 {
-    Mat4f transform;
-    transform = Translate(pos_x,pos_y,0.0f,transform);
-    transform = Scale(scale_x,scale_y,1.0f,transform);
-    transform = Rotate(0.0f,0.0f,rotate,transform);
+    Prepare();
+
+    m_rectangle_vao.Bind();
+    m_default_texture.Bind();
+    glActiveTexture(GL_TEXTURE0);
+    
+    m_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
+    m_shader.SetUniform("texture_image",0); 
+    m_shader.SetUniform("blend_color",color);
+    
+    glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,nullptr);
+}
+
+void Renderer::DrawSprite( const Sprite& sprite )
+{
+    //TextureManager::Get().UseTexture(sprite.texture->m_id);
+    
+    //sprite.GetTexture().Bind();
 
     Prepare();
 
     m_rectangle_vao.Bind();
     
-    m_shader.SetUniform("input_color",color);
-    m_shader.SetUniform("transform_matrix",transform);
+    m_shader.SetUniform("input_color",sprite.GetColor());
+    m_shader.SetUniform("transform_matrix",sprite.GetTransform().GetModelMatrix());
+    m_shader.SetUniform("texture_image",0);
     
     glDrawElements(GL_TRIANGLES,6,GL_UNSIGNED_INT,nullptr);
 }
 
 void Renderer::ClearColor( float red, float green, float blue, float alpha )
 {
-    glClearColor(red, green, blue, alpha);
+    glClearColor(red,green,blue,alpha);
     glClear(GL_COLOR_BUFFER_BIT);
 }
 

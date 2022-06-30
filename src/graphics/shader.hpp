@@ -50,11 +50,14 @@ class Shader
             if constexpr( std::is_same<T,bool>::value )
                 return SetUniformBool(uniform_name,data);
 
-            if constexpr( std::is_same<T,int>::value )
+            if constexpr( std::is_same<T,int>::value || std::is_same<T,unsigned int>::value )
                 return SetUniformInt(uniform_name,data);
 
             if constexpr( std::is_same<T,float>::value )
                 return SetUniformFloat(uniform_name,data);
+
+            if constexpr( std::is_same<T,double>::value )
+                return SetUniformFloat(uniform_name,static_cast<float>(data));
 
             if constexpr( std::is_same<T,Vec2>::value )
                 return SetUniformVec2f(uniform_name,data);
@@ -76,6 +79,8 @@ class Shader
 
             if constexpr( std::is_same<T,glm::mat4>::value )
                 return SetUniformMatrix4f(uniform_name,data);
+
+            LOG_ERROR("the data passed to shader uniform is not supported!\n");
         }
 
         bool HasUniform( const std::string& name ) const;
@@ -106,9 +111,10 @@ class Shader
         void GetAllAttribs();
         void GetAllUniforms();
 
-        /*template<typename GLFunction,typename... Args>
+        /*
+        template<typename GLFunction,typename... Args>
         bool SetUniformImplemention( const std::string& uniform_name, GLFunction function, 
-                                                            const Args&... value) const;*/
+                                                            Args&&... value) const;*/
 
     private:
         std::string m_vertex_source;

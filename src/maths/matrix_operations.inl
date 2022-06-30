@@ -223,11 +223,12 @@ Mat4<T> Rotate( T rotate_x, T rotate_y, T rotate_z, const Mat4<T>& base )
     return base * (mat_rotate_x * mat_rotate_y * mat_rotate_z);
 }
 
-Mat4f LookAt( Vec3 pos, Vec3 target, Vec3 y_up )
+template<typename T>
+Matrix<4,4,T> LookAt( Vector3D<T> pos, Vector3D<T> target, Vector3D<T> y_up )
 {
-    Vec3 direction = ( pos - target ).Normal();
-    Vec3 right = direction.Cross(y_up).Normal();
-    Vec3 up = right.Cross(direction);
+    auto direction = ( pos - target ).Normal();
+    auto right = direction.Cross(y_up).Normal();
+    auto up = right.Cross(direction);
 
     Mat4f mat_1 =
     {   
@@ -248,15 +249,15 @@ Mat4f LookAt( Vec3 pos, Vec3 target, Vec3 y_up )
     return mat_1 * mat_2;
 }
 
-Mat4f Orhto( float right, float left, float up, float down, float front, float back )
+template<typename T>
+Matrix<4,4,T> Ortho( T right, T left, T up, T down, T front, T back )
 {
-    float x_diff = right - left;
-    float y_diff = up - down;
-    float z_diff = front - back;
-    
-    float x_add = right + left;
-    float y_add = up + down;
-    float z_add = front + back; 
+    auto x_diff = right - left;
+    auto y_diff = up - down;
+    auto z_diff = front - back;
+    auto x_add = right + left;
+    auto y_add = up + down;
+    auto z_add = front + back; 
 
     return
     {
@@ -267,10 +268,11 @@ Mat4f Orhto( float right, float left, float up, float down, float front, float b
     };
 }
 
-Mat4f Perspective( float aspect_ratio, float field_of_view, float plane_near, float plane_far )
+template<typename T>
+Matrix<4,4,T> Perspective( T aspect_ratio, T field_of_view, T plane_near, T plane_far )
 {
-    float z_range = plane_near - plane_far;
-    float tan_theta = std::tan(field_of_view / 2);
+    auto z_range = plane_near - plane_far;
+    auto tan_theta = std::tan(field_of_view / 2);
 
     return
     {

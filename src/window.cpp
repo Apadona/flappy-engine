@@ -56,8 +56,8 @@ bool Window::IsOpen() const
 
 void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version )
 {
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,1);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,major_version);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,minor_version);
     //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 

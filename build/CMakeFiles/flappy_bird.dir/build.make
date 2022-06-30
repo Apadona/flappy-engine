@@ -70,10 +70,24 @@ CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.s"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\dependencies\include\glad\glad.c -o CMakeFiles\flappy_bird.dir\dependencies\include\glad\glad.c.s
 
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj: ../dependencies/include/stb_image/stb_image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\dependencies\include\stb_image\stb_image.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\dependencies\include\stb_image\stb_image.cpp
+
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\dependencies\include\stb_image\stb_image.cpp > CMakeFiles\flappy_bird.dir\dependencies\include\stb_image\stb_image.cpp.i
+
+CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\dependencies\include\stb_image\stb_image.cpp -o CMakeFiles\flappy_bird.dir\dependencies\include\stb_image\stb_image.cpp.s
+
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj: ../src/flappy_app.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\flappy_app.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\flappy_app.cpp
 
 CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.i: cmake_force
@@ -84,10 +98,24 @@ CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.s"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\flappy_app.cpp -o CMakeFiles\flappy_bird.dir\src\flappy_app.cpp.s
 
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj: ../src/graphics/gl_driver_info.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\gl_driver_info.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\gl_driver_info.cpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\gl_driver_info.cpp > CMakeFiles\flappy_bird.dir\src\graphics\gl_driver_info.cpp.i
+
+CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\gl_driver_info.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\gl_driver_info.cpp.s
+
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj: ../src/graphics/renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\renderer.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\renderer.cpp
 
 CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.i: cmake_force
@@ -101,7 +129,7 @@ CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\shader.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\shader.cpp
 
 CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.i: cmake_force
@@ -112,10 +140,66 @@ CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.s"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\shader.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\shader.cpp.s
 
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj: ../src/graphics/sprite.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\sprite.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\sprite.cpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\sprite.cpp > CMakeFiles\flappy_bird.dir\src\graphics\sprite.cpp.i
+
+CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\sprite.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\sprite.cpp.s
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj: ../src/graphics/texture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\texture.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture.cpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture.cpp > CMakeFiles\flappy_bird.dir\src\graphics\texture.cpp.i
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\texture.cpp.s
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/texture_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\texture_manager.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture_manager.cpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture_manager.cpp > CMakeFiles\flappy_bird.dir\src\graphics\texture_manager.cpp.i
+
+CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\texture_manager.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\texture_manager.cpp.s
+
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj: ../src/graphics/transform_2D.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\transform_2D.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\transform_2D.cpp
+
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\transform_2D.cpp > CMakeFiles\flappy_bird.dir\src\graphics\transform_2D.cpp.i
+
+CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\transform_2D.cpp -o CMakeFiles\flappy_bird.dir\src\graphics\transform_2D.cpp.s
+
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj: ../src/graphics/vertex_array.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\graphics\vertex_array.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\graphics\vertex_array.cpp
 
 CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.i: cmake_force
@@ -129,7 +213,7 @@ CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/main.cpp.obj: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/flappy_bird.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/flappy_bird.dir/src/main.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\main.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\main.cpp
 
 CMakeFiles/flappy_bird.dir/src/main.cpp.i: cmake_force
@@ -143,7 +227,7 @@ CMakeFiles/flappy_bird.dir/src/main.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj: ../src/maths/math_exception.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\maths\math_exception.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\maths\math_exception.cpp
 
 CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.i: cmake_force
@@ -157,7 +241,7 @@ CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj: ../src/utils/file_loader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\utils\file_loader.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\utils\file_loader.cpp
 
 CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.i: cmake_force
@@ -171,7 +255,7 @@ CMakeFiles/flappy_bird.dir/src/utils/file_loader.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj: ../src/utils/lerp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\utils\lerp.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\utils\lerp.cpp
 
 CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.i: cmake_force
@@ -185,7 +269,7 @@ CMakeFiles/flappy_bird.dir/src/utils/lerp.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj: ../src/utils/logger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\utils\logger.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\utils\logger.cpp
 
 CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.i: cmake_force
@@ -199,7 +283,7 @@ CMakeFiles/flappy_bird.dir/src/utils/logger.cpp.s: cmake_force
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: CMakeFiles/flappy_bird.dir/flags.make
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: CMakeFiles/flappy_bird.dir/includes_CXX.rsp
 CMakeFiles/flappy_bird.dir/src/window.cpp.obj: ../src/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/flappy_bird.dir/src/window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/flappy_bird.dir/src/window.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\flappy_bird.dir\src\window.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\src\window.cpp
 
 CMakeFiles/flappy_bird.dir/src/window.cpp.i: cmake_force
@@ -213,9 +297,15 @@ CMakeFiles/flappy_bird.dir/src/window.cpp.s: cmake_force
 # Object files for target flappy_bird
 flappy_bird_OBJECTS = \
 "CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj" \
+"CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj" \
+"CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj" \
+"CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj" \
+"CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj" \
+"CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj" \
+"CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/main.cpp.obj" \
 "CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj" \
@@ -228,9 +318,15 @@ flappy_bird_OBJECTS = \
 flappy_bird_EXTERNAL_OBJECTS =
 
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/dependencies/include/glad/glad.c.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj
+../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/main.cpp.obj
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj
@@ -242,7 +338,7 @@ flappy_bird_EXTERNAL_OBJECTS =
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/linklibs.rsp
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/objects1.rsp
 ../bin/flappy_bird.exe: CMakeFiles/flappy_bird.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable ..\bin\flappy_bird.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\flappy_bird\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ..\bin\flappy_bird.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\flappy_bird.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

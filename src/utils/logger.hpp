@@ -80,7 +80,7 @@ struct LogLevelColor
 namespace
 {
     template<typename T>
-    inline std::string AppendStrings( const T value )
+    inline std::string AppendStrings( T&& value )
     {
         std::ostringstream oss;
         oss << value;
@@ -88,9 +88,9 @@ namespace
     }
 
     template<typename T, typename... Args>
-    inline std::string AppendStrings( const T value, const Args ... args )
+    inline std::string AppendStrings( T&& value, Args&& ... args )
     {
-        return AppendStrings(value) + ' ' +  AppendStrings(args...);
+        return AppendStrings(std::forward<T>(value)) + AppendStrings(std::forward<Args>(args)...);
     }
 }
 
@@ -115,15 +115,15 @@ class Logger
         bool HasFlags( LoggerFlags flags );
 
         template< typename First, typename ... Args >
-        Logger& Log( LogLevel level, const First first, const Args ... args )
+        Logger& Log( LogLevel level, First&& first, Args&& ... args )
         {
             std::string message;
-            bool has_info_builtin = false;
+            bool has_info_built_in = false;
 
             if( HasFlags(LoggerFlags::MENTION_LOG_LEVEL) )
             {
                 message += LevelToStr(level);
-                has_info_builtin = true;
+                has_info_built_in = true;
             }
 
             if( HasFlags(LoggerFlags::MENTION_TYPE) )
@@ -134,13 +134,13 @@ class Logger
                 else
                     message += "[Core]";
 
-                has_info_builtin = true;
+                has_info_built_in = true;
             }
 
-            if( has_info_builtin )
+            if( has_info_built_in )
                 message += ":";
 
-            message += AppendStrings(first,args...);
+            message += AppendStrings(std::forward<First>(first),std::forward<Args>(args)...);
 
             if( message.empty() )
                 return *this;
@@ -198,17 +198,17 @@ class Logger
     if(!condition) \
     LOG_ERROR(message)
 
-#define LOG_NORMAL(message) \
-    Logger::Get().Log(LogLevel::NORMAL,message)
+#define LOG_NORMAL(...) \
+    Logger::Get().Log(LogLevel::NORMAL,__VA_ARGS__)
 
-#define LOG_HINT(message) \
-    Logger::Get().Log(LogLevel::HINT,message)
+#define LOG_HINT(...) \
+    Logger::Get().Log(LogLevel::HINT,__VA_ARGS__)
 
-#define LOG_WARNING(message) \
-    Logger::Get().Log(LogLevel::WARNING,message)
+#define LOG_WARNING(...) \
+    Logger::Get().Log(LogLevel::WARNING,__VA_ARGS__)
 
-#define LOG_ERROR(message) \
-    Logger::Get().Log(LogLevel::ERROR,message)
+#define LOG_ERROR(...) \
+    Logger::Get().Log(LogLevel::ERROR,__VA_ARGS__)
 
-#define LOG_DEBUG(message) \
-    Logger::Get().Log(LogLevel::DEBUG,message)
+#define LOG_DEBUG(...) \
+    Logger::Get().Log(LogLevel::DEBUG,__VA_ARGS__)

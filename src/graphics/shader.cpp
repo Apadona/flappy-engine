@@ -353,7 +353,7 @@ void Shader::GetAllUniforms()
     char buffer[2048] = {0};
 
     GLint count = 0;
-    glGetProgramiv(m_program_id, GL_ACTIVE_ATTRIBUTES, &count);
+    glGetProgramiv(m_program_id, GL_ACTIVE_UNIFORMS, &count);
 
     for ( GLint i = 0; i <= count; ++i )
     {
@@ -366,12 +366,12 @@ void Shader::GetAllUniforms()
 /*
 template<typename GLFunction,typename... Args>
 bool Shader::SetUniformImplemention( const std::string& uniform_name, GLFunction gl_function,
-                                                            const Args&... value ) const
+                                                            Args&&... value ) const
 {
     if( HasUniform(uniform_name) )
     {
         GLint location = GetUniformCachedLocation(uniform_name);
-        gl_function(location,{value...});
+        gl_function(location,std::forward<Args>(value)...);
         return true;
     }
 

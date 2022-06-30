@@ -15,9 +15,15 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../src"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/dependencies/include/stb_image/stb_image.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/dependencies/include/stb_image/stb_image.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/flappy_app.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/flappy_app.cpp.obj"
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/gl_driver_info.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/gl_driver_info.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/renderer.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/renderer.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/shader.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/shader.cpp.obj"
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/sprite.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/sprite.cpp.obj"
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/texture.cpp.obj"
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/texture_manager.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/texture_manager.cpp.obj"
+  "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/transform_2D.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/transform_2D.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/graphics/vertex_array.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/graphics/vertex_array.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/main.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/main.cpp.obj"
   "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/src/maths/math_exception.cpp" "E:/Barnamenevisi/Prozhe_ha/Man/flappy_bird/build/CMakeFiles/flappy_bird.dir/src/maths/math_exception.cpp.obj"
