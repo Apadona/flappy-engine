@@ -23,10 +23,10 @@ bool Renderer::Init()
 
     stbi_set_flip_vertically_on_load(true);
 
-    if( !m_default_texture.Create("Data/Textures/white.bmp") )
+    if( !m_default_texture.Create("data/textures/white.bmp") )
         LOG_ERROR("could not create default white texture!\n");
 
-    if( m_shader.Create("shaders/vertex.vert","shaders/fragment.frag") )
+    if( m_shader.Create("data/shaders/vertex.vert","data/shaders/fragment.frag") )
     {
         m_shader.PrintAttributes();
         m_shader.PrintUnifroms();

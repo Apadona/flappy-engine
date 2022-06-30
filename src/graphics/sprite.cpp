@@ -25,6 +25,8 @@ Sprite& Sprite::operator=( const Sprite& other )
         SetTransform(other.m_transform);
         SetColor(other.m_color);
     }
+
+    return *this;
 }
 
 Sprite& Sprite::operator=( Sprite&& other )
@@ -36,4 +38,6 @@ Sprite& Sprite::operator=( Sprite&& other )
     other.m_texture = nullptr;
     other.m_transform = {};
     other.m_color = {};
+
+    return *this;
 }

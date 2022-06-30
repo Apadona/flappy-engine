@@ -1,6 +1,6 @@
 #pragma once
 
-#include <exception>
+#include <engine_pch.hpp>
 
 enum MathError
 {

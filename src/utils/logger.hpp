@@ -23,6 +23,7 @@ enum class LogType
     APPLICATION
 };
 
+// WINAPI also defines this.
 #ifdef ERROR
     #undef ERROR
 #endif
@@ -60,15 +61,15 @@ enum Color
 
 enum class LoggerFlags : uint8_t
 {
-    DISABLE_ALL_FLAGS       = 0xFF,
+    DISABLE_ALL_FLAGS       = 0x00,
 
-    MENTION_LOG_LEVEL   = 1 << 0,
-    MENTION_TYPE        = 1 << 1, // application or core.
-    MENTION_TIME        = 1 << 2,
-    MENTION_DATE        = 1 << 3,
+    MENTION_LOG_LEVEL       = 1 << 1,
+    MENTION_TYPE            = 1 << 2, // application or core.
+    MENTION_TIME            = 1 << 3, // not yet implemented.
+    MENTION_DATE            = 1 << 4, // not yet implemented.
 
-    ALL_FLAGS           = MENTION_LOG_LEVEL | MENTION_TYPE | MENTION_TIME |
-                          MENTION_DATE
+    ALL_FLAGS               = MENTION_LOG_LEVEL | MENTION_TYPE | MENTION_TIME |
+                              MENTION_DATE
 };
 
 struct LogLevelColor
@@ -117,7 +118,7 @@ class Logger
         template< typename First, typename ... Args >
         Logger& Log( LogLevel level, First&& first, Args&& ... args )
         {
-            std::string message;
+            std::string message; // to be outputted.
             bool has_info_built_in = false;
 
             if( HasFlags(LoggerFlags::MENTION_LOG_LEVEL) )
@@ -172,7 +173,7 @@ class Logger
 
     private:
         void InitLogLevelColors();
-        const char* LevelToStr( LogLevel level );
+        std::string_view LevelToStr( LogLevel level );
 
     private:
         SinkType m_place;
@@ -182,13 +183,14 @@ class Logger
         std::ofstream m_out_file; // output sink path in case of file outputting.
         char* m_out_memory; // output sink path in case of outputting to memory.
 
-        std::vector<LogLevelColor> m_level_colors;
+        std::vector<LogLevelColor> m_level_colors; // or std::map<LogLevel,Color>?
 
         static const std::string_view m_escape_sequence_begin;
         static const std::string_view m_escape_sequence_end;
         static std::map<Color,std::string> m_color_codes; // ansi string codes for each console color.
 
-        static Logger logger;
+        static Logger logger; // so that we can use the macro's down blow without a hassle and have a
+                              // default one ready.
 };
 
 #define LOG_SOURCE(level) \

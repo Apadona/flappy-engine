@@ -1,4 +1,4 @@
-#include <cmath>
+#include <engine_pch.hpp>
 
 namespace std
 {
@@ -31,6 +31,7 @@ namespace std
     inline long double to_radian( long double theta )
     {
         float radian = ( theta / 180.0f ) * M_PI;
+        return radian;
     }
 
     inline long double to_theta( long double radians )

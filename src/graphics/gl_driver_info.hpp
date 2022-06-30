@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cstdint>
+#include <engine_pch.hpp>
 
 struct GLDriverTextureInfo
 {

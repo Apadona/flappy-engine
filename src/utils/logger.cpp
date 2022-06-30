@@ -17,23 +17,23 @@ Logger Logger::logger;
 
 std::map<Color,std::string> Logger::m_color_codes =
 {
-    { BLACK, std::to_string(static_cast<int>(BLACK)) + "m" },
-    { RED, std::to_string(static_cast<int>(RED)) + "m" },
-    { GREEN, std::to_string(static_cast<int>(GREEN)) + "m" },
-    { YELLOW, std::to_string(static_cast<int>(YELLOW)) + "m" },
-    { BLUE, std::to_string(static_cast<int>(BLUE)) + "m" },
-    { MAGENTA, std::to_string(static_cast<int>(MAGENTA)) + "m" },
-    { CYAN, std::to_string(static_cast<int>(CYAN)) + "m" },
-    { WHITE, std::to_string(static_cast<int>(WHITE)) + "m" },
+    { BLACK, "30m" },
+    { RED, "31m" },
+    { GREEN, "32m" },
+    { YELLOW, "33m" },
+    { BLUE, "34m" },
+    { MAGENTA, "35m" },
+    { CYAN, "36m" },
+    { WHITE, "37m" },
 
-    { BRIGHT_BLACK, std::to_string(static_cast<int>(BRIGHT_BLACK)) + "m" },
-    { BRIGHT_RED, std::to_string(static_cast<int>(BRIGHT_RED)) + "m" },
-    { BRIGHT_GREEN, std::to_string(static_cast<int>(BRIGHT_GREEN)) + "m" },
-    { BRIGHT_YELLOW, std::to_string(static_cast<int>(BRIGHT_YELLOW)) + "m" },
-    { BRIGHT_BLUE, std::to_string(static_cast<int>(BRIGHT_BLUE)) + "m" },
-    { BRIGHT_MAGENTA, std::to_string(static_cast<int>(BRIGHT_MAGENTA)) + "m" },
-    { BRIGHT_CYAN, std::to_string(static_cast<int>(BRIGHT_CYAN)) + "m" },
-    { BRIGHT_WHITE, std::to_string(static_cast<int>(BRIGHT_WHITE)) + "m" }
+    { BRIGHT_BLACK, "90m" },
+    { BRIGHT_RED, "91m" },
+    { BRIGHT_GREEN, "92m" },
+    { BRIGHT_YELLOW, "93m" },
+    { BRIGHT_BLUE, "94m" },
+    { BRIGHT_MAGENTA, "95m" },
+    { BRIGHT_CYAN, "96m" },
+    { BRIGHT_WHITE, "97m" }
 };
 
 bool Logger::Init()
@@ -113,13 +113,7 @@ void Logger::SetType( LogType type )
 void Logger::SetFlags( LoggerFlags flags, bool set )
 {
     if( set )
-    {
-        if( flags == LoggerFlags::DISABLE_ALL_FLAGS )
-            m_flags &= 0;
-
-        else
-            m_flags |= static_cast<int>(flags);
-    }
+         m_flags |= static_cast<int>(flags);
 
     else
         m_flags |= ~static_cast<int>(flags);
@@ -152,28 +146,26 @@ void Logger::InitLogLevelColors()
     };
 }
 
-const char* Logger::LevelToStr( LogLevel level )
+std::string_view Logger::LevelToStr( LogLevel level )
 {
     switch( level )
         {
             case LogLevel::NORMAL:
                 return "[Normal]";
-            break;
 
             case LogLevel::HINT:
                 return "[Hint]";
-            break;
 
             case LogLevel::WARNING:
                 return "[Warning]";
-            break;
 
             case LogLevel::ERROR:
                 return "[Error]";
-            break;
 
             case LogLevel::DEBUG:
                 return "[Debug]";
-            break;
+
+            default:
+                return nullptr;
         }
 }

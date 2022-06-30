@@ -1,10 +1,6 @@
 #include "texture_manager.hpp"
 #include "gl_driver_info.hpp"
 
-#include <iostream>
-#include <algorithm>
-#include <utils/logger.hpp>
-
 TextureManager TextureManager::manager;
 
 bool TextureManager::Init()
@@ -24,7 +20,7 @@ void TextureManager::UseTexture( const Texture& texture )
     GLuint found_texture_place  = 0;
     bool found_first_empty_place = false;
 
-    for( int i = 0; i < texture_slots.capacity(); ++i )
+    for( std::size_t i = 0; i < texture_slots.capacity(); ++i )
     {
         // if we find an empty place, we will store that place(only the first found emptied place should be assigned).
         if( texture_slots[i] == nullptr && !found_first_empty_place )  
@@ -48,7 +44,7 @@ void TextureManager::UseTexture( const Texture& texture )
 
 void TextureManager::UnUseTexture( const Texture& texture )
 {
-    for( int i = 0; i < texture_slots.size(); ++i )
+    for( std::size_t i = 0; i < texture_slots.size(); ++i )
     {
         if( texture_slots[i] == &texture )
         {
@@ -60,7 +56,7 @@ void TextureManager::UnUseTexture( const Texture& texture )
 
 void TextureManager::PrintStatus() const
 {
-    for( int i = 0; i < texture_slots.capacity(); ++i )
+    for( std::size_t i = 0; i < texture_slots.capacity(); ++i )
     {
         std::cout << "texture_unit " << i;
 

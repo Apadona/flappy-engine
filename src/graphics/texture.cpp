@@ -1,7 +1,5 @@
 #include "texture.hpp"
 #include "texture_manager.hpp"
-#include <utils/file_loader.hpp>
-#include <utils/logger.hpp>
 
 #include <stb_image/stb_image.h>
 
@@ -34,6 +32,10 @@ namespace
 
             case TextureType::TEXTURE_ARRAY_CUBE_MAP:
                 return 0x9009; // was not existent in my gl header!
+
+            default:
+                LOG_WARNING("invalid texture type sent to GetGLTextureType function!\n");
+                return -1;
         }
     }
 
@@ -124,6 +126,8 @@ Texture& Texture::operator=( Texture&& other )
     other.m_height = 0;
     other.m_type = TextureType::INVALID;
     other.m_data = nullptr;
+
+    return *this;
 }
 
 bool Texture::Create( const std::string& texture_file_path )

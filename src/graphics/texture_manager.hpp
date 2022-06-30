@@ -2,8 +2,6 @@
 
 #include "texture.hpp"
 
-#include <vector>
-
 class TextureManager
 {
     public:

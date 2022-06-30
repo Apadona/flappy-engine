@@ -1,7 +1,5 @@
 #include "vertex_array.hpp"
 
-#include <utils/logger.hpp>
-
 VertexArray::VertexArray() : m_count(0), m_offset(0), m_is_bind(false)
 {
     glGenVertexArrays(1,&m_id);

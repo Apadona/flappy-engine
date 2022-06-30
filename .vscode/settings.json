@@ -78,6 +78,7 @@
         "xstddef": "cpp",
         "xstring": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "unordered_set": "cpp"
     }
 }

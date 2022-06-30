@@ -9,11 +9,6 @@
 #include <glad/glad.h>
 #include <glm/matrix.hpp>
 
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
-
 // represends an OpenGL shader.
 class Shader
 {
@@ -130,6 +125,7 @@ class Shader
         {
             // Only shader class Should be able to modify the Data in GLData.
             friend class Shader;
+            
             public:
                 GLData( const std::string& name, GLDataType type, GLint location );
                 GLData( GLData&& other );

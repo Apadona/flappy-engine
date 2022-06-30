@@ -2,9 +2,6 @@
 
 #include "math_exception.hpp"
 
-#include <iostream>
-#include <cmath>
-
 template<typename T>
 struct Vector4D
 {

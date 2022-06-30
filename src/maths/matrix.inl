@@ -1,8 +1,6 @@
-#include <cstdint>
-#include <iostream>
+#include <engine_pch.hpp>
 
 #include "math_exception.hpp"
-#include <utils/logger.hpp>
 
 template<std::uint8_t _row, std::uint8_t _colomn, typename U>
 std::ostream& operator<<( std::ostream& out, const Matrix<_row,_colomn,U>& matrix )
@@ -104,12 +102,16 @@ Matrix<row,colomn,T>& Matrix<row,colomn,T>::operator=( const ThisType& other )
         return *this;
 
     SetData(other.GetData());
+
+    return *this;
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
 Matrix<row,colomn,T>& Matrix<row,colomn,T>::operator=( const std::initializer_list<T>& _list )
 {
     SetData(_list.begin());
+
+    return *this;
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>

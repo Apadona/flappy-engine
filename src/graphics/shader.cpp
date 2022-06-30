@@ -1,19 +1,6 @@
 #include "shader.hpp"
 
-#include <utils/logger.hpp>
-#include <utils/file_loader.hpp>
-
 #include <glm/gtc/type_ptr.hpp>
-
-#include <type_traits>
-
-namespace
-{
-    inline bool StringEmpty( const std::string& str )
-    {
-        return str.empty();
-    }
-}
 
 Shader::GLData::GLData( const std::string& name, GLDataType type, GLint location ) : m_name(name),
                                                                 m_type(type), m_location(location)
@@ -46,17 +33,15 @@ Shader::~Shader()
 
 bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 {
-    #undef ERROR
-
     bool file_path_not_empty = true;
 
-    if( StringEmpty(vs_path) )
+    if( vs_path.empty() )
     {
         LOG_ERROR("vertex shader path is invalid!");
         file_path_not_empty = false;
     }
 
-    if( StringEmpty(fs_path) )
+    if( fs_path.empty() )
     {
         LOG_ERROR("fragment shader path is invalid!");
         file_path_not_empty = false;
@@ -68,7 +53,7 @@ bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 
         std::string vs_source = LoadFile(vs_path);
 
-        if( StringEmpty(vs_source) )
+        if( vs_source.empty() )
         {
             LOG_ERROR("vertex shader source is empty!");
             file_sources_not_empty = false;
@@ -76,7 +61,7 @@ bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 
         std::string fs_source = LoadFile(fs_path);
 
-        if( StringEmpty(fs_source) )
+        if( fs_source.empty() )
         {
             LOG_ERROR("fragment shader source is empty!");
             file_sources_not_empty = false;
@@ -93,6 +78,10 @@ bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
             return false;
         }
     }
+
+     // this line executes in case of the if( file_path_not_empty ) retruns false, so we can indicate to
+     // the callee function that the shader creation process failed.
+    return false;
 }
 
 bool Shader::CompileShader( const std::string& vertex_source, const std::string& fragment_source )
@@ -100,6 +89,7 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
     // to indicate wheather the compile process was successful.
     bool compile_phase_passed = true;
 
+    // since the same action is used to compile different shaders.
     auto compile_action = [&]( const char* shader_source, GLenum type )
     {
         GLuint& _ref = (type == GL_VERTEX_SHADER)? m_vs_id : m_fs_id;
@@ -158,6 +148,9 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
 
     GetAllAttribs();
     GetAllUniforms();
+
+    // indicating to the callee function that the shader compilation and linkage process was succesful.
+    return m_is_made;
 }
 
 bool Shader::Use( bool use ) const
@@ -175,12 +168,12 @@ bool Shader::Use( bool use ) const
 
 void Shader::SetAttributeLocation( const std::string& attrib_name, GLint location )
 {
-    glBindAttribLocation(m_program_id,0,attrib_name.c_str());
+    glBindAttribLocation(m_program_id,location,attrib_name.c_str());
 }
 
 bool Shader::HasAttribute( const std::string& name ) const
 {
-    if( StringEmpty(name) )
+    if( name.empty() )
         return false;
 
     for( auto& attribute : m_attributes )
@@ -194,7 +187,7 @@ bool Shader::HasAttribute( const std::string& name ) const
 
 GLint Shader::GetAttributeLocation( const std::string& attribute_name )
 {
-    if( StringEmpty(attribute_name) )
+    if( attribute_name.empty() )
     {
         LOG_ERROR("empty string sent for getting Attribute location!\n");
         return -1;
@@ -205,7 +198,7 @@ GLint Shader::GetAttributeLocation( const std::string& attribute_name )
 
 GLint Shader::GetAttributeCachedLocation( const std::string& attribute_name ) const
 {
-    if( StringEmpty(attribute_name) )
+    if( attribute_name.empty() )
     {
         LOG_ERROR("empty string sent for getting Attribute location!\n");
         return -1;
@@ -227,7 +220,7 @@ void Shader::PrintAttributes() const
 
 bool Shader::HasUniform( const std::string& name ) const
 {
-    if( StringEmpty(name) )
+    if( name.empty() )
         return false;
 
     for( auto& uniform : m_uniforms )
@@ -241,7 +234,7 @@ bool Shader::HasUniform( const std::string& name ) const
 
 GLint Shader::GetUniformLocation( const std::string& uniform_name ) const
 {
-    if( StringEmpty(uniform_name) )
+    if( uniform_name.empty() )
     {
         LOG_ERROR("empty string sent for getting Uniform location!\n");
         return -1;
@@ -252,7 +245,7 @@ GLint Shader::GetUniformLocation( const std::string& uniform_name ) const
 
 GLint Shader::GetUniformCachedLocation( const std::string& uniform_name ) const
 {
-    if( StringEmpty(uniform_name) )
+    if( uniform_name.empty() )
     {
         LOG_ERROR("empty string sent for getting Uniform location!\n");
         return -1;
@@ -332,7 +325,7 @@ void Shader::GetAllAttribs()
 {
     GLint size;
     GLenum type;
-    char buffer[2048] = {0};
+    char buffer[2048] = {0}; // name of the attribute.
 
     GLint count = 0;
     glGetProgramiv(m_program_id, GL_ACTIVE_ATTRIBUTES, &count);
