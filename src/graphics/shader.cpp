@@ -33,6 +33,8 @@ Shader::~Shader()
 
 bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 {
+    #undef ERROR
+
     bool file_path_not_empty = true;
 
     if( vs_path.empty() )

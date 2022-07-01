@@ -4,5 +4,5 @@ cd ..
 
 setlocal 
     path=dependencies\lib\glfw\32;%path%
-    gdb "bin/flappy_bird.exe"
+    gdb "build/bin/engine.exe"
 endlocal

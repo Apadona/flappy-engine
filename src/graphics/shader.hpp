@@ -31,8 +31,6 @@ class Shader
         // recives the location from the cached location( std::vector ).
         GLint GetAttributeCachedLocation( const std::string& uniform_name ) const;
 
-        void PrintAttributes() const;
-
         template<typename T>
         bool SetUniform( const std::string& uniform_name, const T& data )
         {
@@ -84,6 +82,7 @@ class Shader
         // recives the location from the cached location( std::vector ).
         GLint GetUniformCachedLocation( const std::string& uniform_name ) const;
 
+        void PrintAttributes() const;
         void PrintUnifroms() const;
 
         bool SetUniformBool( const std::string& uniform_name, bool value );

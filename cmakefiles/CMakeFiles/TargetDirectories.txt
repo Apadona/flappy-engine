@@ -1,0 +1,4 @@
+E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/glad.dir
+E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir
+E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/edit_cache.dir
+E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/rebuild_cache.dir

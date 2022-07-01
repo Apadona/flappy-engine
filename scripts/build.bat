@@ -2,8 +2,8 @@
 
 cd ..
 
-if NOT exist build mkdir build
-cd build
+if NOT exist cmakefiles mkdir cmakefiles
+cd cmakefiles
 
 cmake .. -G"MinGW Makefiles"
 

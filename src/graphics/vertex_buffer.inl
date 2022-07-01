@@ -1,4 +1,5 @@
 #include "vertex_buffer.hpp"
+#include <utils/logger.hpp>
 
 template<typename T,GLenum type>
 GLBuffer<T,type>::GLBuffer( const std::vector<T>& data, VertexDataUsage usage )
