@@ -28,18 +28,18 @@ The CXX compiler identification is GNU, found in "E:/Barnamenevisi/Prozhe_ha/Man
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_2e077/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_2e077.dir\build.make CMakeFiles/cmTC_2e077.dir/build
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_debeb/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_debeb.dir\build.make CMakeFiles/cmTC_debeb.dir/build
 mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_2e077.dir/CMakeCCompilerABI.c.obj
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"   -v -o CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
+Building C object CMakeFiles/cmTC_debeb.dir/CMakeCCompilerABI.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"   -v -o CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"
 Using built-in specs.
 COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe
 Target: i686-w64-mingw32
 Configured with: ../../../src/gcc-7.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-sjlj-exceptions --with-dwarf2 --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/lib -L/c/mingw730/prerequisites/i686-zlib-static/lib -L/c/mingw730/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware'
 Thread model: posix
 gcc version 7.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\saeed\AppData\Local\Temp\cceVRdRn.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\saeed\AppData\Local\Temp\ccu4UtFa.s
 GNU C11 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 7.3.0 (i686-w64-mingw32)
 	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
 
@@ -60,17 +60,17 @@ GNU C11 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 7.3.0 (i686-
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: cfb50cc9d8e205abde078862560e5595
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj C:\Users\saeed\AppData\Local\Temp\cceVRdRn.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj C:\Users\saeed\AppData\Local\Temp\ccu4UtFa.s
 GNU assembler version 2.30 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.30
 COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/
 LIBRARY_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
-Linking C executable cmTC_2e077.exe
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_2e077.dir\link.txt --verbose=1
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_2e077.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_2e077.dir/objects.a @CMakeFiles\cmTC_2e077.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"  -v -Wl,--whole-archive CMakeFiles\cmTC_2e077.dir/objects.a -Wl,--no-whole-archive -o cmTC_2e077.exe -Wl,--out-implib,libcmTC_2e077.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686'
+Linking C executable cmTC_debeb.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_debeb.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_debeb.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_debeb.dir/objects.a @CMakeFiles\cmTC_debeb.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"  -v -Wl,--whole-archive CMakeFiles\cmTC_debeb.dir/objects.a -Wl,--no-whole-archive -o cmTC_debeb.exe -Wl,--out-implib,libcmTC_debeb.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
 COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe
 COLLECT_LTO_WRAPPER=E:/Barnamenevisi/abzar\ ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe
@@ -80,9 +80,9 @@ Thread model: posix
 gcc version 7.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
 COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/
 LIBRARY_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2e077.exe' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccrvqx4k.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -o cmTC_2e077.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_2e077.dir/objects.a --no-whole-archive --out-implib libcmTC_2e077.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2e077.exe' '-mtune=generic' '-march=i686'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_debeb.exe' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccrojTmD.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -o cmTC_debeb.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_debeb.dir/objects.a --no-whole-archive --out-implib libcmTC_debeb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_debeb.exe' '-mtune=generic' '-march=i686'
 mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
 
 
@@ -104,18 +104,18 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_2e077/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_2e077.dir\build.make CMakeFiles/cmTC_2e077.dir/build]
+  ignore line: [Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_debeb/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_debeb.dir\build.make CMakeFiles/cmTC_debeb.dir/build]
   ignore line: [mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_2e077.dir/CMakeCCompilerABI.c.obj]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"   -v -o CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"]
+  ignore line: [Building C object CMakeFiles/cmTC_debeb.dir/CMakeCCompilerABI.c.obj]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"   -v -o CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c"]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe]
   ignore line: [Target: i686-w64-mingw32]
   ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-sjlj-exceptions --with-dwarf2 --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/lib -L/c/mingw730/prerequisites/i686-zlib-static/lib -L/c/mingw730/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware']
   ignore line: [Thread model: posix]
   ignore line: [gcc version 7.3.0 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\saeed\AppData\Local\Temp\cceVRdRn.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj -version -o C:\Users\saeed\AppData\Local\Temp\ccu4UtFa.s]
   ignore line: [GNU C11 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) version 7.3.0 (i686-w64-mingw32)]
   ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
   ignore line: []
@@ -136,8 +136,8 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: cfb50cc9d8e205abde078862560e5595]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj C:\Users\saeed\AppData\Local\Temp\cceVRdRn.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj C:\Users\saeed\AppData\Local\Temp\ccu4UtFa.s]
   ignore line: [GNU assembler version 2.30 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.30]
   ignore line: [COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/]
@@ -148,12 +148,12 @@ Parsed C implicit link information from above output:
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_2e077.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
-  ignore line: [Linking C executable cmTC_2e077.exe]
-  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_2e077.dir\link.txt --verbose=1]
-  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_2e077.dir/objects.a]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_2e077.dir/objects.a @CMakeFiles\cmTC_2e077.dir\objects1.rsp]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"  -v -Wl --whole-archive CMakeFiles\cmTC_2e077.dir/objects.a -Wl --no-whole-archive -o cmTC_2e077.exe -Wl --out-implib libcmTC_2e077.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_debeb.dir\CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=i686']
+  ignore line: [Linking C executable cmTC_debeb.exe]
+  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_debeb.dir\link.txt --verbose=1]
+  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_debeb.dir/objects.a]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_debeb.dir/objects.a @CMakeFiles\cmTC_debeb.dir\objects1.rsp]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"  -v -Wl --whole-archive CMakeFiles\cmTC_debeb.dir/objects.a -Wl --no-whole-archive -o cmTC_debeb.exe -Wl --out-implib libcmTC_debeb.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe]
   ignore line: [COLLECT_LTO_WRAPPER=E:/Barnamenevisi/abzar\ ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe]
@@ -170,9 +170,9 @@ Parsed C implicit link information from above output:
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2e077.exe' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccrvqx4k.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -o cmTC_2e077.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_2e077.dir/objects.a --no-whole-archive --out-implib libcmTC_2e077.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_2e077.exe' '-mtune=generic' '-march=i686']
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_debeb.exe' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccrojTmD.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_eh -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -o cmTC_debeb.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_debeb.dir/objects.a --no-whole-archive --out-implib libcmTC_debeb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc -lgcc_eh -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_debeb.exe' '-mtune=generic' '-march=i686']
   ignore line: [mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp']
   ignore line: []
   ignore line: []
@@ -185,18 +185,18 @@ Parsed C implicit link information from above output:
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
 
-Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_0cd4b/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_0cd4b.dir\build.make CMakeFiles/cmTC_0cd4b.dir/build
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_85c84/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_85c84.dir\build.make CMakeFiles/cmTC_85c84.dir/build
 mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_0cd4b.dir/CMakeCXXCompilerABI.cpp.obj
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"   -v -o CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp"
+Building CXX object CMakeFiles/cmTC_85c84.dir/CMakeCXXCompilerABI.cpp.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"   -v -o CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp"
 Using built-in specs.
 COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe
 Target: i686-w64-mingw32
 Configured with: ../../../src/gcc-7.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-sjlj-exceptions --with-dwarf2 --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/lib -L/c/mingw730/prerequisites/i686-zlib-static/lib -L/c/mingw730/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware'
 Thread model: posix
 gcc version 7.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\saeed\AppData\Local\Temp\ccgRdIsE.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\saeed\AppData\Local\Temp\cck0LeDl.s
 GNU C++14 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 7.3.0 (i686-w64-mingw32)
 	compiled by GNU C version 7.3.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.18-GMP
 
@@ -223,17 +223,17 @@ GNU C++14 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) version 7.3.0 (i68
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 054f020076b735531e9621adbf45a5b2
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\saeed\AppData\Local\Temp\ccgRdIsE.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\saeed\AppData\Local\Temp\cck0LeDl.s
 GNU assembler version 2.30 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.30
 COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/
 LIBRARY_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
-Linking CXX executable cmTC_0cd4b.exe
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0cd4b.dir\link.txt --verbose=1
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_0cd4b.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_0cd4b.dir/objects.a @CMakeFiles\cmTC_0cd4b.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  -v -Wl,--whole-archive CMakeFiles\cmTC_0cd4b.dir/objects.a -Wl,--no-whole-archive -o cmTC_0cd4b.exe -Wl,--out-implib,libcmTC_0cd4b.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686'
+Linking CXX executable cmTC_85c84.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_85c84.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_85c84.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_85c84.dir/objects.a @CMakeFiles\cmTC_85c84.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  -v -Wl,--whole-archive CMakeFiles\cmTC_85c84.dir/objects.a -Wl,--no-whole-archive -o cmTC_85c84.exe -Wl,--out-implib,libcmTC_85c84.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
 Using built-in specs.
 COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe
 COLLECT_LTO_WRAPPER=E:/Barnamenevisi/abzar\ ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe
@@ -243,9 +243,9 @@ Thread model: posix
 gcc version 7.3.0 (i686-posix-dwarf-rev0, Built by MinGW-W64 project) 
 COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/
 LIBRARY_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/;E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cd4b.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
- E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccPOl8hg.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_0cd4b.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_0cd4b.dir/objects.a --no-whole-archive --out-implib libcmTC_0cd4b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cd4b.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_85c84.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
+ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccyDFPr1.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_85c84.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_85c84.dir/objects.a --no-whole-archive --out-implib libcmTC_85c84.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_85c84.exe' '-shared-libgcc' '-mtune=generic' '-march=i686'
 mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
 
 
@@ -273,18 +273,18 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.exe|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_0cd4b/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_0cd4b.dir\build.make CMakeFiles/cmTC_0cd4b.dir/build]
+  ignore line: [Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_85c84/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_85c84.dir\build.make CMakeFiles/cmTC_85c84.dir/build]
   ignore line: [mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_0cd4b.dir/CMakeCXXCompilerABI.cpp.obj]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"   -v -o CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp"]
+  ignore line: [Building CXX object CMakeFiles/cmTC_85c84.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"   -v -o CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj -c "E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp"]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe]
   ignore line: [Target: i686-w64-mingw32]
   ignore line: [Configured with: ../../../src/gcc-7.3.0/configure --host=i686-w64-mingw32 --build=i686-w64-mingw32 --target=i686-w64-mingw32 --prefix=/mingw32 --with-sysroot=/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 --enable-shared --enable-static --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-string --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-sjlj-exceptions --with-dwarf2 --disable-libstdcxx-pch --disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --disable-symvers --with-gnu-as --with-gnu-ld --with-arch=i686 --with-tune=generic --with-libiconv --with-system-zlib --with-gmp=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpfr=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-mpc=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-isl=/c/mingw730/prerequisites/i686-w64-mingw32-static --with-pkgversion='i686-posix-dwarf-rev0, Built by MinGW-W64 project' --with-bugurl=https://sourceforge.net/projects/mingw-w64 CFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' CPPFLAGS=' -I/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/include -I/c/mingw730/prerequisites/i686-zlib-static/include -I/c/mingw730/prerequisites/i686-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32/opt/lib -L/c/mingw730/prerequisites/i686-zlib-static/lib -L/c/mingw730/prerequisites/i686-w64-mingw32-static/lib -Wl,--large-address-aware']
   ignore line: [Thread model: posix]
   ignore line: [gcc version 7.3.0 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\saeed\AppData\Local\Temp\ccgRdIsE.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/cc1plus.exe -quiet -v -iprefix E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/ -D_REENTRANT E:\Barnamenevisi\abzar ha\Cmake\share\cmake-3.23\Modules\CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=i686 -auxbase-strip CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj -version -o C:\Users\saeed\AppData\Local\Temp\cck0LeDl.s]
   ignore line: [GNU C++14 (i686-posix-dwarf-rev0  Built by MinGW-W64 project) version 7.3.0 (i686-w64-mingw32)]
   ignore line: [	compiled by GNU C version 7.3.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.18-GMP]
   ignore line: []
@@ -311,8 +311,8 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 054f020076b735531e9621adbf45a5b2]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\saeed\AppData\Local\Temp\ccgRdIsE.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/as.exe -v -o CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj C:\Users\saeed\AppData\Local\Temp\cck0LeDl.s]
   ignore line: [GNU assembler version 2.30 (i686-w64-mingw32) using BFD version (GNU Binutils) 2.30]
   ignore line: [COMPILER_PATH=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/]
@@ -323,12 +323,12 @@ Parsed CXX implicit link information from above output:
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_0cd4b.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
-  ignore line: [Linking CXX executable cmTC_0cd4b.exe]
-  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0cd4b.dir\link.txt --verbose=1]
-  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_0cd4b.dir/objects.a]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_0cd4b.dir/objects.a @CMakeFiles\cmTC_0cd4b.dir\objects1.rsp]
-  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  -v -Wl --whole-archive CMakeFiles\cmTC_0cd4b.dir/objects.a -Wl --no-whole-archive -o cmTC_0cd4b.exe -Wl --out-implib libcmTC_0cd4b.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles\cmTC_85c84.dir\CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  ignore line: [Linking CXX executable cmTC_85c84.exe]
+  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_85c84.dir\link.txt --verbose=1]
+  ignore line: ["E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_85c84.dir/objects.a]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_85c84.dir/objects.a @CMakeFiles\cmTC_85c84.dir\objects1.rsp]
+  ignore line: ["E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe"  -v -Wl --whole-archive CMakeFiles\cmTC_85c84.dir/objects.a -Wl --no-whole-archive -o cmTC_85c84.exe -Wl --out-implib libcmTC_85c84.dll.a -Wl --major-image-version 0 --minor-image-version 0 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe]
   ignore line: [COLLECT_LTO_WRAPPER=E:/Barnamenevisi/abzar\ ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe]
@@ -345,9 +345,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/]
   ignore line: [E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cd4b.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
-  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccPOl8hg.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_0cd4b.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_0cd4b.dir/objects.a --no-whole-archive --out-implib libcmTC_0cd4b.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0cd4b.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_85c84.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
+  ignore line: [ E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/collect2.exe -plugin E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/liblto_plugin-0.dll -plugin-opt=E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../libexec/gcc/i686-w64-mingw32/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\Users\saeed\AppData\Local\Temp\ccyDFPr1.res -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-ladvapi32 -plugin-opt=-pass-through=-lshell32 -plugin-opt=-pass-through=-luser32 -plugin-opt=-pass-through=-lkernel32 -plugin-opt=-pass-through=-liconv -plugin-opt=-pass-through=-lmingw32 -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lmoldname -plugin-opt=-pass-through=-lmingwex -plugin-opt=-pass-through=-lmsvcrt --sysroot=C:/mingw730/i686-730-posix-dwarf-rt_v5-rev0/mingw32 -m i386pe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTC_85c84.exe E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib/crt2.o E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtbegin.o -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0 -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib/../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/lib -LE:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../.. --whole-archive CMakeFiles\cmTC_85c84.dir/objects.a --no-whole-archive --out-implib libcmTC_85c84.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -liconv -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/../lib/gcc/i686-w64-mingw32/7.3.0/crtend.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_85c84.exe' '-shared-libgcc' '-mtune=generic' '-march=i686']
   ignore line: [mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp']
   ignore line: []
   ignore line: []
@@ -355,5 +355,89 @@ Parsed CXX implicit link information from above output:
   implicit objs: []
   implicit dirs: []
   implicit fwks: []
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_f0c4e/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_f0c4e.dir\build.make CMakeFiles/cmTC_f0c4e.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f0c4e.dir/CheckIncludeFile.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"    -o CMakeFiles\cmTC_f0c4e.dir\CheckIncludeFile.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+Linking C executable cmTC_f0c4e.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_f0c4e.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_f0c4e.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_f0c4e.dir/objects.a @CMakeFiles\cmTC_f0c4e.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -Wl,--whole-archive CMakeFiles\cmTC_f0c4e.dir/objects.a -Wl,--no-whole-archive -o cmTC_f0c4e.exe -Wl,--out-implib,libcmTC_f0c4e.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_f0c4e.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_ddabc/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_ddabc.dir\build.make CMakeFiles/cmTC_ddabc.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ddabc.dir/src.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles\cmTC_ddabc.dir\src.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles\CMakeTmp\src.c
+Linking C executable cmTC_ddabc.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_ddabc.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_ddabc.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_ddabc.dir/objects.a @CMakeFiles\cmTC_ddabc.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -Wl,--whole-archive CMakeFiles\cmTC_ddabc.dir/objects.a -Wl,--no-whole-archive -o cmTC_ddabc.exe -Wl,--out-implib,libcmTC_ddabc.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_ddabc.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the include file dinput.h exists passed with the following output:
+Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_c3649/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_c3649.dir\build.make CMakeFiles/cmTC_c3649.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c3649.dir/CheckIncludeFile.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"    -o CMakeFiles\cmTC_c3649.dir\CheckIncludeFile.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+Linking C executable cmTC_c3649.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_c3649.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_c3649.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_c3649.dir/objects.a @CMakeFiles\cmTC_c3649.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -Wl,--whole-archive CMakeFiles\cmTC_c3649.dir/objects.a -Wl,--no-whole-archive -o cmTC_c3649.exe -Wl,--out-implib,libcmTC_c3649.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_c3649.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file xinput.h exists passed with the following output:
+Change Dir: E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp
+
+Run Build Command(s):E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe -f Makefile cmTC_0c9b1/fast && E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/mingw32-make.exe  -f CMakeFiles\cmTC_0c9b1.dir\build.make CMakeFiles/cmTC_0c9b1.dir/build
+mingw32-make.exe[1]: Entering directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0c9b1.dir/CheckIncludeFile.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe"    -o CMakeFiles\cmTC_0c9b1.dir\CheckIncludeFile.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles\CMakeTmp\CheckIncludeFile.c
+Linking C executable cmTC_0c9b1.exe
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E cmake_link_script CMakeFiles\cmTC_0c9b1.dir\link.txt --verbose=1
+"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\cmTC_0c9b1.dir/objects.a
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\cmTC_0c9b1.dir/objects.a @CMakeFiles\cmTC_0c9b1.dir\objects1.rsp
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -Wl,--whole-archive CMakeFiles\cmTC_0c9b1.dir/objects.a -Wl,--no-whole-archive -o cmTC_0c9b1.exe -Wl,--out-implib,libcmTC_0c9b1.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cmTC_0c9b1.dir\linklibs.rsp
+mingw32-make.exe[1]: Leaving directory 'E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/CMakeTmp'
+
 
 

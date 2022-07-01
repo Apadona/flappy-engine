@@ -4,8 +4,6 @@ file(REMOVE_RECURSE
   "../build/bin/engine.pdb"
   "CMakeFiles/engine.dir/cmake_pch.hxx.gch"
   "CMakeFiles/engine.dir/cmake_pch.hxx.gch.d"
-  "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj"
-  "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj.d"
   "CMakeFiles/engine.dir/src/core/application.cpp.obj"
   "CMakeFiles/engine.dir/src/core/application.cpp.obj.d"
   "CMakeFiles/engine.dir/src/core/entry_point.cpp.obj"

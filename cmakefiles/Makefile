@@ -129,6 +129,19 @@ glad/fast:
 .PHONY : glad/fast
 
 #=============================================================================
+# Target rules for targets named stb_image
+
+# Build rule for target.
+stb_image: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 stb_image
+.PHONY : stb_image
+
+# fast build rule for target.
+stb_image/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\stb_image.dir\build.make CMakeFiles/stb_image.dir/build
+.PHONY : stb_image/fast
+
+#=============================================================================
 # Target rules for targets named engine
 
 # Build rule for target.
@@ -140,6 +153,32 @@ engine: cmake_check_build_system
 engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine.dir\build.make CMakeFiles/engine.dir/build
 .PHONY : engine/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f dependencies\glfw\src\CMakeFiles\glfw.dir\build.make dependencies/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f dependencies\glfw\src\CMakeFiles\update_mappings.dir\build.make dependencies/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
 
 # target to build an object file
 cmake_pch.hxx.gch:
@@ -156,53 +195,53 @@ cmake_pch.hxx.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine.dir\build.make CMakeFiles/engine.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
 
-dependencies/include/glad/glad.obj: dependencies/include/glad/glad.c.obj
-.PHONY : dependencies/include/glad/glad.obj
+dependencies/glad/glad/glad.obj: dependencies/glad/glad/glad.c.obj
+.PHONY : dependencies/glad/glad/glad.obj
 
 # target to build an object file
-dependencies/include/glad/glad.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj
-.PHONY : dependencies/include/glad/glad.c.obj
+dependencies/glad/glad/glad.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj
+.PHONY : dependencies/glad/glad/glad.c.obj
 
-dependencies/include/glad/glad.i: dependencies/include/glad/glad.c.i
-.PHONY : dependencies/include/glad/glad.i
+dependencies/glad/glad/glad.i: dependencies/glad/glad/glad.c.i
+.PHONY : dependencies/glad/glad/glad.i
 
 # target to preprocess a source file
-dependencies/include/glad/glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/include/glad/glad.c.i
-.PHONY : dependencies/include/glad/glad.c.i
+dependencies/glad/glad/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.i
+.PHONY : dependencies/glad/glad/glad.c.i
 
-dependencies/include/glad/glad.s: dependencies/include/glad/glad.c.s
-.PHONY : dependencies/include/glad/glad.s
+dependencies/glad/glad/glad.s: dependencies/glad/glad/glad.c.s
+.PHONY : dependencies/glad/glad/glad.s
 
 # target to generate assembly for a file
-dependencies/include/glad/glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/include/glad/glad.c.s
-.PHONY : dependencies/include/glad/glad.c.s
+dependencies/glad/glad/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\glad.dir\build.make CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.s
+.PHONY : dependencies/glad/glad/glad.c.s
 
-dependencies/include/stb_image/stb_image.obj: dependencies/include/stb_image/stb_image.cpp.obj
-.PHONY : dependencies/include/stb_image/stb_image.obj
+dependencies/stb_image/stb_image.obj: dependencies/stb_image/stb_image.cpp.obj
+.PHONY : dependencies/stb_image/stb_image.obj
 
 # target to build an object file
-dependencies/include/stb_image/stb_image.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine.dir\build.make CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj
-.PHONY : dependencies/include/stb_image/stb_image.cpp.obj
+dependencies/stb_image/stb_image.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\stb_image.dir\build.make CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.obj
+.PHONY : dependencies/stb_image/stb_image.cpp.obj
 
-dependencies/include/stb_image/stb_image.i: dependencies/include/stb_image/stb_image.cpp.i
-.PHONY : dependencies/include/stb_image/stb_image.i
+dependencies/stb_image/stb_image.i: dependencies/stb_image/stb_image.cpp.i
+.PHONY : dependencies/stb_image/stb_image.i
 
 # target to preprocess a source file
-dependencies/include/stb_image/stb_image.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine.dir\build.make CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.i
-.PHONY : dependencies/include/stb_image/stb_image.cpp.i
+dependencies/stb_image/stb_image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\stb_image.dir\build.make CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.i
+.PHONY : dependencies/stb_image/stb_image.cpp.i
 
-dependencies/include/stb_image/stb_image.s: dependencies/include/stb_image/stb_image.cpp.s
-.PHONY : dependencies/include/stb_image/stb_image.s
+dependencies/stb_image/stb_image.s: dependencies/stb_image/stb_image.cpp.s
+.PHONY : dependencies/stb_image/stb_image.s
 
 # target to generate assembly for a file
-dependencies/include/stb_image/stb_image.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\engine.dir\build.make CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.s
-.PHONY : dependencies/include/stb_image/stb_image.cpp.s
+dependencies/stb_image/stb_image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\stb_image.dir\build.make CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.s
+.PHONY : dependencies/stb_image/stb_image.cpp.s
 
 src/core/application.obj: src/core/application.cpp.obj
 .PHONY : src/core/application.obj
@@ -596,17 +635,20 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... update_mappings
 	@echo ... engine
 	@echo ... glad
+	@echo ... glfw
+	@echo ... stb_image
 	@echo ... cmake_pch.hxx.gch
 	@echo ... cmake_pch.hxx.i
 	@echo ... cmake_pch.hxx.s
-	@echo ... dependencies/include/glad/glad.obj
-	@echo ... dependencies/include/glad/glad.i
-	@echo ... dependencies/include/glad/glad.s
-	@echo ... dependencies/include/stb_image/stb_image.obj
-	@echo ... dependencies/include/stb_image/stb_image.i
-	@echo ... dependencies/include/stb_image/stb_image.s
+	@echo ... dependencies/glad/glad/glad.obj
+	@echo ... dependencies/glad/glad/glad.i
+	@echo ... dependencies/glad/glad/glad.s
+	@echo ... dependencies/stb_image/stb_image.obj
+	@echo ... dependencies/stb_image/stb_image.i
+	@echo ... dependencies/stb_image/stb_image.s
 	@echo ... src/core/application.obj
 	@echo ... src/core/application.i
 	@echo ... src/core/application.s

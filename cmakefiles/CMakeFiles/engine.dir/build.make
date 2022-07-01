@@ -84,30 +84,13 @@ CMakeFiles/engine.dir/cmake_pch.hxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/cmake_pch.hxx.s"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -x c++-header -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -S E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles\engine.dir\cmake_pch.hxx.cxx -o CMakeFiles\engine.dir\cmake_pch.hxx.s
 
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: ../dependencies/include/stb_image/stb_image.cpp
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj -MF CMakeFiles\engine.dir\dependencies\include\stb_image\stb_image.cpp.obj.d -o CMakeFiles\engine.dir\dependencies\include\stb_image\stb_image.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\stb_image\stb_image.cpp
-
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.i"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -E E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\stb_image\stb_image.cpp > CMakeFiles\engine.dir\dependencies\include\stb_image\stb_image.cpp.i
-
-CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.s"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -S E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\stb_image\stb_image.cpp -o CMakeFiles\engine.dir\dependencies\include\stb_image\stb_image.cpp.s
-
 CMakeFiles/engine.dir/src/core/application.cpp.obj: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/core/application.cpp.obj: CMakeFiles/engine.dir/includes_CXX.rsp
 CMakeFiles/engine.dir/src/core/application.cpp.obj: ../src/core/application.cpp
 CMakeFiles/engine.dir/src/core/application.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/core/application.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/core/application.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/core/application.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/engine.dir/src/core/application.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/application.cpp.obj -MF CMakeFiles\engine.dir\src\core\application.cpp.obj.d -o CMakeFiles\engine.dir\src\core\application.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\core\application.cpp
 
 CMakeFiles/engine.dir/src/core/application.cpp.i: cmake_force
@@ -124,7 +107,7 @@ CMakeFiles/engine.dir/src/core/entry_point.cpp.obj: ../src/core/entry_point.cpp
 CMakeFiles/engine.dir/src/core/entry_point.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/core/entry_point.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/core/entry_point.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/core/entry_point.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/engine.dir/src/core/entry_point.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/entry_point.cpp.obj -MF CMakeFiles\engine.dir\src\core\entry_point.cpp.obj.d -o CMakeFiles\engine.dir\src\core\entry_point.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\core\entry_point.cpp
 
 CMakeFiles/engine.dir/src/core/entry_point.cpp.i: cmake_force
@@ -141,7 +124,7 @@ CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj: ../src/core/flappy_app.cpp
 CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj -MF CMakeFiles\engine.dir\src\core\flappy_app.cpp.obj.d -o CMakeFiles\engine.dir\src\core\flappy_app.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\core\flappy_app.cpp
 
 CMakeFiles/engine.dir/src/core/flappy_app.cpp.i: cmake_force
@@ -158,7 +141,7 @@ CMakeFiles/engine.dir/src/core/window.cpp.obj: ../src/core/window.cpp
 CMakeFiles/engine.dir/src/core/window.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/core/window.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/core/window.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/core/window.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/core/window.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/window.cpp.obj -MF CMakeFiles\engine.dir\src\core\window.cpp.obj.d -o CMakeFiles\engine.dir\src\core\window.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\core\window.cpp
 
 CMakeFiles/engine.dir/src/core/window.cpp.i: cmake_force
@@ -175,7 +158,7 @@ CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj: ../src/graphics/gl_dr
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\gl_driver_info.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\gl_driver_info.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\gl_driver_info.cpp
 
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.i: cmake_force
@@ -192,7 +175,7 @@ CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj: ../src/graphics/renderer.cp
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/renderer.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\renderer.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\renderer.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\renderer.cpp
 
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.i: cmake_force
@@ -209,7 +192,7 @@ CMakeFiles/engine.dir/src/graphics/shader.cpp.obj: ../src/graphics/shader.cpp
 CMakeFiles/engine.dir/src/graphics/shader.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/shader.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/shader.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/graphics/shader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/graphics/shader.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/shader.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\shader.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\shader.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\shader.cpp
 
 CMakeFiles/engine.dir/src/graphics/shader.cpp.i: cmake_force
@@ -226,7 +209,7 @@ CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj: ../src/graphics/sprite.cpp
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/sprite.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\sprite.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\sprite.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\sprite.cpp
 
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.i: cmake_force
@@ -243,7 +226,7 @@ CMakeFiles/engine.dir/src/graphics/texture.cpp.obj: ../src/graphics/texture.cpp
 CMakeFiles/engine.dir/src/graphics/texture.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/texture.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/texture.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/texture.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\texture.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\texture.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\texture.cpp
 
 CMakeFiles/engine.dir/src/graphics/texture.cpp.i: cmake_force
@@ -260,7 +243,7 @@ CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj: ../src/graphics/text
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\texture_manager.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\texture_manager.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\texture_manager.cpp
 
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.i: cmake_force
@@ -277,7 +260,7 @@ CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj: ../src/graphics/transfo
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\transform_2D.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\transform_2D.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\transform_2D.cpp
 
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.i: cmake_force
@@ -294,7 +277,7 @@ CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj: ../src/graphics/vertex_
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.obj -MF CMakeFiles\engine.dir\src\graphics\vertex_array.cpp.obj.d -o CMakeFiles\engine.dir\src\graphics\vertex_array.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\graphics\vertex_array.cpp
 
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.i: cmake_force
@@ -311,7 +294,7 @@ CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj: ../src/maths/math_except
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/maths/math_exception.cpp.obj -MF CMakeFiles\engine.dir\src\maths\math_exception.cpp.obj.d -o CMakeFiles\engine.dir\src\maths\math_exception.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\maths\math_exception.cpp
 
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.i: cmake_force
@@ -328,7 +311,7 @@ CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj: ../src/utils/file_loader.cp
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/file_loader.cpp.obj -MF CMakeFiles\engine.dir\src\utils\file_loader.cpp.obj.d -o CMakeFiles\engine.dir\src\utils\file_loader.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\utils\file_loader.cpp
 
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.i: cmake_force
@@ -345,7 +328,7 @@ CMakeFiles/engine.dir/src/utils/lerp.cpp.obj: ../src/utils/lerp.cpp
 CMakeFiles/engine.dir/src/utils/lerp.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/lerp.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/lerp.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/engine.dir/src/utils/lerp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/engine.dir/src/utils/lerp.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/lerp.cpp.obj -MF CMakeFiles\engine.dir\src\utils\lerp.cpp.obj.d -o CMakeFiles\engine.dir\src\utils\lerp.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\utils\lerp.cpp
 
 CMakeFiles/engine.dir/src/utils/lerp.cpp.i: cmake_force
@@ -362,7 +345,7 @@ CMakeFiles/engine.dir/src/utils/logger.cpp.obj: ../src/utils/logger.cpp
 CMakeFiles/engine.dir/src/utils/logger.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/logger.cpp.obj: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/logger.cpp.obj: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/engine.dir/src/utils/logger.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/engine.dir/src/utils/logger.cpp.obj"
 	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\g++.exe" $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/logger.cpp.obj -MF CMakeFiles\engine.dir\src\utils\logger.cpp.obj.d -o CMakeFiles\engine.dir\src\utils\logger.cpp.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\src\utils\logger.cpp
 
 CMakeFiles/engine.dir/src/utils/logger.cpp.i: cmake_force
@@ -375,7 +358,6 @@ CMakeFiles/engine.dir/src/utils/logger.cpp.s: cmake_force
 
 # Object files for target engine
 engine_OBJECTS = \
-"CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj" \
 "CMakeFiles/engine.dir/src/core/application.cpp.obj" \
 "CMakeFiles/engine.dir/src/core/entry_point.cpp.obj" \
 "CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj" \
@@ -397,7 +379,6 @@ engine_OBJECTS = \
 engine_EXTERNAL_OBJECTS =
 
 ../build/bin/engine.exe: CMakeFiles/engine.dir/cmake_pch.hxx.gch
-../build/bin/engine.exe: CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj
 ../build/bin/engine.exe: CMakeFiles/engine.dir/src/core/application.cpp.obj
 ../build/bin/engine.exe: CMakeFiles/engine.dir/src/core/entry_point.cpp.obj
 ../build/bin/engine.exe: CMakeFiles/engine.dir/src/core/flappy_app.cpp.obj
@@ -415,11 +396,13 @@ engine_EXTERNAL_OBJECTS =
 ../build/bin/engine.exe: CMakeFiles/engine.dir/src/utils/lerp.cpp.obj
 ../build/bin/engine.exe: CMakeFiles/engine.dir/src/utils/logger.cpp.obj
 ../build/bin/engine.exe: CMakeFiles/engine.dir/build.make
+../build/bin/engine.exe: dependencies/glfw/src/libglfw3.a
 ../build/bin/engine.exe: ../build/lib/libglad.a
+../build/bin/engine.exe: ../build/lib/libstb_image.a
 ../build/bin/engine.exe: CMakeFiles/engine.dir/linklibs.rsp
 ../build/bin/engine.exe: CMakeFiles/engine.dir/objects1.rsp
 ../build/bin/engine.exe: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable ..\build\bin\engine.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ..\build\bin\engine.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\engine.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,2 +1,2 @@
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc ..\build\lib\libglad.a CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj
+"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc ..\build\lib\libglad.a CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj
 "E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ranlib.exe" ..\build\lib\libglad.a

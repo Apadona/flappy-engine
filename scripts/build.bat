@@ -7,6 +7,6 @@ cd cmakefiles
 
 cmake .. -G"MinGW Makefiles"
 
-cmake --build .
+cmake --build . -j2
 
 pause

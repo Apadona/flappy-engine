@@ -1,1 +1,1 @@
-  -LE:/Barnamenevisi/Prozhe_ha/Man/engine/dependencies/lib/glfw/32  -lopengl32 -lglfw3dll ../build/lib/libglad.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+ -lopengl32 dependencies/glfw/src/libglfw3.a ../build/lib/libglad.a ../build/lib/libstb_image.a -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 

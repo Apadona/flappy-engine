@@ -10,8 +10,6 @@ CXX_FLAGS = -m32 -O2 -Wall -Wextra -s -std=gnu++1z
 
 # PCH options: CMakeFiles/engine.dir/cmake_pch.hxx.gch_OPTIONS = -Winvalid-pch;-x;c++-header;-include;E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 
-# PCH options: CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj_OPTIONS = -Winvalid-pch;-include;E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
-
 # PCH options: CMakeFiles/engine.dir/src/core/application.cpp.obj_OPTIONS = -Winvalid-pch;-include;E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/engine.dir/src/core/entry_point.cpp.obj_OPTIONS = -Winvalid-pch;-include;E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx

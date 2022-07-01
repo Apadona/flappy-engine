@@ -68,28 +68,29 @@ include CMakeFiles/glad.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/glad.dir/flags.make
 
-CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj: CMakeFiles/glad.dir/flags.make
-CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj: ../dependencies/include/glad/glad.c
-CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj: CMakeFiles/glad.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj -MF CMakeFiles\glad.dir\dependencies\include\glad\glad.c.obj.d -o CMakeFiles\glad.dir\dependencies\include\glad\glad.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\glad\glad.c
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj: CMakeFiles/glad.dir/flags.make
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj: CMakeFiles/glad.dir/includes_C.rsp
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj: ../dependencies/glad/glad/glad.c
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj: CMakeFiles/glad.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj -MF CMakeFiles\glad.dir\dependencies\glad\glad\glad.c.obj.d -o CMakeFiles\glad.dir\dependencies\glad\glad\glad.c.obj -c E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\glad\glad\glad.c
 
-CMakeFiles/glad.dir/dependencies/include/glad/glad.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glad.dir/dependencies/include/glad/glad.c.i"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\glad\glad.c > CMakeFiles\glad.dir\dependencies\include\glad\glad.c.i
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.i"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\glad\glad\glad.c > CMakeFiles\glad.dir\dependencies\glad\glad\glad.c.i
 
-CMakeFiles/glad.dir/dependencies/include/glad/glad.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glad.dir/dependencies/include/glad/glad.c.s"
-	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\include\glad\glad.c -o CMakeFiles\glad.dir\dependencies\include\glad\glad.c.s
+CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.s"
+	"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Barnamenevisi\Prozhe_ha\Man\engine\dependencies\glad\glad\glad.c -o CMakeFiles\glad.dir\dependencies\glad\glad\glad.c.s
 
 # Object files for target glad
 glad_OBJECTS = \
-"CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj"
+"CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj"
 
 # External object files for target glad
 glad_EXTERNAL_OBJECTS =
 
-../build/lib/libglad.a: CMakeFiles/glad.dir/dependencies/include/glad/glad.c.obj
+../build/lib/libglad.a: CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.obj
 ../build/lib/libglad.a: CMakeFiles/glad.dir/build.make
 ../build/lib/libglad.a: CMakeFiles/glad.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=E:\Barnamenevisi\Prozhe_ha\Man\engine\cmakefiles\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ..\build\lib\libglad.a"

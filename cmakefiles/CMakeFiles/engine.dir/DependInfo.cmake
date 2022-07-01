@@ -10,8 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx.cxx" "CMakeFiles/engine.dir/cmake_pch.hxx.gch" "gcc" "CMakeFiles/engine.dir/cmake_pch.hxx.gch.d"
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx" "CMakeFiles/engine.dir/cmake_pch.hxx.gch" "gcc" "CMakeFiles/engine.dir/cmake_pch.hxx.gch.d"
-  "E:/Barnamenevisi/Prozhe_ha/Man/engine/dependencies/include/stb_image/stb_image.cpp" "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj" "gcc" "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj.d"
-  "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx" "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj" "gcc" "CMakeFiles/engine.dir/dependencies/include/stb_image/stb_image.cpp.obj.d"
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/src/core/application.cpp" "CMakeFiles/engine.dir/src/core/application.cpp.obj" "gcc" "CMakeFiles/engine.dir/src/core/application.cpp.obj.d"
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx" "CMakeFiles/engine.dir/src/core/application.cpp.obj" "gcc" "CMakeFiles/engine.dir/src/core/application.cpp.obj.d"
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/src/core/entry_point.cpp" "CMakeFiles/engine.dir/src/core/entry_point.cpp.obj" "gcc" "CMakeFiles/engine.dir/src/core/entry_point.cpp.obj.d"
@@ -48,7 +46,9 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/dependencies/glfw/src/CMakeFiles/glfw.dir/DependInfo.cmake"
   "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/glad.dir/DependInfo.cmake"
+  "E:/Barnamenevisi/Prozhe_ha/Man/engine/cmakefiles/CMakeFiles/stb_image.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

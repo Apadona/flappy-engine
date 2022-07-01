@@ -4,7 +4,7 @@
 # compile C with E:/Barnamenevisi/abzar ha/c++/Compiler/MinGW(7.3.0)/bin/gcc.exe
 C_DEFINES = 
 
-C_INCLUDES = 
+C_INCLUDES = @CMakeFiles/glad.dir/includes_C.rsp
 
 C_FLAGS = -m32 -O3
 
