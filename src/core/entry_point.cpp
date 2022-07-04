@@ -31,7 +31,7 @@ int main( int argc, char** argv, char** env )
         return -1;
     }
 
-    //glEnable(GL_BLEND);
+    glEnable(GL_BLEND);
     //Texture wood_texture(texture_path + "awesomeface.bmp");
     //Sprite sprite(&wood_texture,{{0.0f,0.0f},{1.0f,1.0f},0.0f},{0.4f,0.2f,0.8f,1.0f});
 

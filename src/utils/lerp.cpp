@@ -26,12 +26,14 @@ namespace
     }
 }
 
-Lerp::Lerp( float lower, float upper, float step ) : m_step(step), m_current_value(m_lower)
+Lerp::Lerp( float lower, float upper, float step ) : m_step(step)
 {
    std::pair<float,float> _pair = MinMax(lower,upper);
 
     m_lower = _pair.first;
     m_upper = _pair.second;
+
+    m_current_value = m_lower;
 }
 
 void Lerp::Update()

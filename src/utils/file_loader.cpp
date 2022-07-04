@@ -12,15 +12,15 @@ std::string LoadFile( const std::string& file_path )
 
         reader.close();
         
-        return std::move(file_content);
+        return file_content; // TODO: must do better than this, this isn't optimal.
     }
 
     return {};
 }
 
-bool ValidateFile( const std::string& file_path )
+bool ValidateFilePath( const std::string& file_path )
 {
-    // TODO:must find a better way to validate file (using the OS API or filesystem API)
+    // TODO:must find a better way to validate file ( using the OS API or filesystem API )
     std::ifstream reader(file_path.data());
     if( reader.is_open() )
     {

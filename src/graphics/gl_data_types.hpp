@@ -47,7 +47,14 @@ enum GLDataType
     MAT34,
     MAT42,
     MAT43,
-    MAT44,           
+    MAT44,
+
+    // Sampler
+    TEXTURE_1D,
+    TEXTURE_2D,
+    TEXTURE_3D,
+
+    TEXTURE_CUBE_MAP
 };
 
 inline constexpr GLDataType ConvertType( GLenum data_type )
@@ -132,6 +139,18 @@ inline constexpr GLDataType ConvertType( GLenum data_type )
         case GL_FLOAT_MAT4:
             return MAT44;
 
+        case GL_SAMPLER_1D:
+            return TEXTURE_1D;
+
+        case GL_SAMPLER_2D:
+            return TEXTURE_2D;
+
+        case GL_SAMPLER_3D:
+            return TEXTURE_3D;
+
+        case GL_SAMPLER_CUBE:
+            return TEXTURE_CUBE_MAP;
+
         default:
             LOG_WARNING("certain type of OpenGL data type is not handeled now!\n");
             return NONE;
@@ -196,6 +215,19 @@ inline constexpr GLint CalculateSize( GLDataType type ) // in BYTES
         case MAT44:
             return 64;
 
+        case TEXTURE_1D:
+            return 0;
+
+        case TEXTURE_2D:
+            return 0;
+
+        case TEXTURE_3D:
+            return 0;
+
+        case TEXTURE_CUBE_MAP:
+            return 0;
+
+
         default:
             LOG_WARNING("invalid type sent to CalculateSize function!\n");
             return 0;
@@ -256,6 +288,18 @@ inline constexpr GLint CalculateComponent( GLDataType type )
         case MAT44:
             return 16;
 
+        case TEXTURE_1D:
+            return 0;
+
+        case TEXTURE_2D:
+            return 0;
+
+        case TEXTURE_3D:
+            return 0;
+
+        case TEXTURE_CUBE_MAP:
+            return 0;
+
         default:
             LOG_WARNING("invalid type sent to CalculateComponent function!\n");
             return 0;
@@ -305,6 +349,12 @@ inline constexpr GLint CalculateType( GLDataType type )
 
         case _DOUBLE:
             return GL_DOUBLE;
+
+        case TEXTURE_1D:
+        case TEXTURE_2D:
+        case TEXTURE_3D:
+        case TEXTURE_CUBE_MAP:
+            return GL_TEXTURE;
 
         default:
             LOG_WARNING("invalid type sent to CalculateType function!\n");

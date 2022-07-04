@@ -1,5 +1,4 @@
 #include "renderer.hpp"
-#include "shapes.hpp"
 #include "texture_manager.hpp"
 #include <maths/matrix_operations.hpp>
 
@@ -13,18 +12,26 @@ bool Renderer::Init()
     TextureManager::Init();
     //TextureManager::Get().PrintStatus();
 
-    m_triangle_vao.AddLayout(triangle.vertex_pos,GLDataType::VEC3);
-    m_triangle_vao.AddLayout(triangle.texture_uv,GLDataType::VEC2);
+    m_triangle_pos_vbo.Fill(triangle.vertex_pos);
+    m_triangle_uv_vbo.Fill(triangle.texture_uv);
+    m_triangle_ebo.Fill(triangle.indecies);
+
+    m_rectangle_pos_vbo.Fill(rectangle.vertex_pos);
+    m_rectangle_uv_vbo.Fill(rectangle.texture_uv);
+    m_rectangle_ebo.Fill(rectangle.indecies);
+
+    m_triangle_vao.AddLayout(m_triangle_pos_vbo,GLDataType::VEC3);
+    m_triangle_vao.AddLayout(m_triangle_uv_vbo,GLDataType::VEC2);
     m_triangle_vao.SetIndexBuffer(triangle.indecies);
 
-    m_rectangle_vao.AddLayout(rectangle.vertex_pos,GLDataType::VEC3);
-    m_rectangle_vao.AddLayout(rectangle.texture_uv,GLDataType::VEC2);
+    m_rectangle_vao.AddLayout(m_rectangle_pos_vbo,GLDataType::VEC3);
+    m_rectangle_vao.AddLayout(m_rectangle_uv_vbo,GLDataType::VEC2);
     m_rectangle_vao.SetIndexBuffer(rectangle.indecies);
 
     stbi_set_flip_vertically_on_load(true);
 
-    if( !m_default_texture.Create("data/textures/white.bmp") )
-        LOG_ERROR("could not create default white texture!\n");
+    if( !m_default_texture.Create("data/textures/awesomeface.png") )
+        LOG_ERROR("could not create default texture!\n");
 
     if( m_shader.Create("data/shaders/vertex.vert","data/shaders/fragment.frag") )
     {
@@ -85,9 +92,9 @@ void Renderer::DrawRectangle( const Transform2D& transform, const Vec4& color )
 {
     Prepare();
 
+    glActiveTexture(GL_TEXTURE0);
     m_rectangle_vao.Bind();
     m_default_texture.Bind();
-    glActiveTexture(GL_TEXTURE0);
     
     m_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
     m_shader.SetUniform("texture_image",0); 

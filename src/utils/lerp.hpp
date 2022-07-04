@@ -15,7 +15,7 @@ class Lerp
         float GetValue() const { return m_current_value; }
 
     private:
-        float m_lower,m_upper;
         float m_step;
-        float m_current_value;
+        float m_lower = 0, m_upper = 0;
+        float m_current_value = 0;
 };

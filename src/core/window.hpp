@@ -1,6 +1,6 @@
 #pragma once
 
-#include <glfw/glfw3.h>
+#include <GLFW/glfw3.h>
 
 #include <engine_pch.hpp>
 
@@ -36,14 +36,14 @@ class Window
         std::int16_t m_width, m_height, m_x, m_y;
         std::string_view m_title;
         
-        struct GLContext
+        /*struct GLContext
         {
             GLContext() : major(1), minor(2) {}
             GLContext( int8_t _major, int8_t _minor ) : major(_major), minor(_minor) {}
 
             int8_t major;
             int8_t minor;
-        } m_gl_context;
+        } m_gl_context;*/
 
         GLFWwindow* m_window;
 

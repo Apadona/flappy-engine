@@ -23,11 +23,11 @@ class GLBuffer
         GLBuffer( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
         GLBuffer( std::vector<T>&& data, VertexDataUsage usage = VertexDataUsage::STATIC );
         GLBuffer( const GLBuffer<T,type>& buffer );
-        GLBuffer( GLBuffer&& buffer );
+        GLBuffer( GLBuffer<T,type>&& buffer );
 
         ~GLBuffer();
 
-        void Fill( const std::vector<T>& data, VertexDataUsage usage );
+        void Fill( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
 
         void Bind( bool bind = true );
         bool IsFilled() const { return m_data.size() != 0; };

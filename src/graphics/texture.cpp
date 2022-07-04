@@ -91,9 +91,9 @@ Texture::Texture( const std::string& texture_file_path )
         LOG_ERROR("could not make the texture");
 }
 
-Texture::Texture( TextureType type, GLint width, GLint height, unsigned char* data )
+Texture::Texture( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format )
 {
-    if( !Create(type,width,height,data) )
+    if( !Create(type,width,height,data,format) )
         LOG_ERROR("could not make the texture");
 }
 
@@ -143,16 +143,24 @@ bool Texture::Create( const std::string& texture_file_path )
     int bpp; // bytes per pixel.
     m_data = stbi_load(texture_file_path.c_str(),&m_width,&m_height,&bpp,0);
 
+    TextureFormat format;
+
+    if( bpp == 3 )
+        format = TextureFormat::RGB;
+
+    else if( bpp == 4 )
+        format = TextureFormat::RGBA;
+
     if( !m_data )
     {
         LOG_ERROR("file that was given to create texture is empty!\n");
         return false;
     }
 
-    return Create(m_type,m_width,m_height,m_data);
+    return Create(m_type,m_width,m_height,m_data,format);
 }
 
-bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char* data )
+bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format )
 {
     bool currect_data_passed = true;
 
@@ -178,6 +186,7 @@ bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char
         return false;
 
     m_type = type;
+    m_format = format;
     m_width = width;
     m_height = height;
     m_data = data;
@@ -194,8 +203,8 @@ bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char
     glTexParameteri(GetGLTextureType(m_type), GL_TEXTURE_MIN_FILTER, GetGLTextureFilter(m_filter_method));
     glTexParameteri(GetGLTextureType(m_type), GL_TEXTURE_MAG_FILTER, GetGLTextureFilter(m_filter_method));
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB,m_width,m_height,0,
-                GL_RGB,GL_UNSIGNED_BYTE,m_data);
+    glTexImage2D(GL_TEXTURE_2D, 0, GetGLTextureFormat(m_format),m_width,m_height,0,
+                GetGLTextureFormat(m_format),GL_UNSIGNED_BYTE,m_data);
 
     Bind(false);
 

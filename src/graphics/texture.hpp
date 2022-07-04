@@ -45,7 +45,7 @@ class Texture
     public:
         Texture() = default;
         Texture( const std::string& texture_file_path );
-        Texture( TextureType type, GLint width, GLint height, unsigned char* data );
+        Texture( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format );
         Texture( Texture&& other );
 
         Texture& operator=( Texture&& ohter );
@@ -53,7 +53,7 @@ class Texture
         ~Texture();
 
         bool Create( const std::string& texture_file_path );
-        bool Create( TextureType type, GLint width, GLint height, unsigned char* data );
+        bool Create( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format );
 
         void SetFilteringMethod( TextureFiltering filtering_method )
         {

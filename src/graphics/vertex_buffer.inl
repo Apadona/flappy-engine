@@ -14,15 +14,15 @@ GLBuffer<T,type>::GLBuffer( std::vector<T>&& data, VertexDataUsage usage )
 }
 
 template<typename T,GLenum type>
-GLBuffer<T,type>::GLBuffer( const GLBuffer<T,type>& buffer )
+GLBuffer<T,type>::GLBuffer( const GLBuffer<T,type>& other )
 {
-    Fill(buffer.m_data,buffer.usage);
+    Fill(other.m_data,other.usage);
 }
 
 template<typename T,GLenum type>
-GLBuffer<T,type>::GLBuffer( GLBuffer<T,type>&& buffer ) : m_data(std::move(buffer.m_data))
+GLBuffer<T,type>::GLBuffer( GLBuffer<T,type>&& other ) : m_data(std::move(other.m_data))
 {
-    Fill(m_data,buffer.usage);
+    Fill(m_data,other.usage);
 }
 
 template<typename T,GLenum type>

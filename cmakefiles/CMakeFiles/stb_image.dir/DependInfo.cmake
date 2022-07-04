@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Barnamenevisi/Prozhe_ha/Man/engine/dependencies/stb_image/stb_image.cpp" "CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.obj" "gcc" "CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.obj.d"
+  "/home/saeed/Desktop/engine/dependencies/stb_image/stb_image.cpp" "CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.o" "gcc" "CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.o.d"
   )
 
 # Targets to which this target links.

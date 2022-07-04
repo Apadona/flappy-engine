@@ -6,8 +6,8 @@ Window::Window( std::int16_t size_x, std::int16_t size_y, const std::string_view
                 std::int16_t pos_x, std::int16_t pos_y,
                 int8_t gl_major_version, int8_t gl_minor_version ) :
 
-                m_width(size_x), m_height(size_y), m_x(pos_x), m_y(pos_y), m_title(title),
-                m_gl_context(gl_major_version,gl_minor_version)
+                m_width(size_x), m_height(size_y), m_x(pos_x), m_y(pos_y), m_title(title)/*,
+                m_gl_context(gl_major_version,gl_minor_version)*/
 {
     HandleCreation();
 }
@@ -81,7 +81,7 @@ void Window::ReDraw() const
 
 void Window::HandleCreation()
 {
-    MakeGLContext(m_gl_context.major,m_gl_context.minor);
+    MakeGLContext(3,1);
 
     m_window = glfwCreateWindow(m_width,m_height,m_title.data(),nullptr,nullptr);
 

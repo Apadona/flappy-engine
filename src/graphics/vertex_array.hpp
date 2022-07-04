@@ -12,6 +12,7 @@ class VertexArray
         VertexArray();
 
         void Bind( bool bind = true );
+
         VertexArray& AddLayout( VertexBuffer& buffer, GLDataType type );
         VertexArray& AddLayout( VertexBuffer&& buffer, GLDataType type );
         //VertexArray& RemoveVertexBuffer( VertexBuffer& buffer );

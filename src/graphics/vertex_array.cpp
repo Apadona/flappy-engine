@@ -30,8 +30,10 @@ VertexArray& VertexArray::AddLayout( VertexBuffer& buffer, GLDataType type )
     GLenum gl_type = CalculateType(type);
     GLint type_size = CalculateSize(type);
 
-    glVertexAttribPointer(m_count,component_count,gl_type,GL_FALSE,type_size,(void*)0);
+    glVertexAttribPointer(m_count,component_count,gl_type,GL_FALSE,0,(void*)0);
     glEnableVertexAttribArray(m_count++);
+
+    m_offset += type_size;
 
     buffer.Bind(false);
     
@@ -54,7 +56,10 @@ VertexArray& VertexArray::AddLayout( VertexBuffer&& buffer, GLDataType type )
     GLenum gl_type = CalculateType(type);
     GLint type_size = CalculateSize(type);
 
-    glVertexAttribPointer(m_count,component_count,gl_type,GL_FALSE,type_size,(void*)0);
+    auto temp = m_offset;
+    m_offset += type_size;
+
+    glVertexAttribPointer(m_count,component_count,5 * sizeof(float),GL_FALSE,m_offset,(void*)temp);
     glEnableVertexAttribArray(m_count++);
 
     buffer.Bind(false);

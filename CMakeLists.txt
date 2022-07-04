@@ -25,7 +25,7 @@ target_include_directories( glad PRIVATE
                           )
 
 set_target_properties( glad PROPERTIES
-                            COMPILE_FLAGS "-m32 -O3"
+                            COMPILE_FLAGS "-O3"
                      )
 
 set_target_properties( glad PROPERTIES
@@ -36,7 +36,7 @@ set_target_properties( glad PROPERTIES
 add_library( stb_image STATIC "${build_deps}/stb_image/stb_image.cpp" )
 
 set_target_properties( stb_image PROPERTIES
-                            COMPILE_FLAGS "-m32 -O3"
+                            COMPILE_FLAGS "-O3"
                      )
 
 set_target_properties( stb_image PROPERTIES
@@ -70,7 +70,7 @@ target_precompile_headers( engine PRIVATE
 #                       )
 
 target_link_libraries( engine PRIVATE
-                          "opengl32"
+                          "GL"
 
                           glfw
                           glad
@@ -83,14 +83,14 @@ set_target_properties( engine PROPERTIES
 
 if( CMAKE_BUILD_TYPE STREQUAL "Debug" )
     set_target_properties( engine PROPERTIES
-                            COMPILE_FLAGS "-m32 -g3 -Wall -Wextra"
-                            LINK_FLAGS "-m32"
+                            COMPILE_FLAGS "-g3 -Wall -Wextra"
+                            
                          )
 
 else()
     set_target_properties( engine PROPERTIES
-                            COMPILE_FLAGS "-m32 -O2 -Wall -Wextra -s"
-                            LINK_FLAGS "-m32"
+                            COMPILE_FLAGS "-O2 -Wall -Wextra -s"
+                            
                          )
 
 endif()

@@ -2,7 +2,8 @@
 
 #ifdef __WIN32
     #include <windows.h>
-    #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+    // moved to engine_pch.hpp
+    // #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
 #endif
 
 // because WIN32 defines an ERROR macro!
@@ -166,6 +167,6 @@ std::string_view Logger::LevelToStr( LogLevel level )
                 return "[Debug]";
 
             default:
-                return nullptr;
+                return "";
         }
 }

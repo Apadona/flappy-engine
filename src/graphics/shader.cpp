@@ -350,7 +350,7 @@ void Shader::GetAllUniforms()
     GLint count = 0;
     glGetProgramiv(m_program_id, GL_ACTIVE_UNIFORMS, &count);
 
-    for ( GLint i = 0; i <= count; ++i )
+    for ( GLint i = 0; i < count; ++i )
     {
         glGetActiveUniform(m_program_id, (GLuint)i, 2048, nullptr, &size, &type, buffer);
 
