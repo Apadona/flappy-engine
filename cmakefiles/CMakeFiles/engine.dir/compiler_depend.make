@@ -304,7 +304,6 @@ CMakeFiles/engine.dir/src/core/application.cpp.o: CMakeFiles/engine.dir/cmake_pc
 CMakeFiles/engine.dir/src/core/entry_point.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx \
   ../src/core/entry_point.cpp \
   /usr/include/stdc-predef.h \
-  ../src/core/flappy_app.hpp \
   ../src/core/application.hpp \
   ../dependencies/glad/glad/glad.h \
   ../dependencies/glad/KHR/khrplatform.h \
@@ -477,21 +476,6 @@ CMakeFiles/engine.dir/src/core/entry_point.cpp.o: CMakeFiles/engine.dir/cmake_pc
   /usr/include/stdio.h \
   /usr/include/c++/7/stdlib.h \
   /usr/include/c++/7/cstdlib
-
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx \
-  ../src/core/flappy_app.cpp \
-  /usr/include/stdc-predef.h \
-  ../src/core/flappy_app.hpp \
-  ../src/core/application.hpp \
-  ../dependencies/glad/glad/glad.h \
-  ../dependencies/glad/KHR/khrplatform.h \
-  /usr/lib/gcc/x86_64-linux-gnu/7/include/stdint.h \
-  ../src/core/window.hpp \
-  ../dependencies/glfw/include/GLFW/glfw3.h \
-  /usr/lib/gcc/x86_64-linux-gnu/7/include/stddef.h \
-  ../src/maths/vector2D.hpp \
-  ../src/maths/math_exception.hpp \
-  ../src/maths/vector2D.inl
 
 CMakeFiles/engine.dir/src/core/window.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx \
   ../src/core/window.cpp \
@@ -1135,8 +1119,6 @@ CMakeFiles/engine.dir/src/utils/logger.cpp.o: CMakeFiles/engine.dir/cmake_pch.hx
 
 ../src/core/window.cpp:
 
-../src/core/flappy_app.cpp:
-
 /usr/include/c++/7/stdlib.h:
 
 ../dependencies/stb_image/stb_image.h:
@@ -1633,6 +1615,10 @@ CMakeFiles/engine.dir/cmake_pch.hxx:
 
 /usr/include/c++/7/exception:
 
+/usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h:
+
+/usr/include/wctype.h:
+
 /usr/include/c++/7/tr1/hypergeometric.tcc:
 
 /usr/include/ctype.h:
@@ -1830,12 +1816,6 @@ CMakeFiles/engine.dir/cmake_pch.hxx.cxx:
 ../dependencies/glm/ext/vector_int4_sized.hpp:
 
 /usr/include/c++/7/tr1/poly_laguerre.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/7/bits/c++config.h:
-
-/usr/include/wctype.h:
-
-../src/core/flappy_app.hpp:
 
 /usr/include/c++/7/tr1/riemann_zeta.tcc:
 

@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = 
 
-CXX_FLAGS = -O3 -std=gnu++1z
+CXX_FLAGS = -m64 -O3 -std=gnu++1z
 

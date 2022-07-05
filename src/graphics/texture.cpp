@@ -143,7 +143,7 @@ bool Texture::Create( const std::string& texture_file_path )
     int bpp; // bytes per pixel.
     m_data = stbi_load(texture_file_path.c_str(),&m_width,&m_height,&bpp,0);
 
-    TextureFormat format;
+    TextureFormat format = TextureFormat::INVALID;
 
     if( bpp == 3 )
         format = TextureFormat::RGB;

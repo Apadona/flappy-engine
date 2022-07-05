@@ -116,28 +116,12 @@ CMakeFiles/engine.dir/src/core/entry_point.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/core/entry_point.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -S /home/saeed/Desktop/engine/src/core/entry_point.cpp -o CMakeFiles/engine.dir/src/core/entry_point.cpp.s
 
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: CMakeFiles/engine.dir/flags.make
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: ../src/core/flappy_app.cpp
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/core/flappy_app.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/flappy_app.cpp.o -MF CMakeFiles/engine.dir/src/core/flappy_app.cpp.o.d -o CMakeFiles/engine.dir/src/core/flappy_app.cpp.o -c /home/saeed/Desktop/engine/src/core/flappy_app.cpp
-
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/engine.dir/src/core/flappy_app.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -E /home/saeed/Desktop/engine/src/core/flappy_app.cpp > CMakeFiles/engine.dir/src/core/flappy_app.cpp.i
-
-CMakeFiles/engine.dir/src/core/flappy_app.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/engine.dir/src/core/flappy_app.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -S /home/saeed/Desktop/engine/src/core/flappy_app.cpp -o CMakeFiles/engine.dir/src/core/flappy_app.cpp.s
-
 CMakeFiles/engine.dir/src/core/window.cpp.o: CMakeFiles/engine.dir/flags.make
 CMakeFiles/engine.dir/src/core/window.cpp.o: ../src/core/window.cpp
 CMakeFiles/engine.dir/src/core/window.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/core/window.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/core/window.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/core/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/engine.dir/src/core/window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/core/window.cpp.o -MF CMakeFiles/engine.dir/src/core/window.cpp.o.d -o CMakeFiles/engine.dir/src/core/window.cpp.o -c /home/saeed/Desktop/engine/src/core/window.cpp
 
 CMakeFiles/engine.dir/src/core/window.cpp.i: cmake_force
@@ -153,7 +137,7 @@ CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o: ../src/graphics/gl_driv
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o -MF CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o -c /home/saeed/Desktop/engine/src/graphics/gl_driver_info.cpp
 
 CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.i: cmake_force
@@ -169,7 +153,7 @@ CMakeFiles/engine.dir/src/graphics/renderer.cpp.o: ../src/graphics/renderer.cpp
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/graphics/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/engine.dir/src/graphics/renderer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/renderer.cpp.o -MF CMakeFiles/engine.dir/src/graphics/renderer.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/renderer.cpp.o -c /home/saeed/Desktop/engine/src/graphics/renderer.cpp
 
 CMakeFiles/engine.dir/src/graphics/renderer.cpp.i: cmake_force
@@ -185,7 +169,7 @@ CMakeFiles/engine.dir/src/graphics/shader.cpp.o: ../src/graphics/shader.cpp
 CMakeFiles/engine.dir/src/graphics/shader.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/shader.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/shader.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/graphics/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/engine.dir/src/graphics/shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/shader.cpp.o -MF CMakeFiles/engine.dir/src/graphics/shader.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/shader.cpp.o -c /home/saeed/Desktop/engine/src/graphics/shader.cpp
 
 CMakeFiles/engine.dir/src/graphics/shader.cpp.i: cmake_force
@@ -201,7 +185,7 @@ CMakeFiles/engine.dir/src/graphics/sprite.cpp.o: ../src/graphics/sprite.cpp
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/graphics/sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/engine.dir/src/graphics/sprite.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/sprite.cpp.o -MF CMakeFiles/engine.dir/src/graphics/sprite.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/sprite.cpp.o -c /home/saeed/Desktop/engine/src/graphics/sprite.cpp
 
 CMakeFiles/engine.dir/src/graphics/sprite.cpp.i: cmake_force
@@ -217,7 +201,7 @@ CMakeFiles/engine.dir/src/graphics/texture.cpp.o: ../src/graphics/texture.cpp
 CMakeFiles/engine.dir/src/graphics/texture.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/texture.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/texture.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/texture.cpp.o -MF CMakeFiles/engine.dir/src/graphics/texture.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/texture.cpp.o -c /home/saeed/Desktop/engine/src/graphics/texture.cpp
 
 CMakeFiles/engine.dir/src/graphics/texture.cpp.i: cmake_force
@@ -233,7 +217,7 @@ CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o: ../src/graphics/textur
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o -MF CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o -c /home/saeed/Desktop/engine/src/graphics/texture_manager.cpp
 
 CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.i: cmake_force
@@ -249,7 +233,7 @@ CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o: ../src/graphics/transform
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o -MF CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o -c /home/saeed/Desktop/engine/src/graphics/transform_2D.cpp
 
 CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.i: cmake_force
@@ -265,7 +249,7 @@ CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o: ../src/graphics/vertex_ar
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o -MF CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o.d -o CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o -c /home/saeed/Desktop/engine/src/graphics/vertex_array.cpp
 
 CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.i: cmake_force
@@ -281,7 +265,7 @@ CMakeFiles/engine.dir/src/maths/math_exception.cpp.o: ../src/maths/math_exceptio
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/src/maths/math_exception.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/engine.dir/src/maths/math_exception.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/maths/math_exception.cpp.o -MF CMakeFiles/engine.dir/src/maths/math_exception.cpp.o.d -o CMakeFiles/engine.dir/src/maths/math_exception.cpp.o -c /home/saeed/Desktop/engine/src/maths/math_exception.cpp
 
 CMakeFiles/engine.dir/src/maths/math_exception.cpp.i: cmake_force
@@ -297,7 +281,7 @@ CMakeFiles/engine.dir/src/utils/file_loader.cpp.o: ../src/utils/file_loader.cpp
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/src/utils/file_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/engine.dir/src/utils/file_loader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/file_loader.cpp.o -MF CMakeFiles/engine.dir/src/utils/file_loader.cpp.o.d -o CMakeFiles/engine.dir/src/utils/file_loader.cpp.o -c /home/saeed/Desktop/engine/src/utils/file_loader.cpp
 
 CMakeFiles/engine.dir/src/utils/file_loader.cpp.i: cmake_force
@@ -313,7 +297,7 @@ CMakeFiles/engine.dir/src/utils/lerp.cpp.o: ../src/utils/lerp.cpp
 CMakeFiles/engine.dir/src/utils/lerp.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/lerp.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/lerp.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/engine.dir/src/utils/lerp.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/engine.dir/src/utils/lerp.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/lerp.cpp.o -MF CMakeFiles/engine.dir/src/utils/lerp.cpp.o.d -o CMakeFiles/engine.dir/src/utils/lerp.cpp.o -c /home/saeed/Desktop/engine/src/utils/lerp.cpp
 
 CMakeFiles/engine.dir/src/utils/lerp.cpp.i: cmake_force
@@ -329,7 +313,7 @@ CMakeFiles/engine.dir/src/utils/logger.cpp.o: ../src/utils/logger.cpp
 CMakeFiles/engine.dir/src/utils/logger.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx
 CMakeFiles/engine.dir/src/utils/logger.cpp.o: CMakeFiles/engine.dir/cmake_pch.hxx.gch
 CMakeFiles/engine.dir/src/utils/logger.cpp.o: CMakeFiles/engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/engine.dir/src/utils/logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/engine.dir/src/utils/logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -include /home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx -MD -MT CMakeFiles/engine.dir/src/utils/logger.cpp.o -MF CMakeFiles/engine.dir/src/utils/logger.cpp.o.d -o CMakeFiles/engine.dir/src/utils/logger.cpp.o -c /home/saeed/Desktop/engine/src/utils/logger.cpp
 
 CMakeFiles/engine.dir/src/utils/logger.cpp.i: cmake_force
@@ -344,7 +328,6 @@ CMakeFiles/engine.dir/src/utils/logger.cpp.s: cmake_force
 engine_OBJECTS = \
 "CMakeFiles/engine.dir/src/core/application.cpp.o" \
 "CMakeFiles/engine.dir/src/core/entry_point.cpp.o" \
-"CMakeFiles/engine.dir/src/core/flappy_app.cpp.o" \
 "CMakeFiles/engine.dir/src/core/window.cpp.o" \
 "CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o" \
 "CMakeFiles/engine.dir/src/graphics/renderer.cpp.o" \
@@ -362,35 +345,30 @@ engine_OBJECTS = \
 # External object files for target engine
 engine_EXTERNAL_OBJECTS =
 
-../build/bin/engine: CMakeFiles/engine.dir/cmake_pch.hxx.gch
-../build/bin/engine: CMakeFiles/engine.dir/src/core/application.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/core/entry_point.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/core/flappy_app.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/core/window.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/renderer.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/shader.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/sprite.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/texture.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/maths/math_exception.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/utils/file_loader.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/utils/lerp.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/src/utils/logger.cpp.o
-../build/bin/engine: CMakeFiles/engine.dir/build.make
-../build/bin/engine: dependencies/glfw/src/libglfw3.a
-../build/bin/engine: ../build/lib/libglad.a
-../build/bin/engine: ../build/lib/libstb_image.a
-../build/bin/engine: /usr/lib/x86_64-linux-gnu/librt.so
-../build/bin/engine: /usr/lib/x86_64-linux-gnu/libm.so
-../build/bin/engine: CMakeFiles/engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable ../build/bin/engine"
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/cmake_pch.hxx.gch
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/core/application.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/core/entry_point.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/core/window.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/gl_driver_info.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/renderer.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/shader.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/sprite.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/texture.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/texture_manager.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/transform_2D.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/graphics/vertex_array.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/maths/math_exception.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/utils/file_loader.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/utils/lerp.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/src/utils/logger.cpp.o
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/build.make
+../build/lib/linux/64/libengine.a: CMakeFiles/engine.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX static library ../build/lib/linux/64/libengine.a"
+	$(CMAKE_COMMAND) -P CMakeFiles/engine.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/engine.dir/build: ../build/bin/engine
+CMakeFiles/engine.dir/build: ../build/lib/linux/64/libengine.a
 .PHONY : CMakeFiles/engine.dir/build
 
 CMakeFiles/engine.dir/clean:

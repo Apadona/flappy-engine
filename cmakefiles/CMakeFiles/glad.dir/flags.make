@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/saeed/Desktop/engine/dependencies/glad
 
-C_FLAGS = -O3
+C_FLAGS = -m64 -O3
 

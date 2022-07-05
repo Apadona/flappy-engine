@@ -6,6 +6,7 @@
 
 #include <maths/vector2D.hpp>
 
+// represents a glfw abstraction.
 class Window
 {
     public:
@@ -13,6 +14,8 @@ class Window
                 std::int16_t pos_x, std::int16_t pos_y,
                 int8_t gl_major_version = 1, int8_t gl_minor_version = 2 );
         Window( const Window& other );
+
+        ~Window();
         
         void SetSize( std::int16_t size_x, std::int16_t size_y );
         void SetPosition( std::int16_t pos_x, std::int16_t pos_y );
@@ -45,7 +48,7 @@ class Window
             int8_t minor;
         } m_gl_context;*/
 
-        GLFWwindow* m_window;
+        GLFWwindow* glfw_window;
 
         void HandleCreation();
 

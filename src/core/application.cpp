@@ -17,7 +17,7 @@ std::optional<std::string> CommandLineArguments::operator[]( uint32_t index )
         return {};
     }
 }
-
+/*
 WindowApplication::WindowApplication() : m_window(400,300,"window",200,200) {}
 
 WindowApplication::WindowApplication( int16_t width, int16_t height, const std::string& title,
@@ -26,4 +26,4 @@ WindowApplication::WindowApplication( int16_t width, int16_t height, const std::
                                       m_title(title), m_window(width,height,m_title,pos_x,pos_y)
 {
 
-}
+}*/

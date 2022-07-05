@@ -19,16 +19,36 @@ class CommandLineArguments
 
 class Application
 {
-    public:        
+    friend int main( int argc, char** argv, char** env );
+
+    public:
+
+/*      
+        Called before anything else by the engine. use this to check variables passed to
+        your program and to initialize the window title and it's width and height.
+        Do not create the window here, as the engine will create it for you.
+*/
         virtual bool Init( int argc, char** argv, char** env ) = 0;
 
         virtual void OnCreate() = 0;
         virtual bool OnUpdate( float dt ) = 0;
         virtual void OnClose() = 0;
 
-        virtual void UpdateScreen() const = 0; // HACK. will change later.
+        //virtual void UpdateScreen() const = 0; // HACK. will change later.
+
+    protected:
+        std::string m_title = "engine";
+        std::uint16_t m_width = 800, m_height = 600;
+        Window* m_window = nullptr;
 };
 
+#define REGISTER_APP(app) \
+Application* RegisterApplication() \
+{\
+    return new app; \
+}\
+
+/*
 class WindowApplication : public Application
 {
     public:
@@ -42,4 +62,4 @@ class WindowApplication : public Application
     private:
         std::string m_title;
         Window m_window;
-};
+};*/

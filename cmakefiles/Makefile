@@ -156,6 +156,19 @@ engine/fast:
 .PHONY : engine/fast
 
 #=============================================================================
+# Target rules for targets named sandbox
+
+# Build rule for target.
+sandbox: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sandbox
+.PHONY : sandbox
+
+# fast build rule for target.
+sandbox/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/build
+.PHONY : sandbox/fast
+
+#=============================================================================
 # Target rules for targets named glfw
 
 # Build rule for target.
@@ -184,16 +197,19 @@ update_mappings/fast:
 # target to build an object file
 cmake_pch.hxx.gch:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/cmake_pch.hxx.gch
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/cmake_pch.hxx.gch
 .PHONY : cmake_pch.hxx.gch
 
 # target to preprocess a source file
 cmake_pch.hxx.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/cmake_pch.hxx.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/cmake_pch.hxx.i
 .PHONY : cmake_pch.hxx.i
 
 # target to generate assembly for a file
 cmake_pch.hxx.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/cmake_pch.hxx.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
 
 dependencies/glad/glad/glad.o: dependencies/glad/glad/glad.c.o
@@ -244,6 +260,30 @@ dependencies/stb_image/stb_image.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stb_image.dir/build.make CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.s
 .PHONY : dependencies/stb_image/stb_image.cpp.s
 
+sandbox/sandbox.o: sandbox/sandbox.cpp.o
+.PHONY : sandbox/sandbox.o
+
+# target to build an object file
+sandbox/sandbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/sandbox/sandbox.cpp.o
+.PHONY : sandbox/sandbox.cpp.o
+
+sandbox/sandbox.i: sandbox/sandbox.cpp.i
+.PHONY : sandbox/sandbox.i
+
+# target to preprocess a source file
+sandbox/sandbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/sandbox/sandbox.cpp.i
+.PHONY : sandbox/sandbox.cpp.i
+
+sandbox/sandbox.s: sandbox/sandbox.cpp.s
+.PHONY : sandbox/sandbox.s
+
+# target to generate assembly for a file
+sandbox/sandbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/sandbox/sandbox.cpp.s
+.PHONY : sandbox/sandbox.cpp.s
+
 src/core/application.o: src/core/application.cpp.o
 .PHONY : src/core/application.o
 
@@ -291,30 +331,6 @@ src/core/entry_point.s: src/core/entry_point.cpp.s
 src/core/entry_point.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/core/entry_point.cpp.s
 .PHONY : src/core/entry_point.cpp.s
-
-src/core/flappy_app.o: src/core/flappy_app.cpp.o
-.PHONY : src/core/flappy_app.o
-
-# target to build an object file
-src/core/flappy_app.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/core/flappy_app.cpp.o
-.PHONY : src/core/flappy_app.cpp.o
-
-src/core/flappy_app.i: src/core/flappy_app.cpp.i
-.PHONY : src/core/flappy_app.i
-
-# target to preprocess a source file
-src/core/flappy_app.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/core/flappy_app.cpp.i
-.PHONY : src/core/flappy_app.cpp.i
-
-src/core/flappy_app.s: src/core/flappy_app.cpp.s
-.PHONY : src/core/flappy_app.s
-
-# target to generate assembly for a file
-src/core/flappy_app.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/src/core/flappy_app.cpp.s
-.PHONY : src/core/flappy_app.cpp.s
 
 src/core/window.o: src/core/window.cpp.o
 .PHONY : src/core/window.o
@@ -640,6 +656,7 @@ help:
 	@echo "... engine"
 	@echo "... glad"
 	@echo "... glfw"
+	@echo "... sandbox"
 	@echo "... stb_image"
 	@echo "... cmake_pch.hxx.gch"
 	@echo "... cmake_pch.hxx.i"
@@ -650,15 +667,15 @@ help:
 	@echo "... dependencies/stb_image/stb_image.o"
 	@echo "... dependencies/stb_image/stb_image.i"
 	@echo "... dependencies/stb_image/stb_image.s"
+	@echo "... sandbox/sandbox.o"
+	@echo "... sandbox/sandbox.i"
+	@echo "... sandbox/sandbox.s"
 	@echo "... src/core/application.o"
 	@echo "... src/core/application.i"
 	@echo "... src/core/application.s"
 	@echo "... src/core/entry_point.o"
 	@echo "... src/core/entry_point.i"
 	@echo "... src/core/entry_point.s"
-	@echo "... src/core/flappy_app.o"
-	@echo "... src/core/flappy_app.i"
-	@echo "... src/core/flappy_app.s"
 	@echo "... src/core/window.o"
 	@echo "... src/core/window.i"
 	@echo "... src/core/window.s"

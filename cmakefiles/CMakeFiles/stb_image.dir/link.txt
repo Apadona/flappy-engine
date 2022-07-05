@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../build/lib/libstb_image.a CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.o
-/usr/bin/ranlib ../build/lib/libstb_image.a
+/usr/bin/ar qc ../build/lib/linux/64/libstb_image.a CMakeFiles/stb_image.dir/dependencies/stb_image/stb_image.cpp.o
+/usr/bin/ranlib ../build/lib/linux/64/libstb_image.a

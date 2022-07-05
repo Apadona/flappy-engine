@@ -19,6 +19,7 @@ enum class TextureType
 
 enum class TextureFormat
 {
+    INVALID,
     RGB,
     RGBA
 };

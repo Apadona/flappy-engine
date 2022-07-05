@@ -567,6 +567,9 @@ X11_xkbfile_INCLUDE_PATH:PATH=/usr/include
 //Path to a library.
 X11_xkbfile_LIB:FILEPATH=/usr/lib/x86_64-linux-gnu/libxkbfile.so
 
+//select build architecture (32 or 64) bit.
+architecture_64:BOOL=ON
+
 //Value Computed by CMake
 payan_name_BINARY_DIR:STATIC=/home/saeed/Desktop/engine/cmakefiles
 

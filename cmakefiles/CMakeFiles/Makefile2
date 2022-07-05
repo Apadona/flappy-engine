@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /home/saeed/Desktop/engine/cmakefiles
 all: CMakeFiles/glad.dir/all
 all: CMakeFiles/stb_image.dir/all
 all: CMakeFiles/engine.dir/all
+all: CMakeFiles/sandbox.dir/all
 all: dependencies/glfw/all
 .PHONY : all
 
@@ -77,6 +78,7 @@ preinstall: dependencies/glfw/preinstall
 clean: CMakeFiles/glad.dir/clean
 clean: CMakeFiles/stb_image.dir/clean
 clean: CMakeFiles/engine.dir/clean
+clean: CMakeFiles/sandbox.dir/clean
 clean: dependencies/glfw/clean
 .PHONY : clean
 
@@ -118,7 +120,7 @@ dependencies/glfw/src/clean: dependencies/glfw/src/CMakeFiles/update_mappings.di
 CMakeFiles/glad.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glad.dir/build.make CMakeFiles/glad.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=19,20 "Built target glad"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=18,19 "Built target glad"
 .PHONY : CMakeFiles/glad.dir/all
 
 # Build rule for subdir invocation for target.
@@ -144,7 +146,7 @@ CMakeFiles/glad.dir/clean:
 CMakeFiles/stb_image.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stb_image.dir/build.make CMakeFiles/stb_image.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stb_image.dir/build.make CMakeFiles/stb_image.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=45,46 "Built target stb_image"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=47,48 "Built target stb_image"
 .PHONY : CMakeFiles/stb_image.dir/all
 
 # Build rule for subdir invocation for target.
@@ -172,12 +174,12 @@ CMakeFiles/engine.dir/all: CMakeFiles/glad.dir/all
 CMakeFiles/engine.dir/all: CMakeFiles/stb_image.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/engine.dir/build.make CMakeFiles/engine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 "Built target engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 "Built target engine"
 .PHONY : CMakeFiles/engine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/engine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/saeed/Desktop/engine/cmakefiles/CMakeFiles 46
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saeed/Desktop/engine/cmakefiles/CMakeFiles 45
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/engine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saeed/Desktop/engine/cmakefiles/CMakeFiles 0
 .PHONY : CMakeFiles/engine.dir/rule
@@ -192,13 +194,42 @@ CMakeFiles/engine.dir/clean:
 .PHONY : CMakeFiles/engine.dir/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/sandbox.dir
+
+# All Build rule for target.
+CMakeFiles/sandbox.dir/all: dependencies/glfw/src/CMakeFiles/glfw.dir/all
+CMakeFiles/sandbox.dir/all: CMakeFiles/glad.dir/all
+CMakeFiles/sandbox.dir/all: CMakeFiles/stb_image.dir/all
+CMakeFiles/sandbox.dir/all: CMakeFiles/engine.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=44,45,46 "Built target sandbox"
+.PHONY : CMakeFiles/sandbox.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/sandbox.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saeed/Desktop/engine/cmakefiles/CMakeFiles 48
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/sandbox.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saeed/Desktop/engine/cmakefiles/CMakeFiles 0
+.PHONY : CMakeFiles/sandbox.dir/rule
+
+# Convenience name for target.
+sandbox: CMakeFiles/sandbox.dir/rule
+.PHONY : sandbox
+
+# clean rule for target.
+CMakeFiles/sandbox.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sandbox.dir/build.make CMakeFiles/sandbox.dir/clean
+.PHONY : CMakeFiles/sandbox.dir/clean
+
+#=============================================================================
 # Target rules for target dependencies/glfw/src/CMakeFiles/glfw.dir
 
 # All Build rule for target.
 dependencies/glfw/src/CMakeFiles/glfw.dir/all:
 	$(MAKE) $(MAKESILENT) -f dependencies/glfw/src/CMakeFiles/glfw.dir/build.make dependencies/glfw/src/CMakeFiles/glfw.dir/depend
 	$(MAKE) $(MAKESILENT) -f dependencies/glfw/src/CMakeFiles/glfw.dir/build.make dependencies/glfw/src/CMakeFiles/glfw.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44 "Built target glfw"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43 "Built target glfw"
 .PHONY : dependencies/glfw/src/CMakeFiles/glfw.dir/all
 
 # Build rule for subdir invocation for target.
@@ -224,7 +255,7 @@ dependencies/glfw/src/CMakeFiles/glfw.dir/clean:
 dependencies/glfw/src/CMakeFiles/update_mappings.dir/all:
 	$(MAKE) $(MAKESILENT) -f dependencies/glfw/src/CMakeFiles/update_mappings.dir/build.make dependencies/glfw/src/CMakeFiles/update_mappings.dir/depend
 	$(MAKE) $(MAKESILENT) -f dependencies/glfw/src/CMakeFiles/update_mappings.dir/build.make dependencies/glfw/src/CMakeFiles/update_mappings.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=47 "Built target update_mappings"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/saeed/Desktop/engine/cmakefiles/CMakeFiles --progress-num=49 "Built target update_mappings"
 .PHONY : dependencies/glfw/src/CMakeFiles/update_mappings.dir/all
 
 # Build rule for subdir invocation for target.

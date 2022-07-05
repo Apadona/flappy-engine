@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "../build/lib/libstb_image.a"
+  "../build/lib/linux/64/libstb_image.a"
 )

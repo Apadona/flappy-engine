@@ -18,41 +18,46 @@ Window::Window( const Window& other ) : m_width(other.m_width), m_height( other.
     HandleCreation();
 }
 
+Window::~Window()
+{
+    glfwDestroyWindow(glfw_window);
+}
+
 void Window::SetSize( std::int16_t size_x, std::int16_t size_y )
 {
     m_width = size_x, m_height = size_y;
-    glfwSetWindowSize(m_window,m_width,m_height);
+    glfwSetWindowSize(glfw_window,m_width,m_height);
 }
 
 void Window::SetPosition( std::int16_t pos_x, std::int16_t pos_y )
 {
     m_x = pos_x, m_y = pos_y;
-    glfwSetWindowPos(m_window,m_x,m_y);
+    glfwSetWindowPos(glfw_window,m_x,m_y);
 }
 
 void Window::SetTitle( const std::string_view& title )
 {
     m_title = title;
-    glfwSetWindowTitle(m_window,m_title.data());
+    glfwSetWindowTitle(glfw_window,m_title.data());
 }
 
 void Window::Hide( bool hide )
 {
     if( hide )
-        glfwShowWindow(m_window);
+        glfwShowWindow(glfw_window);
 
     else
-        glfwHideWindow(m_window);
+        glfwHideWindow(glfw_window);
 }
 
 void Window::Close()
 {
-    glfwDestroyWindow(m_window);
+    glfwDestroyWindow(glfw_window);
 }
 
 bool Window::IsOpen() const
 {
-    return !glfwWindowShouldClose(m_window);
+    return !glfwWindowShouldClose(glfw_window);
 }
 
 void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version )
@@ -76,26 +81,26 @@ bool Window::Update() const
 
 void Window::ReDraw() const
 {
-    glfwSwapBuffers(m_window);
+    glfwSwapBuffers(glfw_window);
 }
 
 void Window::HandleCreation()
 {
     MakeGLContext(3,1);
 
-    m_window = glfwCreateWindow(m_width,m_height,m_title.data(),nullptr,nullptr);
+    glfw_window = glfwCreateWindow(m_width,m_height,m_title.data(),nullptr,nullptr);
 
-    glfwMakeContextCurrent(m_window);
+    glfwMakeContextCurrent(glfw_window);
 
-    glfwGetWindowPos(m_window,(int*)&m_x,(int*)&m_y);
+    glfwGetWindowPos(glfw_window,(int*)&m_x,(int*)&m_y);
 
     glfwSetErrorCallback(OnError);
-    glfwSetMouseButtonCallback(m_window,OnMouseClick);
-    glfwSetKeyCallback(m_window,OnKeyPressed);
-    glfwSetCharCallback(m_window,OnCharKeyPressed);
-    glfwSetFramebufferSizeCallback(m_window,OnWindowResize);
-    glfwSetCursorPosCallback(m_window,OnMouseMove);
-    glfwSetWindowCloseCallback(m_window,OnWindowClose);
+    glfwSetMouseButtonCallback(glfw_window,OnMouseClick);
+    glfwSetKeyCallback(glfw_window,OnKeyPressed);
+    glfwSetCharCallback(glfw_window,OnCharKeyPressed);
+    glfwSetFramebufferSizeCallback(glfw_window,OnWindowResize);
+    glfwSetCursorPosCallback(glfw_window,OnMouseMove);
+    glfwSetWindowCloseCallback(glfw_window,OnWindowClose);
 }
 
 void Window::OnError( int code, const char* error )

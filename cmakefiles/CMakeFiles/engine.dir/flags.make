@@ -6,15 +6,13 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/saeed/Desktop/engine/dependencies -I/home/saeed/Desktop/engine/dependencies/glad -I/home/saeed/Desktop/engine/dependencies/glfw/include -I/home/saeed/Desktop/engine/src/core -I/home/saeed/Desktop/engine/src
 
-CXX_FLAGS = -O2 -Wall -Wextra -s -std=gnu++1z
+CXX_FLAGS = -m64 -O2 -Wall -Wextra -s -std=gnu++1z
 
 # PCH options: CMakeFiles/engine.dir/cmake_pch.hxx.gch_OPTIONS = -Winvalid-pch;-x;c++-header;-include;/home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/engine.dir/src/core/application.cpp.o_OPTIONS = -Winvalid-pch;-include;/home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/engine.dir/src/core/entry_point.cpp.o_OPTIONS = -Winvalid-pch;-include;/home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
-
-# PCH options: CMakeFiles/engine.dir/src/core/flappy_app.cpp.o_OPTIONS = -Winvalid-pch;-include;/home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 
 # PCH options: CMakeFiles/engine.dir/src/core/window.cpp.o_OPTIONS = -Winvalid-pch;-include;/home/saeed/Desktop/engine/cmakefiles/CMakeFiles/engine.dir/cmake_pch.hxx
 

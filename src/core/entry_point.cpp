@@ -1,11 +1,11 @@
-#include "flappy_app.hpp"
+#include "application.hpp"
+
+extern Application* RegisterApplication();
 
 #include <graphics/renderer.hpp>
 #include <stb_image/stb_image.h>
 
 const std::string texture_path = "data/textures/";
-
-extern Application* my_app;
 
 int main( int argc, char** argv, char** env )
 {
@@ -14,15 +14,44 @@ int main( int argc, char** argv, char** env )
         std::cerr << "could not initialize Logger!\n";
         return -1;
     }
+    
+    if( !glfwInit() )
+    {
+        LOG_ERROR("cannot init glfw!");
+        glfwTerminate();
+        return 0;
+    }
 
     Logger::Get().SetFlags(LoggerFlags::MENTION_LOG_LEVEL);
     Logger::Get().SetType(LogType::CORE);
     Logger::Get().SetFlags(LoggerFlags::MENTION_TYPE);
-    
-    Application* app = new FlappyApp();
-    app->Init(argc,argv,env);
 
-    app->OnCreate();
+    Application* app = RegisterApplication();
+    
+    //Application* app = new FlappyApp();
+    if( !app->Init(argc,argv,env) )
+    {
+        LOG_ERROR("application initialization failed.\n");
+        return -1;
+    }
+
+    //std::uint16_t app_width = app->m_width, app_height = app->m_height;
+    //std::string app_title = app->m_title;
+
+    app->m_window = new Window(app->m_width,app->m_height,app->m_title,3,1);
+    if( !app->m_window->IsOpen() )
+    {
+        LOG_ERROR("cannot create the glfw window!\n");
+        glfwTerminate();
+        std::exit(EXIT_FAILURE);
+    }
+
+    if( !gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) )
+    {
+        LOG_ERROR("cannot get OpenGL functions!\n");
+        glfwTerminate();
+        std::exit(EXIT_FAILURE);
+    }
 
     Renderer renderer;
     if( !renderer.Init() )
@@ -30,6 +59,8 @@ int main( int argc, char** argv, char** env )
         LOG_ERROR("could not initialize Renderer!");
         return -1;
     }
+
+    app->OnCreate();
 
     glEnable(GL_BLEND);
     //Texture wood_texture(texture_path + "awesomeface.bmp");
@@ -74,10 +105,12 @@ int main( int argc, char** argv, char** env )
         
         //renderer.DrawSprite(sprite);
 
-        app->UpdateScreen();
+        app->m_window->ReDraw();
     }
 
-    std::cin.get();
+    app->OnClose();
+
+    //std::cin.get();
 
     return 0;
 }
