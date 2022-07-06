@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../build/lib/linux/64/libglad.a CMakeFiles/glad.dir/dependencies/glad/glad/glad.c.o
-/usr/bin/ranlib ../build/lib/linux/64/libglad.a

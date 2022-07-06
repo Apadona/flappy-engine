@@ -99,15 +99,15 @@ target_include_directories( engine PUBLIC
                             "${engine_source_directory}"
                           )
 
-target_precompile_headers( engine PUBLIC
+target_precompile_headers( engine PRIVATE
                            "${engine_source_directory}/engine_pch.hpp" 
                          )                          
 
 target_link_libraries( engine PRIVATE
                           "${opengl_library}"
 
-                          glfw
                           glad
+                          glfw
                           stb_image
                      )
 
@@ -131,7 +131,7 @@ endif()
 add_executable( sandbox "sandbox/sandbox.cpp" )
 
 target_include_directories( sandbox PRIVATE
-                            "{CMAKE_SOURCE_DIR}/include"
+                            "${CMAKE_SOURCE_DIR}/include"
                           )
 
 target_link_libraries( sandbox PRIVATE

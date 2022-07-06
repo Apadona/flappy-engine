@@ -1,4 +1,4 @@
-#include "application.hpp"
+#include <engine.hpp>
 
 class SandBoxApp : public Application
 {
@@ -43,11 +43,6 @@ class SandBoxApp : public Application
         void OnClose() override
         {
         }
-/*
-        void UpdateScreen() const override
-        {
-            m_window->ReDraw();
-        }*/
 };
 
 REGISTER_APP(SandBoxApp)
