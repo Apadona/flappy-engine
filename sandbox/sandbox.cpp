@@ -26,6 +26,8 @@ class SandBoxApp : public Application
 
         void OnCreate() override
         {
+            Random::Init(1000);
+
             if( !renderer.Init() )
             {
                 LOG_ERROR("could not initialize Renderer!");
@@ -42,6 +44,8 @@ class SandBoxApp : public Application
                 //renderer.DrawSprite(sprite);
 
                 m_window->ReDraw();
+
+                std::cout << Random::NextDouble() << std::endl;
 
                 return true;
             }

@@ -9,7 +9,7 @@
 
 bool Renderer::Init()
 {
-    TextureManager::Init();
+    //TextureManager::Init();
     m_triangle_vao.Init();
     m_rectangle_vao.Init();
     //TextureManager::Get().PrintStatus();

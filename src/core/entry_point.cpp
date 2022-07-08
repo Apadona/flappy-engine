@@ -4,6 +4,7 @@ extern Application* RegisterApplication();
 
 #include <graphics/renderer.hpp>
 #include <stb_image/stb_image.h>
+#include <graphics/texture_manager.hpp>
 
 const std::string texture_path = "data/textures/";
 
@@ -46,6 +47,8 @@ int main( int argc, char** argv, char** env )
         glfwTerminate();
         std::exit(EXIT_FAILURE);
     }
+
+    TextureManager::Init();
 
     app->OnCreate();
     

@@ -13,6 +13,3 @@
 #include <maths/vector2D.hpp>
 #include <maths/vector3D.hpp>
 #include <maths/vector4D.hpp>
-
-#include <utils/file_loader.hpp>
-#include <utils/logger.hpp>
