@@ -34,7 +34,7 @@ namespace
                 return 0x9009; // was not existent in my gl header!
 
             default:
-                LOG_WARNING("invalid texture type sent to GetGLTextureType function!\n");
+                CORE_LOG_WARNING("invalid texture type sent to GetGLTextureType function!\n");
                 return -1;
         }
     }
@@ -88,13 +88,13 @@ namespace
 Texture::Texture( const std::string& texture_file_path )
 {
     if( !Create( texture_file_path ) )
-        LOG_ERROR("could not make the texture");
+        CORE_LOG_ERROR("could not make the texture");
 }
 
 Texture::Texture( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format )
 {
     if( !Create(type,width,height,data,format) )
-        LOG_ERROR("could not make the texture");
+        CORE_LOG_ERROR("could not make the texture");
 }
 
 Texture::Texture( Texture&& other )
@@ -134,11 +134,11 @@ bool Texture::Create( const std::string& texture_file_path )
 {
     if( texture_file_path.empty() )
     {
-        LOG_ERROR("empty file_path string sent to create texture!");
+        CORE_LOG_ERROR("empty file_path string sent to create texture!");
         return false;
     }
 
-    LOG_NORMAL(texture_file_path);
+    CORE_LOG_NORMAL(texture_file_path);
 
     int bpp; // bytes per pixel.
     m_data = stbi_load(texture_file_path.c_str(),&m_width,&m_height,&bpp,0);
@@ -153,7 +153,7 @@ bool Texture::Create( const std::string& texture_file_path )
 
     if( !m_data )
     {
-        LOG_ERROR("file that was given to create texture is empty!\n");
+        CORE_LOG_ERROR("file that was given to create texture is empty!\n");
         return false;
     }
 
@@ -166,19 +166,19 @@ bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char
 
     if( !width )
     {
-        LOG_ERROR("cannot create a 2D texture with a width of 0!");
+        CORE_LOG_ERROR("cannot create a 2D texture with a width of 0!");
         currect_data_passed = false;
     }
 
     if( !height )
     {
-        LOG_ERROR("cannot create a 2D texture with a height of 0!");
+        CORE_LOG_ERROR("cannot create a 2D texture with a height of 0!");
         currect_data_passed = false;
     }
 
     if( !data )
     {
-        LOG_ERROR("cannot create a 2D texture without a data!");
+        CORE_LOG_ERROR("cannot create a 2D texture without a data!");
         currect_data_passed = false;
     }
 

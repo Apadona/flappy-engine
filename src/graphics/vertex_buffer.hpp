@@ -1,47 +1,75 @@
 #pragma once
 
-#include <glad/glad.h>
+#include "buffers.hpp"
 
-#include <engine_pch.hpp>
-
-enum class VertexDataUsage
+enum struct AttributeType : uint32_t
 {
-    STATIC =            GL_STATIC_DRAW,
-    DYNAMIC =           GL_DYNAMIC_DRAW,
-    STREAM =             GL_STREAM_DRAW 
+    NONE =                  0x0,
+
+    POSITION =              0x01,
+    TEXTURE_UV =            0x02,
+    COLOR =                 0x04,
+    NORMAL =                0x08,
+
+    /* user defined.
+    OTHER_1 =               0x10,
+    OTHER_2 =               0x20,
+    OTHER_3 =               0x40,
+    OTHER_4 =               0x80,*/
+
+    ALL =                   POSITION | TEXTURE_UV | COLOR | NORMAL
 };
 
-// represends an OpenGL Buffer (index or vertex).
-template<typename T, GLenum type>
-class GLBuffer
+inline constexpr AttributeType operator|( AttributeType first, AttributeType second )
 {
-    friend class VertexArray;
+    return static_cast<AttributeType>( AsInteger(first) | AsInteger(second) );
+}
+
+inline constexpr AttributeType operator&( AttributeType first, AttributeType second )
+{
+    return static_cast<AttributeType>( AsInteger(first) & AsInteger(second) );
+}
+
+class VertexBuffer : public GLBuffer<GLfloat,GL_ARRAY_BUFFER>
+{
     friend class Renderer;
+    friend class VertexArray;
 
     private:
-        GLBuffer() = default;
-        GLBuffer( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
-        GLBuffer( std::vector<T>&& data, VertexDataUsage usage = VertexDataUsage::STATIC );
-        GLBuffer( const GLBuffer<T,type>& buffer );
-        GLBuffer( GLBuffer<T,type>&& buffer );
+        struct BufferElement
+        {
+            BufferElement() = default;
+            BufferElement( const std::string& title, GLDataType type, AttributeType attrib_type );
+            BufferElement( const std::string& title, AttributeType attrib_type );
 
-        ~GLBuffer();
+            std::string m_title;
+            AttributeType m_attrib_type;
+            GLDataType m_type;
+        };
 
-        void Fill( const std::vector<T>& data, VertexDataUsage usage = VertexDataUsage::STATIC );
+        struct BufferLayout
+        {
+            BufferLayout() = default;
+            BufferLayout( const BufferLayout& other ) = default;
+            BufferLayout( const std::initializer_list<BufferElement>& _list );
 
-        void Bind( bool bind = true );
-        bool IsFilled() const { return m_data.size() != 0; };
-
-        constexpr GLenum Type() const { return type; }
+            std::vector<BufferElement> m_elements;
+        };
     
+    public:
+        VertexBuffer() = default;
+        VertexBuffer( const std::vector<float>& data, const BufferLayout& layout, VertexDataUsage usage
+                    = VertexDataUsage::STATIC );
+
+        VertexBuffer( const VertexBuffer& other );
+        VertexBuffer( VertexBuffer&& other );
+
+        void SetLayout( const BufferLayout& layout );
+
+        void Fill( const std::vector<float>& data, const BufferLayout& layout );
+
+        BufferLayout& GetLayout() { return m_layout; }
+
     private:
-        GLuint m_id;
-        std::vector<T> m_data;
-        VertexDataUsage m_usage;
-        bool m_is_bound = false;
+        BufferLayout m_layout;
 };
-
-using VertexBuffer = GLBuffer<GLfloat,GL_ARRAY_BUFFER>;
-using IndexBuffer = GLBuffer<GLuint,GL_ELEMENT_ARRAY_BUFFER>;
-
-#include "vertex_buffer.inl"

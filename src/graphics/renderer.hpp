@@ -4,7 +4,7 @@
 #include "vertex_array.hpp"
 #include "sprite.hpp"
 #include "texture.hpp"
-#include "shapes.hpp"
+#include "mesh.hpp"
 
 #include <maths/vector4D.hpp>
 
@@ -35,16 +35,15 @@ class Renderer
         void Prepare();
 
     private:
-        Texture m_default_texture; // white texture used in color shader.
-        Shader m_shader;
-        VertexArray m_triangle_vao;
-        VertexArray m_rectangle_vao;
-
-        VertexBuffer m_rectangle_pos_vbo;
-        VertexBuffer m_rectangle_uv_vbo;
+        VertexBuffer m_triangle_vbo;
         IndexBuffer m_triangle_ebo;
 
-        VertexBuffer m_triangle_pos_vbo;
-        VertexBuffer m_triangle_uv_vbo;
+        VertexBuffer m_rectangle_vbo;
         IndexBuffer m_rectangle_ebo;
+
+        VertexArray m_rectangle_vao;
+        VertexArray m_triangle_vao;
+
+        Texture m_default_texture; // white texture used in color shader.
+        Shader m_shader;
 };

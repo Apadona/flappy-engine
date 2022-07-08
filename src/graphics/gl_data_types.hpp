@@ -152,7 +152,7 @@ inline constexpr GLDataType ConvertType( GLenum data_type )
             return TEXTURE_CUBE_MAP;
 
         default:
-            LOG_WARNING("certain type of OpenGL data type is not handeled now!\n");
+            CORE_LOG_WARNING("certain type of OpenGL data type is not handeled now!\n");
             return NONE;
     }
 }
@@ -162,7 +162,7 @@ inline constexpr GLint CalculateSize( GLDataType type ) // in BYTES
     switch( type )
     {
         case NONE:
-            LOG_WARNING("GLDataType None has no Size!\n");
+            CORE_LOG_WARNING("GLDataType None has no Size!\n");
             return 0;
 
         case _BOOL:
@@ -229,7 +229,7 @@ inline constexpr GLint CalculateSize( GLDataType type ) // in BYTES
 
 
         default:
-            LOG_WARNING("invalid type sent to CalculateSize function!\n");
+            CORE_LOG_WARNING("invalid type sent to CalculateSize function!\n");
             return 0;
     }
 }
@@ -239,7 +239,7 @@ inline constexpr GLint CalculateComponent( GLDataType type )
     switch ( type )
     {
         case NONE:
-            LOG_WARNING("GLDataType None has no component!\n");
+            CORE_LOG_WARNING("GLDataType None has no component!\n");
             return 0;
 
         case _BOOL:
@@ -301,7 +301,7 @@ inline constexpr GLint CalculateComponent( GLDataType type )
             return 0;
 
         default:
-            LOG_WARNING("invalid type sent to CalculateComponent function!\n");
+            CORE_LOG_WARNING("invalid type sent to CalculateComponent function!\n");
             return 0;
     }
 }
@@ -311,7 +311,7 @@ inline constexpr GLint CalculateType( GLDataType type )
     switch( type )
     {
         case NONE:
-            LOG_WARNING("GLDataType None has no type!\n");
+            CORE_LOG_WARNING("GLDataType None has no type!\n");
             return NONE;
 
         case _BOOL:
@@ -357,7 +357,7 @@ inline constexpr GLint CalculateType( GLDataType type )
             return GL_TEXTURE;
 
         default:
-            LOG_WARNING("invalid type sent to CalculateType function!\n");
+            CORE_LOG_WARNING("invalid type sent to CalculateType function!\n");
             return 0;
     }
 }

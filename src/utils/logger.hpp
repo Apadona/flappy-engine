@@ -10,6 +10,9 @@
 #include <map>
 #include <utility>
 
+#include "helpers.hpp"
+#include "time.hpp"
+
 enum class SinkType
 {
     MEMORY,
@@ -65,12 +68,39 @@ enum class LoggerFlags : uint8_t
 
     MENTION_LOG_LEVEL       = 1 << 1,
     MENTION_TYPE            = 1 << 2, // application or core.
-    MENTION_TIME            = 1 << 3, // not yet implemented.
-    MENTION_DATE            = 1 << 4, // not yet implemented.
+    MENTION_DATE            = 1 << 3, // not yet implemented.
+    MENTION_TIME            = 1 << 4, // not yet implemented.
 
     ALL_FLAGS               = MENTION_LOG_LEVEL | MENTION_TYPE | MENTION_TIME |
                               MENTION_DATE
 };
+
+inline LoggerFlags operator|( LoggerFlags first, LoggerFlags second )
+{
+    return static_cast<LoggerFlags>(AsInteger(first) | AsInteger(second));
+}
+
+inline LoggerFlags operator&( LoggerFlags first, LoggerFlags second )
+{
+    return static_cast<LoggerFlags>(AsInteger(first) & AsInteger(second));
+}
+
+inline LoggerFlags operator|=( LoggerFlags& first, LoggerFlags second )
+{
+    first = first | second;
+    return first;
+}
+
+inline LoggerFlags operator&=( LoggerFlags& first, LoggerFlags second )
+{
+    first = first & second;
+    return first;
+}
+
+inline LoggerFlags operator~( LoggerFlags value )
+{
+    return static_cast<LoggerFlags>( ~(static_cast<uint8_t>(value)) );
+}
 
 struct LogLevelColor
 {
@@ -120,7 +150,7 @@ class Logger
         {
             std::string message; // to be outputted.
             bool has_info_built_in = false;
-
+            
             if( HasFlags(LoggerFlags::MENTION_LOG_LEVEL) )
             {
                 message += LevelToStr(level);
@@ -137,7 +167,22 @@ class Logger
 
                 has_info_built_in = true;
             }
+/*
+            Time now;
+            if( HasFlags(LoggerFlags::MENTION_DATE) )
+            {
+                message += now.date_time.ToString();
 
+                has_info_built_in = true;
+            }
+
+            if( HasFlags(LoggerFlags::MENTION_TIME) )
+            {
+                message += now.day_time.ToString();
+
+                has_info_built_in = true;
+            }
+*/
             if( has_info_built_in )
                 message += ":";
 
@@ -169,8 +214,6 @@ class Logger
             return *this;
         }
 
-        static Logger& Get();
-
     private:
         void InitLogLevelColors();
         std::string_view LevelToStr( LogLevel level );
@@ -178,7 +221,7 @@ class Logger
     private:
         SinkType m_place;
         LogType m_type;
-        uint8_t m_flags;
+        LoggerFlags m_flags;
 
         std::ofstream m_out_file; // output sink path in case of file outputting.
         char* m_out_memory; // output sink path in case of outputting to memory.
@@ -188,29 +231,4 @@ class Logger
         static const std::string_view m_escape_sequence_begin;
         static const std::string_view m_escape_sequence_end;
         static std::map<Color,std::string> m_color_codes; // ansi string codes for each console color.
-
-        static Logger logger; // so that we can use the macro's down blow without a hassle and have a
-                              // default one ready.
 };
-
-#define LOG_SOURCE(level) \
-    Logger::Get().Log(level,AppendStrings(__FILE__,__LINE__,__FUNCTION__))
-
-#define LOG_ASSERT(condition,message) \
-    if(!condition) \
-    LOG_ERROR(message)
-
-#define LOG_NORMAL(...) \
-    Logger::Get().Log(LogLevel::NORMAL,__VA_ARGS__)
-
-#define LOG_HINT(...) \
-    Logger::Get().Log(LogLevel::HINT,__VA_ARGS__)
-
-#define LOG_WARNING(...) \
-    Logger::Get().Log(LogLevel::WARNING,__VA_ARGS__)
-
-#define LOG_ERROR(...) \
-    Logger::Get().Log(LogLevel::ERROR,__VA_ARGS__)
-
-#define LOG_DEBUG(...) \
-    Logger::Get().Log(LogLevel::DEBUG,__VA_ARGS__)

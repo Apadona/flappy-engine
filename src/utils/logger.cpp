@@ -6,15 +6,8 @@
     // #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
 #endif
 
-// because WIN32 defines an ERROR macro!
-#ifdef ERROR
-    #undef ERROR
-#endif
-
 const std::string_view Logger::m_escape_sequence_begin = "\x1b[";
 const std::string_view Logger::m_escape_sequence_end = "\x1b[0m";
-
-Logger Logger::logger;
 
 std::map<Color,std::string> Logger::m_color_codes =
 {
@@ -114,25 +107,20 @@ void Logger::SetType( LogType type )
 void Logger::SetFlags( LoggerFlags flags, bool set )
 {
     if( set )
-         m_flags |= static_cast<int>(flags);
+         m_flags |= flags;
 
     else
-        m_flags |= ~static_cast<int>(flags);
+        m_flags &= ~flags;
 }
 
 bool Logger::HasFlags( LoggerFlags flags )
 {
-    return m_flags & static_cast<int>(flags);
+    return ( m_flags & flags ) == flags;
 }
 
 void Logger::SetLogLevelColor( LogLevel level, Color color )
 {
     m_level_colors[ static_cast<int>(level) ].color = color;
-}
-
-Logger& Logger::Get()
-{
-    return logger;
 }
 
 void Logger::InitLogLevelColors()

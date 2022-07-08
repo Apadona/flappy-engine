@@ -1,29 +1,45 @@
 #pragma once
 
-#include "vertex_buffer.hpp"
 #include "gl_data_types.hpp"
+#include "buffers.hpp"
+#include "vertex_buffer.hpp"
 
 class VertexArray
 {
+    friend std::ostream& operator<<( std::ostream& out, const VertexArray& array );
+
+    // TODO: must do better than this.
+    struct AttributeData
+    {
+        public:
+            AttributeData();
+
+            GLint location;
+            VertexBuffer* vertex_buffer;
+    };
+
     public:
-        static constexpr GLint max_layouts = 16; // according to OpenGL standard.
+        static constexpr GLint max_attributes = 16; // according to OpenGL standard.
 
     public:
         VertexArray();
+        
+        void Init();
 
         void Bind( bool bind = true );
 
-        VertexArray& AddLayout( VertexBuffer& buffer, GLDataType type );
-        VertexArray& AddLayout( VertexBuffer&& buffer, GLDataType type );
-        //VertexArray& RemoveVertexBuffer( VertexBuffer& buffer );
+        VertexArray& AddLayout( VertexBuffer& buffer );
+        VertexArray& RemoveLayout( GLint location );
 
         VertexArray& SetIndexBuffer( IndexBuffer& buffer );
-        VertexArray& SetIndexBuffer( IndexBuffer&& buffer );
-        //VertexArray& RemoveIndexBuffer();
+        VertexArray& RemoveIndexBuffer();
 
     private:
         GLuint m_id;
-        GLint m_count; //number of layouts.
-        GLint m_offset; //for figuring out the offset of the current buffer.
+        GLint m_attribute_count; // number of layouts.
+        GLint m_stride; // for figuring out the offset of the current buffer.
         bool m_is_bind;
+
+        std::array<AttributeData,max_attributes> m_attributes;
+        IndexBuffer* m_bound_ebo;
 };

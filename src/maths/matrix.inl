@@ -72,7 +72,7 @@ Matrix<row,colomn,T> Matrix<row,colomn,T>::Inverse() const
 {
     if( !HasDeterminant() )
     {
-        LOG_SOURCE(LogLevel::DEBUG);
+        CORE_LOG_SOURCE(LogLevel::DEBUG);
         throw MathException(MATRIX_CANT_BE_REVERSED);
     }
 
@@ -146,8 +146,8 @@ void Matrix<row,colomn,T>::CheckRowAndColomn() const
 {
     if( row < 2 || colomn < 2 )
     {
-        LOG_SOURCE(LogLevel::ERROR);
-        LOG_ERROR("rows or colomns must be greater than 1\n");
+        CORE_LOG_SOURCE(LogLevel::ERROR);
+        CORE_LOG_ERROR("rows or colomns must be greater than 1\n");
         return;
     }
 }
@@ -190,7 +190,7 @@ Matrix<row,colomn,T> Matrix<row,colomn,T>::operator/( T numeric ) const
 {
     if( numeric == 0 )
     {
-        LOG_SOURCE(LogLevel::DEBUG);
+        CORE_LOG_SOURCE(LogLevel::DEBUG);
         throw MathException(DIVIDE_BY_ZERO);
     }
 
@@ -237,7 +237,7 @@ Matrix<row,colomn,T>& Matrix<row,colomn,T>::operator/=( T numeric )
 {
     if( numeric == 0 )
     {
-        LOG_SOURCE(LogLevel::DEBUG);
+        CORE_LOG_SOURCE(LogLevel::DEBUG);
         throw MathException(DIVIDE_BY_ZERO);
     }
 
@@ -275,7 +275,7 @@ Matrix<row,colomn,T> Matrix<row,colomn,T>::operator*( const Matrix<row,colomn,T>
 {
     if( !( colomn == other.RowCount() ) )
     {
-        LOG_SOURCE(LogLevel::DEBUG);
+        CORE_LOG_SOURCE(LogLevel::DEBUG);
         throw MathException(MATRIX_CANT_MULTIPLY);
     }
 

@@ -13,7 +13,7 @@ std::optional<std::string> CommandLineArguments::operator[]( uint32_t index )
 
     else
     {
-        LOG_WARNING("attempted to accesss a non existence argument in command line arguments");
+        CORE_LOG_WARNING("attempted to accesss a non existence argument in command line arguments");
         return {};
     }
 }

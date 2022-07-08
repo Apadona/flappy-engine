@@ -33,19 +33,17 @@ Shader::~Shader()
 
 bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 {
-    #undef ERROR
-
     bool file_path_not_empty = true;
 
     if( vs_path.empty() )
     {
-        LOG_ERROR("vertex shader path is invalid!");
+        CORE_LOG_ERROR("vertex shader path is invalid!");
         file_path_not_empty = false;
     }
 
     if( fs_path.empty() )
     {
-        LOG_ERROR("fragment shader path is invalid!");
+        CORE_LOG_ERROR("fragment shader path is invalid!");
         file_path_not_empty = false;
     }
 
@@ -57,7 +55,7 @@ bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 
         if( vs_source.empty() )
         {
-            LOG_ERROR("vertex shader source is empty!");
+            CORE_LOG_ERROR("vertex shader source is empty!");
             file_sources_not_empty = false;
         }
 
@@ -65,7 +63,7 @@ bool Shader::Create( const std::string& vs_path, const std::string& fs_path )
 
         if( fs_source.empty() )
         {
-            LOG_ERROR("fragment shader source is empty!");
+            CORE_LOG_ERROR("fragment shader source is empty!");
             file_sources_not_empty = false;
         }
 
@@ -107,19 +105,19 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
             char compile_error_message[1024] = {0};
             glGetShaderInfoLog(_ref,1024,nullptr,compile_error_message);
 
-            LOG_ERROR("failed to compile shader!");
-            LOG_NORMAL(compile_error_message);
+            CORE_LOG_ERROR("failed to compile shader!");
+            CORE_LOG_NORMAL(compile_error_message);
 
             compile_phase_passed = false;
         }
 
         else
-            LOG_NORMAL("shader compiled successfully!");
+            CORE_LOG_NORMAL("shader compiled successfully!");
     };
 
-    LOG_NORMAL("compiling vertex shader.");
+    CORE_LOG_NORMAL("compiling vertex shader.");
     compile_action(vertex_source.c_str(),GL_VERTEX_SHADER);
-    LOG_NORMAL("compiling fragment shader.");
+    CORE_LOG_NORMAL("compiling fragment shader.");
     compile_action(fragment_source.c_str(),GL_FRAGMENT_SHADER);
 
     // if we passed the compile phase successfully, we can proceed to link phase.
@@ -138,8 +136,8 @@ bool Shader::CompileShader( const std::string& vertex_source, const std::string&
             char link_error_message[1024] = {0};
             glGetProgramInfoLog(m_program_id,1024,nullptr,link_error_message);
 
-            LOG_ERROR("failed to link shader!");
-            LOG_NORMAL(link_error_message);
+            CORE_LOG_ERROR("failed to link shader!");
+            CORE_LOG_NORMAL(link_error_message);
 
             return false;
         }
@@ -191,7 +189,7 @@ GLint Shader::GetAttributeLocation( const std::string& attribute_name )
 {
     if( attribute_name.empty() )
     {
-        LOG_ERROR("empty string sent for getting Attribute location!\n");
+        CORE_LOG_ERROR("empty string sent for getting Attribute location!\n");
         return -1;
     }
 
@@ -202,7 +200,7 @@ GLint Shader::GetAttributeCachedLocation( const std::string& attribute_name ) co
 {
     if( attribute_name.empty() )
     {
-        LOG_ERROR("empty string sent for getting Attribute location!\n");
+        CORE_LOG_ERROR("empty string sent for getting Attribute location!\n");
         return -1;
     }
 
@@ -215,9 +213,9 @@ GLint Shader::GetAttributeCachedLocation( const std::string& attribute_name ) co
 
 void Shader::PrintAttributes() const
 {
-    LOG_NORMAL("Attributes:");
+    CORE_LOG_NORMAL("Attributes:");
     for( auto& attribute : m_attributes )
-        LOG_NORMAL(attribute.m_name);
+        CORE_LOG_NORMAL(attribute.m_name);
 }
 
 bool Shader::HasUniform( const std::string& name ) const
@@ -238,7 +236,7 @@ GLint Shader::GetUniformLocation( const std::string& uniform_name ) const
 {
     if( uniform_name.empty() )
     {
-        LOG_ERROR("empty string sent for getting Uniform location!\n");
+        CORE_LOG_ERROR("empty string sent for getting Uniform location!\n");
         return -1;
     }
 
@@ -249,7 +247,7 @@ GLint Shader::GetUniformCachedLocation( const std::string& uniform_name ) const
 {
     if( uniform_name.empty() )
     {
-        LOG_ERROR("empty string sent for getting Uniform location!\n");
+        CORE_LOG_ERROR("empty string sent for getting Uniform location!\n");
         return -1;
     }
 
@@ -262,9 +260,9 @@ GLint Shader::GetUniformCachedLocation( const std::string& uniform_name ) const
 
 void Shader::PrintUnifroms() const
 {
-    LOG_NORMAL("Uniforms:");
+    CORE_LOG_NORMAL("Uniforms:");
     for( auto& uniform : m_uniforms )
-        LOG_NORMAL(uniform.m_name);
+        CORE_LOG_NORMAL(uniform.m_name);
 }
 
 // to reduce the duplicate code of setting a uniform.

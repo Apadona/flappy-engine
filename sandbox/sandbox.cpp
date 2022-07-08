@@ -20,21 +20,30 @@ class SandBoxApp : public Application
                 m_height = static_cast<uint32_t>(std::stoi(_args[2].value()));
             }
 
+            LOG_NORMAL("application is initialized succesfully!\n");
             return true;
         }
 
         void OnCreate() override
         {
+            if( !renderer.Init() )
+            {
+                LOG_ERROR("could not initialize Renderer!");
+                return;
+            }
         }
 
         bool OnUpdate( float dt ) override
         {
-            if( m_window->IsOpen() )
+            if( m_window->Update() )
             {
-                if( m_window->Update() )
-                    return true;
+                renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
+                renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
+                //renderer.DrawSprite(sprite);
 
-                return false;
+                m_window->ReDraw();
+
+                return true;
             }
 
             return false;
@@ -43,6 +52,9 @@ class SandBoxApp : public Application
         void OnClose() override
         {
         }
+
+    private:
+        Renderer renderer;
 };
 
 REGISTER_APP(SandBoxApp)

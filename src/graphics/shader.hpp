@@ -36,7 +36,7 @@ class Shader
         {
             if( !HasUniform(uniform_name) )
             {
-                LOG_ERROR("attempted to set a non existing uniform.");
+                CORE_LOG_ERROR("attempted to set a non existing uniform.");
                 return false;
             }
 
@@ -73,7 +73,7 @@ class Shader
             if constexpr( std::is_same<T,glm::mat4>::value )
                 return SetUniformMatrix4f(uniform_name,data);
 
-            LOG_ERROR("the data passed to shader uniform is not supported!\n");
+            CORE_LOG_ERROR("the data passed to shader uniform is not supported!\n");
         }
 
         bool HasUniform( const std::string& name ) const;

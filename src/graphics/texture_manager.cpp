@@ -11,7 +11,7 @@ bool TextureManager::Init()
     for( auto& ref : manager.texture_slots )
         ref = nullptr;
 
-    LOG_NORMAL("number of texture slots in this hardware:",info.gl_texture_info.max_texture_units);
+    CORE_LOG_NORMAL("number of texture slots in this hardware:",info.gl_texture_info.max_texture_units);
     return true;
 }
 

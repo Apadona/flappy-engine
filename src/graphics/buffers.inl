@@ -1,4 +1,4 @@
-#include "vertex_buffer.hpp"
+//#include "buffers.hpp"
 #include <utils/logger.hpp>
 
 template<typename T,GLenum type>
@@ -26,6 +26,29 @@ GLBuffer<T,type>::GLBuffer( GLBuffer<T,type>&& other ) : m_data(std::move(other.
 }
 
 template<typename T,GLenum type>
+GLBuffer<T,type>& GLBuffer<T,type>::operator=( const GLBuffer<T,type>& other )
+{
+    if( *this != &other )
+        Fill(other.m_data,other.m_usage);
+
+    return *this;
+}
+
+template<typename T,GLenum type>
+GLBuffer<T,type>& GLBuffer<T,type>::operator=( GLBuffer<T,type>&& other )
+{
+    if( *this != &other )
+    {
+        Fill(other.m_data,other.m_usage);
+
+        other.m_id = 0;
+        other.m_is_bound = false;
+    }
+
+    return *this;
+}
+
+template<typename T,GLenum type>
 void GLBuffer<T,type>::Fill( const std::vector<T>& data, VertexDataUsage usage )
 {
     m_data = data;
@@ -33,7 +56,7 @@ void GLBuffer<T,type>::Fill( const std::vector<T>& data, VertexDataUsage usage )
 
     if( m_data.empty() )
     {
-        LOG_WARNING("empty buffer sent to GPU!");
+        CORE_LOG_WARNING("empty buffer sent to GPU!");
         return;
     }
 
