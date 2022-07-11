@@ -27,6 +27,9 @@ class SandBoxApp : public Application
         void OnCreate() override
         {
             Random::Init(1000);
+            cat_texture.Create("data/textures/cat.bmp");
+            sprite.SetTexture(cat_texture);
+            sprite.SetColor({0.7f,0.4f,0.5f,1.0f});
 
             if( !renderer.Init() )
             {
@@ -40,12 +43,10 @@ class SandBoxApp : public Application
             if( m_window->Update() )
             {
                 renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
-                renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
-                //renderer.DrawSprite(sprite);
+                //renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
+                renderer.DrawSprite(sprite);
 
                 m_window->ReDraw();
-
-                std::cout << Random::NextDouble() << std::endl;
 
                 return true;
             }
@@ -53,12 +54,13 @@ class SandBoxApp : public Application
             return false;
         }
 
-        void OnClose() override
-        {
-        }
+        void OnClose() override {}
 
     private:
         Renderer renderer;
+
+        Sprite sprite;
+        Texture cat_texture;
 };
 
 REGISTER_APP(SandBoxApp)

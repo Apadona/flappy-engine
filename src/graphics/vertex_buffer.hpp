@@ -25,6 +25,12 @@ inline constexpr AttributeType operator|( AttributeType first, AttributeType sec
     return static_cast<AttributeType>( AsInteger(first) | AsInteger(second) );
 }
 
+inline constexpr AttributeType operator|=( AttributeType first, AttributeType second )
+{
+    first = first | second;
+    return first;
+}
+
 inline constexpr AttributeType operator&( AttributeType first, AttributeType second )
 {
     return static_cast<AttributeType>( AsInteger(first) & AsInteger(second) );
@@ -35,7 +41,7 @@ class VertexBuffer : public GLBuffer<GLfloat,GL_ARRAY_BUFFER>
     friend class Renderer;
     friend class VertexArray;
 
-    private:
+    public:
         struct BufferElement
         {
             BufferElement() = default;
@@ -49,11 +55,17 @@ class VertexBuffer : public GLBuffer<GLfloat,GL_ARRAY_BUFFER>
 
         struct BufferLayout
         {
-            BufferLayout() = default;
-            BufferLayout( const BufferLayout& other ) = default;
+            BufferLayout();
+            BufferLayout( const BufferLayout& other );
             BufferLayout( const std::initializer_list<BufferElement>& _list );
 
+            BufferLayout& operator=( const BufferLayout& other );
+
+            void AddElement( const BufferElement& element );
+
             std::vector<BufferElement> m_elements;
+            std::vector<GLuint> m_offsets;
+            std::uint16_t m_stride;
         };
     
     public:

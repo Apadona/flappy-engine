@@ -44,6 +44,8 @@ class Texture
     friend class TextureManager;
 
     public:
+        static Texture* create( const std::string& texture_file_path );
+        
         Texture() = default;
         Texture( const std::string& texture_file_path );
         Texture( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format );

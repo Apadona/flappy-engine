@@ -28,7 +28,7 @@ class Matrix
         constexpr bool HasDeterminant() const;
         constexpr bool IsInverseable() const;
 
-        std::optional<T> Determinant();
+        std::optional<T> Determinant() const;
         ThisType Tranverse() const;
         ThisType Inverse() const;
 
@@ -59,10 +59,9 @@ class Matrix
         ThisType& operator*=( const ThisType& other );
         ThisType& operator/=( const ThisType& other ); // same thing as the above comment.
 
-        private:
-            void SetData( const T* data );
+        void SetData( const T* data );
 
-            void CheckRowAndColomn() const;
+        void CheckRowAndColomn() const;
 
     public:
         T m_data[row][colomn];

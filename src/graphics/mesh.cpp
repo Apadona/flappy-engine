@@ -60,9 +60,9 @@ Mesh::Mesh( const Mesh& other )
 }
 
 Mesh::Mesh( const std::vector<float>& vertex_pos, const std::vector<float>& texture_uv,
-          const std::vector<float>& color, const std::vector<uint32_t>& indecies ) :
-          m_vertex_pos(vertex_pos), m_texture_uv(texture_uv),
-          m_color(color), m_indecies(indecies) {}
+            const std::vector<float>& color, const std::vector<uint32_t>& indecies ) :
+            m_vertex_pos(vertex_pos), m_texture_uv(texture_uv),
+            m_color(color), m_indecies(indecies) {}
 
 Mesh& Mesh::operator=( const Mesh& other )
 {
@@ -75,6 +75,16 @@ Mesh& Mesh::operator=( const Mesh& other )
     m_indecies = other.m_indecies;
 
     return *this;
+}
+
+std::vector<float> Mesh::ConstructAttributesInOneBuffer( const VertexBuffer::BufferLayout& layout )
+{
+    AttributeType required_flags = AttributeType::NONE;
+
+    for( auto& i : layout.m_elements )
+        required_flags |= i.m_attrib_type;
+
+    return ConstructAttributesInOneBuffer(required_flags);
 }
 
 std::vector<float> Mesh::ConstructAttributesInOneBuffer( AttributeType type ) const
@@ -90,6 +100,8 @@ std::vector<float> Mesh::ConstructAttributesInOneBuffer( AttributeType type ) co
 
     if( ( type & AttributeType::COLOR ) == AttributeType::COLOR )
         vertex_size += 3;
+
+    CORE_LOG_ASSERT(vertex_size != 0,"cannot make an attribute buffer with size of 0!\n");
 
     auto total_size = vertex_size * vertex_count;
     std::vector<float> buffer(total_size);
@@ -119,22 +131,13 @@ std::vector<float> Mesh::ConstructAttributesInOneBuffer( AttributeType type ) co
         }
     }
 
-    std::cout << "created buffer:\n";
-    for( uint32_t i = 0; i < buffer.size(); ++i )
-    {
-        std::cout << buffer[i] << ' ';
-
-        if( ( i + 1 ) % vertex_size == 0 )
-            std::cout << '\n';
-    }
-
     return buffer;
 }
 
 std::ostream& operator<<( std::ostream& out, const Mesh& mesh )
 {
-    auto PrintAttribute = [&out]( const std::vector<float>& vec, const std::string_view& attribute_name,
-                              uint8_t component_count )
+    auto PrintAttribute = [&out]( const std::vector<float>& vec,
+                                  const std::string_view& attribute_name, uint8_t component_count )
     {
         out << "attribute " << attribute_name << ((vec.empty())? " is empty." : ":\n");
 

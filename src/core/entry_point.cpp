@@ -25,6 +25,8 @@ int main( int argc, char** argv, char** env )
         return 0;
     }
 
+    stbi_set_flip_vertically_on_load(true);
+
     Application* app = RegisterApplication();
     
     if( !app->Init(argc,argv,env) )
@@ -57,8 +59,6 @@ int main( int argc, char** argv, char** env )
     }
 
     app->OnClose();
-
-    //std::cin.get();
 
     return 0;
 }

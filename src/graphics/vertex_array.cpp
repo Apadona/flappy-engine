@@ -5,19 +5,19 @@ std::ostream& operator<<( std::ostream& out, const VertexArray& vertex_array )
     out <<  "vertex buffer info:\n" <<
             "id:" << vertex_array.m_id << "\n" <<
             "bound:" << (( vertex_array.m_is_bind )? "true\n" : "false\n") <<
-            "attribute_count:" << vertex_array.m_attribute_count << "\n" <<
-            "stride:" << vertex_array.m_stride << "\n";
+            "attribute_count:" << vertex_array.m_attribute_count << "\n";
 
     for( int i = 0; i < vertex_array.m_attribute_count; ++i )
-        std::cout << "location " << i << ((vertex_array.m_attributes[i].location != -1)?
-                                        " is bound.\n" : "is not bound.\n");
+        std::cout << "location " << i <<
+        ((vertex_array.m_attributes[i].location != -1)? " is bound.\n" : "is not bound.\n");
+                                        
 
     return out;
 }
 
 VertexArray::AttributeData::AttributeData() : location(-1), vertex_buffer(nullptr) {}
 
-VertexArray::VertexArray() : m_id(0), m_attribute_count(0), m_stride(0), m_is_bind(false) {}
+VertexArray::VertexArray() : m_id(0), m_attribute_count(0), m_is_bind(false) {}
 
 void VertexArray::Init()
 {
@@ -56,7 +56,7 @@ VertexArray& VertexArray::AddLayout( VertexBuffer& vertex_buffer )
     Bind();
 
     vertex_buffer.Bind();
-
+/*
     std::vector<uint16_t> offsets = {0}; // the first offset is always zero.
     std::vector<GLint> component_counts;
     std::vector<GLenum> gl_types;
@@ -88,6 +88,24 @@ VertexArray& VertexArray::AddLayout( VertexBuffer& vertex_buffer )
         m_attributes[m_attribute_count].location = m_attribute_count;
         m_attributes[m_attribute_count].vertex_buffer = &vertex_buffer;
         
+        glEnableVertexAttribArray(m_attribute_count++);
+    }
+*/
+
+    auto stride = vertex_buffer.m_layout.m_stride;
+
+    for( uint8_t i = 0; i < vertex_buffer.m_layout.m_elements.size(); ++i )
+    {
+        auto data_type = vertex_buffer.m_layout.m_elements.at(i).m_type;
+        
+
+        GLint component_count = CalculateComponent(data_type);
+        GLenum gl_type = CalculateType(data_type);
+        GLint type_size = CalculateSize(data_type);
+
+        glVertexAttribPointer(m_attribute_count,component_count,gl_type, GL_FALSE,
+                              stride,(void*)vertex_buffer.m_layout.m_offsets.at(i));
+
         glEnableVertexAttribArray(m_attribute_count++);
     }
 

@@ -7,6 +7,7 @@
 #include <graphics/shader.hpp>
 #include <graphics/renderer.hpp>
 #include <graphics/vertex_array.hpp>
+#include <graphics/texture_manager.hpp>
 
 #include <maths/math_exception.hpp>
 #include <maths/matrix_operations.hpp>

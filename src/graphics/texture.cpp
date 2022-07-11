@@ -83,7 +83,24 @@ namespace
     }
 }
 
-//Texture Texture::default_white_texture("Data/Textures/white.bmp");
+static Texture* Create( const std::string& texture_file_path )
+{
+    Texture texture(texture_file_path);
+
+    if( texture )
+    {
+        if( TextureManager::Get().UseTexture(texture) )
+            return &texture;
+
+        else
+        {
+            CORE_LOG_ERROR("could not register texture");
+            return nullptr;
+        }
+    }
+
+    return nullptr;
+}
 
 Texture::Texture( const std::string& texture_file_path )
 {
@@ -99,13 +116,14 @@ Texture::Texture( TextureType type, GLint width, GLint height, unsigned char* da
 
 Texture::Texture( Texture&& other )
 {
-    if( other.m_type != TextureType::INVALID && &other != this )
+    if( other.m_type != TextureType::INVALID && this != &other )
         *this = std::move(other); // invoking the move assignment operand.
 }
 
 Texture::~Texture()
 {
-    //TextureManager::Get().UnUseTexture(m_id);
+    if( TextureManager::Get().HasTexture(*this) )
+        TextureManager::Get().UnUseTexture(*this);
 
     glBindTexture(GetGLTextureType(m_type),0);
     glDeleteTextures(1,&m_id);

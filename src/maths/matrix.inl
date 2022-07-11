@@ -41,21 +41,36 @@ Matrix<row,colomn,T>::Matrix( const Matrix<row,colomn,T>& other )
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
+constexpr bool Matrix<row,colomn,T>::IsSquare() const
+{
+    return row == colomn;
+}
+
+template<std::uint8_t row, std::uint8_t colomn, typename T>
 constexpr bool Matrix<row,colomn,T>::HasDeterminant() const
 {
-    return IsSquare() && row >= 2;
+    return IsSquare();
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
 constexpr bool Matrix<row,colomn,T>::IsInverseable() const
 {
-    return HasDeterminant() && Determinant() != nullptr;
+    return HasDeterminant() && Determinant();
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
-constexpr bool Matrix<row,colomn,T>::IsSquare() const
+std::optional<T> Matrix<row,colomn,T>::Determinant() const
 {
-    return row == colomn;
+    if constexpr( !HasDeterminant() )
+    {
+        CORE_LOG_ERROR("Cannot calculate determinant on the matrix with rows of ",
+                        row, " and colomns of ",colomn);
+        return {};
+    }
+
+    std::optional<T> value;
+
+    return value;
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
@@ -144,12 +159,7 @@ void Matrix<row,colomn,T>::SetData( const T* data )
 template<std::uint8_t row, std::uint8_t colomn, typename T>
 void Matrix<row,colomn,T>::CheckRowAndColomn() const
 {
-    if( row < 2 || colomn < 2 )
-    {
-        CORE_LOG_SOURCE(LogLevel::ERROR);
-        CORE_LOG_ERROR("rows or colomns must be greater than 1\n");
-        return;
-    }
+    static_assert( row >= 2 && colomn >= 2, "rows or colomns must be greater than 1!\n" );
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>

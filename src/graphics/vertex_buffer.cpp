@@ -22,7 +22,7 @@ inline constexpr GLDataType GetGLDataTypeFromAttribute( AttributeType type )
         case AttributeType::ALL:
             return GLDataType::NONE;
 
-        default: // to avoid compiler flags.
+        default: // to avoid compiler warning.
             return GLDataType::NONE;
     }
 }
@@ -36,8 +36,45 @@ VertexBuffer::BufferElement::BufferElement( const std::string& title, AttributeT
                                             m_attrib_type(attrib_type),                                         
                                             m_type(GetGLDataTypeFromAttribute(m_attrib_type)) {}
 
-VertexBuffer::BufferLayout::BufferLayout( const std::initializer_list<BufferElement>& _list ) :
-                                            m_elements(_list) {}
+VertexBuffer::BufferLayout::BufferLayout() : m_stride(0) {}
+
+VertexBuffer::BufferLayout::BufferLayout( const BufferLayout& other ) : m_elements(other.m_elements),
+                                          m_offsets(other.m_offsets), m_stride(other.m_stride)
+{
+    *this = other;
+}
+
+VertexBuffer::BufferLayout::BufferLayout( const std::initializer_list<BufferElement>& _list ) : m_stride(0)
+{
+    for( auto& element : _list )
+        AddElement(element);
+}
+
+VertexBuffer::BufferLayout& VertexBuffer::BufferLayout::operator=(
+                            const VertexBuffer::BufferLayout& other )
+{
+    if( this == &other )
+        return *this;
+
+    m_elements = other.m_elements;
+    m_stride = other.m_stride;
+    m_offsets = other.m_offsets;
+
+    return *this;
+}
+
+void VertexBuffer::BufferLayout::AddElement( const VertexBuffer::BufferElement& element )
+{
+    if( m_elements.empty() ) // first element has offset 0.
+        m_offsets.push_back(0);
+    else
+        m_offsets.push_back(m_stride);
+
+    auto _size = CalculateSize(element.m_type);
+    m_stride += _size;
+
+    m_elements.push_back(element);
+}
 
 VertexBuffer::VertexBuffer( const std::vector<float>& data, const BufferLayout& layout,
                             VertexDataUsage usage ) :

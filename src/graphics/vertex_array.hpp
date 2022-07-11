@@ -37,7 +37,6 @@ class VertexArray
     private:
         GLuint m_id;
         GLint m_attribute_count; // number of layouts.
-        GLint m_stride; // for figuring out the offset of the current buffer.
         bool m_is_bind;
 
         std::array<AttributeData,max_attributes> m_attributes;

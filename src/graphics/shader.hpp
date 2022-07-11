@@ -46,6 +46,9 @@ class Shader
             if constexpr( std::is_same<T,int>::value || std::is_same<T,unsigned int>::value )
                 return SetUniformInt(uniform_name,data);
 
+            if constexpr( std::is_same<T,int16_t>::value || std::is_same<T,uint16_t>::value )
+                return SetUniformInt(uniform_name,data);
+
             if constexpr( std::is_same<T,float>::value )
                 return SetUniformFloat(uniform_name,data);
 
@@ -74,6 +77,8 @@ class Shader
                 return SetUniformMatrix4f(uniform_name,data);
 
             CORE_LOG_ERROR("the data passed to shader uniform is not supported!\n");
+
+            return false;
         }
 
         bool HasUniform( const std::string& name ) const;

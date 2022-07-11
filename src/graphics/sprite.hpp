@@ -6,9 +6,12 @@
 
 class Sprite
 {
+    friend class Renderer;
+
     public:
-        Sprite() = delete;
-        Sprite( const Texture& texture, const Transform2D& transform = {}, const Vec4f& color = {1.0f,1.0f,1.0f,0.0f} );
+        Sprite();
+        Sprite( const Texture& texture, const Transform2D& transform = {},
+                const Vec4f& color = {1.0f,1.0f,1.0f,0.0f} );
         Sprite( const Sprite& other );
         Sprite( Sprite&& other );
 
@@ -19,9 +22,9 @@ class Sprite
         void SetTransform( const Transform2D& transform ) { m_transform = transform; }
         void SetColor( const Vec4f& color ) { m_color = color; }
 
-        const Texture& GetTexture() const { return *m_texture; }
-        const Transform2D& GetTransform() const { return m_transform; }
-        const Vec4f& GetColor() const { return m_color; }
+        const Texture* GetTexture() { return m_texture; }
+        Transform2D& GetTransform() { return m_transform; }
+        Vec4f& GetColor() { return m_color; }
 
     private:
         const Texture* m_texture;

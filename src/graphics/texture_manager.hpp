@@ -2,8 +2,12 @@
 
 #include "texture.hpp"
 
+using TextureUnitSize = std::uint16_t;
+
 class TextureManager
 {
+    friend std::ostream& operator<<( std::ostream& out, const TextureManager& texture_manager );
+
     public:
         TextureManager() = default;
 
@@ -11,19 +15,40 @@ class TextureManager
 
         static TextureManager& Get() { return manager; }
 
-        void UseTexture( const Texture& texture );
-        void UnUseTexture( const Texture& texture );
+        bool UseTexture( Texture& texture );
+        void UnUseTexture( Texture& texture );
 
-        void PrintStatus() const;
+        std::optional<TextureUnitSize> GetTextureUnitLocation( const Texture& texture );
+
+        bool HasTexture( const Texture& texture ) const;
+        void RemoveAllTextures();
 
     private:
         struct TextureSlot
         {
-            GLuint texture_unit;
-            Texture* texture;
+            TextureSlot();
+            
+            void Set( GLuint texture_id, GLuint m_texture_unit );
+            void Clear();
+
+            bool IsBound() const;
+            bool IsBoundToTexture( GLuint texture_id ) const;
+
+            GLuint m_texture_id;
+            GLuint m_texture_unit;
         };
+
+        std::optional<TextureUnitSize> RegisterTexture( Texture& texture );
+        bool RemoveTexture( const Texture& texture );
+
+        std::optional<TextureUnitSize> FindFirstEmptyTextureSlot() const;
+        std::optional<TextureUnitSize> FindTexture( const Texture& texture ) const;
+
+        void BindTexture( Texture& texture, TextureUnitSize texture_unit,
+                          bool bind = true ) const;
 
         static TextureManager manager;
 
-        std::vector<Texture*> texture_slots;
+        TextureUnitSize m_max_texture_slots;
+        std::vector<TextureSlot> m_texture_slots;
 };

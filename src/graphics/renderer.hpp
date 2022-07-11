@@ -25,14 +25,22 @@ class Renderer
                             float rotate = 0.0f, const Vec4& color = {1.0f,1.0f,1.0f,0.0f} );
 
         void DrawTriangle( const Transform2D& transform, const Vec4& color = { 1.0f,1.0f,1.0f,0.0f } );
+
         void DrawRectangle( const Transform2D& transform, const Vec4& color = { 1.0f,1.0f,1.0f,0.0f } );
+
+        void DrawTriangle( const Transform2D& transform, Texture& texture,
+                           const Vec4& color = { 1.0f,1.0f,1.0f,0.0f } );
+
+        void DrawRectangle( const Transform2D& transform, Texture& texture,
+                           const Vec4& color = { 1.0f,1.0f,1.0f,0.0f } );
 
         void DrawSprite( const Sprite& sprite );
 
-        void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f, float alpha = 1.0f );
+        void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f,
+                         float alpha = 1.0f ) const;
 
     private:
-        void Prepare();
+        void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4& color );
 
     private:
         VertexBuffer m_triangle_vbo;
@@ -44,6 +52,10 @@ class Renderer
         VertexArray m_rectangle_vao;
         VertexArray m_triangle_vao;
 
-        Texture m_default_texture; // white texture used in color shader.
+        Texture m_default_texture01; // white texture used in color shader.
         Shader m_shader;
+
+        void DrawCommand() const;
+        void DrawIndexedCommand( const IndexBuffer& ib ) const;
+        void ClearColorCommand( float red, float green, float blue, float alpha ) const;
 };

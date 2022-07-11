@@ -14,6 +14,7 @@ struct Mesh
     Mesh& operator=( const Mesh& other );
     Mesh& operator=( Mesh&& other ) = delete;
 
+    std::vector<float> ConstructAttributesInOneBuffer( const VertexBuffer::BufferLayout& layout );
     std::vector<float> ConstructAttributesInOneBuffer( AttributeType type ) const;
 
     std::vector<float> m_vertex_pos;
