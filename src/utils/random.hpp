@@ -47,7 +47,7 @@ class Random
 
     private:
         template<typename FloatingType>
-        inline static FloatingType Between_0_1() // returns a floating_type between 0,1
+        inline static FloatingType Between_0_1() // returns a floating type between 0,1
         {
                 return static_cast<FloatingType>(RandImplemention()) / RAND_MAX;
         }

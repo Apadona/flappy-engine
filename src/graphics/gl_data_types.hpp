@@ -7,7 +7,7 @@
     #undef DOUBLE
 #endif
 
-enum GLDataType
+enum struct GLDataType
 {
     NONE,
 
@@ -62,98 +62,98 @@ inline constexpr GLDataType ConvertType( GLenum data_type )
     switch( data_type )
     {
         case GL_BOOL:
-            return _BOOL;
+            return GLDataType::_BOOL;
 
         case GL_INT:
-            return INTEGER;
+            return GLDataType::INTEGER;
 
         case GL_UNSIGNED_INT:
-            return UINTEGER;
+            return GLDataType::UINTEGER;
 
         case GL_FLOAT:
-            return FLOATING;
+            return GLDataType::FLOATING;
 
         case GL_DOUBLE:
-            return _DOUBLE;
+            return GLDataType::_DOUBLE;
 
         case GL_BOOL_VEC2:
-            return BVEC2;
+            return GLDataType::BVEC2;
 
         case GL_BOOL_VEC3:
-            return BVEC3;
+            return GLDataType::BVEC3;
 
         case GL_BOOL_VEC4:
-            return BVEC4;
+            return GLDataType::BVEC4;
 
         case GL_INT_VEC2:
-            return IVEC2;
+            return GLDataType::IVEC2;
 
         case GL_INT_VEC3:
-            return IVEC3;
+            return GLDataType::IVEC3;
 
         case GL_INT_VEC4:
-            return IVEC4;
+            return GLDataType::IVEC4;
 
         case GL_UNSIGNED_INT_VEC2:
-            return UVEC2;
+            return GLDataType::UVEC2;
 
         case GL_UNSIGNED_INT_VEC3:
-            return UVEC3;
+            return GLDataType::UVEC3;
 
         case GL_UNSIGNED_INT_VEC4:
-            return UVEC4;
+            return GLDataType::UVEC4;
 
         case GL_FLOAT_VEC2:
-            return VEC2;
+            return GLDataType::VEC2;
 
         case GL_FLOAT_VEC3:
-            return VEC3;
+            return GLDataType::VEC3;
 
         case GL_FLOAT_VEC4:
-            return VEC4;
+            return GLDataType::VEC4;
 
         case GL_FLOAT_MAT2:
-            return MAT22;
+            return GLDataType::MAT22;
         
         case GL_FLOAT_MAT2x3:
-            return MAT23;
+            return GLDataType::MAT23;
 
         case GL_FLOAT_MAT2x4:
-            return MAT24;
+            return GLDataType::MAT24;
 
         case GL_FLOAT_MAT3x2:
-            return MAT32;
+            return GLDataType::MAT32;
 
         case GL_FLOAT_MAT3:
-            return MAT33;
+            return GLDataType::MAT33;
 
         case GL_FLOAT_MAT3x4:
-            return MAT34;
+            return GLDataType::MAT34;
 
         case GL_FLOAT_MAT4x2:
-            return MAT42;
+            return GLDataType::MAT42;
 
         case GL_FLOAT_MAT4x3:
-            return MAT43;
+            return GLDataType::MAT43;
 
         case GL_FLOAT_MAT4:
-            return MAT44;
+            return GLDataType::MAT44;
 
         case GL_SAMPLER_1D:
-            return TEXTURE_1D;
+            return GLDataType::TEXTURE_1D;
 
         case GL_SAMPLER_2D:
-            return TEXTURE_2D;
+            return GLDataType::TEXTURE_2D;
 
         case GL_SAMPLER_3D:
-            return TEXTURE_3D;
+            return GLDataType::TEXTURE_3D;
 
         case GL_SAMPLER_CUBE:
-            return TEXTURE_CUBE_MAP;
+            return GLDataType::TEXTURE_CUBE_MAP;
 
         default:
             CORE_LOG_WARNING("certain type of OpenGL data type is not handeled now!\n");
-            return NONE;
+            return GLDataType::NONE;
     }
 }
 
@@ -161,70 +161,70 @@ inline constexpr GLint CalculateSize( GLDataType type ) // in BYTES
 {
     switch( type )
     {
-        case NONE:
+        case GLDataType::NONE:
             CORE_LOG_WARNING("GLDataType None has no Size!\n");
             return 0;
 
-        case _BOOL:
+        case GLDataType::_BOOL:
             return 1;   
 
-        case BVEC2:
+        case GLDataType::BVEC2:
             return 2;
 
-        case BVEC3:
+        case GLDataType::BVEC3:
             return 3;
 
-        case INTEGER:
-        case UINTEGER:
-        case FLOATING:
-        case BVEC4:
+        case GLDataType::INTEGER:
+        case GLDataType::UINTEGER:
+        case GLDataType::FLOATING:
+        case GLDataType::BVEC4:
             return 4;
 
-        case _DOUBLE:
-        case IVEC2:
-        case UVEC2:
-        case VEC2:
+        case GLDataType::_DOUBLE:
+        case GLDataType::IVEC2:
+        case GLDataType::UVEC2:
+        case GLDataType::VEC2:
             return 8;
 
-        case IVEC3:
-        case UVEC3:
-        case VEC3:
+        case GLDataType::IVEC3:
+        case GLDataType::UVEC3:
+        case GLDataType::VEC3:
             return 12;
 
-        case IVEC4:
-        case UVEC4:
-        case VEC4:
-        case MAT22:
+        case GLDataType::IVEC4:
+        case GLDataType::UVEC4:
+        case GLDataType::VEC4:
+        case GLDataType::MAT22:
             return 16;
 
-        case MAT23:
-        case MAT32:
+        case GLDataType::MAT23:
+        case GLDataType::MAT32:
             return 24;
 
-        case MAT24:
-        case MAT42:
+        case GLDataType::MAT24:
+        case GLDataType::MAT42:
             return 32;
 
-        case MAT33:
+        case GLDataType::MAT33:
             return 36;
 
-        case MAT34:
-        case MAT43:
+        case GLDataType::MAT34:
+        case GLDataType::MAT43:
             return 48;
 
-        case MAT44:
+        case GLDataType::MAT44:
             return 64;
 
-        case TEXTURE_1D:
+        case GLDataType::TEXTURE_1D:
             return 0;
 
-        case TEXTURE_2D:
+        case GLDataType::TEXTURE_2D:
             return 0;
 
-        case TEXTURE_3D:
+        case GLDataType::TEXTURE_3D:
             return 0;
 
-        case TEXTURE_CUBE_MAP:
+        case GLDataType::TEXTURE_CUBE_MAP:
             return 0;
 
 
@@ -238,66 +238,66 @@ inline constexpr GLint CalculateComponent( GLDataType type )
 {
     switch ( type )
     {
-        case NONE:
+        case GLDataType::NONE:
             CORE_LOG_WARNING("GLDataType None has no component!\n");
             return 0;
 
-        case _BOOL:
-        case INTEGER:
-        case UINTEGER:
-        case FLOATING:
-        case _DOUBLE:
+        case GLDataType::_BOOL:
+        case GLDataType::INTEGER:
+        case GLDataType::UINTEGER:
+        case GLDataType::FLOATING:
+        case GLDataType::_DOUBLE:
             return 1;
 
-        case BVEC2:
-        case IVEC2:
-        case UVEC2:
-        case VEC2:
+        case GLDataType::BVEC2:
+        case GLDataType::IVEC2:
+        case GLDataType::UVEC2:
+        case GLDataType::VEC2:
             return 2;
 
-        case BVEC3:
-        case IVEC3:
-        case UVEC3:
-        case VEC3:
+        case GLDataType::BVEC3:
+        case GLDataType::IVEC3:
+        case GLDataType::UVEC3:
+        case GLDataType::VEC3:
             return 3;
 
-        case BVEC4:
-        case IVEC4:
-        case UVEC4:
-        case VEC4:
+        case GLDataType::BVEC4:
+        case GLDataType::IVEC4:
+        case GLDataType::UVEC4:
+        case GLDataType::VEC4:
             return 4;
 
-        case MAT22:
+        case GLDataType::MAT22:
             return 4;
 
-        case MAT23:
-        case MAT32:
+        case GLDataType::MAT23:
+        case GLDataType::MAT32:
             return 6;
 
-        case MAT24:
-        case MAT42:
+        case GLDataType::MAT24:
+        case GLDataType::MAT42:
             return 8;
 
-        case MAT33:
+        case GLDataType::MAT33:
             return 9;
 
-        case MAT34:
-        case MAT43:
+        case GLDataType::MAT34:
+        case GLDataType::MAT43:
             return 12;
 
-        case MAT44:
+        case GLDataType::MAT44:
             return 16;
 
-        case TEXTURE_1D:
+        case GLDataType::TEXTURE_1D:
             return 0;
 
-        case TEXTURE_2D:
+        case GLDataType::TEXTURE_2D:
             return 0;
 
-        case TEXTURE_3D:
+        case GLDataType::TEXTURE_3D:
             return 0;
 
-        case TEXTURE_CUBE_MAP:
+        case GLDataType::TEXTURE_CUBE_MAP:
             return 0;
 
         default:
@@ -310,50 +310,50 @@ inline constexpr GLint CalculateType( GLDataType type )
 {
     switch( type )
     {
-        case NONE:
+        case GLDataType::NONE:
             CORE_LOG_WARNING("GLDataType None has no type!\n");
-            return NONE;
+            return -1;
 
-        case _BOOL:
-        case BVEC2:
-        case BVEC3:
-        case BVEC4:
+        case GLDataType::_BOOL:
+        case GLDataType::BVEC2:
+        case GLDataType::BVEC3:
+        case GLDataType::BVEC4:
             return GL_BOOL;
 
-        case INTEGER:
-        case IVEC2:
-        case IVEC3:
-        case IVEC4:
+        case GLDataType::INTEGER:
+        case GLDataType::IVEC2:
+        case GLDataType::IVEC3:
+        case GLDataType::IVEC4:
             return GL_INT;
-        case UINTEGER:
-        case UVEC2:
-        case UVEC3:
-        case UVEC4:
+        case GLDataType::UINTEGER:
+        case GLDataType::UVEC2:
+        case GLDataType::UVEC3:
+        case GLDataType::UVEC4:
             return GL_UNSIGNED_INT;
 
-        case FLOATING:
-        case VEC2:
-        case VEC3:
-        case VEC4:
+        case GLDataType::FLOATING:
+        case GLDataType::VEC2:
+        case GLDataType::VEC3:
+        case GLDataType::VEC4:
         
-        case MAT22:
-        case MAT23:
-        case MAT24:
-        case MAT32:
-        case MAT33:
-        case MAT34:
-        case MAT42:
-        case MAT43:
-        case MAT44:
+        case GLDataType::MAT22:
+        case GLDataType::MAT23:
+        case GLDataType::MAT24:
+        case GLDataType::MAT32:
+        case GLDataType::MAT33:
+        case GLDataType::MAT34:
+        case GLDataType::MAT42:
+        case GLDataType::MAT43:
+        case GLDataType::MAT44:
             return GL_FLOAT;
 
-        case _DOUBLE:
+        case GLDataType::_DOUBLE:
             return GL_DOUBLE;
 
-        case TEXTURE_1D:
-        case TEXTURE_2D:
-        case TEXTURE_3D:
-        case TEXTURE_CUBE_MAP:
+        case GLDataType::TEXTURE_1D:
+        case GLDataType::TEXTURE_2D:
+        case GLDataType::TEXTURE_3D:
+        case GLDataType::TEXTURE_CUBE_MAP:
             return GL_TEXTURE;
 
         default:

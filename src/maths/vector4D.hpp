@@ -62,6 +62,7 @@ struct Vector4D
 };
 
 using Vec4i = Vector4D<int>;
+using Vec4ui = Vector4D<unsigned int>;
 using Vec4l = Vector4D<long>;
 using Vec4f = Vector4D<float>;
 using Vec4d = Vector4D<double>;

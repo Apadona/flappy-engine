@@ -68,6 +68,7 @@ struct Vector3D
 };
 
 using Vec3i = Vector3D<int>;
+using Vec3ui = Vector3D<unsigned int>;
 using Vec3l = Vector3D<long>;
 using Vec3f = Vector3D<float>;
 using Vec3d = Vector3D<double>;

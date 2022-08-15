@@ -1,8 +1,6 @@
 #include "window.hpp"
 
-#include <engine_pch.hpp>
-
-Window::Window( std::int16_t size_x, std::int16_t size_y, const std::string_view& title,
+Window::Window( std::int16_t size_x, std::int16_t size_y, const std::string& title,
                 std::int16_t pos_x, std::int16_t pos_y,
                 int8_t gl_major_version, int8_t gl_minor_version ) :
 
@@ -35,10 +33,20 @@ void Window::SetPosition( std::int16_t pos_x, std::int16_t pos_y )
     glfwSetWindowPos(glfw_window,m_x,m_y);
 }
 
-void Window::SetTitle( const std::string_view& title )
+void Window::SetTitle( const std::string& title )
 {
     m_title = title;
     glfwSetWindowTitle(glfw_window,m_title.data());
+}
+
+void Window::SetIcon( int width, int height, unsigned char* image_pixels )
+{
+    GLFWimage image;
+    image.width = width;
+    image.height = height;
+    image.pixels = image_pixels;
+
+    glfwSetWindowIcon(glfw_window,1,&image);
 }
 
 void Window::Hide( bool hide )
@@ -67,6 +75,20 @@ void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version
     //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
+Event Window::PollEvent()
+{
+    if( !m_event_queue.empty() )
+    {
+        auto event = m_event_queue.front();
+        m_event_queue.pop();
+        return event;
+    }
+
+    glfwPollEvents();
+
+   return {};
+}
+
 bool Window::Update() const
 {
     if( IsOpen() )
@@ -92,107 +114,166 @@ void Window::HandleCreation()
 
     glfwMakeContextCurrent(glfw_window);
 
+    glfwSetWindowUserPointer(glfw_window,this);
+
     glfwGetWindowPos(glfw_window,(int*)&m_x,(int*)&m_y);
 
     glfwSetErrorCallback(OnError);
+    glfwSetCursorEnterCallback(glfw_window,OnMouseEnter);
     glfwSetMouseButtonCallback(glfw_window,OnMouseClick);
+    glfwSetCursorPosCallback(glfw_window,OnMouseMove);
     glfwSetKeyCallback(glfw_window,OnKeyPressed);
     glfwSetCharCallback(glfw_window,OnCharKeyPressed);
     glfwSetFramebufferSizeCallback(glfw_window,OnWindowResize);
-    glfwSetCursorPosCallback(glfw_window,OnMouseMove);
     glfwSetWindowCloseCallback(glfw_window,OnWindowClose);
+}
+
+void Window::PushEvent( const Event& event )
+{
+    m_event_queue.push(event);
+}
+
+void Window::PollGLFWEvents()
+{
+    glfwPollEvents();
+}
+
+Window* Window::GetWindowfromGLFWPtr( GLFWwindow* glfw_window )
+{
+    auto _window = reinterpret_cast<Window*>(glfwGetWindowUserPointer(glfw_window));
+    return _window;
 }
 
 void Window::OnError( int code, const char* error )
 {
-    std::cerr << "glfw error code occured!\ncode: " << code << "\n error message:" << error << std::endl;
+    CORE_LOG_ERROR("glfw error code occured!\ncode: ",code,"\n error message:",error);
 }
 
 void Window::OnKeyPressed( GLFWwindow* window, int key, int scan_code, int action, int modes )
 {
+    auto _window = reinterpret_cast<Window*>(GetWindowfromGLFWPtr(window));
+
+    Event event;
+    event.m_category = EventCategory::KEYBOARD;
+    event.m_type = EventType::KEYBOARD_BUTTON;
+
+    auto key_state = ButtonState::NONE;
+
+    if( action == GLFW_PRESS )
+        key_state = ButtonState::PRESSED;
+
+    else if( action == GLFW_REPEAT )
+        key_state = ButtonState::REPEAT;
+
+    else if( action == GLFW_RELEASE )
+        key_state = ButtonState::RELEASED;
+
+    event.m_data.key_event.state = key_state;
+    event.m_data.key_event.key = static_cast<KeyboardKey>(key);
+    event.m_data.key_event.special_key = static_cast<SpecialKey>(modes);
+
+    _window->PushEvent(event);
 }
 
 void Window::OnCharKeyPressed( GLFWwindow* window, unsigned int key )
 {
-    std::cout << "key " << (char)key << " is pressed!\n";
+}
+
+void Window::OnMouseEnter( GLFWwindow* window, int is_entered )
+{
+    auto _window = GetWindowfromGLFWPtr( window );
+
+    Event event;
+    event.m_category = EventCategory::MOUSE;
+    event.m_type = EventType::WINDOW_MOUSE_ENTER;
+
+    if( is_entered )
+    {
+        event.m_data.window_mouse_event.enter = true;
+        event.m_data.window_mouse_event.leave = false;
+    }
+
+    else
+    {
+        event.m_data.window_mouse_event.enter = false;
+        event.m_data.window_mouse_event.leave = true;
+    }
+
+    return _window->PushEvent(event);
 }
 
 void Window::OnMouseClick( GLFWwindow* window, int button, int action, int mode )
 {
+    auto _window = GetWindowfromGLFWPtr( window );
+    
+    Event event;
+    event.m_category = EventCategory::MOUSE;
+    event.m_type = EventType::MOUSE_CLICK;
+
     if( action == GLFW_PRESS )
-    {
-        switch( button )
-        {
-            case GLFW_MOUSE_BUTTON_1:
-                std::cout << "Left mouse button is pressed!\n";
-            break;
+        event.m_data.mouse_button_event.state = ButtonState::PRESSED;
 
-            case GLFW_MOUSE_BUTTON_2:
-                std::cout << "Right mouse button is pressed!\n";
-            break;
-
-            case GLFW_MOUSE_BUTTON_3:
-                std::cout << "Middle mouse button is pressed!\n";
-            break;
-
-            case GLFW_MOUSE_BUTTON_4:
-                std::cout << "Up mouse button is pressed!\n";
-            break;
-
-            case GLFW_MOUSE_BUTTON_5:
-                std::cout << "Down mouse button is pressed!\n";
-            break;
-        }
-    }
-        
     if( action == GLFW_RELEASE )
-    {
-        switch( button )
-        {
-            case GLFW_MOUSE_BUTTON_1:
-                std::cout << "Left mouse button is released!\n";
-            break;
+        event.m_data.mouse_button_event.state = ButtonState::RELEASED;
 
-            case GLFW_MOUSE_BUTTON_2:
-                std::cout << "Right mouse button is released!\n";
-            break;
+    event.m_data.mouse_button_event.button = static_cast<MouseButton>(button);
 
-            case GLFW_MOUSE_BUTTON_3:
-                std::cout << "Middle mouse button is released!\n";
-            break;
-
-            case GLFW_MOUSE_BUTTON_4:
-                std::cout << "Up mouse button is released!\n";
-            break;
-
-            case GLFW_MOUSE_BUTTON_5:
-                std::cout << "Down mouse button is released!\n";
-            break;
-        }
-    }
+    _window->PushEvent(event);
 }
 
 void Window::OnMouseMove( GLFWwindow* window, double x, double y )
 {
-    //std::cout << "mouse is moved inside the window! with pos_x = " << x 
-    //          << " and pos_y = " << y << std::endl;
+    auto _window = reinterpret_cast<Window*>(GetWindowfromGLFWPtr(window));
+
+    Event event;
+    event.m_category = EventCategory::MOUSE;
+    event.m_type = EventType::MOUSE_MOVED;
+    event.m_data.mouse_move_event.move_x = x;
+    event.m_data.mouse_move_event.move_y = y;
+
+    _window->PushEvent(event);
 }
 
 void Window::OnWindowResize( GLFWwindow* window, int width, int height )
 {
-    std::cout << "Window is resized! new size = width :" << width << " height = "
-              << height << std::endl;
+    auto _window = GetWindowfromGLFWPtr( window );
+    _window->m_width = width, _window->m_height = height;
+
+    Event event;
+    event.m_category = EventCategory::WINDOW;
+    event.m_type = EventType::WINDOW_RESIZE;
+    event.m_data.window_resize_event.width = _window->m_width;
+    event.m_data.window_resize_event.height = _window->m_height;
+    event.m_data.window_resize_event.maximized = false;
+
+    _window->PushEvent(event);
+
     glViewport(0,0,width,height);
 }
 
 void Window::OnWindowMove( GLFWwindow* window, int pos_x, int pos_y )
 {
-    std::cout << "Window has moved! pos_x = " << pos_x << " pos_y = "
-              << pos_y << std::endl;
+    auto _window = GetWindowfromGLFWPtr( window );
+    _window->m_x = pos_x, _window->m_y = pos_y;
+
+    Event event;
+    event.m_category = EventCategory::WINDOW;
+    event.m_type = EventType::WINDOW_MOVE;
+    event.m_data.window_move_event.x = _window->m_x;
+    event.m_data.window_move_event.y = _window->m_y;
+
+    _window->PushEvent(event);
 }
 
 void Window::OnWindowClose( GLFWwindow* window )
 {
-    std::cout << "window close message has been sent to window!\n";
+    auto _window = GetWindowfromGLFWPtr( window );
+
+    Event event;
+    event.m_category = EventCategory::WINDOW;
+    event.m_type = EventType::WINDOW_CLOSE;
+
+    _window->PushEvent(event);
+
     glfwSetWindowShouldClose(window,GL_TRUE);
 }

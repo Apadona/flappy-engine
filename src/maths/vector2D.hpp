@@ -64,6 +64,7 @@ struct Vector2D
 };
 
 using Vec2i = Vector2D<int>;
+using Vec2ui = Vector2D<unsigned int>;
 using Vec2l = Vector2D<long>;
 using Vec2f = Vector2D<float>;
 using Vec2d = Vector2D<double>;

@@ -30,9 +30,9 @@ class Application
 */
         virtual bool Init( int argc, char** argv, char** env ) = 0;
 
-        virtual void OnCreate() = 0;
+        virtual bool OnCreate() = 0;
         virtual bool OnUpdate( float dt ) = 0;
-        virtual void OnClose() = 0;
+        virtual bool OnClose() = 0;
 
         //virtual void UpdateScreen() const = 0; // HACK. will change later.
 

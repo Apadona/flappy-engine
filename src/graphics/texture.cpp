@@ -1,8 +1,6 @@
 #include "texture.hpp"
 #include "texture_manager.hpp"
 
-#include <stb_image/stb_image.h>
-
 namespace
 {
     inline constexpr GLint GetGLTextureType( TextureType type )
@@ -81,25 +79,6 @@ namespace
                 return -1; // invalid.
         }
     }
-}
-
-static Texture* Create( const std::string& texture_file_path )
-{
-    Texture texture(texture_file_path);
-
-    if( texture )
-    {
-        if( TextureManager::Get().UseTexture(texture) )
-            return &texture;
-
-        else
-        {
-            CORE_LOG_ERROR("could not register texture");
-            return nullptr;
-        }
-    }
-
-    return nullptr;
 }
 
 Texture::Texture( const std::string& texture_file_path )

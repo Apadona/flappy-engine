@@ -130,6 +130,8 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
     m_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
     m_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
     m_shader.SetUniform("blend_color",color);
+    m_shader.SetUniform("sample_offset",texture.m_sample_offset);
+    m_shader.SetUniform("sample_ratio",texture.m_sample_ratio);
 }
 
 void Renderer::DrawCommand() const

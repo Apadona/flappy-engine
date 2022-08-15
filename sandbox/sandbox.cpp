@@ -24,29 +24,87 @@ class SandBoxApp : public Application
             return true;
         }
 
-        void OnCreate() override
+        bool OnCreate() override
         {
-            Random::Init(1000);
-            cat_texture.Create("data/textures/cat.bmp");
-            sprite.SetTexture(cat_texture);
-            sprite.SetColor({0.7f,0.4f,0.5f,1.0f});
-
             if( !renderer.Init() )
             {
                 LOG_ERROR("could not initialize Renderer!");
-                return;
+                return false;
             }
+
+            Random::Init(1000);
+            bird_animations.Create("data/textures/bird_atlas.png");
+            atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
+            std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };
+            atlas.SetFilter(filters);
+            //atlas.Set(1);
+            sprite.SetTexture(bird_animations);
+            sprite.SetColor({0.7f,0.4f,0.5f,1.0f});
+
+            int bpp = 3;
+            int width = 16;
+            int height = 16;
+            unsigned char* image_icon = stbi_load("data/images/mouse_icon.png",&width,&height,&bpp,4);
+            m_window->SetIcon(16,16,image_icon);
         }
 
         bool OnUpdate( float dt ) override
         {
-            if( m_window->Update() )
+            if( m_window->IsOpen() )
             {
+                auto event = m_window->PollEvent();
+
+                if( event.m_type == EventType::MOUSE_CLICK )
+                {
+                    if( event.m_data.mouse_button_event.button == MouseButton::LEFT )
+                    {
+                        if( event.m_data.mouse_button_event.state == ButtonState::PRESSED )
+                            LOG_NORMAL("left mouse button is pressed!");
+                        else
+                            LOG_NORMAL("left mouse button is released!");
+                    }
+
+                    else if( event.m_data.mouse_button_event.button == MouseButton::RIGHT )
+                    {
+                        if( event.m_data.mouse_button_event.state == ButtonState::PRESSED )
+                            LOG_NORMAL("right mouse button is pressed!");
+                        else
+                            LOG_NORMAL("right mouse button is released!");
+                    }
+                }
+
+                else if( event.m_type == EventType::MOUSE_MOVED )
+                {
+                    auto x = event.m_data.mouse_move_event.move_x;
+                    auto y = event.m_data.mouse_move_event.move_y;
+
+                    LOG_NORMAL("mouse moved at positions:",x,",",y);
+                }
+
+                else if( event.m_type == EventType::WINDOW_MOUSE_ENTER )
+                {
+                    auto enter = event.m_data.window_mouse_event.enter;
+                    LOG_NORMAL("mouse ", (enter)? "entered" : "left", " window.");
+                }
+
+                else if( event.m_type == EventType::KEYBOARD_BUTTON )
+                {
+                    auto key = event.m_data.key_event.key;
+                    auto pressed = event.m_data.key_event.state;
+                    auto special = event.m_data.key_event.special_key;
+
+                    if( key == KeyboardKey::SPACE && pressed == ButtonState::PRESSED )
+                        atlas.Next();
+                }                
+
                 renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
                 //renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
                 renderer.DrawSprite(sprite);
 
                 m_window->ReDraw();
+
+                using namespace std::literals::chrono_literals;
+                std::this_thread::sleep_for(72ms);
 
                 return true;
             }
@@ -54,13 +112,14 @@ class SandBoxApp : public Application
             return false;
         }
 
-        void OnClose() override {}
+        bool OnClose() override {}
 
     private:
         Renderer renderer;
 
         Sprite sprite;
-        Texture cat_texture;
+        Texture bird_animations;
+        TextureAtlas atlas;
 };
 
 REGISTER_APP(SandBoxApp)

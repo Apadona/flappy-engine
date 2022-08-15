@@ -4,4 +4,4 @@ cd ../..
 
 system_architecture=$(getconf LONG_BIT)
 
-gdb build/bin/linux/$system_architecture/sandbox
+gdb build/bin/linux/$system_architecture/sandbox $@

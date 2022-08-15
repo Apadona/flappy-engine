@@ -2,7 +2,7 @@
 
 Sprite::Sprite() : m_texture(nullptr), m_transform(), m_color(1.0f,1.0f,1.0f,0.0f) {}
 
-Sprite::Sprite( const Texture& texture, const Transform2D& transform, const Vec4& color )
+Sprite::Sprite( Texture& texture, const Transform2D& transform, const Vec4& color )
 {
     SetTexture(texture);
     SetTransform(transform);

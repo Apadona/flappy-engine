@@ -1,8 +1,11 @@
 #pragma once
 
+#include <stb_image/stb_image.h>
 #include <glad/glad.h>
 
 #include <engine_pch.hpp>
+
+#include <maths/vector2D.hpp>
 
 enum class TextureType
 {
@@ -42,6 +45,7 @@ class Texture
 {
     friend class Renderer;
     friend class TextureManager;
+    friend class TextureAtlas;
 
     public:
         static Texture* create( const std::string& texture_file_path );
@@ -68,6 +72,9 @@ class Texture
             m_wrap_method = wrapping_method;
         }
 
+        void SetSampleOffset( const Vec2& offset ) { m_sample_offset = offset; }
+        void SetSampleRatio( const Vec2& ratio ) { m_sample_ratio = ratio; }
+
         operator bool() const;
         bool operator!() const;
 
@@ -77,6 +84,8 @@ class Texture
         GLint GetSizeX() const { return m_width; }
         GLint GetSizeY() const { return m_height; }
         const unsigned char* GetData() const { return m_data; }
+        Vec2 GetSamplePos() const { return m_sample_offset; }
+        Vec2 GetSampleRatio() const { return m_sample_ratio; }
 
     private:
         void Bind( bool bind = true );
@@ -93,5 +102,6 @@ class Texture
         TextureFiltering m_filter_method = TextureFiltering::LINEAR;
         TextureWrapping m_wrap_method = TextureWrapping::REPEAT;
 
-        //static Texture default_white_texture;
+        Vec2 m_sample_offset = {0,0};
+        Vec2 m_sample_ratio = {1,1};
 };

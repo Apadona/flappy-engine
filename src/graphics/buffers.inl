@@ -95,5 +95,5 @@ void GLBuffer<T,type>::Bind( bool bind )
 template<typename T, GLenum type>
 GLBuffer<T,type>::~GLBuffer()
 {
-    // glDeleteBuffers(1,&m_id);
+    glDeleteBuffers(1,&m_id);
 }

@@ -11,7 +11,7 @@ Shader::GLData::GLData( const std::string& name, GLDataType type, GLint location
 Shader::GLData::GLData( Shader::GLData&& other ) : m_name(std::move(other.m_name)),
                 m_type(other.m_type), m_size(other.m_size),m_location(other.m_location)
 {
-    other.m_type = NONE;
+    other.m_type = GLDataType::NONE;
     other.m_size = 0;
     other.m_location = -1;
 }
