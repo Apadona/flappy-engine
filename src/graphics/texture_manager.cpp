@@ -163,7 +163,7 @@ std::optional<TextureUnitSize> TextureManager::FindTexture( const Texture& textu
     return {};
 }
 
-void TextureManager::ActivateTexture( Texture& texture, TextureUnitSize texture_unit, bool activate ) const
+void TextureManager::ActivateTextureUnitForTexture( Texture& texture, TextureUnitSize texture_unit, bool activate ) const
 {
     glActiveTexture(GL_TEXTURE0 + texture_unit);
     texture.Activate(activate);
