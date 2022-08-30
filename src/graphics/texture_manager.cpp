@@ -55,8 +55,6 @@ bool TextureManager::Init()
     for( int i = 0; i < manager.m_max_texture_slots; ++i )
         manager.m_texture_slots.emplace_back();
 
-    std::cout << manager.m_texture_slots.capacity() << std::endl;
-
     CORE_LOG_NORMAL("number of texture slots in this hardware:",
                     info.gl_texture_info.max_texture_units);
     return true;
@@ -66,7 +64,7 @@ bool TextureManager::UseTexture( Texture& texture )
 {
     if( auto found = FindTexture(texture); found )
     {
-        BindTexture(texture,found.value());
+        ActivateTextureUnitForTexture(texture,found.value());
         return true;
     }
 
@@ -77,7 +75,7 @@ bool TextureManager::UseTexture( Texture& texture )
 
         if( place )
         {
-            BindTexture(texture,place.value());
+            ActivateTextureUnitForTexture(texture,place.value());
             return true;
         }
     }
@@ -87,11 +85,14 @@ bool TextureManager::UseTexture( Texture& texture )
 
 void TextureManager::UnUseTexture( Texture& texture )
 {
-    if( auto found = FindTexture(texture); found )
+    if( HasTexture(texture) )
+    {
         RemoveTexture(texture);
+        texture.Activate(false);
+    }
 }
 
-std::optional<TextureUnitSize> TextureManager::GetTextureUnitLocation( const Texture& texture )
+std::optional<TextureUnitSize> TextureManager::GetTextureUnitLocation( const Texture& texture ) const
 {
     return FindTexture(texture);
 }
@@ -138,7 +139,7 @@ bool TextureManager::RemoveTexture( const Texture& texture )
     return false;
 }
 
-void TextureManager::RemoveAllTextures()
+void TextureManager::ClearAllTextureSlots()
 {
     for( auto& i : m_texture_slots )
         i.Clear();
@@ -162,8 +163,8 @@ std::optional<TextureUnitSize> TextureManager::FindTexture( const Texture& textu
     return {};
 }
 
-void TextureManager::BindTexture( Texture& texture, TextureUnitSize texture_unit, bool bind ) const
+void TextureManager::ActivateTexture( Texture& texture, TextureUnitSize texture_unit, bool activate ) const
 {
     glActiveTexture(GL_TEXTURE0 + texture_unit);
-    texture.Bind(bind);
+    texture.Activate(activate);
 }

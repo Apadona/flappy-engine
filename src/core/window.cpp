@@ -4,14 +4,14 @@ Window::Window( std::int16_t size_x, std::int16_t size_y, const std::string& tit
                 std::int16_t pos_x, std::int16_t pos_y,
                 int8_t gl_major_version, int8_t gl_minor_version ) :
 
-                m_width(size_x), m_height(size_y), m_x(pos_x), m_y(pos_y), m_title(title)/*,
-                m_gl_context(gl_major_version,gl_minor_version)*/
+                m_width(size_x), m_height(size_y), m_pos_x(pos_x), m_pos_y(pos_y), m_title(title),
+                m_is_vsync_on(false)
 {
     HandleCreation();
 }
 
 Window::Window( const Window& other ) : m_width(other.m_width), m_height( other.m_height ),
-                 m_x(other.m_x), m_y(other.m_y), m_title(other.m_title)
+                 m_pos_x(other.m_pos_x), m_pos_y(other.m_pos_y), m_title(other.m_title)
 {
     HandleCreation();
 }
@@ -29,8 +29,8 @@ void Window::SetSize( std::int16_t size_x, std::int16_t size_y )
 
 void Window::SetPosition( std::int16_t pos_x, std::int16_t pos_y )
 {
-    m_x = pos_x, m_y = pos_y;
-    glfwSetWindowPos(glfw_window,m_x,m_y);
+    m_pos_x = pos_x, m_pos_y = pos_y;
+    glfwSetWindowPos(glfw_window,m_pos_x,m_pos_y);
 }
 
 void Window::SetTitle( const std::string& title )
@@ -60,12 +60,32 @@ void Window::Hide( bool hide )
 
 void Window::Close()
 {
-    glfwDestroyWindow(glfw_window);
+    glfwSetWindowShouldClose(glfw_window,true);
 }
 
 bool Window::IsOpen() const
 {
     return !glfwWindowShouldClose(glfw_window);
+}
+
+bool Window::IsVSyncOn() const
+{
+    return m_is_vsync_on;
+}
+
+void Window::EnableVsync( bool enable )
+{
+    if( enable && !m_is_vsync_on )
+    {
+        glfwSwapInterval(1); // TODO: i don't know if this value is correct.
+        m_is_vsync_on = true;
+    }
+
+    else if( !enable && m_is_vsync_on )
+    {
+        glfwSwapInterval(0);
+        m_is_vsync_on = false;
+    }
 }
 
 void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version )
@@ -80,11 +100,11 @@ Event Window::PollEvent()
     if( !m_event_queue.empty() )
     {
         auto event = m_event_queue.front();
-        m_event_queue.pop();
+        m_event_queue.pop_front();
         return event;
     }
 
-    glfwPollEvents();
+    PollGLFWEvents();
 
    return {};
 }
@@ -93,7 +113,7 @@ bool Window::Update() const
 {
     if( IsOpen() )
     {
-        glfwPollEvents();
+        PollGLFWEvents();
         
         return true;
     }
@@ -116,7 +136,7 @@ void Window::HandleCreation()
 
     glfwSetWindowUserPointer(glfw_window,this);
 
-    glfwGetWindowPos(glfw_window,(int*)&m_x,(int*)&m_y);
+    glfwGetWindowPos(glfw_window,(int*)&m_pos_x,(int*)&m_pos_y);
 
     glfwSetErrorCallback(OnError);
     glfwSetCursorEnterCallback(glfw_window,OnMouseEnter);
@@ -126,14 +146,16 @@ void Window::HandleCreation()
     glfwSetCharCallback(glfw_window,OnCharKeyPressed);
     glfwSetFramebufferSizeCallback(glfw_window,OnWindowResize);
     glfwSetWindowCloseCallback(glfw_window,OnWindowClose);
+
+    glfwSwapInterval(0);
 }
 
 void Window::PushEvent( const Event& event )
 {
-    m_event_queue.push(event);
+    m_event_queue.push_back(event);
 }
 
-void Window::PollGLFWEvents()
+void Window::PollGLFWEvents() const
 {
     glfwPollEvents();
 }
@@ -223,7 +245,7 @@ void Window::OnMouseClick( GLFWwindow* window, int button, int action, int mode 
 
 void Window::OnMouseMove( GLFWwindow* window, double x, double y )
 {
-    auto _window = reinterpret_cast<Window*>(GetWindowfromGLFWPtr(window));
+    auto _window = GetWindowfromGLFWPtr(window);
 
     Event event;
     event.m_category = EventCategory::MOUSE;
@@ -254,13 +276,13 @@ void Window::OnWindowResize( GLFWwindow* window, int width, int height )
 void Window::OnWindowMove( GLFWwindow* window, int pos_x, int pos_y )
 {
     auto _window = GetWindowfromGLFWPtr( window );
-    _window->m_x = pos_x, _window->m_y = pos_y;
+    _window->m_pos_x = pos_x, _window->m_pos_y = pos_y;
 
     Event event;
     event.m_category = EventCategory::WINDOW;
     event.m_type = EventType::WINDOW_MOVE;
-    event.m_data.window_move_event.x = _window->m_x;
-    event.m_data.window_move_event.y = _window->m_y;
+    event.m_data.window_move_event.x = _window->m_pos_x;
+    event.m_data.window_move_event.y = _window->m_pos_y;
 
     _window->PushEvent(event);
 }
@@ -274,6 +296,4 @@ void Window::OnWindowClose( GLFWwindow* window )
     event.m_type = EventType::WINDOW_CLOSE;
 
     _window->PushEvent(event);
-
-    glfwSetWindowShouldClose(window,GL_TRUE);
 }

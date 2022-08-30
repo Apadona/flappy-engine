@@ -99,3 +99,18 @@ std::string_view Time::IntToMonthStr( int month )
             return "";
     }
 }
+
+Timer::Timer()
+{
+    Reset();
+}
+
+void Timer::Reset()
+{
+    m_elapsed_time = ClockFunctionImpl();
+}
+
+clock_type Timer::ClockFunctionImpl() const
+{
+    return std::chrono::high_resolution_clock::now();
+}

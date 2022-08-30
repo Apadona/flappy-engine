@@ -4,17 +4,38 @@
 
 #include "window.hpp"
 
+struct ProgramArguments
+{
+    ProgramArguments( int argc, char** argv, char** env );
+    ProgramArguments( const ProgramArguments& other );
+
+    int argc;
+    char** argv;
+    char** env;
+};
+
 class CommandLineArguments
 {
+    using EnviromentVariables = std::map<std::string,std::string>;
+
     public:
-        CommandLineArguments( uint32_t argc, char** argv );
+        CommandLineArguments( int argc, char** argv, char** env );
 
         uint32_t GetCount() const { return m_count; }
+        std::vector<std::string> GetAllArguments() const { return m_arguments; }
+
+        // for those who want to work with the standard way of dealing with arguments.
+        ProgramArguments AsStandard_C() const { return standard_arguments; }
+
         std::optional<std::string> operator[]( std::uint32_t index );
+        std::optional<std::string> operator[]( const std::string& ev ); // for enviroment_variables.
 
     private:
         uint32_t m_count;
-        std::vector<std::string> arguments;
+        std::vector<std::string> m_arguments;
+        EnviromentVariables m_enviroment_variables;
+
+        ProgramArguments standard_arguments;
 };
 
 class Application
@@ -28,10 +49,10 @@ class Application
         your program and to initialize the window title and it's width and height.
         Do not create the window here, as the engine will create it for you.
 */
-        virtual bool Init( int argc, char** argv, char** env ) = 0;
+        virtual bool Init( CommandLineArguments _args ) = 0;
 
         virtual bool OnCreate() = 0;
-        virtual bool OnUpdate( float dt ) = 0;
+        virtual bool OnUpdate( double dt ) = 0;
         virtual bool OnClose() = 0;
 
         //virtual void UpdateScreen() const = 0; // HACK. will change later.
@@ -46,20 +67,4 @@ class Application
 Application* RegisterApplication() \
 {\
     return new app; \
-}\
-
-/*
-class WindowApplication : public Application
-{
-    public:
-        WindowApplication();
-        WindowApplication( std::int16_t width, std::int16_t height, const std::string& title,
-                           std::int16_t pos_x, std::int16_t pos_y );
-
-        const Window& GetWindow() const { return m_window; }
-        const std::string& GetName() const { return m_title; }
-
-    private:
-        std::string m_title;
-        Window m_window;
-};*/
+}

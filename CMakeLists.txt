@@ -10,9 +10,10 @@ option( architecture_64 "select build architecture (32 or 64) bit." ON )
 
 ###########          for more readability and less repeating.           ###########
 # project directories.
-set( engine_source_directory "${CMAKE_SOURCE_DIR}/src" )
 set( dependencies_directory "${CMAKE_SOURCE_DIR}/dependencies" )
-set( sanbox_directory "{CMAKE_SOURCE_DIR}/sandbox" )
+set( engine_source_directory "${CMAKE_SOURCE_DIR}/src" )
+set( sanbox_directory "${CMAKE_SOURCE_DIR}/sandbox" )
+set( include_api_directory "${CMAKE_SOURCE_DIR}/include")
 set( build_directory "${CMAKE_SOURCE_DIR}/build" )
 
 # compile flags used for compiling the engine and it's sanbox (not the dependencies).
@@ -46,7 +47,7 @@ endif()
 set( executable_directory "${build_directory}/bin/${os_title}/${target_architecture}" )
 set( library_directory "${build_directory}/lib/${os_title}/${target_architecture}" )
 
-###########          compiling glfw as a library          ###########
+###########          compiling glfw as a static library          ###########
 set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE )
@@ -54,7 +55,18 @@ set( GLFW_INSTALL OFF CACHE BOOL "" FORCE )
 
 add_subdirectory("${dependencies_directory}/glfw")
 
-###########          compiling glad as a library          ###########
+set_target_properties( glfw PROPERTIES
+                            ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
+                     )
+
+###########          compiling freetype as a static library          ###########
+add_subdirectory("${dependencies_directory}/freetype")
+
+set_target_properties( freetype PROPERTIES
+                            ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
+                     )
+
+###########          compiling glad as a a static library          ###########
 add_library( glad STATIC "${dependencies_directory}/glad/glad/glad.c" )
 
 target_include_directories( glad PRIVATE
@@ -69,7 +81,7 @@ set_target_properties( glad PROPERTIES
                             ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
                      )
 
-###########          compiling stb_image as a library          ###########
+###########          compiling stb_image as a static library          ###########
 add_library( stb_image STATIC "${dependencies_directory}/stb_image/stb_image.cpp" )
 
 set_target_properties( stb_image PROPERTIES
@@ -80,7 +92,7 @@ set_target_properties( stb_image PROPERTIES
                             ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
                      )
 
-###########          compiling engine          ###########
+###########          compiling engine as a static library          ###########
 file( GLOB_RECURSE engine_source_files
                   "${engine_source_directory}/*.cpp"
                   #"${engine_source_directory}/core/*.cpp"
@@ -95,8 +107,10 @@ target_include_directories( engine PUBLIC
                             "${dependencies_directory}"
                             "${dependencies_directory}/glad"
                             "${dependencies_directory}/glfw/include"
-                            "${engine_source_directory}/core"
+                            "${dependencies_directory}/freetype/include"
+
                             "${engine_source_directory}"
+                            "${engine_source_directory}/core"
                           )
 
 target_precompile_headers( engine PRIVATE
@@ -109,6 +123,7 @@ target_link_libraries( engine PRIVATE
                           glad
                           glfw
                           stb_image
+                          freetype
                      )
 
 set_target_properties( engine PROPERTIES
@@ -131,7 +146,7 @@ endif()
 add_executable( sandbox "sandbox/sandbox.cpp" )
 
 target_include_directories( sandbox PRIVATE
-                            "${CMAKE_SOURCE_DIR}/include"
+                            "${include_api_directory}"
                           )
 
 target_link_libraries( sandbox PRIVATE

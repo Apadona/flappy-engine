@@ -45,6 +45,9 @@ namespace
         if ( format == TextureFormat::RGBA )
             return GL_RGBA;
 
+        if ( format == TextureFormat::RED_ONLY )
+            return GL_RED;
+
         return -1; // invlaid format.
     }
 
@@ -110,19 +113,29 @@ Texture::~Texture()
 
 Texture& Texture::operator=( Texture&& other )
 {
-    m_id = other.m_id;
-    m_width = other.m_width;
-    m_height = other.m_height;
-    m_type = other.m_type;
-    m_data = other.m_data;
-    m_filter_method = other.m_filter_method;
-    m_wrap_method = other.m_wrap_method;
+    if( other.m_is_created )
+    {
+        m_id = other.m_id;
+        m_width = other.m_width;
+        m_height = other.m_height;
+        m_type = other.m_type;
+        m_data = other.m_data;
+        m_filter_method = other.m_filter_method;
+        m_wrap_method = other.m_wrap_method;
+        m_is_bound = other.m_is_bound;
+        m_is_created = true;
 
-    other.m_id = 0;
-    other.m_width = 0;
-    other.m_height = 0;
-    other.m_type = TextureType::INVALID;
-    other.m_data = nullptr;
+        other.m_id = 0;
+        other.m_width = 0;
+        other.m_height = 0;
+        other.m_type = TextureType::INVALID;
+        other.m_data = nullptr;
+
+        TextureManager::Get().UnUseTexture(other);
+    }
+
+    else
+        CORE_LOG_WARNING("the texture that was used to initialize the current texture is invalid!\n");
 
     return *this;
 }
@@ -141,6 +154,9 @@ bool Texture::Create( const std::string& texture_file_path )
     m_data = stbi_load(texture_file_path.c_str(),&m_width,&m_height,&bpp,0);
 
     TextureFormat format = TextureFormat::INVALID;
+
+    if( bpp == 1 )
+        format = TextureFormat::RED_ONLY;
 
     if( bpp == 3 )
         format = TextureFormat::RGB;
@@ -188,12 +204,10 @@ bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char
     m_height = height;
     m_data = data;
 
-    glActiveTexture(GL_TEXTURE0);
     glGenTextures(1,&m_id);
 
-    //TextureManager::Get().UseTexture(m_id);
-    
-    Bind();
+    m_is_created = true; // so that it can be activated by the texture manager.
+    TextureManager::Get().UseTexture(*this);
 
     glTexParameteri(GetGLTextureType(m_type), GL_TEXTURE_WRAP_S, GetGLTextureWrap(m_wrap_method));
     glTexParameteri(GetGLTextureType(m_type), GL_TEXTURE_WRAP_T, GetGLTextureWrap(m_wrap_method));
@@ -203,19 +217,33 @@ bool Texture::Create( TextureType type, GLint width, GLint height, unsigned char
     glTexImage2D(GL_TEXTURE_2D, 0, GetGLTextureFormat(m_format),m_width,m_height,0,
                 GetGLTextureFormat(m_format),GL_UNSIGNED_BYTE,m_data);
 
-    Bind(false);
+    TextureManager::Get().UnUseTexture(*this);
 
     return true;
 }
 
 Texture::operator bool() const
 {
-    return m_data != nullptr;
+    return m_is_created;
 }
 
 bool Texture::operator!() const
 {
-    return m_data == nullptr;
+    return m_is_created == false;
+}
+
+void Texture::Activate( bool activate )
+{
+    if( m_is_created )
+    {
+        if( activate )
+            Bind(true);
+        else
+            Bind(false);
+    }
+
+    else
+        CORE_LOG_ERROR("calling the Activate method on an invalid texture!");
 }
 
 void Texture::Bind( bool bind )

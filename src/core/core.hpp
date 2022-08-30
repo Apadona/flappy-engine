@@ -37,7 +37,7 @@ void InitializeLoggers();
 
 #define LOG_ASSERT(condition,message) \
     if(!condition) \
-    LOG_ERROR(message)
+        LOG_ERROR(message)
 
 #define LOG_NORMAL(...) \
     application_logger.Log(LogLevel::NORMAL,__VA_ARGS__)

@@ -6,13 +6,11 @@ class SandBoxApp : public Application
         SandBoxApp()
         {
             m_title = "sandbox";
-            m_width = 400, m_height = 300;
+            m_width = 800, m_height = 600;
         }
 
-        bool Init( int argc, char** argv, char** env ) override
+        bool Init( CommandLineArguments _args ) override
         {
-            CommandLineArguments _args(argc,argv);
-
             if( _args.GetCount() >= 3 )
             {
                 // casting done to avoid compiler warning.
@@ -26,17 +24,19 @@ class SandBoxApp : public Application
 
         bool OnCreate() override
         {
-            if( !renderer.Init() )
+            if( !renderer.Init(m_width,m_height) )
             {
                 LOG_ERROR("could not initialize Renderer!");
                 return false;
             }
 
+            font = FontLoader::Load("data/fonts/arial.ttf",10,10);
+
             Random::Init(1000);
             bird_animations.Create("data/textures/bird_atlas.png");
-            atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
+            bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
             std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };
-            atlas.SetFilter(filters);
+            bird_atlas.SetFilter(filters);
             //atlas.Set(1);
             sprite.SetTexture(bird_animations);
             sprite.SetColor({0.7f,0.4f,0.5f,1.0f});
@@ -46,15 +46,20 @@ class SandBoxApp : public Application
             int height = 16;
             unsigned char* image_icon = stbi_load("data/images/mouse_icon.png",&width,&height,&bpp,4);
             m_window->SetIcon(16,16,image_icon);
+
+            return true;
         }
 
-        bool OnUpdate( float dt ) override
+        bool OnUpdate( double dt ) override
         {
             if( m_window->IsOpen() )
             {
                 auto event = m_window->PollEvent();
 
-                if( event.m_type == EventType::MOUSE_CLICK )
+                if( event.m_type == EventType::WINDOW_CLOSE )
+                    m_window->Close();
+
+                else if( event.m_type == EventType::MOUSE_CLICK )
                 {
                     if( event.m_data.mouse_button_event.button == MouseButton::LEFT )
                     {
@@ -90,21 +95,18 @@ class SandBoxApp : public Application
                 else if( event.m_type == EventType::KEYBOARD_BUTTON )
                 {
                     auto key = event.m_data.key_event.key;
-                    auto pressed = event.m_data.key_event.state;
+                    auto state = event.m_data.key_event.state;
                     auto special = event.m_data.key_event.special_key;
 
-                    if( key == KeyboardKey::SPACE && pressed == ButtonState::PRESSED )
-                        atlas.Next();
-                }                
+                    if( key == KeyboardKey::SPACE && ( state == ButtonState::REPEAT || state == ButtonState::PRESSED ) )
+                        bird_atlas.Next();
+                }
 
                 renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
-                //renderer.DrawRectangle(0.0f,0.0f,1.0f,1.0f,0.0f,{0.7f,0.4f,0.5f,1.0f});
-                renderer.DrawSprite(sprite);
+                //renderer.DrawRectangle(0.0f,0.0f,0.5f,0.5f,0.0f,{0.7f,0.4f,0.5f,1.0f});
+                renderer.DrawRectangle(100,100,100,100,{0.7f,0.4f,0.5f,1.0f},bird_animations);
 
                 m_window->ReDraw();
-
-                using namespace std::literals::chrono_literals;
-                std::this_thread::sleep_for(72ms);
 
                 return true;
             }
@@ -112,14 +114,16 @@ class SandBoxApp : public Application
             return false;
         }
 
-        bool OnClose() override {}
+        bool OnClose() override { return true; }
 
     private:
         Renderer renderer;
 
         Sprite sprite;
         Texture bird_animations;
-        TextureAtlas atlas;
+        TextureAtlas bird_atlas;
+
+        Font font;
 };
 
 REGISTER_APP(SandBoxApp)

@@ -22,7 +22,7 @@ class Window
         void SetTitle( const std::string& title );
         void SetIcon( int width, int height, unsigned char* image_pixels );
 
-        Vec2i GetSize() const { return { m_x, m_y }; }
+        Vec2i GetSize() const { return { m_pos_x, m_pos_y }; }
         Vec2i GetPosition() const { return { m_width, m_height }; }
         const std::string& GetTitle() const { return m_title; }
 
@@ -30,6 +30,9 @@ class Window
         void Close();
 
         bool IsOpen() const;
+
+        bool IsVSyncOn() const;
+        void EnableVsync( bool enable );
 
         Event PollEvent();
 
@@ -39,21 +42,14 @@ class Window
         static void MakeGLContext( std::int8_t major_version, std::int8_t minor_version );
 
     private:
-        std::int16_t m_width, m_height, m_x, m_y;
-        std::string m_title;
-
-        GLFWwindow* glfw_window;
-        std::queue<Event> m_event_queue;
-
         void HandleCreation();
-        
+            
         void PushEvent( const Event& event );
-        void PollGLFWEvents();
+        void PollGLFWEvents() const;
 
         static Window* GetWindowfromGLFWPtr( GLFWwindow* window );
 
         static void OnError( int code, const char* error );
-
         static void OnKeyPressed( GLFWwindow* window, int key, int scan_code, int action, int modes );
         static void OnCharKeyPressed( GLFWwindow* window, unsigned int key );
         static void OnMouseEnter( GLFWwindow* window, int is_entered );
@@ -62,4 +58,14 @@ class Window
         static void OnWindowResize( GLFWwindow* window, int width, int height );
         static void OnWindowMove( GLFWwindow* window, int pos_x, int pos_y );
         static void OnWindowClose( GLFWwindow* window );
+
+    private:
+        std::int16_t m_width, m_height, m_pos_x, m_pos_y;
+        std::string m_title;
+        
+        std::deque<Event> m_event_queue;
+
+        bool m_is_vsync_on;
+
+        GLFWwindow* glfw_window;
 };

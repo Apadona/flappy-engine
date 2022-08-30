@@ -20,6 +20,9 @@ std::string LoadFile( const std::string& file_path )
 
 bool ValidateFilePath( const std::string& file_path )
 {
+    if( file_path.empty() )
+        return false;
+
     // TODO:must find a better way to validate file ( using the OS API or filesystem API )
     std::ifstream reader(file_path.data());
     if( reader.is_open() )

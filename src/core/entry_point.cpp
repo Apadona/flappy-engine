@@ -2,8 +2,9 @@
 
 extern Application* RegisterApplication();
 
-#include <graphics/renderer.hpp>
 #include <stb_image/stb_image.h>
+
+#include <graphics/renderer.hpp>
 #include <graphics/texture_manager.hpp>
 
 int main( int argc, char** argv, char** env )
@@ -18,16 +19,22 @@ int main( int argc, char** argv, char** env )
     
     if( !glfwInit() )
     {
-        CORE_LOG_ERROR("cannot init glfw!");
+        CORE_LOG_ERROR("cannot initialize glfw!");
         glfwTerminate();
-        return 0;
+        return -1;
+    }
+
+    if( !FontLoader::Init() )
+    {
+        CORE_LOG_ERROR("cannot initalize freetype!");
+        return -1;
     }
 
     stbi_set_flip_vertically_on_load(true);
 
     Application* app = RegisterApplication();
     
-    if( !app->Init(argc,argv,env) )
+    if( !app->Init({argc,argv,env}) )
     {
         CORE_LOG_ERROR("application initialization failed.\n");
         return -1;
@@ -38,25 +45,34 @@ int main( int argc, char** argv, char** env )
     {
         CORE_LOG_ERROR("cannot create the glfw window!\n");
         glfwTerminate();
-        std::exit(EXIT_FAILURE);
+        return -1;
     }
 
     if( !gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) )
     {
         CORE_LOG_ERROR("cannot get OpenGL functions!\n");
         glfwTerminate();
-        std::exit(EXIT_FAILURE);
+        return -1;
     }
 
     TextureManager::Init();
 
     app->OnCreate();
     
-    while( app->OnUpdate(1.0f) )
+    Timer timer;
+    TickType application_update_time = 0;
+
+    while( app->OnUpdate( static_cast<double>(application_update_time) / 1000000 ) )
     {
+        application_update_time = timer.GetElapsedTime<MicroSeconds>();
+        timer.Reset();
     }
 
     app->OnClose();
+
+    glfwTerminate();
+
+    FontLoader::Terminate();
 
     return 0;
 }

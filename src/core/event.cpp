@@ -40,6 +40,8 @@ Event& Event::operator=( Event&& other )
     other.m_category = EventCategory::NONE;
     other.m_type = EventType::NONE;
     other.m_data.null_event.null = 0;
+
+    return *this;
 }
 
 void Event::Reset()

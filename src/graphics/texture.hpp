@@ -23,6 +23,8 @@ enum class TextureType
 enum class TextureFormat
 {
     INVALID,
+    RED_ONLY,
+    
     RGB,
     RGBA
 };
@@ -88,11 +90,13 @@ class Texture
         Vec2 GetSampleRatio() const { return m_sample_ratio; }
 
     private:
+        void Activate( bool activate = true );
         void Bind( bool bind = true );
 
     private:
         GLuint m_id = 0;
         bool m_is_bound = false;
+        bool m_is_created = false;
         
         TextureType m_type = TextureType::TEXTURE_2D;
         TextureFormat m_format = TextureFormat::RGB;

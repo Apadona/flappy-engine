@@ -40,5 +40,36 @@ struct Time
     DateTime date_time;
     DayTime day_time;
 };
-
 std::ostream& operator<<( std::ostream& os, const Time& time );
+
+using clock_type = decltype( std::chrono::system_clock::now() );
+
+using Seconds = std::chrono::seconds;
+using MilliSeconds = std::chrono::milliseconds;
+using MicroSeconds = std::chrono::microseconds;
+using NanoSeconds = std::chrono::nanoseconds;
+
+using TickType = long long;
+
+class Timer
+{
+    public:
+        Timer();
+
+        template<typename clock_measure>
+            inline TickType GetElapsedTime() const { return OperationImplemention<clock_measure>(); }
+
+        void Reset();
+
+    private:
+        template<typename clock_measure>
+            inline TickType OperationImplemention() const
+            {
+                return std::chrono::duration_cast<clock_measure>(ClockFunctionImpl() - m_elapsed_time).count();
+            }
+
+        clock_type ClockFunctionImpl() const;
+
+    private:
+        clock_type m_elapsed_time;
+};

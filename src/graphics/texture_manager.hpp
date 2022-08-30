@@ -18,10 +18,11 @@ class TextureManager
         bool UseTexture( Texture& texture );
         void UnUseTexture( Texture& texture );
 
-        std::optional<TextureUnitSize> GetTextureUnitLocation( const Texture& texture );
+        std::optional<TextureUnitSize> GetTextureUnitLocation( const Texture& texture ) const;
+
+        void ClearAllTextureSlots();
 
         bool HasTexture( const Texture& texture ) const;
-        void RemoveAllTextures();
 
     private:
         struct TextureSlot
@@ -41,11 +42,11 @@ class TextureManager
         std::optional<TextureUnitSize> RegisterTexture( Texture& texture );
         bool RemoveTexture( const Texture& texture );
 
+        void ActivateTextureUnitForTexture( Texture& texture, TextureUnitSize texture_unit,
+                              bool activate = true ) const;
+
         std::optional<TextureUnitSize> FindFirstEmptyTextureSlot() const;
         std::optional<TextureUnitSize> FindTexture( const Texture& texture ) const;
-
-        void BindTexture( Texture& texture, TextureUnitSize texture_unit,
-                          bool bind = true ) const;
 
         static TextureManager manager;
 
