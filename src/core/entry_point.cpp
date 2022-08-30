@@ -74,5 +74,7 @@ int main( int argc, char** argv, char** env )
 
     FontLoader::Terminate();
 
+    CORE_LOG_HINT("Engine Application run successfully!");
+
     return 0;
 }
