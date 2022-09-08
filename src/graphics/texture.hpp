@@ -49,9 +49,7 @@ class Texture
     friend class TextureManager;
     friend class TextureAtlas;
 
-    public:
-        static Texture* create( const std::string& texture_file_path );
-        
+    public:        
         Texture() = default;
         Texture( const std::string& texture_file_path );
         Texture( TextureType type, GLint width, GLint height, unsigned char* data, TextureFormat format );
