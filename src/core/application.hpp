@@ -40,7 +40,7 @@ class CommandLineArguments
 
 class Application
 {
-    friend int main( int argc, char** argv, char** env );
+    friend class EngineInterface;
 
     public:
 
