@@ -101,10 +101,10 @@ VertexArray& VertexArray::AddLayout( VertexBuffer& vertex_buffer )
 
         GLint component_count = CalculateComponent(data_type);
         GLenum gl_type = CalculateType(data_type);
-        GLint type_size = CalculateSize(data_type);
+        //GLint type_size = CalculateSize(data_type);
 
         glVertexAttribPointer(m_attribute_count,component_count,gl_type, GL_FALSE,
-                              stride,(void*)vertex_buffer.m_layout.m_offsets.at(i));
+                              stride,reinterpret_cast<void*>(vertex_buffer.m_layout.m_offsets.at(i)));
 
         glEnableVertexAttribArray(m_attribute_count++);
     }
