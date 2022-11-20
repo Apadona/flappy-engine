@@ -128,7 +128,7 @@ void Window::ReDraw() const
 
 void Window::HandleCreation()
 {
-    MakeGLContext(3,1);
+    MakeGLContext(3,3);
 
     glfw_window = glfwCreateWindow(m_width,m_height,m_title.data(),nullptr,nullptr);
 
