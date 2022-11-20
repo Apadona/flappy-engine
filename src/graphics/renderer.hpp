@@ -11,8 +11,8 @@
 
 enum BlendingFactor
 {
-    IS_ZERO,
-    IS_ONE,
+    ZERO,
+    ONE,
     EQUAL_CONSTANT_COLOR,
     EQUAL_ONE_MINUS_CONSTANT_COLOR,
     EQUAL_CONSTANT_ALPHA,
@@ -26,13 +26,23 @@ enum BlendingFactor
     EQUAL_ONE_MINUS_DESTINATION_ALPHA
 };
 
-enum RenderFlags
+enum RenderFlags : int32_t
 {
     NONE                            = 0x00,
 
     BLENDING_IS_ON                  = 0x01,
     DEPTH_TESTING_IS_ON             = 0x02
 };
+
+inline constexpr RenderFlags operator|( RenderFlags first, RenderFlags second )
+{
+    return static_cast<RenderFlags>( AsInteger(first) | AsInteger(second) );
+}
+
+inline constexpr RenderFlags operator&( RenderFlags first, RenderFlags second )
+{
+    return static_cast<RenderFlags>( AsInteger(first) & AsInteger(second) );
+}
 
 using ScreenSize = uint16_t;
 
@@ -84,15 +94,20 @@ class Renderer
 
         void DrawSprite( const Sprite& sprite );
 
+        void DrawText( Text& text );
+
         void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f, float alpha = 1.0f ) const;
 
     private:
         void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4& color );
-        void PrepareForTextRendering();
+        void PrepareForTextRendering( Text& text, Font& font );
 
         void DrawCommand() const;
         void DrawIndexedCommand( const IndexBuffer& ib ) const;
+        void DrawInstancedCommand( uint32_t count, uint32_t attrib_divisor ) const;
+
         void ClearColorCommand( float red, float green, float blue, float alpha ) const;
+
         void BlendCommand( bool enable, BlendingFactor source, BlendingFactor destination );
 
     private:
@@ -102,17 +117,18 @@ class Renderer
         ScreenSize m_render_width;
         ScreenSize m_render_height;
 
+        // all the data needed to render a triangle for a modern rendering API.
         VertexBuffer m_triangle_vbo;
         IndexBuffer m_triangle_ebo;
-
-        VertexBuffer m_rectangle_vbo;
-        IndexBuffer m_rectangle_ebo;
-
-        VertexArray m_rectangle_vao;
         VertexArray m_triangle_vao;
 
-        static Texture m_default_texture01; // white texture used in color shader.
-        static Vec4 m_default_color; // default color used in color shader.
+        // all the data needed to render a rectangle for a modern rendering API.
+        VertexBuffer m_rectangle_vbo;
+        IndexBuffer m_rectangle_ebo;
+        VertexArray m_rectangle_vao;
 
-        Shader m_shader;
+        static Texture m_default_texture01; // default white texture used in color shader.
+        static Vec4 m_default_color; // default white color used in color shader.
+
+        Shader m_default_shader;
 };

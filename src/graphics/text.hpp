@@ -17,7 +17,14 @@ class Text
         void SetPosition( uint16_t pos_x, uint16_t pos_y ) { m_pos_x = pos_x, m_pos_y = pos_y; }
         void SetSize( uint16_t size_x, uint16_t size_y ) { m_size_x = size_x, m_size_y = size_y; }
         void SetColor( const Vec4f& color ) { m_color = color; }
-        void SetFont( Font& font ) { m_font = &font; }
+        
+        void SetFont( Font& font )
+        {
+            if( font )
+                m_font = &font;
+            else
+                CORE_LOG_ERROR("An invalid font cannot be set for the text!");
+        }
 
         const std::string& GetText() const { return m_text; }
         Vec2i GetPosition() const { return {m_pos_x,m_pos_y}; }

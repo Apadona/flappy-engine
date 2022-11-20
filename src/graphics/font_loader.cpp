@@ -5,6 +5,36 @@ FT_Face FontLoader::freetype_face;
 
 bool FontLoader::initialized = false;
 
+namespace
+{
+    uint32_t ClampToTheNearestGreaterPowerOfTwo( uint32_t value )
+    {
+        uint32_t power_of_two = 1;
+        while( power_of_two < value )
+            power_of_two *= 2;
+
+        return power_of_two;
+    }
+
+    uint32_t ClampToTheNearestLowerPowerOfTwo( uint32_t value )
+    {
+        uint32_t power_of_two = 1;
+        while( power_of_two * 2 < value )
+            power_of_two *= 2;
+
+        return power_of_two;
+    }
+
+    Vec2ui FindClosestCoupleToPowerOfTwo( uint32_t value )
+    {
+        uint32_t first = std::floor(std::sqrt(value));
+        first = ClampToTheNearestGreaterPowerOfTwo(first);
+        uint32_t second = ClampToTheNearestGreaterPowerOfTwo(first);
+
+        return {first,second};
+    }
+}
+
 
 bool FontLoader::Init()
 {
@@ -17,8 +47,8 @@ bool FontLoader::Init()
     return true;
 }
 
-Font FontLoader::Load( const std::string& font_file_path, uint8_t width, uint8_t height,
-                       FontVariations variaton )
+Font FontLoader::Load( const std::string& font_file_path, uint8_t font_width, uint8_t font_height, uint16_t image_width,
+                       uint16_t image_height, uint16_t offset_x, uint32_t offset_y )
 {
     if( !initialized )
     {
@@ -32,19 +62,48 @@ Font FontLoader::Load( const std::string& font_file_path, uint8_t width, uint8_t
         return {};
     }
 
-    if( width == 0 )
+    if( font_width == 0 )
     {
         CORE_LOG_HINT("font width for loading cannot be 0! changing to 10.");
-        width = 10;
+        font_width = 10;
     }
 
-    if( height == 0 )
+    if( font_height == 0 )
     {
         CORE_LOG_HINT("font height for loading cannot be 0! changing to 10.");
-        height = 10;
+        font_height = 10;
     }
 
-    Font font = LoadFreeTypeFont(font_file_path,width,height);
+    Font font = LoadFreeTypeFont(font_file_path,font_width,font_height);
+    std::uint32_t image_size = 0;
+    for( auto& c : font.m_characters )
+        image_size += c.second.m_size.x * c.second.m_size.y + 4 * c.second.m_size.y;
+
+    if( !image_width )
+    {
+        if( !image_height )
+        {
+            Vec2ui power_of_two_closeset = FindClosestCoupleToPowerOfTwo(image_size);
+            image_width = power_of_two_closeset.x;
+            image_height = power_of_two_closeset.y;
+        }
+
+        else
+        {
+            uint32_t value = image_size / image_height;
+            image_width = ClampToTheNearestGreaterPowerOfTwo(value);            
+        }
+    }
+
+    else if( !image_height )
+    {
+        uint32_t value = image_size / image_width;
+        image_height = ClampToTheNearestGreaterPowerOfTwo(value);
+    }
+
+    CORE_LOG_HINT("image_width:",image_width," image_height:",image_height);
+
+    font.GenerateImage(image_width,image_height,4,4);
 
     return font;
 }
@@ -72,20 +131,18 @@ Font FontLoader::LoadFreeTypeFont( const std::string& font_file_path, uint8_t wi
         auto& _glyph = freetype_face->glyph;
         GlyphMetric glyph_metric =
         {
-            {_glyph->bitmap.width,_glyph->bitmap.rows},
-            {_glyph->bitmap_left,_glyph->bitmap_top},
-            _glyph->advance.x,
+            {static_cast<uint32_t>(_glyph->bitmap.width),static_cast<uint32_t>(_glyph->bitmap.rows)},
+            {static_cast<uint32_t>(_glyph->bitmap_left),static_cast<uint32_t>(_glyph->bitmap_top)},
+            static_cast<uint32_t>(_glyph->advance.x),
             {}
         };
 
-        for( int i = 0; i < _glyph->bitmap.width * _glyph->bitmap.rows; ++i )
+        for( uint32_t i = 0; i < glyph_metric.m_size.x * glyph_metric.m_size.y; ++i )
             glyph_metric.m_pixels.push_back(_glyph->bitmap.buffer[i]);
 
         font.m_characters.insert(std::pair<uint32_t,GlyphMetric>(character_code,glyph_metric));
     }
-
-    font.m_map = new FontMap(font.m_characters);
-
+    
     return font;
 }
 

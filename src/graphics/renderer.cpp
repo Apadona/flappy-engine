@@ -96,10 +96,10 @@ bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 
     m_default_color = {1.0f,1.0f,1.0f,1.0f};
 
-    if( m_shader.Create("data/shaders/vertex.vert","data/shaders/fragment.frag") )
+    if( m_default_shader.Create("data/shaders/default.vert","data/shaders/default.frag") )
     {
-        m_shader.PrintAttributes();
-        m_shader.PrintUnifroms();
+        m_default_shader.PrintAttributes();
+        m_default_shader.PrintUnifroms();
 
         return true;
     }
@@ -204,25 +204,65 @@ void Renderer::DrawSprite( const Sprite& sprite )
     DrawRectangle(sprite.m_transform,sprite.m_color,*(sprite.m_texture));
 }
 
+void Renderer::DrawText( Text& text )
+{
+    if( text )
+    {
+        auto font = text.GetFont();
+        if( font )
+        {
+            //auto str = text.GetText();
+            //for( int i = 0; i < str.size(); ++i )
+            //{
+            //    if( font->HasCharacter(str[i]) )
+            //    {
+            //        auto place = font->m_atlas.GetCharacterCoordinatesInTexture(str[i]);
+                    //Transform2D transform(text.GetPosition().x,text.GetPosition().y);
+
+                    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+                    BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
+                    DrawRectangle(200,150,256,256,text.GetColor(),*(font->m_atlas.GetTexture()));
+                //}
+
+                //else
+                    //CORE_LOG_ERROR("the character ",str[i]," was not present in the font!");
+        }
+
+        else
+            CORE_LOG_ERROR("text is not accociated with any font!");
+    }
+
+    else
+        CORE_LOG_ERROR("text is empty!");
+
+    // else
+        //DrawText(text,FontLoader::default_font);
+}
+
 void Renderer::ClearColor( float red, float green, float blue, float alpha ) const
 {
     ClearColorCommand(red,green,blue,alpha);
 }
 
-void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture,
-                        const Vec4& color )
+void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4& color )
 {
-    m_shader.Use();
+    //BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
+    m_default_shader.Use();
 
     va.Bind();
 
     TextureManager::Get().UseTexture(texture);
 
-    m_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
-    m_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
-    m_shader.SetUniform("blend_color",color);
-    m_shader.SetUniform("sample_offset",texture.m_sample_offset);
-    m_shader.SetUniform("sample_ratio",texture.m_sample_ratio);
+    m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
+    m_default_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
+    m_default_shader.SetUniform("blend_color",color);
+    m_default_shader.SetUniform("sample_offset",texture.m_sample_offset);
+    m_default_shader.SetUniform("sample_ratio",texture.m_sample_ratio);
+}
+
+void Renderer::PrepareForTextRendering( Text& text, Font& font )
+{
+    
 }
 
 void Renderer::DrawCommand() const
@@ -233,12 +273,17 @@ void Renderer::DrawCommand() const
 void Renderer::DrawIndexedCommand( const IndexBuffer& ib ) const
 {
     glDrawElements(GL_TRIANGLES,ib.m_data.size(),GL_UNSIGNED_INT,nullptr);
-}   
+}
+
+void Renderer::DrawInstancedCommand( uint32_t count, uint32_t attrib_divisor ) const
+{
+
+}
 
 void Renderer::ClearColorCommand( float red, float green, float blue, float alpha ) const
 {
     GLbitfield clear_mask = GL_COLOR_BUFFER_BIT;
-    if( m_render_flags & DEPTH_TESTING_IS_ON )
+    if( ( m_render_flags & RenderFlags::DEPTH_TESTING_IS_ON ) != 0 )
         clear_mask |= GL_DEPTH_BUFFER_BIT;
 
     glClearColor(red,green,blue,alpha);
@@ -249,22 +294,23 @@ void Renderer::BlendCommand( bool enable, BlendingFactor source, BlendingFactor 
 {
     if( !enable && ( m_render_flags & RenderFlags::BLENDING_IS_ON ) )
     {
+        m_render_flags = m_render_flags & static_cast<RenderFlags>(~RenderFlags::BLENDING_IS_ON);
         glDisable(GL_BLEND);
-        return;
     }
 
     else if( enable && !( m_render_flags & RenderFlags::BLENDING_IS_ON ) )
     {
+        m_render_flags = m_render_flags | static_cast<RenderFlags>(RenderFlags::BLENDING_IS_ON);
         glEnable(GL_BLEND);
         
         auto helper = []( BlendingFactor factor )
         {
             switch( factor )
             {
-                case BlendingFactor::IS_ZERO:
+                case BlendingFactor::ZERO:
                     return GL_ZERO;
 
-                case BlendingFactor::IS_ONE:
+                case BlendingFactor::ONE:
                     return GL_ONE;
 
                 case BlendingFactor::EQUAL_CONSTANT_COLOR:
@@ -302,18 +348,22 @@ void Renderer::BlendCommand( bool enable, BlendingFactor source, BlendingFactor 
         GLuint source_command, destination_command;
         source_command = helper(source);
         destination_command = helper(destination);
+        bool correct_command = true;
 
         if ( source_command == GL_INVALID_ENUM )
         {
             CORE_LOG_ERROR("invalid blending factor value is set for source color!\n");
-            return;
+            correct_command = false;
         }
 
         if ( destination_command == GL_INVALID_ENUM )
         {
             CORE_LOG_ERROR("invalid blending factor value is set for destination color!\n");
-            return;
+            correct_command = false;
         }
+
+        if( !correct_command )
+            return;
 
         glBlendFunc(source_command,destination_command);
     }

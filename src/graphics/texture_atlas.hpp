@@ -68,7 +68,7 @@ class TextureAtlas
         operator bool() const;
         bool operator!() const;
 
-    private:
+    protected:
         uint32_t m_current_texture;
 
         Texture* m_texture;

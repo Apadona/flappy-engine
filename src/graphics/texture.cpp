@@ -124,6 +124,8 @@ Texture& Texture::operator=( Texture&& other )
         m_wrap_method = other.m_wrap_method;
         m_is_bound = other.m_is_bound;
         m_is_created = true;
+        m_sample_offset = other.m_sample_offset;
+        m_sample_ratio = other.m_sample_ratio;
 
         other.m_id = 0;
         other.m_width = 0;

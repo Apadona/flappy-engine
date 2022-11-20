@@ -94,10 +94,10 @@ bool Text::operator==( const Text& other ) const
 
 Text::operator bool() const
 {
-    return m_text.empty();
+    return !m_text.empty();
 }
 
 bool Text::operator!() const
 {
-    return !m_text.empty();
+    return m_text.empty();
 }

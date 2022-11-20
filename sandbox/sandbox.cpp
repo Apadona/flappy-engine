@@ -31,6 +31,11 @@ class SandBoxApp : public Application
             }
 
             font = FontLoader::Load("data/fonts/arial.ttf",10,10);
+            text.SetFont(font);
+            text.SetText("testing the text rendering system!\n");
+            text.SetSize(10,10);
+            text.SetPosition(10,10);
+            text.SetColor({1.0f,1.0f,1.0f,1.0f});
 
             Random::Init(1000);
             bird_animations.Create("data/textures/bird_atlas.png");
@@ -39,7 +44,7 @@ class SandBoxApp : public Application
             bird_atlas.SetFilter(filters);
             //atlas.Set(1);
             sprite.SetTexture(bird_animations);
-            sprite.SetColor({0.7f,0.4f,0.5f,1.0f});
+            sprite.SetColor({0.7f,0.4f,0.5f,0.5f});
 
             int bpp = 3;
             int width = 16;
@@ -83,13 +88,13 @@ class SandBoxApp : public Application
                     auto x = event.m_data.mouse_move_event.move_x;
                     auto y = event.m_data.mouse_move_event.move_y;
 
-                    LOG_NORMAL("mouse moved at positions:",x,",",y);
+                    //LOG_NORMAL("mouse moved at positions:",x,",",y);
                 }
 
                 else if( event.m_type == EventType::WINDOW_MOUSE_ENTER )
                 {
                     auto enter = event.m_data.window_mouse_event.enter;
-                    LOG_NORMAL("mouse ", (enter)? "entered" : "left", " window.");
+                    //LOG_NORMAL("mouse ", (enter)? "entered" : "left", " window.");
                 }
 
                 else if( event.m_type == EventType::KEYBOARD_BUTTON )
@@ -102,10 +107,10 @@ class SandBoxApp : public Application
                         bird_atlas.Next();
                 }
 
-                renderer.ClearColor(0.1f,0.2f,0.3f,1.0f);
-                //renderer.DrawRectangle(0.0f,0.0f,0.5f,0.5f,0.0f,{0.7f,0.4f,0.5f,1.0f});
-                renderer.DrawRectangle(100,100,100,100,{0.7f,0.4f,0.5f,1.0f},bird_animations);
-
+                renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
+                renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
+                //renderer.DrawText(text);
+                
                 m_window->ReDraw();
 
                 return true;
@@ -124,6 +129,7 @@ class SandBoxApp : public Application
         TextureAtlas bird_atlas;
 
         Font font;
+        Text text;
 };
 
 REGISTER_APP(SandBoxApp)
