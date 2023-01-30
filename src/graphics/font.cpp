@@ -132,13 +132,12 @@ void FontImage::Generate( const FontCharacterInfo& font,uint16_t image_width, ui
 
     m_font_image.resize(image_size,127);
 
-    std::uint16_t draw_position_x = offset_x;
-    static uint16_t draw_position_y = offset_y; // to keep track of drawing.
+    std::uint16_t draw_position_x = offset_x, draw_position_y = offset_y;
     std::uint16_t temp_x = draw_position_x, temp_y = draw_position_y;
 
     auto PutCharacterRangeIntoFontImage = [&]( CharacterCode start_character, CharacterCode end_character )
     {
-        for( CharacterCode character = start_character; character < end_character; ++character )
+        for( CharacterCode character = start_character; character <= end_character; ++character )
         {
             auto found = font.find(character);
             if( found == font.end() )
@@ -153,6 +152,15 @@ void FontImage::Generate( const FontCharacterInfo& font,uint16_t image_width, ui
             auto glyph_pixel_size_x = metric.m_size.x;
             auto glyph_pixel_size_y = metric.m_size.y;
 
+            if( m_width < temp_x + glyph_pixel_size_x )
+            {
+                temp_x = offset_x;
+                temp_y = draw_position_y + 8;
+            }
+
+            draw_position_x = temp_x;
+            draw_position_y = temp_y;
+
             for( uint16_t y = 0; y < glyph_pixel_size_y; ++y )
             {
                 for( uint16_t x = 0; x < glyph_pixel_size_x; ++x )
@@ -161,26 +169,15 @@ void FontImage::Generate( const FontCharacterInfo& font,uint16_t image_width, ui
                     ++draw_position_x;
                 }
 
-                draw_position_x = offset_x;
+                draw_position_x = temp_x;
                 ++draw_position_y;
             }
-/*
-            if( m_width < draw_position_x + glyph_pixel_size_x )
-            {
-                draw_position_x = offset_x;
-                temp_y = ++draw_position_y;
-            }
-            else
-            {
-                ++draw_position_y;
-            }*/
 
-            draw_position_x += 4;
-            draw_position_y = temp_y;
+            temp_x += glyph_pixel_size_x + 4;
         }
     };
 
-    PutCharacterRangeIntoFontImage(65,90); // A to Z.
+    PutCharacterRangeIntoFontImage(65,65); // A to Z.
     //PutCharacterRangeIntoFontImage(97,122); // a to z.
     //PutCharacterRangeIntoFontImage(48,57); // 0 to 9.
     //PutCharacterRangeIntoFontImage(40,47); // ( ) * + , - . /

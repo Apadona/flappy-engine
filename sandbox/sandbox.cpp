@@ -30,7 +30,7 @@ class SandBoxApp : public Application
                 return false;
             }
 
-            font = FontLoader::Load("data/fonts/arial.ttf",10,10);
+            font = FontLoader::Load("data/fonts/arial.ttf",12,12);
             text.SetFont(font);
             text.SetText("testing the text rendering system!\n");
             text.SetSize(10,10);
