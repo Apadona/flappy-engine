@@ -76,7 +76,7 @@ bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
         {"input_pos",AttributeType::POSITION},
         {"input_uv",AttributeType::TEXTURE_UV}
     });
-    m_triangle_ebo.Fill(Mesh::triangle.m_indecies);
+    m_triangle_ebo.Fill(Mesh::triangle.GetIndicies());
     m_triangle_vao.AddLayout(m_triangle_vbo);
     m_triangle_vao.SetIndexBuffer(m_triangle_ebo);
 
@@ -87,7 +87,7 @@ bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
         {"input_pos",AttributeType::POSITION},
         {"input_uv",AttributeType::TEXTURE_UV}
     });
-    m_rectangle_ebo.Fill(Mesh::rectangle.m_indecies);
+    m_rectangle_ebo.Fill(Mesh::rectangle.GetIndicies());
     m_rectangle_vao.AddLayout(m_rectangle_vbo);
     m_rectangle_vao.SetIndexBuffer(m_rectangle_ebo);
 
