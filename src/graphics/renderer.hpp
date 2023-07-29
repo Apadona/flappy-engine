@@ -6,6 +6,7 @@
 #include "texture.hpp"
 #include "sprite.hpp"
 #include "text.hpp"
+#include "particle_system.hpp"
 
 #include <maths/vector4D.hpp>
 
@@ -95,6 +96,8 @@ class Renderer
         void DrawSprite( const Sprite& sprite );
 
         void DrawText( Text& text );
+
+        void DrawParticles( ParticleSystem& particle_system );
 
         void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f, float alpha = 1.0f ) const;
 

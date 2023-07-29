@@ -239,6 +239,23 @@ void Renderer::DrawText( Text& text )
         //DrawText(text,FontLoader::default_font);
 }
 
+void Renderer::DrawParticles( ParticleSystem& particle_system )
+{
+    BlendCommand(true,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::EQUAL_ONE_MINUS_SOURCE_ALPHA);
+
+    auto particles = particle_system.GetParticles();
+
+    for( int i = 0; i < particles.size(); ++i )
+    {
+        // if( !particles[i].is_dead )
+        // {
+            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,0.03,0.03,0.0,m_default_texture01);
+        // }
+    }
+
+    BlendCommand(false,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::EQUAL_ONE_MINUS_SOURCE_ALPHA);
+}
+
 void Renderer::ClearColor( float red, float green, float blue, float alpha ) const
 {
     ClearColorCommand(red,green,blue,alpha);

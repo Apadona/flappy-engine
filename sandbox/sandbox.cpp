@@ -3,7 +3,7 @@
 class SandBoxApp : public Application
 {
     public:
-        SandBoxApp()
+        SandBoxApp() : m_particle_system(1000,10,0.25,15.0,true)
         {
             m_title = "sandbox";
             m_width = 800, m_height = 600;
@@ -108,10 +108,16 @@ class SandBoxApp : public Application
                 }
 
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
-                renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
-                //renderer.DrawText(text);
+                // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
+                // renderer.DrawText(text);
+
+                m_particle_system.update(dt);
+                renderer.DrawParticles(m_particle_system);
                 
                 m_window->ReDraw();
+
+                // TODO:this should change later.
+                std::this_thread::sleep_for(std::chrono::duration<double>(0.01));
 
                 return true;
             }
@@ -127,6 +133,8 @@ class SandBoxApp : public Application
         Sprite sprite;
         Texture bird_animations;
         TextureAtlas bird_atlas;
+
+        ParticleSystem m_particle_system;
 
         Font font;
         Text text;
