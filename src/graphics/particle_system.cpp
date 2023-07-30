@@ -8,10 +8,11 @@ ParticleSystem::ParticleSystem( uint32_t max_count, uint32_t start_count, double
 
     m_particles.reserve(m_max_count);
 
-    for( int i = 0; i < m_start_count; ++i )
+    for( uint32_t i = 0; i < m_start_count; ++i )
     {
         Particle particle;
         particle.m_position = Vec3(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),-1 + Random::NextDouble(0.0,0.1));
+        particle.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
         m_particles.push_back(particle);
     }
     
@@ -90,9 +91,9 @@ void ParticleSystem::update( double dt )
                 Particle particle;
                 particle.m_position = Vec3(Random::NextDouble(0.0,0.1),-1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
                 m_particles.push_back(particle);
+                m_particle_spawn_time -= m_emition_rate;
             }
 
-            m_particle_spawn_time = fmod(m_particle_spawn_time,m_emition_rate);
         }
 
         for( auto& i : m_particles )
@@ -102,11 +103,12 @@ void ParticleSystem::update( double dt )
             {
                 i.life_time = 0;
                 i.m_position = Vec3(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
+                i.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
             }
 
             else // alive
             {
-                i.m_position += Vec3(Random::NextDouble(0.0,0.3) * dt,Random::NextDouble(0.0,0.3) * dt,Random::NextDouble(0.0,0.001));
+                i.m_position += i.m_velocity;
             }
         }
     }
