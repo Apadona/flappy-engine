@@ -100,7 +100,7 @@ class EngineInterface
             Timer timer;
             TickType application_update_time = 0;
 
-            while( app->OnUpdate( static_cast<double>(application_update_time) / 1000000 ) )
+            while( !app->m_should_exit && app->OnUpdate( static_cast<double>(application_update_time) / 1000000 ) )
             {
                 application_update_time = timer.GetElapsedTime<MicroSeconds>();
                 timer.Reset();

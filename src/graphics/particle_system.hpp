@@ -3,6 +3,15 @@
 #include "particle.hpp"
 #include "transform_2D.hpp"
 
+enum class SpawnMode
+{
+    RECTANGLE,
+    CIRCLE,
+    CUBE,
+    SPHERE,
+    CONE
+};
+
 class ParticleSystem
 {
     public:
@@ -29,7 +38,8 @@ class ParticleSystem
 
         // const_reverse_iterator crend() const { return m_particles.crend(); }
 
-        ParticleSystem(uint32_t max_count, uint32_t start_count, double emition_rate, double duration, double whole_time, bool repeat = true);
+        ParticleSystem(uint32_t max_count, uint32_t start_count, double emition_rate, double duration, double whole_time, bool repeat = true,
+                       SpawnMode mode = SpawnMode::RECTANGLE);
 
         ParticleSystem(const ParticleSystem& other);
 
@@ -57,6 +67,10 @@ class ParticleSystem
 
         double GetEmitionRate() const { return m_emition_rate; }
 
+        void setSpawnMode( SpawnMode mode ) { m_spawn_mode = mode; }
+
+        SpawnMode getSpawnMode() const { return m_spawn_mode; }
+
         double GetLifeTimeLimit() const { return m_life_time_limit; }
         
         bool isRepeating() const { return m_repeat; }
@@ -67,12 +81,23 @@ class ParticleSystem
 
     private:
         Particles m_particles;
-        uint32_t m_max_count;
-        uint32_t m_start_count;
         double m_emition_rate;
         double m_spent_time;
         double m_particle_spawn_time;
         double m_life_time_limit; // particle life time.
         double m_whole_time;
+        uint32_t m_max_count;
+        uint32_t m_start_count;
+        SpawnMode m_spawn_mode;
         bool m_repeat;
 };
+
+Particle RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
+
+Particle CircleSpawner( Vec3d center, Vec3d oriention, double radius );
+
+Particle CubeSpawner( Vec3d center, Vec3d oriention, double length );
+
+Particle SphereSpawner( Vec3d center, double radius );
+
+Particle ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );

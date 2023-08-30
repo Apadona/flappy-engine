@@ -85,26 +85,20 @@ class SandBoxApp : public Application
 
                 else if( event.m_type == EventType::MOUSE_MOVED )
                 {
-                    auto x = event.m_data.mouse_move_event.move_x;
-                    auto y = event.m_data.mouse_move_event.move_y;
-
                     //LOG_NORMAL("mouse moved at positions:",x,",",y);
                 }
 
                 else if( event.m_type == EventType::WINDOW_MOUSE_ENTER )
                 {
-                    auto enter = event.m_data.window_mouse_event.enter;
                     //LOG_NORMAL("mouse ", (enter)? "entered" : "left", " window.");
                 }
 
                 else if( event.m_type == EventType::KEYBOARD_BUTTON )
                 {
-                    auto key = event.m_data.key_event.key;
-                    auto state = event.m_data.key_event.state;
-                    auto special = event.m_data.key_event.special_key;
-
-                    if( key == KeyboardKey::SPACE && ( state == ButtonState::REPEAT || state == ButtonState::PRESSED ) )
-                        bird_atlas.Next();
+                    if( event.m_data.key_event.key == KeyboardKey::ESCAPE )
+                    {
+                        Application::Exit();
+                    }
                 }
 
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);

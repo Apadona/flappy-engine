@@ -1,7 +1,8 @@
 #include "particle_system.hpp"
 #include <utils/random.hpp>
 
-ParticleSystem::ParticleSystem( uint32_t max_count, uint32_t start_count, double emition_rate, double particle_life_time, double whole_time, bool repeat )
+ParticleSystem::ParticleSystem( uint32_t max_count, uint32_t start_count, double emition_rate, double particle_life_time, double whole_time,
+                                bool repeat, SpawnMode mode )
 {
     m_max_count = max_count;
     m_start_count = start_count;
@@ -22,6 +23,7 @@ ParticleSystem::ParticleSystem( uint32_t max_count, uint32_t start_count, double
     m_whole_time = whole_time;
     m_repeat = repeat;
     m_particle_spawn_time = 0.0;
+    m_spawn_mode = mode;
 }
 
 ParticleSystem::ParticleSystem( const ParticleSystem& other )
@@ -98,10 +100,10 @@ void ParticleSystem::update( double dt )
 
         for( auto& i : m_particles )
         {
-            i.life_time += dt;
-            if( i.life_time >= m_life_time_limit ) // dead.
+            i.m_life_time += dt;
+            if( i.m_life_time >= m_life_time_limit ) // dead.
             {
-                i.life_time = 0;
+                i.m_life_time = 0;
                 i.m_position = Vec3(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
                 i.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
             }
@@ -120,4 +122,61 @@ void ParticleSystem::update( double dt )
             m_spent_time = 0.0;
         }
     }
+}
+
+
+
+Particle RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y )
+{
+    // Vec3d spawn_position,spawn_velocity,spawn_acceleration;
+    Vec3d upper_left_corner = {center.x - length_x / 2, center.y - length_y / 2, center.z};
+
+    Particle to_be_spawned;
+    to_be_spawned.m_life_time = 0;
+    to_be_spawned.m_position.x = Random::NextDouble(0.0,1.0) * length_x + upper_left_corner.x;
+    to_be_spawned.m_position.y = Random::NextDouble(0.0,1.0) * length_y + upper_left_corner.y;
+    to_be_spawned.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
+
+    return to_be_spawned;
+}
+
+Particle CircleSpawner( Vec3d center, Vec3d oriention, double radius )
+{
+    Particle to_be_spawned;
+    to_be_spawned.m_life_time = 0;
+    to_be_spawned.m_position.x = std::sin(Random::NextDouble(0.0,1.5)) * radius + center.x;
+    to_be_spawned.m_position.y = std::cos(Random::NextDouble(0.0,1.5)) * radius + center.y;
+    to_be_spawned.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
+
+    return to_be_spawned;
+}
+
+Particle CubeSpawner( Vec3d center, Vec3d oriention, double length )
+{
+    Vec3d upper_left_corner = {center.x - length / 2, center.y - length / 2, center.z - length / 2};
+
+    Particle to_be_spawned;
+    to_be_spawned.m_life_time = 0;
+    to_be_spawned.m_position.x = Random::NextDouble(0.0,1.0) * length + upper_left_corner.x;
+    to_be_spawned.m_position.y = Random::NextDouble(0.0,1.0) * length + upper_left_corner.y;
+    to_be_spawned.m_position.z = Random::NextDouble(0.0,1.0) * length + upper_left_corner.z;
+    to_be_spawned.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
+
+    return to_be_spawned;
+}
+
+Particle SphereSpawner( Vec3d center, double radius )
+{
+    Particle to_be_spawned;
+    to_be_spawned.m_life_time = 0;
+    to_be_spawned.m_position.x = std::sin(Random::NextDouble(0.0,1.5)) * radius + center.x;
+    to_be_spawned.m_position.y = std::cos(Random::NextDouble(0.0,1.5)) * radius + center.y;
+    to_be_spawned.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
+
+    return to_be_spawned;
+}
+
+Particle ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height )
+{
+    
 }

@@ -14,4 +14,5 @@ cmake .. -G"Unix Makefiles"
 
 cmake --build . -j$(nproc)
 
-read -p "Press Enter to continue" var
+# read -p "Press Enter to continue" var
+ 

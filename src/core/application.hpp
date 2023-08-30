@@ -14,6 +14,18 @@ struct ProgramArguments
     char** env;
 };
 
+
+enum A
+{
+    first,
+    second,
+    third,
+    forth,
+
+    COUNT = 4,
+    MAX = 4
+}
+
 class CommandLineArguments
 {
     using EnviromentVariables = std::map<std::string,std::string>;
@@ -25,7 +37,7 @@ class CommandLineArguments
         std::vector<std::string> GetAllArguments() const { return m_arguments; }
 
         // for those who want to work with the standard way of dealing with arguments.
-        ProgramArguments AsStandard_C() const { return standard_arguments; }
+        ProgramArguments AsStandardC() const { return standard_arguments; }
 
         std::optional<std::string> operator[]( std::uint32_t index );
         std::optional<std::string> operator[]( const std::string& ev ); // for enviroment_variables.
@@ -55,12 +67,17 @@ class Application
         virtual bool OnUpdate( double dt ) = 0;
         virtual bool OnClose() = 0;
 
+        void Exit();
+
         //virtual void UpdateScreen() const = 0; // HACK. will change later.
 
     protected:
         std::string m_title = "engine";
         std::uint16_t m_width = 800, m_height = 600;
         Window* m_window = nullptr;
+
+    private:
+        bool m_should_exit = false;
 };
 
 #define REGISTER_APP(app) \

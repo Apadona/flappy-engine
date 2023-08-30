@@ -65,3 +65,8 @@ std::optional<std::string> CommandLineArguments::operator[]( const std::string& 
 {
     return m_enviroment_variables[ev];
 }
+
+void Application::Exit()
+{
+    m_should_exit = true;
+}
