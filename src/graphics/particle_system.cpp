@@ -1,29 +1,26 @@
 #include "particle_system.hpp"
 #include <utils/random.hpp>
 
-ParticleSystem::ParticleSystem( uint32_t max_count, uint32_t start_count, double emition_rate, double particle_life_time, double whole_time,
-                                bool repeat, SpawnMode mode )
+ParticleSystem::ParticleSystem( double whole_time, double emition_rate, double particle_life_time, bool repeat, uint32_t max_count,
+                                uint32_t start_count, SpawnMode mode )
 {
+    m_whole_time = whole_time;
+    m_spent_time = 0.0;
+    m_particle_life_time = particle_life_time;
     m_max_count = max_count;
     m_start_count = start_count;
+    m_repeat = repeat;
+
+    m_emition_rate = emition_rate;
+    m_particle_spawn_time = 0.0;
+    m_spawn_mode = mode;
 
     m_particles.reserve(m_max_count);
 
     for( uint32_t i = 0; i < m_start_count; ++i )
     {
-        Particle particle;
-        particle.m_position = Vec3(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),-1 + Random::NextDouble(0.0,0.1));
-        particle.m_velocity = Vec3(Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01),Random::NextDouble(-0.01,0.01));
-        m_particles.push_back(particle);
-    }
-    
-    m_life_time_limit = particle_life_time;
-    m_emition_rate = emition_rate;
-    m_spent_time = 0.0;
-    m_whole_time = whole_time;
-    m_repeat = repeat;
-    m_particle_spawn_time = 0.0;
-    m_spawn_mode = mode;
+        m_particles.push_back(GenerateNewParticle());
+    }    
 }
 
 ParticleSystem::ParticleSystem( const ParticleSystem& other )
@@ -41,9 +38,14 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
     if( this != &other )
     {
         m_particles = other.m_particles;
+        m_whole_time = other.m_whole_time;
+        m_spent_time = other.m_spent_time;
+        m_particle_life_time = other.m_particle_life_time;
+        m_max_count = other.m_max_count;
         m_start_count = other.m_start_count;
         m_emition_rate = other.m_emition_rate;
-        m_life_time_limit = other.m_life_time_limit;
+        m_particle_spawn_time = other.m_particle_spawn_time;
+        m_spawn_mode = other.m_spawn_mode;
         m_repeat = other.m_repeat;
     }
 
@@ -55,14 +57,24 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
     if( this != &other )
     {
         m_particles = std::move(other.m_particles);
+        m_whole_time = other.m_whole_time;
+        m_spent_time = other.m_spent_time;
+        m_particle_life_time = other.m_particle_life_time;
+        m_max_count = other.m_max_count;
         m_start_count = other.m_start_count;
         m_emition_rate = other.m_emition_rate;
-        m_life_time_limit = other.m_life_time_limit;
         m_repeat = other.m_repeat;
+        m_particle_spawn_time = other.m_particle_spawn_time;
+        m_spawn_mode = other.m_spawn_mode;
 
-        other.m_start_count = 0;
         other.m_emition_rate = 0;
-        other.m_life_time_limit = 0;
+        other.m_spent_time = 0;
+        other.m_particle_spawn_time = 0;
+        other.m_particle_life_time = 0;
+        other.m_whole_time = 0;
+        other.m_max_count = 0;
+        other.m_start_count = 0;
+        other.m_spawn_mode = SpawnMode::NONE;
         other.m_repeat = false;
     }
 
@@ -86,22 +98,20 @@ void ParticleSystem::update( double dt )
     if( m_spent_time < m_whole_time  )
     {
         m_particle_spawn_time += dt;
-        if( m_particle_spawn_time > m_emition_rate )
+            // make a new particle.
+        while( m_particle_spawn_time >= m_emition_rate && m_particles.size() < m_max_count )
         {
-            while( m_particle_spawn_time >= m_emition_rate && m_particles.size() < m_max_count )
-            {
-                Particle particle;
-                particle.m_position = Vec3(Random::NextDouble(0.0,0.1),-1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
-                m_particles.push_back(particle);
-                m_particle_spawn_time -= m_emition_rate;
-            }
-
+            auto particle = GenerateNewParticle();
+            m_particles.push_back(particle);
+            m_particle_spawn_time -= m_emition_rate;
         }
 
+        // update particle properties.
         for( auto& i : m_particles )
         {
             i.m_life_time += dt;
-            if( i.m_life_time >= m_life_time_limit ) // dead.
+
+            if( i.m_life_time >= m_particle_life_time ) // dead.
             {
                 i.m_life_time = 0;
                 i.m_position = Vec3(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
@@ -117,13 +127,19 @@ void ParticleSystem::update( double dt )
 
     else
     {
-        if( m_repeat == true )
-        {
+        if( m_repeat )
             m_spent_time = 0.0;
-        }
     }
 }
 
+Particle ParticleSystem::GenerateNewParticle()
+{
+    Particle particle;
+    particle.m_position = Vec3(Random::NextDouble(0.0,0.1),-1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
+    particle.m_velocity = Vec3(Random::NextDouble(0.0,0.1),-1 + Random::NextDouble(0.0,0.3),Random::NextDouble(0.0,0.1));
+
+    return particle;
+}
 
 
 Particle RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y )

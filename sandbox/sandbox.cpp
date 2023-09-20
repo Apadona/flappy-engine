@@ -3,7 +3,7 @@
 class SandBoxApp : public Application
 {
     public:
-        SandBoxApp() : m_particle_system(1000,10,0.25,15.0,true)
+        SandBoxApp() : m_particle_system(5,0.25,5,false,1000,10)
         {
             m_title = "sandbox";
             m_width = 800, m_height = 600;
