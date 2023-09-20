@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks":
+    [
+        {
+            "label": "Compile Project",
+            "type": "shell",
+            "command": "./build_debug.sh && ./run.sh || read -n 1 -s -r -p \"Press any key to continue\"",
+            "options":
+            {
+                "cwd": "./scripts/Linux"
+            }
+            ,
+            "presentation":
+            {
+                "revealProblems": "onProblem",
+                "close": true,
+                "panel": "new"
+            }
+        }
+    ]
+}
