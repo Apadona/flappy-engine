@@ -24,7 +24,7 @@ enum A
 
     COUNT = 4,
     MAX = 4
-};
+}
 
 class CommandLineArguments
 {
