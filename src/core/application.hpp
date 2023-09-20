@@ -14,18 +14,6 @@ struct ProgramArguments
     char** env;
 };
 
-
-enum A
-{
-    first,
-    second,
-    third,
-    forth,
-
-    COUNT = 4,
-    MAX = 4
-}
-
 class CommandLineArguments
 {
     using EnviromentVariables = std::map<std::string,std::string>;
