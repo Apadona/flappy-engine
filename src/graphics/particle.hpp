@@ -4,10 +4,7 @@
 
 struct Particle
 {
-    Particle()
-    {
-        std::memset(this,0,sizeof(this));
-    }
+    Particle() = default;
 
     Particle( const Particle& other )
     {
@@ -24,10 +21,9 @@ struct Particle
         
             m_velocity = other.m_velocity;
             m_acceleration = other.m_acceleration;
+            m_is_dead = other.m_is_dead;
 
             m_life_time = other.m_life_time;
-
-            m_is_dead = other.m_is_dead;
         }
 
         return *this;
@@ -39,8 +35,7 @@ struct Particle
 
     Vec3 m_velocity;
     Vec3 m_acceleration;
+    bool m_is_dead;
 
     double m_life_time;
-
-    bool m_is_dead;
 };

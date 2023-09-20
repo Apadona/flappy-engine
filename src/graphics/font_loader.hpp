@@ -6,7 +6,7 @@
 
 #include <engine_pch.hpp>
 
-#define FONT_PATH "data/fonts/"
+#define font_path "data/fonts/"
 
 class FontLoader
 {
@@ -17,10 +17,9 @@ class FontLoader
                           uint16_t image_width = 0, uint16_t image_height = 0, uint16_t offset_x = 0, uint32_t offset_y = 0 );
 
     private:
+        static Font LoadFreeTypeFont( const std::string& font_file_path, uint8_t width, uint8_t height );
         static bool Init(); // initializes the freetype font library.
         static bool Terminate(); // terminates the freetype font library.
-
-        static Font LoadFreeTypeFont( const std::string& font_file_path, uint8_t width, uint8_t height );
 
     private:
         static FT_Library freetype_lib;

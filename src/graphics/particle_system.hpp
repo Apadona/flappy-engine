@@ -5,8 +5,6 @@
 
 enum class SpawnMode
 {
-    NONE,
-    
     RECTANGLE,
     CIRCLE,
     CUBE,
@@ -19,10 +17,31 @@ class ParticleSystem
     public:
         using Particles = std::vector<Particle>;
 
-        ParticleSystem( double whole_time, double emition_rate, double particle_life_time, bool repeat = true, uint32_t max_count = 0,
-                        uint32_t start_count = 0, SpawnMode mode = SpawnMode::RECTANGLE );
+        // using iterator = Particles::iterator;
+        // using const_iterator = Particles::const_iterator;
+        // using reverse_iterator = Particles::reverse_iterator;
+        // using const_reverse_iterator = Particles::const_reverse_iterator;
 
-        ParticleSystem( const ParticleSystem& other );
+        // iterator begin() { return m_particles.begin(); }
+
+        // iterator end() { return m_particles.end(); }
+
+        // const_iterator cbegin() const { return m_particles.cbegin(); }
+
+        // const_iterator cend() const { return m_particles.cend(); }
+
+        // reverse_iterator rbegin() const { return m_particles.rbegin(); }
+
+        // reverse_iterator rend() const { return m_particles.rend(); }
+
+        // const_reverse_iterator crbegin() const { return m_particles.crbegin(); }
+
+        // const_reverse_iterator crend() const { return m_particles.crend(); }
+
+        ParticleSystem(uint32_t max_count, uint32_t start_count, double emition_rate, double duration, double whole_time, bool repeat = true,
+                       SpawnMode mode = SpawnMode::RECTANGLE);
+
+        ParticleSystem(const ParticleSystem& other);
 
         ParticleSystem( ParticleSystem&& other );
 
@@ -38,7 +57,7 @@ class ParticleSystem
 
         const Particles& GetParticles() const { return m_particles; }
 
-        void SetLifeTimeLimit(double limit) { m_particle_life_time = limit; }
+        void SetLifeTimeLimit(double limit) { m_life_time_limit = limit; }
 
         uint32_t GetStartCount() const { return m_start_count; }
 
@@ -52,49 +71,25 @@ class ParticleSystem
 
         SpawnMode getSpawnMode() const { return m_spawn_mode; }
 
-        double GetLifeTimeLimit() const { return m_particle_life_time; }
+        double GetLifeTimeLimit() const { return m_life_time_limit; }
         
         bool isRepeating() const { return m_repeat; }
 
     private:
-        Particle GenerateNewParticle();
         std::uint32_t getFirstDeadParticleIndex(std::uint32_t index) const;
         std::uint32_t getDeadParticles() const;
 
     private:
         Particles m_particles;
-
-         // the time that particle system should be active (unless repeating is specified).
-        double m_whole_time;
-
-         // the time that is spent since particle system started.
-        double m_spent_time;
-
-         // particle life time. after exceeding this, particle dies.
-        double m_particle_life_time;
-
-        // Vec3 m_start_size;
-
-        // Vec3 m_start_speed;
-
-        // maximum count of the particles that can be active.
-        uint32_t m_max_count;
-
-        // particles that should be spawned together at the start.
-        uint32_t m_start_count;
-
-        // if set to true, then it would reset and spawn particles again from start.
-        bool m_repeat;
-
-        // emition parameters.
-
-         // the rate in seconds which a new particle should be spawned.
         double m_emition_rate;
-
-         // the time that is passed since last spawn. once this exceeds m_emition_rate, it would spawn a particle.
+        double m_spent_time;
         double m_particle_spawn_time;
-
+        double m_life_time_limit; // particle life time.
+        double m_whole_time;
+        uint32_t m_max_count;
+        uint32_t m_start_count;
         SpawnMode m_spawn_mode;
+        bool m_repeat;
 };
 
 Particle RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
