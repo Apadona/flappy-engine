@@ -14,7 +14,7 @@
             "presentation":
             {
                 "revealProblems": "onProblem",
-                "close": true,
+                "close": false,
                 "panel": "new"
             }
         }

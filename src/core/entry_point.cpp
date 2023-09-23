@@ -72,7 +72,7 @@ class EngineInterface
                 return false;
             }
 
-            app->m_window = new Window(app->m_width,app->m_height,app->m_title,3,1);
+            app->m_window = new Window(app->m_width,app->m_height,app->m_title,400,250,3,1);
             if( !app->m_window->IsOpen() )
             {
                 CORE_LOG_ERROR("cannot create the glfw window!\n");

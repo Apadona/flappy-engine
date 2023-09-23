@@ -4,14 +4,18 @@
 
 struct Particle
 {
-    Particle() = default;
+    Particle() : m_position(0.0f,0.0f,0.0f) , m_scale(0.0f,0.0f,0.0f), m_rotation(0.0f,0.0f,0.0f),
+                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_life_time(0.0f), m_is_dead(0.0f)
+    {
+        // std::memset(this,0,sizeof(this));
+    }
 
     Particle( const Particle& other )
     {
         *this = other;
     }
 
-    Particle& operator=( const Particle& other )
+    inline Particle& operator=( const Particle& other )
     {
         if( this != &other )
         {
@@ -35,7 +39,8 @@ struct Particle
 
     Vec3 m_velocity;
     Vec3 m_acceleration;
-    bool m_is_dead;
 
     double m_life_time;
+
+    bool m_is_dead;
 };

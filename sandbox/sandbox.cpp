@@ -3,10 +3,10 @@
 class SandBoxApp : public Application
 {
     public:
-        SandBoxApp() : m_particle_system(20,5,0.25,10,1000,false)
+        SandBoxApp() : m_particle_system(20,3,0.125,50,1000,true)
         {
             m_title = "sandbox";
-            m_width = 800, m_height = 600;
+            m_width = 1600, m_height = 900;
         }
 
         bool Init( CommandLineArguments _args ) override
@@ -36,6 +36,8 @@ class SandBoxApp : public Application
             text.SetSize(10,10);
             text.SetPosition(10,10);
             text.SetColor({1.0f,1.0f,1.0f,1.0f});
+
+            m_particle_system.SetTexture("data/textures/fire_3.png");
 
             Random::Init(1000);
             bird_animations.Create("data/textures/bird_atlas.png");
@@ -105,7 +107,7 @@ class SandBoxApp : public Application
                 // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
                 // renderer.DrawText(text);
 
-                m_particle_system.update(dt);
+                m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
                 
                 m_window->ReDraw();

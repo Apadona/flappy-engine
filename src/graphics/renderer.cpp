@@ -241,16 +241,17 @@ void Renderer::DrawText( Text& text )
 
 void Renderer::DrawParticles( ParticleSystem& particle_system )
 {
-    BlendCommand(true,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::EQUAL_ONE_MINUS_SOURCE_ALPHA);
+    BlendCommand(true,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::ONE); // additive blending.
 
     auto particles = particle_system.GetParticles();
 
     for( int i = 0; i < particles.size(); ++i )
     {
-        // if( !particles[i].is_dead )
-        // {
-            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,0.03,0.03,0.0,m_default_texture01);
-        // }
+        if( !particles[i].m_is_dead )
+        {
+            auto* texture =  particle_system.GetTexture();
+            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,0.2,0.2,0.0,texture ? *texture : m_default_texture01);
+        }
     }
 
     BlendCommand(false,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::EQUAL_ONE_MINUS_SOURCE_ALPHA);
@@ -309,12 +310,15 @@ void Renderer::ClearColorCommand( float red, float green, float blue, float alph
 
 void Renderer::BlendCommand( bool enable, BlendingFactor source, BlendingFactor destination )
 {
+    // only disable blending if it is already enabled.
     if( !enable && ( m_render_flags & RenderFlags::BLENDING_IS_ON ) )
     {
         m_render_flags = m_render_flags & static_cast<RenderFlags>(~RenderFlags::BLENDING_IS_ON);
         glDisable(GL_BLEND);
     }
 
+    // else,
+    // only enable blending if it is already disabled.
     else if( enable && !( m_render_flags & RenderFlags::BLENDING_IS_ON ) )
     {
         m_render_flags = m_render_flags | static_cast<RenderFlags>(RenderFlags::BLENDING_IS_ON);

@@ -2,6 +2,7 @@
 
 #include "particle.hpp"
 #include "transform_2D.hpp"
+#include "texture.hpp"
 
 enum class SpawnMode
 {
@@ -25,6 +26,8 @@ class ParticleSystem
 
         ParticleSystem( ParticleSystem&& other );
 
+        ~ParticleSystem();
+
         ParticleSystem& operator=( const ParticleSystem& other );
 
         ParticleSystem& operator=( ParticleSystem&& other );
@@ -33,11 +36,29 @@ class ParticleSystem
 
         const Particle& operator[]( uint32_t index ) const;
 
-        void update(double dt);
+        void Update( double dt) ;
 
         const Particles& GetParticles() const { return m_particles; }
 
-        void SetLifeTimeLimit(double limit) { m_life_time_limit = limit; }
+        void SetWholeTime( double whole_time ) { m_whole_time = whole_time; }
+
+        void Reset() { m_spent_time = 0; }
+
+        void setEmitionRate( double emition_rate ) { m_emition_rate = emition_rate; }
+
+        void setParticleLifeTime( double particle_life_time ) { m_particle_life_time = particle_life_time; }
+
+        void SetSpawnMode( SpawnMode mode ) { m_spawn_mode = mode; }
+
+        void SetTexture( const std::string path );
+
+        void SetTexture( Texture& texture ) { m_texture = &texture; }
+
+        Texture* GetTexture() { return m_texture; }
+
+        double GetWholeTime() const { return m_whole_time; }
+
+        double GetSpentTime() const { return m_spent_time; }
 
         uint32_t GetStartCount() const { return m_start_count; }
 
@@ -47,13 +68,13 @@ class ParticleSystem
 
         double GetEmitionRate() const { return m_emition_rate; }
 
-        void setSpawnMode( SpawnMode mode ) { m_spawn_mode = mode; }
+        double GetTimeFromLastParticleSpawn() const { return m_particle_spawn_time; }
+
+        double GetLifeTimeLimit() const { return m_particle_life_time; }
 
         SpawnMode getSpawnMode() const { return m_spawn_mode; }
 
-        double GetLifeTimeLimit() const { return m_life_time_limit; }
-        
-        bool isRepeating() const { return m_repeat; }
+        bool IsRepeating() const { return m_repeat; }
 
     private:
         std::uint32_t getFirstDeadParticleIndex(std::uint32_t index) const;
@@ -61,8 +82,16 @@ class ParticleSystem
 
         Particle GenerateParticle() const;
 
+        void RegisterDeadParticle( int64_t index );
+
+        int64_t FindFirstDeadParticleIndex();
+
     private:
         Particles m_particles;
+
+        Texture* m_texture;
+
+        std::vector<int64_t> m_deadParticleIndexes;
 
         // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
         double m_whole_time;
@@ -84,19 +113,25 @@ class ParticleSystem
         double m_particle_spawn_time;
 
         // particle life time. after this time is exceeded, it would die.
-        double m_life_time_limit; 
+        double m_particle_life_time; 
 
         SpawnMode m_spawn_mode;
 
+        // if set to false, particle system stops emiting particles after the time that it is active (m_spent_time) is greater than
+        // its whole time (m_whole_time).
         bool m_repeat;
+
+        // if set to false, particle system stops emiting particles but its acitve time (m_spent_time) gets increased by update time.
+        // this could be used to interrupt or delay the work of a particle system. 
+        bool m_active;
 };
 
-Particle RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
+Vec3 RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
 
-Particle CircleSpawner( Vec3d center, Vec3d oriention, double radius );
+Vec3 CircleSpawner( Vec3d center, Vec3d oriention, double radius );
 
-Particle CubeSpawner( Vec3d center, Vec3d oriention, double length );
+Vec3 CubeSpawner( Vec3d center, Vec3d oriention, double length );
 
-Particle SphereSpawner( Vec3d center, double radius );
+Vec3 SphereSpawner( Vec3d center, double radius );
 
-Particle ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );
+Vec3 ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );
