@@ -6,7 +6,7 @@
 
 #include <engine_pch.hpp>
 
-#define font_path "data/fonts/"
+#define  FONT_PATH "data/fonts/"
 
 class FontLoader
 {

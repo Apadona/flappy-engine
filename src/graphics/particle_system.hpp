@@ -5,6 +5,7 @@
 
 enum class SpawnMode
 {
+    NONE,
     RECTANGLE,
     CIRCLE,
     CUBE,
@@ -17,29 +18,8 @@ class ParticleSystem
     public:
         using Particles = std::vector<Particle>;
 
-        // using iterator = Particles::iterator;
-        // using const_iterator = Particles::const_iterator;
-        // using reverse_iterator = Particles::reverse_iterator;
-        // using const_reverse_iterator = Particles::const_reverse_iterator;
-
-        // iterator begin() { return m_particles.begin(); }
-
-        // iterator end() { return m_particles.end(); }
-
-        // const_iterator cbegin() const { return m_particles.cbegin(); }
-
-        // const_iterator cend() const { return m_particles.cend(); }
-
-        // reverse_iterator rbegin() const { return m_particles.rbegin(); }
-
-        // reverse_iterator rend() const { return m_particles.rend(); }
-
-        // const_reverse_iterator crbegin() const { return m_particles.crbegin(); }
-
-        // const_reverse_iterator crend() const { return m_particles.crend(); }
-
-        ParticleSystem(uint32_t max_count, uint32_t start_count, double emition_rate, double duration, double whole_time, bool repeat = true,
-                       SpawnMode mode = SpawnMode::RECTANGLE);
+        ParticleSystem( double whole_time, double particle_life_time, double emition_rate, uint32_t start_count, uint32_t max_count,
+                        bool repeat = false, SpawnMode mode = SpawnMode::RECTANGLE );
 
         ParticleSystem(const ParticleSystem& other);
 
@@ -79,16 +59,35 @@ class ParticleSystem
         std::uint32_t getFirstDeadParticleIndex(std::uint32_t index) const;
         std::uint32_t getDeadParticles() const;
 
+        Particle GenerateParticle() const;
+
     private:
         Particles m_particles;
-        double m_emition_rate;
-        double m_spent_time;
-        double m_particle_spawn_time;
-        double m_life_time_limit; // particle life time.
+
+        // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
         double m_whole_time;
-        uint32_t m_max_count;
+
+        // the time that particle system has been active.
+        double m_spent_time;
+
+        // the start number of particles.
         uint32_t m_start_count;
+
+        // the max number of particles that can exist at a time.
+        uint32_t m_max_count;
+
+        // emition parameters.
+        // the rate at which a new particle is spawned.
+        double m_emition_rate;
+
+        // the time from the previous particle spawn.
+        double m_particle_spawn_time;
+
+        // particle life time. after this time is exceeded, it would die.
+        double m_life_time_limit; 
+
         SpawnMode m_spawn_mode;
+
         bool m_repeat;
 };
 
