@@ -250,7 +250,8 @@ void Renderer::DrawParticles( ParticleSystem& particle_system )
         if( !particles[i].m_is_dead )
         {
             auto* texture =  particle_system.GetTexture();
-            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,0.2,0.2,0.0,texture ? *texture : m_default_texture01);
+            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,particles[i].m_scale.x,particles[i].m_scale.y,
+                          0.0,texture ? *texture : m_default_texture01);
         }
     }
 

@@ -198,7 +198,6 @@ Particle ParticleSystem::GenerateParticle() const
     }   
 
     particle.m_velocity = Vec3(0.0,Random::NextDouble(0.0,0.15),0.0);
-    particle.m_is_dead = false;
 
     return particle;
 }   

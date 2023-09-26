@@ -5,10 +5,8 @@
 struct Particle
 {
     Particle() : m_position(0.0f,0.0f,0.0f) , m_scale(0.0f,0.0f,0.0f), m_rotation(0.0f,0.0f,0.0f),
-                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_life_time(0.0f), m_is_dead(0.0f)
-    {
-        // std::memset(this,0,sizeof(this));
-    }
+                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_life_time(0.0f),
+                 m_is_dead(false) {}
 
     Particle( const Particle& other )
     {

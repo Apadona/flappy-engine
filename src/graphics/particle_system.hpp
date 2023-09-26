@@ -4,6 +4,8 @@
 #include "transform_2D.hpp"
 #include "texture.hpp"
 
+#include <maths/curves.hpp>
+
 enum class SpawnMode
 {
     NONE,
@@ -54,6 +56,10 @@ class ParticleSystem
 
         void SetTexture( Texture& texture ) { m_texture = &texture; }
 
+        void SetSizeOverLifeTimeBehaviour( const BezierCurve& curve ) { m_size_over_life_time_curve = curve; }
+
+        void SetColorOverLifeTimeBehaviour( const BezierCurve& curve ) { m_color_over_life_time_curve = curve; }
+
         Texture* GetTexture() { return m_texture; }
 
         double GetWholeTime() const { return m_whole_time; }
@@ -74,10 +80,14 @@ class ParticleSystem
 
         SpawnMode getSpawnMode() const { return m_spawn_mode; }
 
+        BezierCurve GetSizeOverLifeTimeBehaviour() const { return m_size_over_life_time_curve; }
+
+        BezierCurve GetColorOverLifeTimeBehaviour() const { return m_color_over_life_time_curve; }
+
         bool IsRepeating() const { return m_repeat; }
 
     private:
-        std::uint32_t getFirstDeadParticleIndex(std::uint32_t index) const;
+        std::uint32_t getFirstDeadParticleIndex( std::uint32_t index ) const;
         std::uint32_t getDeadParticles() const;
 
         Particle GenerateParticle() const;
@@ -87,10 +97,15 @@ class ParticleSystem
         int64_t FindFirstDeadParticleIndex();
 
     private:
+        // list of the particles which are made and managed.
         Particles m_particles;
 
+        // texture that gets applied to all particles within a particle system.
         Texture* m_texture;
 
+        // when a particle dies i.e particle.m_life_time gets exceeds by particlesystem.m_particle_life_time, its index from the vector
+        // gets stored here. so that when a new particle is to be emitted it would use this index to index into the dead particles'
+        // vector memory storage instead of allocating a new one (if possible though).
         std::vector<int64_t> m_deadParticleIndexes;
 
         // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
@@ -115,7 +130,14 @@ class ParticleSystem
         // particle life time. after this time is exceeded, it would die.
         double m_particle_life_time; 
 
+        // decides in what shape to emit particles( circle,cone,cube, etc... )
         SpawnMode m_spawn_mode;
+
+        // it specifies how the size of particles changes based on the time that has passed after their creation.
+        BezierCurve m_size_over_life_time_curve;
+
+        // it specifies how the color of the particles changes based on the time that has passed after their creation.
+        BezierCurve m_color_over_life_time_curve;
 
         // if set to false, particle system stops emiting particles after the time that it is active (m_spent_time) is greater than
         // its whole time (m_whole_time).
