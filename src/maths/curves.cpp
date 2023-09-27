@@ -43,7 +43,7 @@ BezierCurve& BezierCurve::operator=( ControlPoints&& cp )
     m_cp = std::move(cp);
 }
 
-float BezierCurve::Calculate( float percentage )
+double BezierCurve::Calculate( double percentage )
 {
     auto point_count = GetPointCount();
 
@@ -67,7 +67,7 @@ float BezierCurve::Calculate( float percentage )
         return CalculateCubic(m_cp[0],m_cp[1],m_cp[2],m_cp[3], percentage);
 }   
 
-void BezierCurve::AddPoint( float point )
+void BezierCurve::AddPoint( double point )
 {
     if( m_cp.size() <= 3 )
         m_cp.push_back(point);
@@ -76,17 +76,17 @@ void BezierCurve::AddPoint( float point )
         LOG_WARNING("WARNING: up to 4 points can exist within a bezier curve");
 }
 
-float BezierCurve::CalculateLinear( float p1,float p2, float percentage )
+double BezierCurve::CalculateLinear( double p1,double p2, double percentage )
 {
     return (1 - percentage) * p1 + percentage * p2;
 }
 
-float BezierCurve::CalculateQuadric( float p1,float p2, float p3, float percentage )
+double BezierCurve::CalculateQuadric( double p1,double p2, double p3, double percentage )
 {
     return std::pow((1 - percentage),2) * p1 + 2 * ( 1 - percentage ) * p2 + percentage * p3;
 }
 
-float BezierCurve::CalculateCubic( float p1,float p2, float p3, float p4, float percentage )
+double BezierCurve::CalculateCubic( double p1,double p2, double p3, double p4, double percentage )
 {
     return std::pow((1 - percentage),3) * p1 + 3 * std::pow((1 - percentage),2) * p2 + (1 - percentage) * p3 +
     percentage * p4;
@@ -95,6 +95,11 @@ float BezierCurve::CalculateCubic( float p1,float p2, float p3, float p4, float 
 void BezierCurve::RemovePointByIndex( uint32_t index )
 {
     m_cp.erase(std::next(m_cp.begin(),index));
+}
+
+uint32_t BezierCurve::GetPointCount() const
+{
+    return m_cp.size();
 }
 
 bool BezierCurve::CheckValidation() const

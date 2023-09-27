@@ -4,9 +4,9 @@
 
 struct Particle
 {
-    Particle() : m_position(0.0f,0.0f,0.0f) , m_scale(0.0f,0.0f,0.0f), m_rotation(0.0f,0.0f,0.0f),
-                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_life_time(0.0f),
-                 m_is_dead(false) {}
+    Particle() : m_position(0.0f,0.0f,0.0f) , m_scale(1.0f,1.0f,1.0f), m_rotation(0.0f,0.0f,0.0f),
+                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_color(1.0f,1.0f,1.0f,0.0f), 
+                 m_life_time(0.0f), m_is_dead(false) {}
 
     Particle( const Particle& other )
     {
@@ -31,12 +31,14 @@ struct Particle
         return *this;
     }
 
-    Vec3 m_position;
-    Vec3 m_scale;
-    Vec3 m_rotation;
+    Vec3d m_position;
+    Vec3d m_scale;
+    Vec3d m_rotation;
 
-    Vec3 m_velocity;
-    Vec3 m_acceleration;
+    Vec3d m_velocity;
+    Vec3d m_acceleration;
+
+    Vec4d m_color;
 
     double m_life_time;
 

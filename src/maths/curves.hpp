@@ -5,7 +5,7 @@
 class BezierCurve
 {
     public:
-        using ControlPoints = std::vector<float>;
+        using ControlPoints = std::vector<double>;
     public:
         BezierCurve() = default;
         BezierCurve( const BezierCurve& bc );
@@ -19,9 +19,9 @@ class BezierCurve
         BezierCurve& operator=( BezierCurve&& other );
         BezierCurve& operator=( ControlPoints&& points );
 
-        float Calculate( float percentage );
+        double Calculate( double percentage );
 
-        void AddPoint( float point );
+        void AddPoint( double point );
         void RemovePointByIndex( uint32_t index );
 
         void SetControlPoints( const ControlPoints& cp );
@@ -29,9 +29,9 @@ class BezierCurve
 
         uint32_t GetPointCount() const;
 
-        static float CalculateLinear( float p1,float p2, float percentage );
-        static float CalculateQuadric( float p1, float p2, float p3, float percentage );
-        static float CalculateCubic( float p1,float p2, float p3, float p4, float percentage );
+        static double CalculateLinear( double p1,double p2, double percentage );
+        static double CalculateQuadric( double p1, double p2, double p3, double percentage );
+        static double CalculateCubic( double p1,double p2, double p3, double p4, double percentage );
 
     private:
         bool CheckValidation() const;

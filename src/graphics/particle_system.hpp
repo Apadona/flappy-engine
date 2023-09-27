@@ -4,6 +4,7 @@
 #include "transform_2D.hpp"
 #include "texture.hpp"
 
+#include <maths/vector4D.hpp>
 #include <maths/curves.hpp>
 
 enum class SpawnMode
@@ -20,6 +21,8 @@ class ParticleSystem
 {
     public:
         using Particles = std::vector<Particle>;
+
+        ParticleSystem();
 
         ParticleSystem( double whole_time, double particle_life_time, double emition_rate, uint32_t start_count, uint32_t max_count,
                         bool repeat = false, SpawnMode mode = SpawnMode::RECTANGLE );
@@ -38,17 +41,30 @@ class ParticleSystem
 
         const Particle& operator[]( uint32_t index ) const;
 
-        void Update( double dt) ;
-
-        const Particles& GetParticles() const { return m_particles; }
-
-        void SetWholeTime( double whole_time ) { m_whole_time = whole_time; }
+        void Update( double dt ) ;
 
         void Reset() { m_spent_time = 0; }
 
-        void setEmitionRate( double emition_rate ) { m_emition_rate = emition_rate; }
+        void SetStartColor( const Vec4d& start_color ) { m_start_color = start_color; }
 
-        void setParticleLifeTime( double particle_life_time ) { m_particle_life_time = particle_life_time; }
+        void SetEndColor( const Vec4d& end_color ) { m_end_color = end_color; }
+
+        void SetWholeTime( double whole_time ) { m_whole_time = whole_time; }
+
+        void SetEmitionRate( double emition_rate ) { m_emition_rate = emition_rate; }
+
+        inline void SetParticleLifeTime( double particle_life_time )
+        {
+            if( std::islessequal(particle_life_time, std::numeric_limits<float>::epsilon()) )
+            {
+                throw std::range_error("error: particle life time should not be either 0 or so small.\n");
+            }
+
+            else
+            {
+                m_particle_life_time = particle_life_time;
+            }
+        }
 
         void SetSpawnMode( SpawnMode mode ) { m_spawn_mode = mode; }
 
@@ -60,7 +76,31 @@ class ParticleSystem
 
         void SetColorOverLifeTimeBehaviour( const BezierCurve& curve ) { m_color_over_life_time_curve = curve; }
 
+        inline void SetMaxAllowedParticles( uint32_t max_particle_count )
+        {
+            m_max_count = max_particle_count;
+            m_particles.reserve(m_max_count);
+        }
+
+        inline void SetStartParticleCount( uint32_t start_particle_count )
+        {
+            m_start_count = start_particle_count;
+
+            for( uint32_t i = 0; i < m_start_count; ++i )
+            {
+                m_particles.push_back(GenerateParticle());
+            }
+        }
+
+        void SetRepeating( bool repeat ) { m_repeat = repeat; }
+
+        const Particles& GetParticles() const { return m_particles; }
+
         Texture* GetTexture() { return m_texture; }
+
+        const Vec4d& GetStartColor() const { return m_start_color; }
+
+        const Vec4d& GetEndColor() const { return m_end_color; } 
 
         double GetWholeTime() const { return m_whole_time; }
 
@@ -108,6 +148,10 @@ class ParticleSystem
         // vector memory storage instead of allocating a new one (if possible though).
         std::vector<int64_t> m_deadParticleIndexes;
 
+        Vec4d m_start_color;
+
+        Vec4d m_end_color;
+
         // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
         double m_whole_time;
 
@@ -148,12 +192,12 @@ class ParticleSystem
         bool m_active;
 };
 
-Vec3 RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
+Vec3d RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
 
-Vec3 CircleSpawner( Vec3d center, Vec3d oriention, double radius );
+Vec3d CircleSpawner( Vec3d center, Vec3d oriention, double radius );
 
-Vec3 CubeSpawner( Vec3d center, Vec3d oriention, double length );
+Vec3d CubeSpawner( Vec3d center, Vec3d oriention, double length );
 
-Vec3 SphereSpawner( Vec3d center, double radius );
+Vec3d SphereSpawner( Vec3d center, double radius );
 
-Vec3 ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );
+Vec3d ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );

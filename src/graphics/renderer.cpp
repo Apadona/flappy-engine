@@ -247,11 +247,13 @@ void Renderer::DrawParticles( ParticleSystem& particle_system )
 
     for( int i = 0; i < particles.size(); ++i )
     {
+        auto& particle = particles[i];
+
         if( !particles[i].m_is_dead )
         {
             auto* texture =  particle_system.GetTexture();
-            DrawRectangle(particles[i].m_position.x,particles[i].m_position.y,particles[i].m_scale.x,particles[i].m_scale.y,
-                          0.0,texture ? *texture : m_default_texture01);
+            DrawRectangle(particle.m_position.x,particle.m_position.y,particle.m_scale.x,particle.m_scale.y,
+                          0.0,particle.m_color,texture ? *texture : m_default_texture01);
         }
     }
 
