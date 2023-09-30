@@ -1,11 +1,12 @@
 #pragma once
 
 #include <maths/vector3D.hpp>
+#include <maths/vector4D.hpp>
 
 struct Particle
 {
     Particle() : m_position(0.0f,0.0f,0.0f) , m_scale(1.0f,1.0f,1.0f), m_rotation(0.0f,0.0f,0.0f),
-                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_color(1.0f,1.0f,1.0f,0.0f), 
+                 m_velocity(0.0f,0.0f,0.0f), m_acceleration(0.0f,0.0f,0.0f), m_color(1.0f,1.0f,1.0f,1.0f), 
                  m_life_time(0.0f), m_is_dead(false) {}
 
     Particle( const Particle& other )
@@ -23,9 +24,13 @@ struct Particle
         
             m_velocity = other.m_velocity;
             m_acceleration = other.m_acceleration;
-            m_is_dead = other.m_is_dead;
+
+            m_color = other.m_color;
 
             m_life_time = other.m_life_time;
+
+            m_is_dead = other.m_is_dead;
+
         }
 
         return *this;
@@ -38,7 +43,7 @@ struct Particle
     Vec3d m_velocity;
     Vec3d m_acceleration;
 
-    Vec4d m_color;
+    Vec4f m_color;
 
     double m_life_time;
 

@@ -3,7 +3,7 @@
 class SandBoxApp : public Application
 {
     public:
-        SandBoxApp() : m_particle_system(20,3,0.125,50,1000,true)
+        SandBoxApp() /*: m_particle_system(10,5,0.125,50,1000,true)*/
         {
             m_title = "sandbox";
             m_width = 1600, m_height = 900;
@@ -38,15 +38,17 @@ class SandBoxApp : public Application
             text.SetColor({1.0f,1.0f,1.0f,1.0f});
 
 
-            // m_particle_system(20,3,0.125,50,1000,true)
-            // m_particle_system.SetWholeTime(20);
-            // m_particle_system.SetParticleLifeTime(3);
-            // m_particle_system.SetEmitionRate(0.125);
-            // m_particle_system.SetStartParticleCount(50);
-            // m_particle_system.SetMaxAllowedParticles(1000);
-            // m_particle_system.SetRepeating(true);
-            m_particle_system.SetTexture("data/textures/fire_3.png");
-            m_particle_system.SetSizeOverLifeTimeBehaviour(std::vector<double>{0.5,0.35,0.0});
+            // m_particle_system(10,5,0.125,50,1000,true)
+            m_particle_system.SetWholeTime(10);
+            m_particle_system.SetParticleLifeTime(5);
+            m_particle_system.SetEmitionRate(0.125);
+            m_particle_system.SetStartParticleCount(0);
+            m_particle_system.SetMaxAllowedParticles(1000);
+            m_particle_system.SetRepeating(true);
+            m_particle_system.SetTexture("data/textures/fire_4.png");
+            m_particle_system.SetSizeOverLifeTimeBehaviour(std::vector<double>{1.0,0.0});
+            m_particle_system.SetStartColor({1.0f,1.0f,1.0f,1.0f});
+            m_particle_system.SetEndColor({1.0f,1.0f,1.0f,0.0f});
 
             Random::Init(1000);
             bird_animations.Create("data/textures/bird_atlas.png");

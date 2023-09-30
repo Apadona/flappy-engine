@@ -62,35 +62,35 @@ class Renderer
                            ScreenSize c_x, ScreenSize c_y, Texture& texture );
 
         void DrawTriangle( ScreenSize a_x, ScreenSize a_y, ScreenSize b_x, ScreenSize b_y, ScreenSize c_x,
-                           ScreenSize c_y, const Vec4& color = m_default_color, Texture& texture = m_default_texture01 );
+                           ScreenSize c_y, const Vec4f& color = m_default_color, Texture& texture = m_default_texture01 );
 
         void DrawRectangle( ScreenSize pos_x, ScreenSize pos_y, ScreenSize width, ScreenSize height,
                             Texture& texture );
 
         void DrawRectangle( ScreenSize pos_x, ScreenSize pos_y, ScreenSize width, ScreenSize height,
-                            const Vec4& color = m_default_color, Texture& texture = m_default_texture01 );
+                            const Vec4f& color = m_default_color, Texture& texture = m_default_texture01 );
 
         // These functions draw by normalized screen cordinates ( center is (0.0,0.0) ).
         void DrawTriangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate,
                            Texture& texture );
 
         void DrawTriangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate,
-                           const Vec4& color = m_default_color, Texture& texture = m_default_texture01 );
+                           const Vec4f& color = m_default_color, Texture& texture = m_default_texture01 );
 
         void DrawTriangle( const Transform2D& transform, Texture& texture );
 
-        void DrawTriangle( const Transform2D& transform, const Vec4& color = m_default_color,
+        void DrawTriangle( const Transform2D& transform, const Vec4f& color = m_default_color,
                            Texture& texture = m_default_texture01 );
 
         void DrawRectangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate,
                             Texture& texture );
 
         void DrawRectangle( float pos_x, float pos_y, float scale_x, float scale_y, float rotate,
-                            const Vec4& color = m_default_color, Texture& texture = m_default_texture01 );
+                            const Vec4f& color = m_default_color, Texture& texture = m_default_texture01 );
 
         void DrawRectangle( const Transform2D& transform, Texture& texture );
 
-        void DrawRectangle( const Transform2D& transform, const Vec4& color = m_default_color,
+        void DrawRectangle( const Transform2D& transform, const Vec4f& color = m_default_color,
                             Texture& texture = m_default_texture01 );
 
         void DrawSprite( const Sprite& sprite );
@@ -102,7 +102,7 @@ class Renderer
         void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f, float alpha = 1.0f ) const;
 
     private:
-        void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4& color );
+        void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color );
         void PrepareForTextRendering( Text& text, Font& font );
 
         void DrawCommand() const;
@@ -131,7 +131,7 @@ class Renderer
         VertexArray m_rectangle_vao;
 
         static Texture m_default_texture01; // default white texture used in color shader.
-        static Vec4 m_default_color; // default white color used in color shader.
+        static Vec4f m_default_color; // default white color used in color shader.
 
         Shader m_default_shader;
 };

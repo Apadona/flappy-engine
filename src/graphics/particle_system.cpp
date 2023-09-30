@@ -6,8 +6,8 @@
 ParticleSystem::ParticleSystem()
 {
     m_texture = nullptr;
-    m_start_color = Vec4d(1.0,1.0,1.0,0.0);
-    m_end_color = Vec4d(1.0,1.0,1.0,0.0);
+    m_start_color = Vec4f(1.0,1.0,1.0,1.0);
+    m_end_color = Vec4f(1.0,1.0,1.0,1.0);
     m_whole_time = 0;
     m_spent_time = 0;
     m_start_count = 0;
@@ -24,8 +24,8 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
                                 bool repeat, SpawnMode mode )
 {
     m_texture = nullptr;
-    m_start_color = Vec4d(1.0,1.0,1.0,0.0);
-    m_end_color = Vec4d(1.0,1.0,1.0,0.0);
+    m_start_color = Vec4f(1.0,1.0,1.0,1.0);
+    m_end_color = Vec4f(1.0,1.0,1.0,1.0);
     m_whole_time = whole_time;
     m_spent_time = 0;
     m_start_count = start_count;
@@ -69,6 +69,10 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
     if( this != &other )
     {
         m_particles = other.m_particles;
+        m_texture = other.m_texture;
+        m_deadParticleIndexes = other.m_deadParticleIndexes;
+        m_start_color = other.m_start_color;
+        m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
         m_start_count = other.m_start_count;
@@ -89,6 +93,10 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
     if( this != &other )
     {
         m_particles = std::move(other.m_particles);
+        m_texture = other.m_texture;
+        m_deadParticleIndexes = std::move(other.m_deadParticleIndexes);
+        m_start_color = other.m_start_color;
+        m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
         m_start_count = other.m_start_count;
@@ -100,6 +108,9 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         m_repeat = other.m_repeat;
         m_active = other.m_active;
 
+        other.m_texture = nullptr;
+        m_start_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
+        m_end_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
         other.m_whole_time = false;
         other.m_spent_time = 0;
         other.m_start_count = 0;
@@ -172,12 +183,12 @@ void ParticleSystem::Update( double dt )
                 double calculated = m_size_over_life_time_curve.Calculate(particle_life_percentage);
                 particle.m_scale = Vec3d(calculated,calculated,calculated);
                 double relative = particle.m_life_time / m_particle_life_time;
-                particle.m_color = m_start_color * (1 - relative ) + m_end_color * relative;
+                particle.m_color = m_start_color * ( 1 - relative ) + m_end_color * relative;
             }
         }
     }
 
-    else
+    else 
     {
         if( m_repeat )
         {
@@ -228,7 +239,7 @@ Particle ParticleSystem::GenerateParticle() const
         break;
     }   
 
-    particle.m_velocity = Vec3d(0.0,Random::NextDouble(0.0,0.15),0.0);
+    particle.m_velocity = Vec3d(0.0,0.3,0.0);
 
     return particle;
 }   

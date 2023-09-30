@@ -37,6 +37,10 @@ class Matrix
         ThisType& operator=( const ThisType& other );
         ThisType& operator=( const std::initializer_list<T>& _list );
 
+        T& operator[] ( std::uint8_t index );
+
+        const T& operator[] ( std::uint8_t index ) const;
+
         bool operator==( const ThisType& other );
 
         ThisType operator+( T numeric ) const;

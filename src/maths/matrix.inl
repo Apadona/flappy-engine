@@ -149,6 +149,22 @@ bool Matrix<row,colomn,T>::operator==( const ThisType& other )
 }
 
 template<std::uint8_t row, std::uint8_t colomn, typename T>
+const T& Matrix<row,colomn,T>::operator[]( std::uint8_t index ) const
+{
+    auto division = index / colomn;
+    auto remain = index % colomn;
+    return m_data[division][remain];
+} 
+
+template<std::uint8_t row, std::uint8_t colomn, typename T>
+T& Matrix<row,colomn,T>::operator[]( std::uint8_t index )
+{
+    auto division = index / colomn;
+    auto remain = index % colomn;
+    return m_data[division][remain];
+}   
+
+template<std::uint8_t row, std::uint8_t colomn, typename T>
 void Matrix<row,colomn,T>::SetData( const T* data )
 {
     for( int i = 0; i < row; ++i )

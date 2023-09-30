@@ -76,6 +76,16 @@ class Shader
             if constexpr( std::is_same<T,glm::mat4>::value )
                 return SetUniformMatrix4f(uniform_name,data);
 
+            // if constexpr( std::is_same<T,Mat44d>::value )
+            // {
+            //     Mat4f temp;
+            //     for( int i = 0; i < data.Length(); ++i )
+            //     {
+            //         // temp[i] = data[i];
+            //     }
+            //     return SetUniformMatrix4f(uniform_name,temp);
+            // }
+
             CORE_LOG_ERROR("the data passed to shader uniform is not supported!\n");
 
             return false;

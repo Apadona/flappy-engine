@@ -54,7 +54,7 @@ double BezierCurve::Calculate( double percentage )
             return m_cp[0];
 
         else
-            return 0; // what else can i do?
+            return 0; // what else can i do? except exceptions to loose performance.
     }
 
     if( point_count == 2 )
@@ -105,5 +105,5 @@ uint32_t BezierCurve::GetPointCount() const
 bool BezierCurve::CheckValidation() const
 {
     auto point_count = GetPointCount();
-    return point_count >= 2 && point_count <= 4;
+    return point_count >= 2 && point_count <= 4; // for now we only want to operate on 4 points.
 }

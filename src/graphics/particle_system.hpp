@@ -1,7 +1,7 @@
 #pragma once
 
 #include "particle.hpp"
-#include "transform_2D.hpp"
+#include "transform.hpp"
 #include "texture.hpp"
 
 #include <maths/vector4D.hpp>
@@ -45,9 +45,9 @@ class ParticleSystem
 
         void Reset() { m_spent_time = 0; }
 
-        void SetStartColor( const Vec4d& start_color ) { m_start_color = start_color; }
+        void SetStartColor( const Vec4f& start_color ) { m_start_color = start_color; }
 
-        void SetEndColor( const Vec4d& end_color ) { m_end_color = end_color; }
+        void SetEndColor( const Vec4f& end_color ) { m_end_color = end_color; }
 
         void SetWholeTime( double whole_time ) { m_whole_time = whole_time; }
 
@@ -98,9 +98,9 @@ class ParticleSystem
 
         Texture* GetTexture() { return m_texture; }
 
-        const Vec4d& GetStartColor() const { return m_start_color; }
+        const Vec4f& GetStartColor() const { return m_start_color; }
 
-        const Vec4d& GetEndColor() const { return m_end_color; } 
+        const Vec4f& GetEndColor() const { return m_end_color; } 
 
         double GetWholeTime() const { return m_whole_time; }
 
@@ -148,9 +148,9 @@ class ParticleSystem
         // vector memory storage instead of allocating a new one (if possible though).
         std::vector<int64_t> m_deadParticleIndexes;
 
-        Vec4d m_start_color;
+        Vec4f m_start_color;
 
-        Vec4d m_end_color;
+        Vec4f m_end_color;
 
         // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
         double m_whole_time;

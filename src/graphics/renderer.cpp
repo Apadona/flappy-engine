@@ -59,7 +59,7 @@ namespace
 }
 
 Texture Renderer::m_default_texture01;
-Vec4 Renderer::m_default_color;
+Vec4f Renderer::m_default_color;
 
 bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 {
@@ -132,7 +132,7 @@ void Renderer::DrawTriangle( float pos_x, float pos_y, float scale_x, float scal
 }
 
 void Renderer::DrawTriangle( float pos_x, float pos_y, float scale_x, float scale_y,
-                             float rotate, const Vec4& color, Texture& texture )
+                             float rotate, const Vec4f& color, Texture& texture )
 {    
     Transform2D transform( {pos_x,pos_y}, {scale_x, scale_y}, rotate );
 
@@ -144,7 +144,7 @@ void Renderer::DrawTriangle( const Transform2D& transform, Texture& texture )
     DrawTriangle(transform,m_default_color,texture);
 }
 
-void Renderer::DrawTriangle( const Transform2D& transform, const Vec4& color, Texture& texture )
+void Renderer::DrawTriangle( const Transform2D& transform, const Vec4f& color, Texture& texture )
 {
     Prepare(m_triangle_vao,transform,texture,color);
 
@@ -192,7 +192,7 @@ void Renderer::DrawRectangle( const Transform2D& transform, Texture& texture )
     DrawRectangle(transform,m_default_color,texture);
 }
 
-void Renderer::DrawRectangle( const Transform2D& transform, const Vec4& color, Texture& texture )
+void Renderer::DrawRectangle( const Transform2D& transform, const Vec4f& color, Texture& texture )
 {
     Prepare(m_rectangle_vao,transform,texture,color);
 
@@ -201,7 +201,7 @@ void Renderer::DrawRectangle( const Transform2D& transform, const Vec4& color, T
 
 void Renderer::DrawSprite( const Sprite& sprite )
 {
-    DrawRectangle(sprite.m_transform,sprite.m_color,*(sprite.m_texture));
+    // DrawRectangle(sprite.m_transform,sprite.m_color,*(sprite.m_texture));
 }
 
 void Renderer::DrawText( Text& text )
@@ -265,7 +265,7 @@ void Renderer::ClearColor( float red, float green, float blue, float alpha ) con
     ClearColorCommand(red,green,blue,alpha);
 }
 
-void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4& color )
+void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color )
 {
     //BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
     m_default_shader.Use();
