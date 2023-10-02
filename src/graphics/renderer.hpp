@@ -7,6 +7,7 @@
 #include "sprite.hpp"
 #include "text.hpp"
 #include "particle_system.hpp"
+#include "camera.hpp"
 
 #include <maths/vector4D.hpp>
 
@@ -101,6 +102,10 @@ class Renderer
 
         void ClearColor( float red = 1.0f, float green = 1.0f, float blue = 1.0f, float alpha = 1.0f ) const;
 
+        void SetCamera( Camera* camera );
+
+        const Camera* GetCamera() const;
+
     private:
         void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color );
         void PrepareForTextRendering( Text& text, Font& font );
@@ -134,4 +139,5 @@ class Renderer
         static Vec4f m_default_color; // default white color used in color shader.
 
         Shader m_default_shader;
+        Camera* m_scene_camera;
 };

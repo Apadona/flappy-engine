@@ -265,6 +265,16 @@ void Renderer::ClearColor( float red, float green, float blue, float alpha ) con
     ClearColorCommand(red,green,blue,alpha);
 }
 
+void Renderer::SetCamera( Camera* camera )
+{
+    m_scene_camera = camera;
+}
+
+const Camera* Renderer::GetCamera() const
+{
+    return m_scene_camera;
+}
+
 void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color )
 {
     //BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
@@ -275,6 +285,8 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
     TextureManager::Get().UseTexture(texture);
 
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
+    // m_default_shader.SetUniform("view_matrix",m_scene_camera->GetViewMatrix());
+    // m_default_shader.SetUniform("projection_matrix",m_scene_camera->GetProjectionMatrix());
     m_default_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
     m_default_shader.SetUniform("blend_color",color);
     m_default_shader.SetUniform("sample_offset",texture.m_sample_offset);
