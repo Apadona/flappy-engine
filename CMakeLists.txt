@@ -59,6 +59,31 @@ set_target_properties( glfw PROPERTIES
                             ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
                      )
 
+###########          compiling imgui as a static library          ###########
+
+set( IMGUI_SOURCE_PATH "${dependencies_directory}/imgui" )
+file( GLOB_RECURSE imgui_source_files
+    "${IMGUI_SOURCE_PATH}/imgui.cpp"
+    "${IMGUI_SOURCE_PATH}/imgui_draw.cpp"
+    "${IMGUI_SOURCE_PATH}/imgui_tables.cpp"
+    "${IMGUI_SOURCE_PATH}/imgui_widgets.cpp"
+    "${IMGUI_SOURCE_PATH}/backends/imgui_impl_glfw.cpp"
+    "${IMGUI_SOURCE_PATH}/backends/imgui_impl_opengl3.cpp" )
+
+add_library( imgui STATIC ${imgui_source_files} )
+
+target_include_directories( imgui PRIVATE
+                            "${dependencies_directory}/imgui"
+                          )
+
+set_target_properties( imgui PROPERTIES
+                          COMPILE_FLAGS "-m${target_architecture} -O3"
+                     )
+
+set_target_properties( imgui PROPERTIES
+                          ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
+                   )
+
 ###########          compiling freetype as a static library          ###########
 add_subdirectory("${dependencies_directory}/freetype")
 
@@ -108,6 +133,8 @@ target_include_directories( engine PUBLIC
                             "${dependencies_directory}/glad"
                             "${dependencies_directory}/glfw/include"
                             "${dependencies_directory}/freetype/include"
+                            "${dependencies_directory}/imgui"
+                            "${dependencies_directory}/imgui/backend"
 
                             "${engine_source_directory}"
                             "${engine_source_directory}/core"
@@ -124,6 +151,7 @@ target_link_libraries( engine PRIVATE
                           glfw
                           stb_image
                           freetype
+                          imgui
                      )
 
 set_target_properties( engine PROPERTIES

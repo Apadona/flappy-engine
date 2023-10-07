@@ -5,6 +5,7 @@
 #include <maths/vector2D.hpp>
 
 #include <GLFW/glfw3.h>
+#include <imgui.h>
 
 // represents a glfw abstraction.
 class Window
@@ -38,6 +39,8 @@ class Window
 
         bool Update() const;
         void ReDraw() const;
+
+        GLFWwindow* GetGLFWWindowHandle();
         
         static void MakeGLContext( std::int8_t major_version, std::int8_t minor_version );
 
@@ -67,5 +70,5 @@ class Window
 
         bool m_is_vsync_on;
 
-        GLFWwindow* glfw_window;
+        GLFWwindow* m_glfw_window;
 };

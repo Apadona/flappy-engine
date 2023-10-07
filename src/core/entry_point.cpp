@@ -1,6 +1,8 @@
 #include "application.hpp"
 
 #include <stb_image/stb_image.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
 
 #include <graphics/renderer.hpp>
 #include <graphics/texture_manager.hpp>
@@ -59,6 +61,17 @@ class EngineInterface
                 return false;
             }
 
+            if( !(IMGUI_CHECKVERSION() &&  ImGui::CreateContext()) )
+            {
+                ImGuiIO& io = ImGui::GetIO(); (void)io;
+                io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+                io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+                // Setup Dear ImGui style
+                ImGui::StyleColorsDark();
+                //ImGui::StyleColorsLight();
+            }
+
             stbi_set_flip_vertically_on_load(true);
 
             return true;
@@ -73,6 +86,31 @@ class EngineInterface
             }
 
             app->m_window = new Window(app->m_width,app->m_height,app->m_title,400,250,3,1);
+
+            // Setup Platform/Renderer backends
+            ImGui_ImplGlfw_InitForOpenGL(app->m_window->GetGLFWWindowHandle(), true);
+            ImGui_ImplOpenGL3_Init("#version 330");
+            ImGui_ImplOpenGL3_NewFrame();
+            ImGui_ImplGlfw_NewFrame();
+            ImGui::NewFrame();
+
+            ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+            bool check_1 = true;
+            ImGui::Checkbox("Demo Window", &check_1);      // Edit bools storing our window open/close state
+            bool check_2 = true;
+            ImGui::Checkbox("Another Window", &check_2);
+
+            ImGui::End();
+
+            ImGui::Render();
+
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+            
+            // ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+            // ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+
             if( !app->m_window->IsOpen() )
             {
                 CORE_LOG_ERROR("cannot create the glfw window!\n");
@@ -110,6 +148,10 @@ class EngineInterface
         static void PrepareForExit( Application* app )
         {
             app->OnClose();
+
+            ImGui_ImplOpenGL3_Shutdown();
+            ImGui_ImplGlfw_Shutdown();
+            ImGui::DestroyContext();
 
             glfwTerminate();
 
