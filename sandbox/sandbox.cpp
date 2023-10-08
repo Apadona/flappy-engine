@@ -121,15 +121,17 @@ class SandBoxApp : public Application
                 m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
 
+                auto & io = ImGui::GetIO();
+
                 ImGui::NewFrame();
 
-                ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+                ImGui::Begin("particle system");                          // Create a window called "Hello, world!" and append into it.
 
-                ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+                ImGui::Text("Properties.");               // Display some text (you can use a format strings too)
                 bool check_1 = true;
-                ImGui::Checkbox("Demo Window", &check_1);      // Edit bools storing our window open/close state
+                ImGui::Checkbox("Active", &check_1);      // Edit bools storing our window open/close state
                 bool check_2 = true;
-                ImGui::Checkbox("Another Window", &check_2);
+                ImGui::Checkbox("Repeat", &check_2);
 
                 ImGui::End();
 
@@ -139,7 +141,6 @@ class SandBoxApp : public Application
                 
                 m_window->ReDraw();
 
-                // TODO:this should change later.
                 std::this_thread::sleep_for(std::chrono::duration<double>(0.01));
 
                 return true;

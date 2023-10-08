@@ -3,3 +3,4 @@ build/
 cmakefiles/
 PAT
 *.gch
+imgui.ini
