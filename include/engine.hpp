@@ -12,6 +12,9 @@
 #include <graphics/texture_atlas.hpp>
 #include <graphics/particle_system.hpp>
 
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+
 #include <maths/math_exception.hpp>
 #include <maths/matrix_operations.hpp>
 #include <maths/vector2D.hpp>

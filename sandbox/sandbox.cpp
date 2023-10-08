@@ -120,6 +120,22 @@ class SandBoxApp : public Application
 
                 m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
+
+                ImGui::NewFrame();
+
+                ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+                ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+                bool check_1 = true;
+                ImGui::Checkbox("Demo Window", &check_1);      // Edit bools storing our window open/close state
+                bool check_2 = true;
+                ImGui::Checkbox("Another Window", &check_2);
+
+                ImGui::End();
+
+                ImGui::Render();
+
+                ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
                 
                 m_window->ReDraw();
 

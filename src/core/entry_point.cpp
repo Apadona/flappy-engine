@@ -61,7 +61,7 @@ class EngineInterface
                 return false;
             }
 
-            if( !(IMGUI_CHECKVERSION() &&  ImGui::CreateContext()) )
+            if( IMGUI_CHECKVERSION() &&  ImGui::CreateContext() )
             {
                 ImGuiIO& io = ImGui::GetIO(); (void)io;
                 io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
@@ -70,6 +70,13 @@ class EngineInterface
                 // Setup Dear ImGui style
                 ImGui::StyleColorsDark();
                 //ImGui::StyleColorsLight();
+
+            }
+
+            else
+            {
+                CORE_LOG_ERROR("cannot initialize imgui!");
+                return false;
             }
 
             stbi_set_flip_vertically_on_load(true);
@@ -90,26 +97,32 @@ class EngineInterface
             // Setup Platform/Renderer backends
             ImGui_ImplGlfw_InitForOpenGL(app->m_window->GetGLFWWindowHandle(), true);
             ImGui_ImplOpenGL3_Init("#version 330");
+
             ImGui_ImplOpenGL3_NewFrame();
             ImGui_ImplGlfw_NewFrame();
-            ImGui::NewFrame();
 
-            ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+            if( !app->m_window->IsOpen() )
+            {
+                CORE_LOG_ERROR("cannot create the glfw window!\n");
+                glfwTerminate();
+                return false;
+            }
 
-            ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-            bool check_1 = true;
-            ImGui::Checkbox("Demo Window", &check_1);      // Edit bools storing our window open/close state
-            bool check_2 = true;
-            ImGui::Checkbox("Another Window", &check_2);
+            if( !gladLoadGLLoader((GLADloadproc)glfwGetProcAddress) )
+            {
+                CORE_LOG_ERRO
+                CORE_LOG_ERROR("application initialization failed.\n");
+                return false;
+            }
 
-            ImGui::End();
+            app->m_window = new Window(app->m_width,app->m_height,app->m_title,400,250,3,1);
 
-            ImGui::Render();
+            // Setup Platform/Renderer backends
+            ImGui_ImplGlfw_InitForOpenGL(app->m_window->GetGLFWWindowHandle(), true);
+            ImGui_ImplOpenGL3_Init("#version 330");
 
-            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-            
-            // ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
-            // ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
+            ImGui_ImplOpenGL3_NewFrame();
+            ImGui_ImplGlfw_NewFrame();
 
             if( !app->m_window->IsOpen() )
             {
