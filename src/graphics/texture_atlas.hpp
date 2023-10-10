@@ -7,15 +7,17 @@ class TextureAtlas
     public:
         TextureAtlas() = default;
 
-        TextureAtlas( Texture& texture, uint16_t size_x, uint16_t size_y, uint32_t total = 0,
+        TextureAtlas( Texture& texture );
+
+        TextureAtlas( Texture& texture, uint16_t size_x = 0, uint16_t size_y = 0, uint32_t total = 0,
                       uint16_t advance_x = 0, uint16_t advance_y = 0 );
 
         TextureAtlas( Texture& texture, uint16_t count_x, uint16_t count_y, uint16_t size_x,
                       uint16_t size_y, uint32_t total = 0, uint16_t advance_x = 0,
                       uint16_t advance_y = 0 );
 
-        void SetTexture( Texture& texture, uint16_t count_x, uint16_t count_y, uint16_t size_x,
-                         uint16_t size_y, uint32_t total = 0, uint16_t advance_x = 0, 
+        void SetTexture( Texture& texture, uint16_t count_x = 1, uint16_t count_y = 1, uint16_t size_x = 0,
+                         uint16_t size_y = 0, uint32_t total = 0, uint16_t advance_x = 0, 
                          uint16_t advance_y = 0 );
 
         TextureAtlas& SetCounts( uint16_t count_x, uint16_t count_y )
@@ -26,8 +28,14 @@ class TextureAtlas
             return *this;
         }
 
-        TextureAtlas& SetTextureSizes( uint16_t size_x, uint16_t size_y )
+        TextureAtlas& SetTextureBlockSize( uint16_t size_x, uint16_t size_y )
         {
+            if( !m_texture )
+            {
+                CORE_LOG_ERROR("attempting to set texture block size while no textures have been supplied!");
+                return *this;
+            }
+
             m_size_x = size_x;
             m_size_y = size_y;
 
@@ -65,6 +73,10 @@ class TextureAtlas
         Vec2ui GetOffsets() const { return {m_count_x,m_count_y}; }
         const std::vector<uint8_t> GetFilters() const { return m_filters; }
 
+        void SetChangeTime( double change_time );
+
+        void ProceedByTime( double dt );
+
         operator bool() const;
         bool operator!() const;
 
@@ -82,6 +94,9 @@ class TextureAtlas
 
         uint16_t m_advance_x;
         uint16_t m_advance_y;
+
+        double m_change_time;
+        double m_spent_time;
 
         std::vector<uint8_t> m_filters;
         bool m_filter_flag = false;

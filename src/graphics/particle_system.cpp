@@ -37,13 +37,10 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     m_repeat = repeat;
     m_active =  true;
 
-    // m_deadParticleIndexes.resize(m_max_count,-1);
+    m_deadParticleIndexes.resize(m_max_count,0); // 0 -> alive. 1 -> dead.
     m_particles.reserve(m_max_count);
 
-    for( uint32_t i = 0; i < m_start_count; ++i )
-    {
-        m_particles.push_back(GenerateParticle());
-    }
+    PushParticles(m_start_count);
 }
 
 ParticleSystem::ParticleSystem( const ParticleSystem& other )
@@ -138,11 +135,14 @@ const Particle& ParticleSystem::operator[]( uint32_t index ) const
 
 void ParticleSystem::Update( double dt )
 {
+    if( !m_active )
+        return;
+
     m_spent_time += dt;
 
-    if( m_spent_time < m_whole_time  )
+    // where all the logic about particle Generation happens.
+    if( m_spent_time < m_whole_time || m_repeat )
     {
-        // where all the logic about particle Generation happens.
         m_particle_spawn_time += dt;
         if( m_particle_spawn_time > m_emition_rate )
         {
@@ -163,36 +163,28 @@ void ParticleSystem::Update( double dt )
                 m_particle_spawn_time -= m_emition_rate;
             }
         }
-
-        // where all the logic about particle update happens.
-        for( int64_t i = 0; i < m_particles.size(); ++i )
-        {
-            Particle& particle = m_particles[i];
-
-            particle.m_life_time += dt;
-            if( particle.m_life_time >= m_particle_life_time ) // particle is dead.
-            {
-                particle.m_is_dead = true;
-                m_deadParticleIndexes.push_back(i);
-            }
-
-            else // particle is alive.
-            {
-                particle.m_position += particle.m_velocity * dt;
-                double particle_life_percentage = particle.m_life_time / m_particle_life_time;
-                double calculated = m_size_over_life_time_curve.Calculate(particle_life_percentage);
-                particle.m_scale = Vec3d(calculated,calculated,calculated);
-                double relative = particle.m_life_time / m_particle_life_time;
-                particle.m_color = m_start_color * ( 1 - relative ) + m_end_color * relative;
-            }
-        }
     }
 
-    else 
+    // where all the logic about particle update happens.
+    for( int64_t particle_index = 0; particle_index < m_particles.size(); ++particle_index )
     {
-        if( m_repeat )
+        Particle& particle = m_particles[particle_index];
+
+        particle.m_life_time += dt;
+        if( particle.m_life_time >= m_particle_life_time ) // particle is dead.
         {
-            m_spent_time = 0.0;
+            particle.m_is_dead = true;
+            RegisterDeadParticle(particle_index);
+        }
+
+        else // particle is alive.
+        {
+             particle.m_position += particle.m_velocity * dt;
+            double particle_life_percentage = particle.m_life_time / m_particle_life_time;
+            double calculated = m_size_over_life_time_curve.Calculate(particle_life_percentage);
+            particle.m_scale = Vec3d(calculated,calculated,calculated);
+            double relative = particle.m_life_time / m_particle_life_time;
+            particle.m_color = m_start_color * ( 1 - relative ) + m_end_color * relative;
         }
     }
 }
@@ -204,6 +196,7 @@ void ParticleSystem::SetTexture( const std::string path )
     if( texture )
     {
         m_texture = texture;
+        m_atlas.SetTexture(*m_texture);
         TextureManager::Get().UseTexture(*texture);
     }
 }
@@ -242,11 +235,23 @@ Particle ParticleSystem::GenerateParticle() const
     particle.m_velocity = Vec3d(0.0,0.3,0.0);
 
     return particle;
-}   
+}
+
+void ParticleSystem::PushParticles( int64_t particle_count )
+{
+    for( int i = 0; i < particle_count; ++i )
+    {
+        m_particles.push_back(GenerateParticle());
+    }
+}
 
 void ParticleSystem::RegisterDeadParticle( int64_t index )
 {
-    (void)index;
+    for( int j = 0; j < m_deadParticleIndexes.size(); ++j )
+    {
+        if ( m_deadParticleIndexes[j] == -1 )
+            m_deadParticleIndexes[j] = index; 
+    }
 }
 
 int64_t ParticleSystem::FindFirstDeadParticleIndex()

@@ -1,5 +1,15 @@
 #include "texture_atlas.hpp"
 
+TextureAtlas::TextureAtlas( Texture& texture )
+{
+    m_texture = &texture;
+    m_count_x = 1, m_count_y = 1;
+    m_total_textures = 1;
+    m_size_x = texture.GetSizeX(), m_size_y = texture.GetSizeY();
+    m_advance_x = 1, m_advance_y = 1;
+    m_current_texture = 0;
+}
+
 TextureAtlas::TextureAtlas( Texture& texture, uint16_t size_x, uint16_t size_y, uint32_t total,
                             uint16_t advance_x, uint16_t advance_y )
 {
@@ -49,7 +59,17 @@ void TextureAtlas::SetTexture( Texture& texture, uint16_t count_x, uint16_t coun
    for( uint32_t i = 0; i < m_total_textures; ++i )
         m_filters.push_back(1);
 
-    m_size_x = size_x, m_size_y = size_y;
+    if( size_x == 0 )
+        m_size_x = m_texture->GetSizeX();
+    else
+        m_size_x = size_x;
+
+    if( size_y == 0 )
+        m_size_y = m_texture->GetSizeY();
+
+    else
+        m_size_y = size_y;
+
     m_advance_x = advance_x, m_advance_y = advance_y;
     m_current_texture = 0;
 }
@@ -68,7 +88,7 @@ TextureAtlas& TextureAtlas::Set( uint32_t index )
     }
 
     if( index > m_total_textures )
-        return *this; // nothing need to be done in case of out of bind indexing.this will later help with filtering.
+        return *this; // nothing needs to be done in case of out of bind indexing.this will later help with filtering.
 
     if( !m_texture )
     {
@@ -130,6 +150,31 @@ TextureAtlas& TextureAtlas::Next()
             ++m_current_texture;
 
     return Set(m_current_texture);
+}
+
+void TextureAtlas::SetChangeTime( double change_time )
+{
+    m_change_time = change_time <= 0 ? 0 : change_time;
+}
+
+void TextureAtlas::ProceedByTime( double dt )
+{
+    if( m_change_time == 0 )
+    {
+        CORE_LOG_ERROR("the total change time of texture atlas is zero! set it first before calling ProceedByTime!");
+        return;
+    }
+
+    m_spent_time += dt;
+
+    if( m_spent_time >= m_change_time )
+    {
+        while( m_spent_time > m_change_time )
+        {
+            Next();
+            m_spent_time -= m_change_time;
+        }
+    }
 }
 
 TextureAtlas::operator bool() const

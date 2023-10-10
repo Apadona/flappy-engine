@@ -3,6 +3,7 @@
 #include "particle.hpp"
 #include "transform.hpp"
 #include "texture.hpp"
+#include "texture_atlas.hpp"
 
 #include <maths/vector4D.hpp>
 #include <maths/curves.hpp>
@@ -79,20 +80,25 @@ class ParticleSystem
         inline void SetMaxAllowedParticles( uint32_t max_particle_count )
         {
             m_max_count = max_particle_count;
+            m_deadParticleIndexes.resize(m_max_count,-1);
             m_particles.reserve(m_max_count);
         }
 
         inline void SetStartParticleCount( uint32_t start_particle_count )
         {
             m_start_count = start_particle_count;
-
-            for( uint32_t i = 0; i < m_start_count; ++i )
-            {
-                m_particles.push_back(GenerateParticle());
-            }
+            PushParticles(m_start_count);
         }
 
         void SetRepeating( bool repeat ) { m_repeat = repeat; }
+
+        void SetTextureChangeRate( double rate )
+        {
+            if( !m_texture )
+            {
+                m_atlas.SetChangeTime(rate);
+            }
+        }
 
         const Particles& GetParticles() const { return m_particles; }
 
@@ -150,6 +156,8 @@ class ParticleSystem
 
         Particle GenerateParticle() const;
 
+        void PushParticles( int64_t particle_count );
+
         void RegisterDeadParticle( int64_t index );
 
         int64_t FindFirstDeadParticleIndex();
@@ -160,6 +168,8 @@ class ParticleSystem
 
         // texture that gets applied to all particles within a particle system.
         Texture* m_texture;
+
+        TextureAtlas m_atlas;
 
         // when a particle dies i.e particle.m_life_time gets exceeds by particlesystem.m_particle_life_time, its index from the vector
         // gets stored here. so that when a new particle is to be emitted it would use this index to index into the dead particles'
