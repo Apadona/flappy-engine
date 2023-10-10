@@ -141,9 +141,9 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
         // double refresh_rate = 1.0 / m_refresh_rate;
 
         // // TODO:this should be analyzed and if necessary, be changed later.
-        // if( application_update_time <= refresh_rate )
+        // if( static_cast<double>(application_update_time) / 1000000 <= refresh_rate )
         // {
-        //     application_update_time = refresh_rate - application_update_time;
+        //     application_update_time = refresh_rate - (static_cast<double>(application_update_time) / 1000000);
         //     std::this_thread::sleep_for(std::chrono::duration<double>(application_update_time));
         // }
 
