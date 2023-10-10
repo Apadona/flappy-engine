@@ -14,5 +14,8 @@ cmake .. -G"Unix Makefiles"
 
 cmake --build . -j$(nproc)
 
-# read -p "Press Enter to continue" var
- 
+error_code=$? # to figure out if the build process was successfull or not.
+
+if [ ${error_code} -ne 0 ]; then echo -e "build failed.\n"; else echo -e "build was successfull\n"; fi;
+
+exit ${error_code}
