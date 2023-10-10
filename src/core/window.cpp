@@ -49,6 +49,28 @@ void Window::SetIcon( int width, int height, unsigned char* image_pixels )
     glfwSetWindowIcon(m_glfw_window,1,&image);
 }
 
+void Window::Maximize()
+{
+    GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+    if( monitor )
+    {
+        const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+    
+        glfwWindowHint(GLFW_RED_BITS, mode->redBits);
+        glfwWindowHint(GLFW_GREEN_BITS, mode->greenBits);
+        glfwWindowHint(GLFW_BLUE_BITS, mode->blueBits);
+        glfwWindowHint(GLFW_REFRESH_RATE, mode->refreshRate);
+        
+        // GLFWwindow* window = glfwCreateWindow(mode->width, mode->height, "My Title", monitor, NULL);
+        SetSize(mode->width,mode->height);
+    }
+}
+
+void Window::Minimize()
+{
+    glfwIconifyWindow(m_glfw_window);
+}
+
 void Window::Hide( bool hide )
 {
     if( hide )

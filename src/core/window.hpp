@@ -23,6 +23,9 @@ class Window
         void SetTitle( const std::string& title );
         void SetIcon( int width, int height, unsigned char* image_pixels );
 
+        void Maximize();
+        void Minimize();
+
         Vec2i GetSize() const { return { m_pos_x, m_pos_y }; }
         Vec2i GetPosition() const { return { m_width, m_height }; }
         const std::string& GetTitle() const { return m_title; }
