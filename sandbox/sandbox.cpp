@@ -6,7 +6,7 @@ class SandBoxApp : public Application
         SandBoxApp() /*: m_particle_system(10,5,0.125,50,1000,true)*/
         {
             m_title = "sandbox";
-            m_width = 1600, m_height = 900;
+            m_width = 2560, m_height = 1440;
         }
 
         bool Init( CommandLineArguments _args ) override
@@ -29,6 +29,8 @@ class SandBoxApp : public Application
                 LOG_ERROR("could not initialize Renderer!");
                 return false;
             }
+
+            m_window->Maximize();
 
             font = FontLoader::Load("data/fonts/arial.ttf",12,12);
             text.SetFont(font);
@@ -125,13 +127,20 @@ class SandBoxApp : public Application
 
                 ImGui::NewFrame();
 
-                ImGui::Begin("particle system");                          // Create a window called "Hello, world!" and append into it.
+                ImGui::Begin("particle system");
 
-                ImGui::Text("Properties.");               // Display some text (you can use a format strings too)
-                bool check_1 = true;
-                ImGui::Checkbox("Active", &check_1);      // Edit bools storing our window open/close state
-                bool check_2 = true;
-                ImGui::Checkbox("Repeat", &check_2);
+                ImGui::Text("Properties.");
+
+                ImGui::InputDouble("Life Time",&m_particle_system.GetWholeTime());
+                ImGui::InputDouble("Particle Life Time",&m_particle_system.GetLifeTimeLimit());
+                ImGui::InputDouble("Emition Rate",&m_particle_system.GetEmitionRate());
+                ImGui::InputInt("Start Count",reinterpret_cast<int*>(&m_particle_system.GetStartCount()));
+
+                ImGui::ColorPicker4("Start Color",reinterpret_cast<float*>(&m_particle_system.GetStartColor()));
+                ImGui::ColorPicker4("End Color",reinterpret_cast<float*>(&m_particle_system.GetEndColor()));
+
+                ImGui::Checkbox("Repeat", &m_particle_system.Repeat());
+                ImGui::Checkbox("Active", &m_particle_system.Active());
 
                 ImGui::End();
 

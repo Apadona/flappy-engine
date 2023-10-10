@@ -102,21 +102,33 @@ class ParticleSystem
 
         const Vec4f& GetEndColor() const { return m_end_color; } 
 
+        Vec4f& GetStartColor() { return m_start_color; }
+
+        Vec4f& GetEndColor() { return m_end_color; }
+
         double GetWholeTime() const { return m_whole_time; }
+
+        double& GetWholeTime() { return m_whole_time; }
 
         double GetSpentTime() const { return m_spent_time; }
 
         uint32_t GetStartCount() const { return m_start_count; }
 
-        uint32_t GetCurrentCount() { return m_particles.size(); }
+        uint32_t& GetStartCount() { return m_start_count; } 
+
+        uint32_t GetCurrentCount() const { return m_particles.size(); }
 
         uint32_t GetMaxCount() { return m_particles.capacity(); }
 
         double GetEmitionRate() const { return m_emition_rate; }
 
+        double& GetEmitionRate() { return m_emition_rate; }
+
         double GetTimeFromLastParticleSpawn() const { return m_particle_spawn_time; }
 
         double GetLifeTimeLimit() const { return m_particle_life_time; }
+
+        double& GetLifeTimeLimit() { return m_particle_life_time; }
 
         SpawnMode getSpawnMode() const { return m_spawn_mode; }
 
@@ -124,7 +136,13 @@ class ParticleSystem
 
         BezierCurve GetColorOverLifeTimeBehaviour() const { return m_color_over_life_time_curve; }
 
-        bool IsRepeating() const { return m_repeat; }
+        bool Repeat() const { return m_repeat; }
+
+        bool& Repeat() { return m_repeat; }
+
+        bool Active() const { return m_active; }
+
+        bool& Active() { return m_active; }
 
     private:
         std::uint32_t getFirstDeadParticleIndex( std::uint32_t index ) const;
