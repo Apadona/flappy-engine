@@ -63,6 +63,8 @@ Vec4f Renderer::m_default_color;
 
 bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 {
+    // m_scene_camera = new PerspectiveCamera();
+
     m_render_width = size_x;
     m_render_height = size_y;
 
@@ -270,7 +272,7 @@ void Renderer::SetCamera( Camera* camera )
     m_scene_camera = camera;
 }
 
-const Camera* Renderer::GetCamera() const
+Camera* Renderer::GetCamera()
 {
     return m_scene_camera;
 }
@@ -284,9 +286,11 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
 
     TextureManager::Get().UseTexture(texture);
 
+    Mat4f view_matrix,projection_matrix; 
+
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
-    // m_default_shader.SetUniform("view_matrix",m_scene_camera->GetViewMatrix());
-    // m_default_shader.SetUniform("projection_matrix",m_scene_camera->GetProjectionMatrix());
+    m_default_shader.SetUniform("view_matrix",view_matrix);
+    m_default_shader.SetUniform("projection_matrix",projection_matrix);
     m_default_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
     m_default_shader.SetUniform("blend_color",color);
     m_default_shader.SetUniform("sample_offset",texture.m_sample_offset);

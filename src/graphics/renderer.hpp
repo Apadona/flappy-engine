@@ -104,7 +104,7 @@ class Renderer
 
         void SetCamera( Camera* camera );
 
-        const Camera* GetCamera() const;
+        Camera* GetCamera();
 
     private:
         void Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color );

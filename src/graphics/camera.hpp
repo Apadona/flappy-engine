@@ -57,12 +57,7 @@ class Camera : public Transform3D
     protected:
         virtual void CalculateAndSetProjectionMatrix();
         
-        void CalculateAndSetViewMatrix()
-        {
-            m_view_matrix = LookAt(GetPosition(),m_look_direction,m_up_vector);
-        }
-
-        virtual void CalculateProjectionMatrix();
+        void CalculateAndSetViewMatrix();
 
     protected:
         Mat4f m_view_matrix;
@@ -147,7 +142,7 @@ class OrthogonicalCamera : public Camera
             return m_z_max;
         }
 
-    private:
+    protected:
         void CalculateAndSetProjectionMatrix() override;
 
     private:
@@ -163,7 +158,7 @@ class PerspectiveCamera : public Camera
 {
     public:
         PerspectiveCamera();
-        PerspectiveCamera( float fov = 45, float m_aspect_ratio = 4.0f / 3.0f, float near = 0.1f, float far = 1000 );
+        PerspectiveCamera( float fov, float m_aspect_ratio, float near, float far );
 
         void SetFieldOfView( float field_of_view )
         {
@@ -209,7 +204,7 @@ class PerspectiveCamera : public Camera
             return m_far;
         }
 
-    private:
+    protected:
         void CalculateAndSetProjectionMatrix() override;
 
     private:
