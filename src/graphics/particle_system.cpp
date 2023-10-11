@@ -11,6 +11,7 @@ ParticleSystem::ParticleSystem()
     m_whole_time = 0;
     m_spent_time = 0;
     m_start_count = 0;
+    m_current_count = 0;
     m_max_count = 0;
     m_emition_rate = 0;
     m_particle_spawn_time = 0;
@@ -18,6 +19,7 @@ ParticleSystem::ParticleSystem()
     m_spawn_mode = SpawnMode::NONE;
     m_repeat = false;
     m_active = true;
+    m_enable_sprite_sheet = false;
 }
 
 ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, double emition_rate, uint32_t start_count, uint32_t max_count,
@@ -29,6 +31,7 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     m_whole_time = whole_time;
     m_spent_time = 0;
     m_start_count = start_count;
+    m_current_count = m_start_count;
     m_max_count = max_count;
     m_emition_rate = emition_rate;
     m_particle_spawn_time = 0;
@@ -36,6 +39,7 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     m_spawn_mode = mode;
     m_repeat = repeat;
     m_active =  true;
+    m_enable_sprite_sheet = false;
 
     m_deadParticleIndexes.resize(m_max_count,0); // 0 -> alive. 1 -> dead.
     m_particles.reserve(m_max_count);
@@ -73,6 +77,7 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
         m_start_count = other.m_start_count;
+        m_current_count = other.m_current_count;
         m_max_count = other.m_max_count;
         m_emition_rate = other.m_emition_rate;
         m_particle_spawn_time = other.m_particle_spawn_time;
@@ -80,6 +85,7 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
         m_spawn_mode = other.m_spawn_mode;
         m_repeat = other.m_repeat;
         m_active = other.m_active;
+        m_enable_sprite_sheet = other.m_enable_sprite_sheet;
     }
 
     return *this;
@@ -91,12 +97,14 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
     {
         m_particles = std::move(other.m_particles);
         m_texture = other.m_texture;
+        
         m_deadParticleIndexes = std::move(other.m_deadParticleIndexes);
         m_start_color = other.m_start_color;
         m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
         m_start_count = other.m_start_count;
+        m_current_count = other.m_current_count;
         m_max_count = other.m_max_count;
         m_emition_rate = other.m_emition_rate;
         m_particle_spawn_time = other.m_particle_spawn_time;
@@ -104,6 +112,7 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         m_spawn_mode = other.m_spawn_mode;
         m_repeat = other.m_repeat;
         m_active = other.m_active;
+        m_enable_sprite_sheet = other.m_enable_sprite_sheet;
 
         other.m_texture = nullptr;
         m_start_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
@@ -111,6 +120,7 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         other.m_whole_time = false;
         other.m_spent_time = 0;
         other.m_start_count = 0;
+        other.m_current_count = 0;
         other.m_max_count = 0;
         other.m_emition_rate = 0;
         other.m_particle_spawn_time = 0;
@@ -118,6 +128,7 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         other.m_spawn_mode = SpawnMode::NONE;
         other.m_repeat = false;
         other.m_active = false;
+        other.m_enable_sprite_sheet = false;
     }
 
     return *this;
@@ -179,25 +190,35 @@ void ParticleSystem::Update( double dt )
 
         else // particle is alive.
         {
-             particle.m_position += particle.m_velocity * dt;
+            particle.m_position += particle.m_velocity * dt;
             double particle_life_percentage = particle.m_life_time / m_particle_life_time;
             double calculated = m_size_over_life_time_curve.Calculate(particle_life_percentage);
-            particle.m_scale = Vec3d(calculated,calculated,calculated);
+            particle.m_scale = Vec3f(calculated,calculated,calculated);
             double relative = particle.m_life_time / m_particle_life_time;
             particle.m_color = m_start_color * ( 1 - relative ) + m_end_color * relative;
+            
+            if( m_enable_sprite_sheet )
+                m_atlas.ProceedByTime(dt);
         }
     }
 }
 
-void ParticleSystem::SetTexture( const std::string path )
+void ParticleSystem::SetTexture( const std::string& path )
 {
     Texture* texture = new Texture(path);
-
     if( texture )
     {
-        m_texture = texture;
+        SetTexture(*texture);
+    }
+}
+
+void ParticleSystem::SetTexture( Texture& texture )
+{
+    if( texture )
+    {
+        m_texture = &texture;
         m_atlas.SetTexture(*m_texture);
-        TextureManager::Get().UseTexture(*texture);
+        TextureManager::Get().UseTexture(*m_texture);
     }
 }
 
@@ -208,31 +229,31 @@ Particle ParticleSystem::GenerateParticle() const
     switch( m_spawn_mode )
     {
         case SpawnMode::NONE: // just spawn at random positions. 
-            particle.m_position = Vec3d(Random::NextDouble(0.0,0.1), -1 + Random::NextDouble(0.0,0.3),-1 + Random::NextDouble(0.0,0.1));
+            particle.m_position = Vec3f(Random::NextFloat(0.0,0.1), -1 + Random::NextFloat(0.0,0.3),-1 + Random::NextFloat(0.0,0.1));
         break;
 
         case SpawnMode::RECTANGLE:
-            particle.m_position = RectangleSpawner({0.0f,0.0f,0.0f},{0.0f,0.0f,0.0f},0.2,0.2);
+            particle.m_position = RectangleSpawner(GetPosition(),GetRotation(),0.2,0.2);
         break;
 
         case SpawnMode::CIRCLE:
-            particle.m_position = CircleSpawner({0.0f,0.0f,0.0f},{0.0f,0.0f,0.0f},0.5);
+            particle.m_position = CircleSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5);
         break;
 
         case SpawnMode::CUBE:
-            particle.m_position = CubeSpawner({0.0f,0.0f,0.0f},{0.0f,0.0f,0.0f},0.5);
+            particle.m_position = CubeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5);
         break;
 
         case SpawnMode::SPHERE:
-            particle.m_position = SphereSpawner({0.0f,0.0f,0.0f},0.5);
+            particle.m_position = SphereSpawner(GetPosition(),0.5);
         break;
 
         case SpawnMode::CONE:
-            particle.m_position = ConeSpawner({0.0f,0.0f,0.0f},{0.0f,0.0f,0.0f},0.5,0.5,1.0);
+            particle.m_position = ConeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5,0.5,1.0);
         break;
     }   
 
-    particle.m_velocity = Vec3d(0.0,0.3,0.0);
+    particle.m_velocity = Vec3f(0.0,0.3,0.0);
 
     return particle;
 }
@@ -243,6 +264,8 @@ void ParticleSystem::PushParticles( int64_t particle_count )
     {
         m_particles.push_back(GenerateParticle());
     }
+
+    m_current_count += particle_count;
 }
 
 void ParticleSystem::RegisterDeadParticle( int64_t index )
@@ -250,7 +273,10 @@ void ParticleSystem::RegisterDeadParticle( int64_t index )
     for( int j = 0; j < m_deadParticleIndexes.size(); ++j )
     {
         if ( m_deadParticleIndexes[j] == -1 )
+        {
             m_deadParticleIndexes[j] = index; 
+            m_current_count--;
+        }
     }
 }
 
@@ -270,13 +296,12 @@ int64_t ParticleSystem::FindFirstDeadParticleIndex()
     return -1;
 }
 
-
-Vec3d RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y )
+Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, double length_x, double length_y )
 {
-    // Vec3d spawn_position,spawn_velocity,spawn_acceleration;
-    Vec3d upper_left_corner = {center.x - length_x / 2, center.y - length_y / 2, center.z};
+    // Vec3f spawn_position,spawn_velocity,spawn_acceleration;
+    Vec3f upper_left_corner = {center.x - length_x / 2, center.y - length_y / 2, center.z};
 
-    Vec3d spawn_position;
+    Vec3f spawn_position;
 
     spawn_position.x = Random::NextDouble(0.0,1.0) * length_x / 2 + center.x;
     spawn_position.y = Random::NextDouble(0.0,1.0) * length_y / 2 + center.y;
@@ -284,9 +309,9 @@ Vec3d RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double l
     return spawn_position;
 }
 
-Vec3d CircleSpawner( Vec3d center, Vec3d oriention, double radius )
+Vec3f CircleSpawner( Vec3f center, Vec3f oriention, double radius )
 {
-    Vec3d spawn_position;
+    Vec3f spawn_position;
 
     spawn_position.x = std::sin(Random::NextDouble(0.0,1.0)) * radius + center.x;
     spawn_position.y = std::cos(Random::NextDouble(0.0,1.0)) * radius + center.y;
@@ -294,11 +319,11 @@ Vec3d CircleSpawner( Vec3d center, Vec3d oriention, double radius )
     return spawn_position;
 }
 
-Vec3d CubeSpawner( Vec3d center, Vec3d oriention, double length )
+Vec3f CubeSpawner( Vec3f center, Vec3f oriention, double length )
 {
-    Vec3d upper_left_corner = {center.x - length / 2, center.y - length / 2, center.z - length / 2};
+    Vec3f upper_left_corner = {center.x - length / 2, center.y - length / 2, center.z - length / 2};
 
-    Vec3d spawn_position;
+    Vec3f spawn_position;
 
     spawn_position.x = Random::NextDouble(0.0,1.0) * length + upper_left_corner.x;
     spawn_position.y = Random::NextDouble(0.0,1.0) * length + upper_left_corner.y;
@@ -307,9 +332,9 @@ Vec3d CubeSpawner( Vec3d center, Vec3d oriention, double length )
     return spawn_position;
 }
 
-Vec3d SphereSpawner( Vec3d center, double radius )
+Vec3f SphereSpawner( Vec3f center, double radius )
 {
-    Vec3d spawn_position;
+    Vec3f spawn_position;
 
     spawn_position.x = std::sin(Random::NextDouble(0.0,1.5)) * radius + center.x;
     spawn_position.y = std::cos(Random::NextDouble(0.0,1.5)) * radius + center.y;
@@ -317,7 +342,7 @@ Vec3d SphereSpawner( Vec3d center, double radius )
     return spawn_position;
 }
 
-Vec3d ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height )
+Vec3f ConeSpawner( Vec3f center, Vec3f oriention, double inner_radius, double outer_radius, double height )
 {
     return {0.0,0.0,0.0};
 }

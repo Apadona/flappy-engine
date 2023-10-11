@@ -3,7 +3,7 @@
 class SandBoxApp : public Application
 {
     public:
-        SandBoxApp() /*: m_particle_system(10,5,0.125,50,1000,true)*/
+        SandBoxApp()
         {
             m_title = "sandbox";
             m_width = 2560, m_height = 1440;
@@ -39,8 +39,8 @@ class SandBoxApp : public Application
             text.SetPosition(10,10);
             text.SetColor({1.0f,1.0f,1.0f,1.0f});
 
+            bird_animations.Create("data/textures/bird_atlas.png");
 
-            // m_particle_system(10,5,0.125,50,1000,true)
             m_particle_system.SetWholeTime(10);
             m_particle_system.SetParticleLifeTime(5);
             m_particle_system.SetEmitionRate(0.125);
@@ -48,18 +48,19 @@ class SandBoxApp : public Application
             m_particle_system.SetMaxAllowedParticles(1000);
             m_particle_system.SetRepeating(true);
             m_particle_system.SetTexture("data/textures/fire_4.png");
+            // m_particle_system.SetTextureChangeRate(5.0 / 15);
+            // m_particle_system.SetTextureSampleParameters(5,3,183,168,0,0);
+            // m_particle_system.SetSpriteSheetEnable(true);
             m_particle_system.SetSizeOverLifeTimeBehaviour(std::vector<double>{1.0,0.0});
             m_particle_system.SetStartColor({1.0f,1.0f,1.0f,1.0f});
             m_particle_system.SetEndColor({1.0f,1.0f,1.0f,0.0f});
-
+            
             Random::Init(1000);
-            bird_animations.Create("data/textures/bird_atlas.png");
-            bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
-            std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };
-            bird_atlas.SetFilter(filters);
-            //atlas.Set(1);
-            sprite.SetTexture(bird_animations);
-            sprite.SetColor({0.7f,0.4f,0.5f,0.5f});
+            // bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
+            // std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };   
+            // bird_atlas.SetFilter(filters);
+            // sprite.SetTexture(bird_animations);
+            // sprite.SetColor({0.7f,0.4f,0.5f,0.5f});
 
             int bpp = 3;
             int width = 16;
@@ -98,15 +99,15 @@ class SandBoxApp : public Application
                     }
                 }
 
-                else if( event.m_type == EventType::MOUSE_MOVED )
-                {
+                // else if( event.m_type == EventType::MOUSE_MOVED )
+                // {
                     //LOG_NORMAL("mouse moved at positions:",x,",",y);
-                }
+                // }
 
-                else if( event.m_type == EventType::WINDOW_MOUSE_ENTER )
-                {
+                // else if( event.m_type == EventType::WINDOW_MOUSE_ENTER )
+                // {
                     //LOG_NORMAL("mouse ", (enter)? "entered" : "left", " window.");
-                }
+                // }
 
                 else if( event.m_type == EventType::KEYBOARD_BUTTON )
                 {
@@ -114,7 +115,13 @@ class SandBoxApp : public Application
                     {
                         Application::Exit();
                     }
+
+                    // else if( event.m_data.key_event.key == KeyboardKey::SPACE )
+                    // {
+                    //     bird_atlas.Next();
+                    // }
                 }
+
 
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
                 // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
@@ -123,18 +130,17 @@ class SandBoxApp : public Application
                 m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
 
-                auto & io = ImGui::GetIO();
-
                 ImGui::NewFrame();
 
                 ImGui::Begin("particle system");
 
-                ImGui::Text("Properties.");
+                ImGui::Text("Properties:");
 
                 ImGui::InputDouble("Life Time",&m_particle_system.GetWholeTime());
                 ImGui::InputDouble("Particle Life Time",&m_particle_system.GetLifeTimeLimit());
                 ImGui::InputDouble("Emition Rate",&m_particle_system.GetEmitionRate());
                 ImGui::InputInt("Start Count",reinterpret_cast<int*>(&m_particle_system.GetStartCount()));
+                ImGui::InputInt("Current Count",reinterpret_cast<int*>(&m_particle_system.GetCurrentCount()));
 
                 ImGui::ColorPicker4("Start Color",reinterpret_cast<float*>(&m_particle_system.GetStartColor()));
                 ImGui::ColorPicker4("End Color",reinterpret_cast<float*>(&m_particle_system.GetEndColor()));

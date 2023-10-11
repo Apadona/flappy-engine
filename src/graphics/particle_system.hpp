@@ -18,7 +18,7 @@ enum class SpawnMode
     CONE
 };
 
-class ParticleSystem
+class ParticleSystem : public Transform3D
 {
     public:
         using Particles = std::vector<Particle>;
@@ -69,9 +69,9 @@ class ParticleSystem
 
         void SetSpawnMode( SpawnMode mode ) { m_spawn_mode = mode; }
 
-        void SetTexture( const std::string path );
+        void SetTexture( const std::string& path );
 
-        void SetTexture( Texture& texture ) { m_texture = &texture; }
+        void SetTexture( Texture& texture );
 
         void SetSizeOverLifeTimeBehaviour( const BezierCurve& curve ) { m_size_over_life_time_curve = curve; }
 
@@ -87,16 +87,43 @@ class ParticleSystem
         inline void SetStartParticleCount( uint32_t start_particle_count )
         {
             m_start_count = start_particle_count;
+            m_current_count = m_start_count;
             PushParticles(m_start_count);
         }
 
         void SetRepeating( bool repeat ) { m_repeat = repeat; }
 
-        void SetTextureChangeRate( double rate )
+        inline void SetSpriteSheetEnable( bool enable )
         {
-            if( !m_texture )
+            m_enable_sprite_sheet = enable;
+
+            if( !m_enable_sprite_sheet )
+            {
+                m_atlas.Set(0); // restart from begin.
+            }
+        }
+
+        bool GetSpriteSheetEnable()
+        {
+            return m_enable_sprite_sheet;
+        }
+
+        inline void SetTextureChangeRate( double rate )
+        {
+            if( m_texture )
             {
                 m_atlas.SetChangeTime(rate);
+            }
+        }
+
+        inline void SetTextureSampleParameters( uint16_t count_x, uint16_t count_y, uint16_t size_x, uint16_t size_y, uint32_t offset_x, uint32_t offset_y )
+        {
+            if( m_texture )
+            {
+                m_atlas.SetCounts(count_x,count_y);
+                m_atlas.SetTotalTextures(count_x * count_y);
+                m_atlas.SetTextureBlockSize(size_x,size_y);
+                m_atlas.SetOffsets(offset_x,offset_y);
             }
         }
 
@@ -122,7 +149,9 @@ class ParticleSystem
 
         uint32_t& GetStartCount() { return m_start_count; } 
 
-        uint32_t GetCurrentCount() const { return m_particles.size(); }
+        uint32_t GetCurrentCount() const { return m_current_count; }
+
+        uint32_t& GetCurrentCount() { return m_current_count; }
 
         uint32_t GetMaxCount() { return m_particles.capacity(); }
 
@@ -189,6 +218,8 @@ class ParticleSystem
         // the start number of particles.
         uint32_t m_start_count;
 
+        uint32_t m_current_count;
+
         // the max number of particles that can exist at a time.
         uint32_t m_max_count;
 
@@ -218,14 +249,16 @@ class ParticleSystem
         // if set to false, particle system stops emiting particles but its acitve time (m_spent_time) gets increased by update time.
         // this could be used to interrupt or delay the work of a particle system. 
         bool m_active;
+
+        bool m_enable_sprite_sheet;
 };
 
-Vec3d RectangleSpawner( Vec3d center, Vec3d oriention, double length_x, double length_y );
+Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, double length_x, double length_y );
 
-Vec3d CircleSpawner( Vec3d center, Vec3d oriention, double radius );
+Vec3f CircleSpawner( Vec3f center, Vec3f oriention, double radius );
 
-Vec3d CubeSpawner( Vec3d center, Vec3d oriention, double length );
+Vec3f CubeSpawner( Vec3f center, Vec3f oriention, double length );
 
-Vec3d SphereSpawner( Vec3d center, double radius );
+Vec3f SphereSpawner( Vec3f center, double radius );
 
-Vec3d ConeSpawner( Vec3d center, Vec3d oriention, double inner_radius, double outer_radius, double height );
+Vec3f ConeSpawner( Vec3f center, Vec3f oriention, double inner_radius, double outer_radius, double height );

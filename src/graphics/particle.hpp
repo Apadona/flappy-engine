@@ -36,12 +36,12 @@ struct Particle
         return *this;
     }
 
-    Vec3d m_position;
-    Vec3d m_scale;
-    Vec3d m_rotation;
+    Vec3f m_position;
+    Vec3f m_scale;
+    Vec3f m_rotation;
 
-    Vec3d m_velocity;
-    Vec3d m_acceleration;
+    Vec3f m_velocity;
+    Vec3f m_acceleration;
 
     Vec4f m_color;
 
