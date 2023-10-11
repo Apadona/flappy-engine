@@ -70,9 +70,10 @@ bool EngineInterface::InitializeModules()
 
     if( IMGUI_CHECKVERSION() &&  ImGui::CreateContext() )
     {
-        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        ImGuiIO& io = ImGui::GetIO();
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+        io.IniFilename = NULL; // disable constantly saving imgui widgets states into the imgui.ini file, saving performance.
 
         // Setup Dear ImGui style
         // ImGui::StyleColorsDark();
@@ -106,6 +107,8 @@ bool EngineInterface::StartApplication( Application* app, int argc, char** argv,
 
     ImGui_ImplOpenGL3_NewFrame();
     ImGui_ImplGlfw_NewFrame();
+
+    ImGui::LoadIniSettingsFromDisk("imgui.ini");
 
     if( !app->m_window->IsOpen() )
     {
@@ -157,6 +160,8 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
 void EngineInterface::PrepareForExit( Application* app )
 {
     app->OnClose();
+
+    ImGui::SaveIniSettingsToDisk("imgui.ini");
 
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();

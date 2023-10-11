@@ -12,6 +12,7 @@
 #include <graphics/texture_atlas.hpp>
 #include <graphics/particle_system.hpp>
 
+#include <imgui.h>
 #include <backends/imgui_impl_glfw.h>
 #include <backends/imgui_impl_opengl3.h>
 
