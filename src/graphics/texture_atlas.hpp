@@ -5,7 +5,7 @@
 class TextureAtlas
 {
     public:
-        TextureAtlas() = default;
+        TextureAtlas();
 
         TextureAtlas( Texture& texture );
 
@@ -64,6 +64,11 @@ class TextureAtlas
             return *this;
         }
 
+        void SetTotalTextures( uint32_t total_textures )
+        {
+            m_total_textures = total_textures;
+        }
+
         TextureAtlas& Set( uint32_t index );
         TextureAtlas& SetXY( uint32_t x_index, uint32_t y_index );
         // advances to the next texture piece.
@@ -77,11 +82,14 @@ class TextureAtlas
 
         void ProceedByTime( double dt );
 
+        void Reset();
+
+
         operator bool() const;
         bool operator!() const;
 
     protected:
-        uint32_t m_current_texture;
+        uint32_t m_current_index;
 
         Texture* m_texture;
 

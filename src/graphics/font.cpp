@@ -214,7 +214,7 @@ FontAtlas& FontAtlas::operator=( FontAtlas&& other )
 {
     if( this != &other )
     {
-        m_current_texture = other.m_current_texture;
+        m_current_index = other.m_current_index;
 
         m_texture = other.m_texture;
 
@@ -232,9 +232,10 @@ FontAtlas& FontAtlas::operator=( FontAtlas&& other )
         m_filter_flag = other.m_filter_flag;
     }
 
-    other.m_current_texture = 0;
+    other.m_current_index = 0;
 
     other.m_texture = nullptr;
+
 
     other.m_count_x = 0;
     other.m_count_y = 0;
