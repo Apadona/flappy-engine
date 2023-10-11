@@ -16,6 +16,7 @@ namespace
         return power_of_two;
     }
 
+[[maybe_unused]]
     uint32_t ClampToTheNearestLowerPowerOfTwo( uint32_t value )
     {
         uint32_t power_of_two = 1;

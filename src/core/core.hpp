@@ -51,5 +51,4 @@ void InitializeLoggers();
 #define LOG_ERROR(...) \
     application_logger.Log(LogLevel::ERROR,__VA_ARGS__)
 
-#define LOG_DEBUG(...) \
-    application_logger.Log(LogLevel::DEBUG,__VA_ARGS__)
+#define LOG_DEBUG(...) application_logger.Log(LogLevel::DEBUG,__VA_ARGS__)

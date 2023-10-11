@@ -24,6 +24,8 @@ BezierCurve& BezierCurve::operator=( const BezierCurve& other )
 {
     if( this != &other )
         m_cp = other.m_cp;
+
+    return *this;
 }
 
 BezierCurve& BezierCurve::operator=( BezierCurve&& other )
@@ -31,16 +33,21 @@ BezierCurve& BezierCurve::operator=( BezierCurve&& other )
     if( this != &other )
         m_cp = std::move(other.m_cp);
 
+    return *this;
 }
 
 BezierCurve& BezierCurve::operator=( const ControlPoints& cp )
 {
     m_cp = cp;
+    
+    return *this;
 }
 
 BezierCurve& BezierCurve::operator=( ControlPoints&& cp )
 {
     m_cp = std::move(cp);
+
+    return *this;
 }
 
 double BezierCurve::Calculate( double percentage )
@@ -52,9 +59,6 @@ double BezierCurve::Calculate( double percentage )
         LOG_WARNING("WARNING: every bezier curve should at least have 2 or more points for it to be calculated.");
         if( point_count == 1 )
             return m_cp[0];
-
-        else
-            return 0; // what else can i do? except exceptions to loose performance.
     }
 
     if( point_count == 2 )
@@ -65,6 +69,9 @@ double BezierCurve::Calculate( double percentage )
 
     if( point_count == 4 )
         return CalculateCubic(m_cp[0],m_cp[1],m_cp[2],m_cp[3], percentage);
+
+    else
+        return 0; // what else can i do? except exceptions to loose performance.
 }   
 
 void BezierCurve::AddPoint( double point )

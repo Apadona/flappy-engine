@@ -23,7 +23,7 @@ ParticleSystem::ParticleSystem()
 }
 
 ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, double emition_rate, uint32_t start_count, uint32_t max_count,
-                                bool repeat, SpawnMode mode )
+                                bool repeat, SpawnMode mode ) : Transform3D()
 {
     m_texture = nullptr;
     m_start_color = Vec4f(1.0,1.0,1.0,1.0);
@@ -47,7 +47,7 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     PushParticles(m_start_count);
 }
 
-ParticleSystem::ParticleSystem( const ParticleSystem& other )
+ParticleSystem::ParticleSystem( const ParticleSystem& other ) : Transform3D()
 {
     *this = other;
 }
@@ -177,7 +177,7 @@ void ParticleSystem::Update( double dt )
     }
 
     // where all the logic about particle update happens.
-    for( int64_t particle_index = 0; particle_index < m_particles.size(); ++particle_index )
+    for( size_t particle_index = 0; particle_index < m_particles.size(); ++particle_index )
     {
         Particle& particle = m_particles[particle_index];
 
@@ -270,7 +270,7 @@ void ParticleSystem::PushParticles( int64_t particle_count )
 
 void ParticleSystem::RegisterDeadParticle( int64_t index )
 {
-    for( int j = 0; j < m_deadParticleIndexes.size(); ++j )
+    for( size_t j = 0; j < m_deadParticleIndexes.size(); ++j )
     {
         if ( m_deadParticleIndexes[j] == -1 )
         {
@@ -282,7 +282,7 @@ void ParticleSystem::RegisterDeadParticle( int64_t index )
 
 int64_t ParticleSystem::FindFirstDeadParticleIndex()
 {
-    for( int i = 0; i < m_deadParticleIndexes.size(); ++i )
+    for( size_t i = 0; i < m_deadParticleIndexes.size(); ++i )
     {
         int64_t index = m_deadParticleIndexes[i];
 
@@ -296,10 +296,10 @@ int64_t ParticleSystem::FindFirstDeadParticleIndex()
     return -1;
 }
 
-Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, double length_x, double length_y )
+Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, float length_x, float length_y )
 {
     // Vec3f spawn_position,spawn_velocity,spawn_acceleration;
-    Vec3f upper_left_corner = {center.x - length_x / 2, center.y - length_y / 2, center.z};
+    // Vec3f upper_left_corner = {center.x - length_x / 2, center.y - length_y / 2, center.z};
 
     Vec3f spawn_position;
 
@@ -309,7 +309,7 @@ Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, double length_x, double l
     return spawn_position;
 }
 
-Vec3f CircleSpawner( Vec3f center, Vec3f oriention, double radius )
+Vec3f CircleSpawner( Vec3f center, Vec3f oriention, float radius )
 {
     Vec3f spawn_position;
 
@@ -319,7 +319,7 @@ Vec3f CircleSpawner( Vec3f center, Vec3f oriention, double radius )
     return spawn_position;
 }
 
-Vec3f CubeSpawner( Vec3f center, Vec3f oriention, double length )
+Vec3f CubeSpawner( Vec3f center, Vec3f oriention, float length )
 {
     Vec3f upper_left_corner = {center.x - length / 2, center.y - length / 2, center.z - length / 2};
 
@@ -332,7 +332,7 @@ Vec3f CubeSpawner( Vec3f center, Vec3f oriention, double length )
     return spawn_position;
 }
 
-Vec3f SphereSpawner( Vec3f center, double radius )
+Vec3f SphereSpawner( Vec3f center, float radius )
 {
     Vec3f spawn_position;
 
@@ -342,7 +342,7 @@ Vec3f SphereSpawner( Vec3f center, double radius )
     return spawn_position;
 }
 
-Vec3f ConeSpawner( Vec3f center, Vec3f oriention, double inner_radius, double outer_radius, double height )
+Vec3f ConeSpawner( Vec3f center, Vec3f oriention, float inner_radius, float outer_radius, float height )
 {
     return {0.0,0.0,0.0};
 }

@@ -253,12 +253,12 @@ class ParticleSystem : public Transform3D
         bool m_enable_sprite_sheet;
 };
 
-Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, double length_x, double length_y );
+Vec3f RectangleSpawner( Vec3f center, Vec3f oriention, float length_x, float length_y );
 
-Vec3f CircleSpawner( Vec3f center, Vec3f oriention, double radius );
+Vec3f CircleSpawner( Vec3f center, Vec3f oriention, float radius );
 
-Vec3f CubeSpawner( Vec3f center, Vec3f oriention, double length );
+Vec3f CubeSpawner( Vec3f center, Vec3f oriention, float length );
 
-Vec3f SphereSpawner( Vec3f center, double radius );
+Vec3f SphereSpawner( Vec3f center, float radius );
 
-Vec3f ConeSpawner( Vec3f center, Vec3f oriention, double inner_radius, double outer_radius, double height );
+Vec3f ConeSpawner( Vec3f center, Vec3f oriention, float inner_radius, float outer_radius, float height );
