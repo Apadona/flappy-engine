@@ -63,7 +63,7 @@ Vec4f Renderer::m_default_color;
 
 bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 {
-    // m_scene_camera = new PerspectiveCamera();
+    m_scene_camera = new PerspectiveCamera();
 
     m_render_width = size_x;
     m_render_height = size_y;
@@ -106,9 +106,9 @@ bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
         return true;
     }
 
-    return false;
+    return true;
 }
-
+// 
 void Renderer::DrawTriangle( ScreenSize a_x, ScreenSize a_y, ScreenSize b_x, ScreenSize b_y,
                              ScreenSize c_x, ScreenSize c_y, Texture& texture )
 {
@@ -286,7 +286,10 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
 
     TextureManager::Get().UseTexture(texture);
 
-    Mat4f view_matrix,projection_matrix; 
+    glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
+
+    view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,100.0f),glm::vec3(0.0f,1.0f,0.0f));
+    projection_matrix = glm::perspective(45.0f, 16.0f / 9.0f, 0.1f,1000.0f);
 
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
     m_default_shader.SetUniform("view_matrix",view_matrix);

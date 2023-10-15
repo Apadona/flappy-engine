@@ -26,8 +26,8 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
                                 bool repeat, SpawnMode mode ) : Transform3D()
 {
     m_texture = nullptr;
-    m_start_color = Vec4f(1.0,1.0,1.0,1.0);
-    m_end_color = Vec4f(1.0,1.0,1.0,1.0);
+    m_start_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
+    m_end_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
     m_whole_time = whole_time;
     m_spent_time = 0;
     m_start_count = start_count;
@@ -41,7 +41,7 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     m_active =  true;
     m_enable_sprite_sheet = false;
 
-    m_deadParticleIndexes.resize(m_max_count,0); // 0 -> alive. 1 -> dead.
+    m_dead_particle_indexes.resize(m_max_count,0); // 0 -> alive. 1 -> dead.
     m_particles.reserve(m_max_count);
 
     PushParticles(m_start_count);
@@ -71,7 +71,7 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
     {
         m_particles = other.m_particles;
         m_texture = other.m_texture;
-        m_deadParticleIndexes = other.m_deadParticleIndexes;
+        m_dead_particle_indexes = other.m_dead_particle_indexes;
         m_start_color = other.m_start_color;
         m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
@@ -98,7 +98,7 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         m_particles = std::move(other.m_particles);
         m_texture = other.m_texture;
         
-        m_deadParticleIndexes = std::move(other.m_deadParticleIndexes);
+        m_dead_particle_indexes = std::move(other.m_dead_particle_indexes);
         m_start_color = other.m_start_color;
         m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
@@ -224,13 +224,14 @@ void ParticleSystem::Reset()
 {
     m_current_count = 0;
     m_spent_time = 0;
-    m_particle_life_time = 0;
-    
-    m_deadParticleIndexes.clear();
-    m_deadParticleIndexes.resize(m_max_count,0);
+    m_particle_spawn_time = 0;
+
+    m_dead_particle_indexes.clear();
+    m_dead_particle_indexes.resize(m_max_count,0);
 
     m_particles.clear();
-    m_particles.resize(m_max_count);
+
+    PushParticles(m_start_count);
 }
 
 Particle ParticleSystem::GenerateParticle() const
@@ -240,7 +241,7 @@ Particle ParticleSystem::GenerateParticle() const
     switch( m_spawn_mode )
     {
         case SpawnMode::NONE: // just spawn at random positions. 
-            particle.m_position = Vec3f(Random::NextFloat(0.0,0.1), -1 + Random::NextFloat(0.0,0.3),-1 + Random::NextFloat(0.0,0.1));
+            particle.m_position = Vec3f(Random::NextFloat(0.0f,0.1f), -1 + Random::NextFloat(0.0f,0.3f),-1 + Random::NextFloat(0.0f,0.1f));
         break;
 
         case SpawnMode::RECTANGLE:
@@ -281,11 +282,11 @@ void ParticleSystem::PushParticles( int64_t particle_count )
 
 void ParticleSystem::RegisterDeadParticle( int64_t index )
 {
-    for( size_t j = 0; j < m_deadParticleIndexes.size(); ++j )
+    for( size_t j = 0; j < m_dead_particle_indexes.size(); ++j )
     {
-        if ( m_deadParticleIndexes[j] == -1 )
+        if ( m_dead_particle_indexes[j] == -1 )
         {
-            m_deadParticleIndexes[j] = index;
+            m_dead_particle_indexes[j] = index;
             m_current_count--;
 
             return;
@@ -295,13 +296,13 @@ void ParticleSystem::RegisterDeadParticle( int64_t index )
 
 int64_t ParticleSystem::FindFirstDeadParticleIndex()
 {
-    for( size_t i = 0; i < m_deadParticleIndexes.size(); ++i )
+    for( size_t i = 0; i < m_dead_particle_indexes.size(); ++i )
     {
-        int64_t index = m_deadParticleIndexes[i];
+        int64_t index = m_dead_particle_indexes[i];
 
         if( index != -1 )
         {
-            m_deadParticleIndexes[i] = -1;
+            m_dead_particle_indexes[i] = -1;
             return index;
         }
     }

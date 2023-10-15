@@ -39,13 +39,11 @@ class SandBoxApp : public Application
             text.SetPosition(10,10);
             text.SetColor({1.0f,1.0f,1.0f,1.0f});
 
-            bird_animations.Create("data/textures/bird_atlas.png");
-
             m_particle_system.SetWholeTime(10);
-            m_particle_system.SetParticleLifeTime(5);
+            m_particle_system.SetParticleLifeTime(2.5f);
             m_particle_system.SetEmitionRate(0.125);
-            m_particle_system.SetStartParticleCount(0);
-            m_particle_system.SetMaxAllowedParticles(1000);
+            m_particle_system.SetStartParticleCount(10);
+            m_particle_system.SetMaxAllowedParticles(30);
             m_particle_system.SetRepeating(true);
             m_particle_system.SetTexture("data/textures/fire_4.png");
             // m_particle_system.SetTextureChangeRate(5.0 / 15);
@@ -56,11 +54,12 @@ class SandBoxApp : public Application
             m_particle_system.SetEndColor({1.0f,1.0f,1.0f,0.0f});
             
             Random::Init(1000);
-            // bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
-            // std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };   
-            // bird_atlas.SetFilter(filters);
-            // sprite.SetTexture(bird_animations);
-            // sprite.SetColor({0.7f,0.4f,0.5f,0.5f});
+            bird_animations.Create("data/textures/bird_atlas.png");
+            bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
+            std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };   
+            bird_atlas.SetFilter(filters);
+            sprite.SetTexture(bird_animations);
+            sprite.SetColor({0.7f,0.4f,0.5f,0.5f});
 
             int bpp = 3;
             int width = 16;
@@ -116,19 +115,19 @@ class SandBoxApp : public Application
                         Application::Exit();
                     }
 
-                    // else if( event.m_data.key_event.key == KeyboardKey::SPACE )
-                    // {
-                    //     bird_atlas.Next();
-                    // }
+                    else if( event.m_data.key_event.key == KeyboardKey::SPACE )
+                    {
+                        bird_atlas.Next();
+                    }
                 }
 
 
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
-                // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
+                renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
                 // renderer.DrawText(text);
 
-                m_particle_system.Update(dt);
-                renderer.DrawParticles(m_particle_system);
+                // m_particle_system.Update(dt);
+                // renderer.DrawParticles(m_particle_system);
 
                 ImGui::NewFrame();
 
@@ -147,6 +146,11 @@ class SandBoxApp : public Application
 
                 ImGui::Checkbox("Repeat", &m_particle_system.Repeat());
                 ImGui::Checkbox("Active", &m_particle_system.Active());
+
+                if ( ImGui::IsItemClicked(ImGui::Button("Reset")) )
+                {
+                    m_particle_system.Reset();
+                }
 
                 ImGui::End();
 

@@ -78,7 +78,7 @@ class ParticleSystem : public Transform3D
         inline void SetMaxAllowedParticles( uint32_t max_particle_count )
         {
             m_max_count = max_particle_count;
-            m_deadParticleIndexes.resize(m_max_count,-1);
+            m_dead_particle_indexes.resize(m_max_count,-1);
             m_particles.reserve(m_max_count);
         }
 
@@ -202,7 +202,7 @@ class ParticleSystem : public Transform3D
         // when a particle dies i.e particle.m_life_time gets exceeds by particlesystem.m_particle_life_time, its index from the vector
         // gets stored here. so that when a new particle is to be emitted it would use this index to index into the dead particles'
         // vector memory storage instead of allocating a new one (if possible though).
-        std::vector<int64_t> m_deadParticleIndexes;
+        std::vector<int64_t> m_dead_particle_indexes;
 
         Vec4f m_start_color;
 

@@ -1,7 +1,7 @@
 #include "camera.hpp"
 
 
-Camera::Camera() : Transform3D({0.0f,0.0f,0.0f},{1.0f,1.0f,1.0f},{0.0f,0.0f,0.0f}), m_look_direction({0.0f,0.0f,0.0f}),
+Camera::Camera() : Transform3D({0.0f,0.0f,0.0f},{1.0f,1.0f,1.0f},{0.0f,0.0f,0.0f}), m_look_direction({0.0f,0.0f,1.0f}),
                    m_up_vector({0.0,1.0f,0.0}), m_projection_type(CameraProjection::NONE)
 {
     CalculateAndSetViewMatrix();
