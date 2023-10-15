@@ -154,23 +154,21 @@ void ParticleSystem::Update( double dt )
     // where all the logic about particle Generation happens.
     if( m_spent_time < m_whole_time || m_repeat )
     {
-        m_particle_spawn_time += dt;
-        if( m_particle_spawn_time > m_emition_rate )
+        if( m_current_count < m_max_count )
         {
-            while( m_particle_spawn_time >= m_emition_rate && m_particles.size() < m_max_count )
+            m_particle_spawn_time += dt;
+
+            while( m_particle_spawn_time >= m_emition_rate )
             {
                 int64_t index = FindFirstDeadParticleIndex();
 
                 if( index == -1 )
-                {
                     m_particles.push_back(GenerateParticle());
-                }
 
                 else
-                {
                     m_particles[index] = GenerateParticle();
-                }
 
+                m_current_count++;
                 m_particle_spawn_time -= m_emition_rate;
             }
         }
@@ -182,7 +180,7 @@ void ParticleSystem::Update( double dt )
         Particle& particle = m_particles[particle_index];
 
         particle.m_life_time += dt;
-        if( particle.m_life_time >= m_particle_life_time ) // particle is dead.
+        if( particle.m_life_time >= m_particle_life_time && !particle.m_is_dead ) // particle is now dead.
         {
             particle.m_is_dead = true;
             RegisterDeadParticle(particle_index);
@@ -222,6 +220,19 @@ void ParticleSystem::SetTexture( Texture& texture )
     }
 }
 
+void ParticleSystem::Reset()
+{
+    m_current_count = 0;
+    m_spent_time = 0;
+    m_particle_life_time = 0;
+    
+    m_deadParticleIndexes.clear();
+    m_deadParticleIndexes.resize(m_max_count,0);
+
+    m_particles.clear();
+    m_particles.resize(m_max_count);
+}
+
 Particle ParticleSystem::GenerateParticle() const
 {
     Particle particle;
@@ -233,27 +244,27 @@ Particle ParticleSystem::GenerateParticle() const
         break;
 
         case SpawnMode::RECTANGLE:
-            particle.m_position = RectangleSpawner(GetPosition(),GetRotation(),0.2,0.2);
+            particle.m_position = RectangleSpawner(GetPosition(),GetRotation(),0.2f,0.2f);
         break;
 
         case SpawnMode::CIRCLE:
-            particle.m_position = CircleSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5);
+            particle.m_position = CircleSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5f);
         break;
 
         case SpawnMode::CUBE:
-            particle.m_position = CubeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5);
+            particle.m_position = CubeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5f);
         break;
 
         case SpawnMode::SPHERE:
-            particle.m_position = SphereSpawner(GetPosition(),0.5);
+            particle.m_position = SphereSpawner(GetPosition(),0.5f);
         break;
 
         case SpawnMode::CONE:
-            particle.m_position = ConeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5,0.5,1.0);
+            particle.m_position = ConeSpawner(GetPosition(),{0.0f,0.0f,0.0f},0.5f,0.5f,1.0f);
         break;
     }   
 
-    particle.m_velocity = Vec3f(0.0,0.3,0.0);
+    particle.m_velocity = Vec3f(0.0f,0.3f,0.0f);
 
     return particle;
 }
@@ -274,8 +285,10 @@ void ParticleSystem::RegisterDeadParticle( int64_t index )
     {
         if ( m_deadParticleIndexes[j] == -1 )
         {
-            m_deadParticleIndexes[j] = index; 
+            m_deadParticleIndexes[j] = index;
             m_current_count--;
+
+            return;
         }
     }
 }

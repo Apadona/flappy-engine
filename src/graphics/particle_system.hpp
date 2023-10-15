@@ -44,8 +44,6 @@ class ParticleSystem : public Transform3D
 
         void Update( double dt ) ;
 
-        void Reset() { m_spent_time = 0; }
-
         void SetStartColor( const Vec4f& start_color ) { m_start_color = start_color; }
 
         void SetEndColor( const Vec4f& end_color ) { m_end_color = end_color; }
@@ -87,7 +85,6 @@ class ParticleSystem : public Transform3D
         inline void SetStartParticleCount( uint32_t start_particle_count )
         {
             m_start_count = start_particle_count;
-            m_current_count = m_start_count;
             PushParticles(m_start_count);
         }
 
@@ -179,6 +176,8 @@ class ParticleSystem : public Transform3D
 
         bool& Active() { return m_active; }
 
+        void Reset();
+
     private:
         std::uint32_t getFirstDeadParticleIndex( std::uint32_t index ) const;
         std::uint32_t getDeadParticles() const;
@@ -218,6 +217,7 @@ class ParticleSystem : public Transform3D
         // the start number of particles.
         uint32_t m_start_count;
 
+        // the current number of particles.
         uint32_t m_current_count;
 
         // the max number of particles that can exist at a time.
