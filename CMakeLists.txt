@@ -119,11 +119,11 @@ set_target_properties( stb_image PROPERTIES
 
 ###########          compiling engine as a static library          ###########
 file( GLOB_RECURSE engine_source_files
-                  "${engine_source_directory}/*.cpp"
-                  #"${engine_source_directory}/core/*.cpp"
-                  #"${engine_source_directory}/graphics/*.cpp"
-                  #"${engine_source_directory}/maths/*.cpp"
-                  #"${engine_source_directory}/utils/*.cpp"
+                  # "${engine_source_directory}/*.cpp"
+                  "${engine_source_directory}/core/core_module.cpp"
+                  "${engine_source_directory}/graphics/graphics_module.cpp"
+                  "${engine_source_directory}/maths/maths_module.cpp"
+                  "${engine_source_directory}/utils/utils_module.cpp"
     )
 
 add_library( engine STATIC ${engine_source_files} )
