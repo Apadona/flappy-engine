@@ -75,17 +75,25 @@ class Texture
         void SetSampleOffset( const Vec2& offset ) { m_sample_offset = offset; }
         void SetSampleRatio( const Vec2& ratio ) { m_sample_ratio = ratio; }
 
+        void SetAllowDeallocation( bool allow_deallocation ) { m_should_be_deallocated = allow_deallocation; }
+
         operator bool() const;
         bool operator!() const;
 
         TextureType GetType() const { return m_type; }
+
         TextureFiltering GetFilteringMethod() const { return m_filter_method; }
         TextureWrapping GetWrappingMethod() const { return m_wrap_method; }
+
         GLint GetSizeX() const { return m_width; }
         GLint GetSizeY() const { return m_height; }
+
         const unsigned char* GetData() const { return m_data; }
+
         Vec2 GetSamplePos() const { return m_sample_offset; }
         Vec2 GetSampleRatio() const { return m_sample_ratio; }
+
+        bool GetAllowDeallocation() const { return m_should_be_deallocated; }
 
     private:
         void Activate( bool activate = true );
@@ -95,6 +103,7 @@ class Texture
         GLuint m_id = 0;
         bool m_is_bound = false;
         bool m_is_created = false;
+        bool m_should_be_deallocated = true;
         
         TextureType m_type = TextureType::TEXTURE_2D;
         TextureFormat m_format = TextureFormat::RGB;

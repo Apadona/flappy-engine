@@ -63,6 +63,8 @@ Vec4f Renderer::m_default_color;
 
 bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 {
+    m_default_texture01.SetAllowDeallocation(false);
+
     m_scene_camera = new PerspectiveCamera();
 
     m_render_width = size_x;

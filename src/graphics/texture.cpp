@@ -107,8 +107,11 @@ Texture::~Texture()
     if( TextureManager::Get().HasTexture(*this) )
         TextureManager::Get().UnUseTexture(*this);
 
-    glBindTexture(GetGLTextureType(m_type),0);
-    glDeleteTextures(1,&m_id);
+    if( m_should_be_deallocated )
+    {
+        glBindTexture(GetGLTextureType(m_type),0);
+        glDeleteTextures(1,&m_id);
+    }
 }
 
 Texture& Texture::operator=( Texture&& other )
@@ -126,12 +129,14 @@ Texture& Texture::operator=( Texture&& other )
         m_is_created = true;
         m_sample_offset = other.m_sample_offset;
         m_sample_ratio = other.m_sample_ratio;
+        m_should_be_deallocated = other.m_should_be_deallocated;
 
         other.m_id = 0;
         other.m_width = 0;
         other.m_height = 0;
         other.m_type = TextureType::INVALID;
         other.m_data = nullptr;
+        other.m_should_be_deallocated = false;
 
         TextureManager::Get().UnUseTexture(other);
     }
