@@ -5,6 +5,7 @@
 #include "texture.hpp"
 #include "texture_atlas.hpp"
 
+#include <maths/vector3D.hpp>
 #include <maths/vector4D.hpp>
 #include <maths/curves.hpp>
 
@@ -48,9 +49,13 @@ class ParticleSystem : public Transform3D
 
         void SetEndColor( const Vec4f& end_color ) { m_end_color = end_color; }
 
+        void SetStartVelocity( const Vec3f& start_velocity ) { m_start_velocity = start_velocity; }
+
+        void SetStartSize( const Vec3f& start_size ) { m_start_size = start_size; }
+
         void SetWholeTime( double whole_time ) { m_whole_time = whole_time; }
 
-        void SetEmitionRate( double emition_rate ) { m_emition_rate = emition_rate; }
+        void SetEmitionRate( double emition_rate ) { m_emition_rate = emition_rate <= 0 ? 0.01 : emition_rate; }
 
         inline void SetParticleLifeTime( double particle_life_time )
         {
@@ -71,9 +76,11 @@ class ParticleSystem : public Transform3D
 
         void SetTexture( Texture& texture );
 
-        void SetSizeOverLifeTimeBehaviour( const BezierCurve& curve ) { m_size_over_life_time_curve = curve; }
+        void SetVelocityOverLifeTimeBehaviour( const BezierCurve& curve ) { m_velocity_over_life_time_curve = curve; }
 
         void SetColorOverLifeTimeBehaviour( const BezierCurve& curve ) { m_color_over_life_time_curve = curve; }
+
+        void SetSizeOverLifeTimeBehaviour( const BezierCurve& curve ) { m_size_over_life_time_curve = curve; }
 
         inline void SetMaxAllowedParticles( uint32_t max_particle_count )
         {
@@ -136,6 +143,14 @@ class ParticleSystem : public Transform3D
 
         Vec4f& GetEndColor() { return m_end_color; }
 
+        Vec3f& GetStartVelocity() { return m_start_velocity; }
+
+        Vec3f GetStartVelocity() const { return m_start_velocity; }
+
+        Vec3f& GetStartSize() { return m_start_size; }
+
+        Vec3f GetStartSize() const { return m_start_size; }
+
         double GetWholeTime() const { return m_whole_time; }
 
         double& GetWholeTime() { return m_whole_time; }
@@ -150,7 +165,9 @@ class ParticleSystem : public Transform3D
 
         uint32_t& GetCurrentCount() { return m_current_count; }
 
-        uint32_t GetMaxCount() { return m_particles.capacity(); }
+        uint32_t GetMaxCount() const { return m_max_count; }
+
+        uint32_t& GetMaxCount() { return m_max_count; }
 
         double GetEmitionRate() const { return m_emition_rate; }
 
@@ -164,9 +181,11 @@ class ParticleSystem : public Transform3D
 
         SpawnMode getSpawnMode() const { return m_spawn_mode; }
 
-        BezierCurve GetSizeOverLifeTimeBehaviour() const { return m_size_over_life_time_curve; }
-
         BezierCurve GetColorOverLifeTimeBehaviour() const { return m_color_over_life_time_curve; }
+
+        BezierCurve GetVelocityOverLifeTimeBehavior() const { return m_velocity_over_life_time_curve; }
+
+        BezierCurve GetSizeOverLifeTimeBehaviour() const { return m_size_over_life_time_curve; }
 
         bool Repeat() const { return m_repeat; }
 
@@ -204,9 +223,17 @@ class ParticleSystem : public Transform3D
         // vector memory storage instead of allocating a new one (if possible though).
         std::vector<int64_t> m_dead_particle_indexes;
 
+        // the color which particles start drawing with.
         Vec4f m_start_color;
 
+        // the end (destincation) color which over time blends more with start_color.
         Vec4f m_end_color;
+
+        // the velocity which particles start with.
+        Vec3f m_start_velocity;
+
+        // the size which particles start with.
+        Vec3f m_start_size;
 
         // the time that particle system should be active( emits particles. ) unless m_repeat is set to true.
         double m_whole_time;
@@ -233,14 +260,17 @@ class ParticleSystem : public Transform3D
         // particle life time. after this time is exceeded, it would die.
         double m_particle_life_time; 
 
-        // decides in what shape to emit particles( circle,cone,cube, etc... )
+        // decides in what shape to emit particles( circle,cone,cube,etc... )
         SpawnMode m_spawn_mode;
-
-        // it specifies how the size of particles changes based on the time that has passed after their creation.
-        BezierCurve m_size_over_life_time_curve;
 
         // it specifies how the color of the particles changes based on the time that has passed after their creation.
         BezierCurve m_color_over_life_time_curve;
+
+        // it specifies how the veclocity of the particles changes based on the time that has passed after their creation.
+        BezierCurve m_velocity_over_life_time_curve;
+        
+        // it specifies how the size of particles changes based on the time that has passed after their creation.
+        BezierCurve m_size_over_life_time_curve;
 
         // if set to false, particle system stops emiting particles after the time that it is active (m_spent_time) is greater than
         // its whole time (m_whole_time).
@@ -250,6 +280,7 @@ class ParticleSystem : public Transform3D
         // this could be used to interrupt or delay the work of a particle system. 
         bool m_active;
 
+        // if set to true, it would start treaing the sent texture as a texture atlas based on the parameters sent to SetTextureSampleParameters.
         bool m_enable_sprite_sheet;
 };
 

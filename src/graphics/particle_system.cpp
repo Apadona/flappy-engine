@@ -6,8 +6,10 @@
 ParticleSystem::ParticleSystem()
 {
     m_texture = nullptr;
-    m_start_color = Vec4f(1.0,1.0,1.0,1.0);
-    m_end_color = Vec4f(1.0,1.0,1.0,1.0);
+    m_start_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
+    m_end_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
+    m_start_velocity = Vec3f(0.0f,0.3f,0.0f);
+    m_start_size = Vec3f(1.0f,1.0f,1.0f);
     m_whole_time = 0;
     m_spent_time = 0;
     m_start_count = 0;
@@ -28,6 +30,8 @@ ParticleSystem::ParticleSystem( double whole_time, double particle_life_time, do
     m_texture = nullptr;
     m_start_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
     m_end_color = Vec4f(1.0f,1.0f,1.0f,1.0f);
+    m_start_velocity = Vec3f(0.0f,0.3f,0.0f);
+    m_start_size = Vec3f(1.0f,1.0f,1.0f);
     m_whole_time = whole_time;
     m_spent_time = 0;
     m_start_count = start_count;
@@ -73,6 +77,8 @@ ParticleSystem& ParticleSystem::operator=( const ParticleSystem& other )
         m_texture = other.m_texture;
         m_dead_particle_indexes = other.m_dead_particle_indexes;
         m_start_color = other.m_start_color;
+        m_start_velocity = other.m_start_velocity;
+        m_start_size = other.m_start_size;
         m_end_color = other.m_end_color;
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
@@ -101,6 +107,8 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         m_dead_particle_indexes = std::move(other.m_dead_particle_indexes);
         m_start_color = other.m_start_color;
         m_end_color = other.m_end_color;
+        m_start_color = other.m_start_color;
+        m_start_velocity = other.m_start_velocity;
         m_whole_time = other.m_whole_time;
         m_spent_time = other.m_spent_time;
         m_start_count = other.m_start_count;
@@ -115,8 +123,10 @@ ParticleSystem& ParticleSystem::operator=( ParticleSystem&& other )
         m_enable_sprite_sheet = other.m_enable_sprite_sheet;
 
         other.m_texture = nullptr;
-        m_start_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
-        m_end_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
+        other.m_start_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
+        other.m_end_color = Vec4f(1.0f,1.0f,1.0f,0.0f);
+        other.m_start_velocity = Vec3f(1.0f,1.0f,1.0f);
+        other.m_start_size = Vec3f(1.0f,1.0f,1.0f);
         other.m_whole_time = false;
         other.m_spent_time = 0;
         other.m_start_count = 0;
@@ -148,6 +158,10 @@ void ParticleSystem::Update( double dt )
 {
     if( !m_active )
         return;
+
+    // NOTE: this is a hack! it should be changed later.
+    if( !m_emition_rate )
+        m_emition_rate = 0.01;
 
     m_spent_time += dt;
 
@@ -189,9 +203,15 @@ void ParticleSystem::Update( double dt )
         else // particle is alive.
         {
             particle.m_position += particle.m_velocity * dt;
+
             double particle_life_percentage = particle.m_life_time / m_particle_life_time;
-            double calculated = m_size_over_life_time_curve.Calculate(particle_life_percentage);
-            particle.m_scale = Vec3f(calculated,calculated,calculated);
+
+            double size_factor = m_size_over_life_time_curve.Calculate(particle_life_percentage);
+            particle.m_scale = m_start_size * Vec3f(size_factor,size_factor,size_factor);
+
+            double velocity_factor = m_velocity_over_life_time_curve.Calculate(particle_life_percentage);
+            particle.m_velocity = m_start_velocity * Vec3f(velocity_factor,velocity_factor,velocity_factor);
+
             double relative = particle.m_life_time / m_particle_life_time;
             particle.m_color = m_start_color * ( 1 - relative ) + m_end_color * relative;
             
@@ -230,6 +250,7 @@ void ParticleSystem::Reset()
     m_dead_particle_indexes.resize(m_max_count,0);
 
     m_particles.clear();
+    m_particles.reserve(m_max_count);
 
     PushParticles(m_start_count);
 }
@@ -265,7 +286,8 @@ Particle ParticleSystem::GenerateParticle() const
         break;
     }   
 
-    particle.m_velocity = Vec3f(0.0f,0.3f,0.0f);
+    particle.m_velocity = m_start_velocity;
+    particle.m_scale = m_start_size;
 
     return particle;
 }

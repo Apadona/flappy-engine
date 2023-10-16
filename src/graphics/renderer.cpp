@@ -286,10 +286,14 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
 
     TextureManager::Get().UseTexture(texture);
 
-    glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
+    // glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
+    Mat4f view_matrix, projection_matrix;
 
-    view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,100.0f),glm::vec3(0.0f,1.0f,0.0f));
-    projection_matrix = glm::perspective(45.0f, 16.0f / 9.0f, 0.1f,1000.0f);
+    // view_matrix = LookAt(Vec3f(0.0f,0.0f,1.0),Vec3f(0.0,0.0,0.0),Vec3f(0.0f,1.0f,0.0f));
+    // LOG_NORMAL(view_matrix);
+
+    // view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,1.0f),glm::vec3(0.0f,1.0f,0.0f));
+    // projection_matrix = glm::perspective(45.0f, 16.0f / 9.0f, 0.1f,1000.0f);
 
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
     m_default_shader.SetUniform("view_matrix",view_matrix);
