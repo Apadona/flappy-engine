@@ -10,7 +10,11 @@ else
     cd cmakefiles
 fi
 
-cmake .. -G"Unix Makefiles"
+if [ `uname -m` -eq "x86_64" ]; then 
+    cmake .. -G"Unix Makefiles" -D"architecture_64"
+else
+    cmake .. -G"Unix Makefiles"
+fi
 
 cmake --build . -j$(nproc)
 
