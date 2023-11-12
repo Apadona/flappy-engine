@@ -20,6 +20,10 @@ struct Vector3D
 
         Vector3D<T>& operator=( const Vector3D<T>& other );
         bool operator==( const Vector3D<T>& other ) const;
+
+        T& operator[]( const std::uint8_t index );
+
+        const T& operator[]( const std::uint8_t index ) const;
         
         Vector3D<T> operator+( const T& numeric ) const;
         Vector3D<T> operator-( const T& numeric ) const;

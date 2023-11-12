@@ -225,29 +225,46 @@ Mat4<T> Rotate( T rotate_x, T rotate_y, T rotate_z, const Mat4<T>& base )
 }
 
 template<typename T>
-Matrix<4,4,T> LookAt( Vector3D<T> pos, Vector3D<T> target, Vector3D<T> y_up )
+Matrix<4,4,T> LookAt( Vector3D<T> eye, Vector3D<T> center, Vector3D<T> up )
 {
-    auto direction = ( pos - target ).Normal();
-    auto right = direction.Cross(y_up).Normal();
-    auto up = right.Cross(direction);
+    Vec3f const f = (center - eye).Normal();
+	Vec3f const s = f.Cross(up).Normal();
+	Vec3f const u = s.Cross(f);
 
-    Mat4f mat_1 =
-    {   
-        right.x,            right.y,            right.z,            1,
-        up.x,               up.y,               up.z,               1,
-        direction.x,        direction.y,        direction.z,        1,       
-        0,                  0,                  0,                  1
-    };
+	Mat4f Result;
 
-    Mat4f mat_2 =
-    {
-        0,                  0,                  0,          -pos.x,
-        0,                  0,                  0,          -pos.y,
-        0,                  0,                  0,          -pos.z,
-        0,                  0,                  0,              1
-    };
+	Result[0] = s.x;
+	Result[1] = u.x;
+	Result[2] = -f.x;
+	Result[3] = 0;
+	Result[4] = s.y;
+	Result[5] = u.y;
+	Result[6] = -f.y;
+	Result[7] = 0;
+	Result[8] =s.z;
+	Result[9] =u.z;
+	Result[10] =-f.z;
+	Result[11] = 0;
+	Result[12] =-s.Dot(eye);
+	Result[13] =-u.Dot(eye);
+	Result[14] = f.Dot(eye);
+	Result[15] = 1;
 
-    return mat_1 * mat_2;
+	return Result;
+
+    // auto direction = ( target - pos ).Normal();
+    // auto right = direction.Cross(y_up).Normal();
+    // auto up = right.Cross(direction);
+
+    // Mat4f view_matrix =
+    // {   
+    //     right.x,                right.y,                right.z,                0,
+    //     up.x,                   up.y,                   up.z,                   0,
+    //     -direction.x,           -direction.y,          -direction.z,            0,       
+    //     -right.Dot(pos),        -up.Dot(pos),           direction.Dot(pos),     1
+    // };
+
+    // return view_matrix;
 }
 
 template<typename T>
@@ -270,16 +287,16 @@ Matrix<4,4,T> Ortho( T right, T left, T up, T down, T front, T back )
 }
 
 template<typename T>
-Matrix<4,4,T> Perspective( T aspect_ratio, T field_of_view, T plane_near, T plane_far )
+Matrix<4,4,T> Perspective( T field_of_view, T aspect_ratio, T plane_near, T plane_far )
 {
-    auto z_range = plane_near - plane_far;
-    auto tan_theta = std::tan(field_of_view / 2);
+    auto z_range = plane_far - plane_near;
+    auto tan_theta = std::tan(field_of_view / static_cast<T>(2));
 
     return
     {
-        1 / aspect_ratio,   0,              0,                          0,
-        0,                  1 / tan_theta,  0,                          0,
-        0,                  0,              -1,                         1,
-        0,                  0,      (2 * plane_far * plane_near) / z_range,         0
+        1 / (aspect_ratio * tan_theta),       0,                      0,                                  0,
+        0,                                  1 / tan_theta,          0,                                  0,
+        0,                                  0,              - (plane_far + plane_near) / z_range,       -1,
+        0,                                  0,              -(2 * plane_far * plane_near) / z_range,     0
     };
 }

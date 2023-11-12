@@ -21,7 +21,7 @@ template<typename T>
 Vector3D<T> Vector3D<T>::Cross( const Vector3D<T>& other ) const
 {
     return { y * other.z - z * other.y,
-             x * other.z - z * other.x,
+             z * other.x - x *  other.z,
              x * other.y - y * other.x };
 }
 
@@ -63,6 +63,18 @@ bool Vector3D<T>::operator==( const Vector3D<T>& other ) const
         return true;
 
     return x == other.x && y == other.y && z == other.z;
+}
+
+template<typename T>
+T& Vector3D<T>::operator[]( std::uint8_t index )
+{
+    return element[index];
+}
+
+template<typename T>
+const T& Vector3D<T>::operator[]( std::uint8_t index ) const
+{
+    return element[index];
 }
 
 template<typename T>
