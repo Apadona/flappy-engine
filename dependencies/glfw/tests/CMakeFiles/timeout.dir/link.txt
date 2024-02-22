@@ -1,3 +1,0 @@
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\timeout.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\timeout.dir/objects.a @CMakeFiles\timeout.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -mwindows -Wl,--whole-archive CMakeFiles\timeout.dir/objects.a -Wl,--no-whole-archive -o timeout.exe -Wl,--out-implib,libtimeout.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\timeout.dir\linklibs.rsp

@@ -1,3 +1,0 @@
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\splitview.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\splitview.dir/objects.a @CMakeFiles\splitview.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -mwindows -Wl,--whole-archive CMakeFiles\splitview.dir/objects.a -Wl,--no-whole-archive -o splitview.exe -Wl,--out-implib,libsplitview.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\splitview.dir\linklibs.rsp

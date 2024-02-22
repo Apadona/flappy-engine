@@ -1,3 +1,0 @@
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\window.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\window.dir/objects.a @CMakeFiles\window.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -mwindows -Wl,--whole-archive CMakeFiles\window.dir/objects.a -Wl,--no-whole-archive -o window.exe -Wl,--out-implib,libwindow.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\window.dir\linklibs.rsp

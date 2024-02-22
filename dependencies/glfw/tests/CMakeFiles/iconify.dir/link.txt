@@ -1,3 +1,0 @@
-"E:\Barnamenevisi\abzar ha\Cmake\bin\cmake.exe" -E rm -f CMakeFiles\iconify.dir/objects.a
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\ar.exe" qc CMakeFiles\iconify.dir/objects.a @CMakeFiles\iconify.dir\objects1.rsp
-"E:\Barnamenevisi\abzar ha\c++\Compiler\MinGW(7.3.0)\bin\gcc.exe" -Wl,--whole-archive CMakeFiles\iconify.dir/objects.a -Wl,--no-whole-archive -o iconify.exe -Wl,--out-implib,libiconify.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\iconify.dir\linklibs.rsp
