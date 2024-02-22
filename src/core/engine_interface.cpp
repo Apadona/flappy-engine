@@ -30,6 +30,7 @@ bool EngineInterface::StartEngine( int argc, char** argv, char** env )
         Application* app = RegisterApplication();
         if( StartApplication(app,argc,argv,env) )
         {
+            EngineInterface::ShouldDisplayFpsOnWindowTitle(true);
             HandleApplicationUpdateLogic(app);
             PrepareForExit(app);
             CORE_LOG_HINT("Engine Application run successfully!");
@@ -135,25 +136,27 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
 {
     Timer timer;
     TickType application_update_time = 0;
+    double passed_time = 0.0;
 
-    while( !app->m_should_exit && app->OnUpdate( static_cast<double>(application_update_time) / 1000000 ) )
+    while( !app->m_should_exit && app->OnUpdate( passed_time ) )
     {
         application_update_time = timer.GetElapsedTime<MicroSeconds>();
+        passed_time = application_update_time / 1000000.0;
         timer.Reset();
 
-        // double refresh_rate = 1.0 / m_refresh_rate;
+        double refresh_rate = 1.0 / m_refresh_rate;
 
-        // // TODO:this should be analyzed and if necessary, be changed later.
-        // if( static_cast<double>(application_update_time) / 1000000 <= refresh_rate )
+        // TODO:this should be analyzed and if necessary, be changed later.
+        // if( application_update_time / 1000000.0 <= refresh_rate )
         // {
         //     application_update_time = refresh_rate - (static_cast<double>(application_update_time) / 1000000);
         //     std::this_thread::sleep_for(std::chrono::duration<double>(application_update_time));
         // }
 
-        // if( m_should_display_fps_on_window )
-        // {
-        //     app->m_window->SetTitle("framerate:" + std::to_string(1.0 / application_update_time));
-        // }
+        if( m_should_display_fps_on_window )
+        {
+            app->m_window->SetTitle("framerate:" + std::to_string(1.0 / passed_time));
+        }
     }
 }
 

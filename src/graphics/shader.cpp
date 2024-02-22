@@ -313,7 +313,7 @@ bool Shader::SetUniformMatrix3f( const std::string& uniform_name, const Mat3f& m
 
 bool Shader::SetUniformMatrix4f( const std::string& uniform_name, const Mat4f& matrix )
 {
-    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,false,matrix.GetData())
+    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,true,matrix.GetData())
 }
 
 bool Shader::SetUniformMatrix4f( const std::string& uniform_name, const glm::mat4& glm_matrix )

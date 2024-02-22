@@ -42,8 +42,8 @@ class SandBoxApp : public Application
             m_particle_system.SetWholeTime(10);
             m_particle_system.SetParticleLifeTime(2.5f);
             m_particle_system.SetEmitionRate(0.125);
-            m_particle_system.SetStartParticleCount(10);
-            m_particle_system.SetMaxAllowedParticles(30);
+            m_particle_system.SetStartParticleCount(100);
+            m_particle_system.SetMaxAllowedParticles(100);
             m_particle_system.SetRepeating(true);
             m_particle_system.SetTexture("data/textures/fire_4.png");
             // m_particle_system.SetTextureChangeRate(5.0 / 15);
@@ -57,6 +57,7 @@ class SandBoxApp : public Application
             m_particle_system.SetStartSize({1.0f,1.0f,1.0f});
             
             Random::Init(1000);
+
             bird_animations.Create("data/textures/bird_atlas.png");
             bird_atlas.SetTexture(bird_animations,5,3,183,168,14,0,0);
             std::vector<uint8_t> filters = { 1,0,1,1,1,1,1,1,1,1,1,1,1,1,1 };   
@@ -69,6 +70,8 @@ class SandBoxApp : public Application
             int height = 16;
             unsigned char* image_icon = stbi_load("data/images/mouse_icon.png",&width,&height,&bpp,4);
             m_window->SetIcon(16,16,image_icon);
+
+            fps = 0.0;
 
             return true;
         }
@@ -124,52 +127,18 @@ class SandBoxApp : public Application
                     }
                 }
 
-
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
                 // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
                 // renderer.DrawText(text);
 
-                m_particle_system.Update(dt);
+                // m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
 
-                ImGui::NewFrame();
+                // DrawImguiLayer();
 
-                ImGui::Begin("Particle System");
-
-                ImGui::Text("Properties:");
-
-                ImGui::InputDouble("Life Time",&m_particle_system.GetWholeTime());
-                ImGui::InputDouble("Particle Life Time",&m_particle_system.GetLifeTimeLimit());
-                ImGui::InputDouble("Emition Rate",&m_particle_system.GetEmitionRate());
-
-                ImGui::InputInt("Max Count",reinterpret_cast<int*>(&m_particle_system.GetMaxCount()));
-                ImGui::InputInt("Start Count",reinterpret_cast<int*>(&m_particle_system.GetStartCount()));
-                ImGui::InputInt("Current Count",reinterpret_cast<int*>(&m_particle_system.GetCurrentCount()));
-
-                ImGui::InputFloat3("Start Velocity",reinterpret_cast<float*>(&m_particle_system.GetStartVelocity()));
-
-                ImGui::InputFloat3("Start Size",reinterpret_cast<float*>(&m_particle_system.GetStartSize()));
-
-                ImGui::ColorPicker4("Start Color",reinterpret_cast<float*>(&m_particle_system.GetStartColor()));
-                ImGui::ColorPicker4("End Color",reinterpret_cast<float*>(&m_particle_system.GetEndColor()));
-
-                ImGui::Checkbox("Repeat", &m_particle_system.Repeat());
-                ImGui::Checkbox("Active", &m_particle_system.Active());
-
-                if ( ImGui::IsItemClicked(ImGui::Button("Reset")) )
-                {
-                    m_particle_system.Reset();
-                }
-
-                ImGui::End();
-
-                ImGui::Render();
-
-                ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-                
                 m_window->ReDraw();
 
-                std::this_thread::sleep_for(std::chrono::duration<double>(0.01));
+                // std::this_thread::sleep_for(std::chrono::duration<double>(0.001));
 
                 return true;
             }
@@ -178,6 +147,44 @@ class SandBoxApp : public Application
         }
 
         bool OnClose() override { return true; }
+
+        inline void DrawImguiLayer()
+        {
+            ImGui::NewFrame();
+
+            ImGui::Begin("Particle System");
+
+            ImGui::Text("Properties:");
+
+            ImGui::InputDouble("Life Time",&m_particle_system.GetWholeTime());
+            ImGui::InputDouble("Particle Life Time",&m_particle_system.GetLifeTimeLimit());
+            ImGui::InputDouble("Emition Rate",&m_particle_system.GetEmitionRate());
+
+            ImGui::InputInt("Max Count",reinterpret_cast<int*>(&m_particle_system.GetMaxCount()));
+            ImGui::InputInt("Start Count",reinterpret_cast<int*>(&m_particle_system.GetStartCount()));
+            ImGui::InputInt("Current Count",reinterpret_cast<int*>(&m_particle_system.GetCurrentCount()));
+
+            ImGui::InputFloat3("Start Velocity",reinterpret_cast<float*>(&m_particle_system.GetStartVelocity()));
+
+            ImGui::InputFloat3("Start Size",reinterpret_cast<float*>(&m_particle_system.GetStartSize()));
+
+            ImGui::ColorPicker4("Start Color",reinterpret_cast<float*>(&m_particle_system.GetStartColor()));
+            ImGui::ColorPicker4("End Color",reinterpret_cast<float*>(&m_particle_system.GetEndColor()));
+
+            ImGui::Checkbox("Repeat", &m_particle_system.Repeat());
+            ImGui::Checkbox("Active", &m_particle_system.Active());
+
+            if ( ImGui::IsItemClicked(ImGui::Button("Reset")) )
+            {
+                m_particle_system.Reset();
+            }
+
+            ImGui::End();
+
+            ImGui::Render();
+
+            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        }
 
     private:
         Renderer renderer;
@@ -190,6 +197,8 @@ class SandBoxApp : public Application
 
         Font font;
         Text text;
+
+        double fps;
 };
 
 REGISTER_APP(SandBoxApp)

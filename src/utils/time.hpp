@@ -42,13 +42,13 @@ struct Time
 };
 std::ostream& operator<<( std::ostream& os, const Time& time );
 
-using clock_type = decltype( std::chrono::system_clock::now() );
 
 using Seconds = std::chrono::seconds;
 using MilliSeconds = std::chrono::milliseconds;
 using MicroSeconds = std::chrono::microseconds;
 using NanoSeconds = std::chrono::nanoseconds;
 
+using clock_type = decltype( std::chrono::system_clock::now() );
 using TickType = long long;
 
 class Timer

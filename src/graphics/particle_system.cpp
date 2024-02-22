@@ -194,7 +194,7 @@ void ParticleSystem::Update( double dt )
         Particle& particle = m_particles[particle_index];
 
         particle.m_life_time += dt;
-        if( particle.m_life_time >= m_particle_life_time && !particle.m_is_dead ) // particle is now dead.
+        if( particle.m_life_time >= m_particle_life_time && !particle.m_is_dead )
         {
             particle.m_is_dead = true;
             RegisterDeadParticle(particle_index);

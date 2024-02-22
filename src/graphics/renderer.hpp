@@ -116,7 +116,7 @@ class Renderer
 
         void ClearColorCommand( float red, float green, float blue, float alpha ) const;
 
-        void BlendCommand( bool enable, BlendingFactor source, BlendingFactor destination );
+        void BlendCommand( bool enable, BlendingFactor source = BlendingFactor::ONE, BlendingFactor destination = BlendingFactor::ZERO );
 
     private:
         RenderFlags m_render_flags = RenderFlags::NONE;

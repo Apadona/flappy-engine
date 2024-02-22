@@ -77,6 +77,59 @@ Mesh Mesh::rectangle
     })
 );
 
+Mesh Mesh::Cube
+{
+    AttributeBuffer
+    ({
+         1.0f,   1.0f,   1.0f,
+        -1.0f,   1.0f,   1.0f,
+        -1.0f,  -1.0f,   1.0f,
+         1.0f,  -1.0f,   1.0f,
+         1.0f,   1.0f,  -1.0f,
+        -1.0f,   1.0f,  -1.0f,
+        -1.0f,  -1.0f,  -1.0f,
+         1.0f,  -1.0f,  -1.0f
+    }),
+
+    AttributeBuffer
+    ({
+        1.0f,   1.0f,
+        0.0f,   1.0f,
+        0.0f,   0.0f,
+        1.0f,   0.0f,
+        0.0f,   0.0f,
+        1.0f,   0.0f,
+        1.0f,   1.0f,
+        0.0f,   1.0f
+    }),
+
+    AttributeBuffer
+    ({
+        1.0f,   0.0f,   0.0f,
+        0.0f,   1.0f,   0.0f,
+        0.0f,   0.0f,   1.0f,
+        1.0f,   1.0f,   0.0f,
+        1.0f,   0.0f,   1.0f,
+        0.0f,   1.0f,   1.0f,
+        1.0f,   1.0f,   1.0f,
+        0.0f,   0.0f,   0.0f
+    }),
+
+    AttributeBuffer
+    ({
+        1.0f,   1.0f,   1.0f,
+        1.0f,   1.0f,   1.0f,
+        1.0f,   1.0f,   1.0f,
+        1.0f,   1.0f,   1.0f
+    }),
+
+    ElementBuffer
+    ({
+        0,1,2,
+        2,3,0
+    })
+};
+
 Mesh::Mesh( const Mesh& other )
 {
     *this = other;

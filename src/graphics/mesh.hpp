@@ -39,6 +39,7 @@ class Mesh
     public:
         static Mesh triangle;
         static Mesh rectangle;
+        static Mesh Cube;
 
     private:
         AttributeBuffer m_positions;

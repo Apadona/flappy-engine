@@ -261,7 +261,7 @@ void Renderer::DrawParticles( ParticleSystem& particle_system )
         }
     }
 
-    BlendCommand(false,BlendingFactor::EQUAL_SOURCE_ALPHA,BlendingFactor::EQUAL_ONE_MINUS_SOURCE_ALPHA);
+    BlendCommand(false);
 }
 
 void Renderer::ClearColor( float red, float green, float blue, float alpha ) const
@@ -279,27 +279,36 @@ Camera* Renderer::GetCamera()
     return m_scene_camera;
 }
 
+std::ostream& operator<<( std::ostream& out, const glm::mat4& matrix )
+{
+    for( int i = 0; i < 4; ++i )
+    {
+        for( int j = 0; j < 4; ++j )
+        {
+            std::cout << matrix[i][j] << ' ';
+        }
+
+        std::cout << "\n";
+    }
+}
+
 void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& texture, const Vec4f& color )
 {
-    //BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
+    BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
     m_default_shader.Use();
 
     va.Bind();
 
     TextureManager::Get().UseTexture(texture);
 
-    // glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
-    Mat4f view_matrix, projection_matrix;
+    glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
 
-    // view_matrix = LookAt(Vec3f(0.0f,0.0f,1.0),Vec3f(0.0,0.0,0.0),Vec3f(0.0f,1.0f,0.0f));
-    // LOG_NORMAL(view_matrix);
-
-    // view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,0.0f,1.0f),glm::vec3(0.0f,1.0f,0.0f));
-    // projection_matrix = glm::perspective(45.0f, 16.0f / 9.0f, 0.1f,1000.0f);
+    view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.2f),glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,1.0f,0.0f));
+    projection_matrix = glm::perspective(glm::radians(60.0f), 16.0f / 9.0f, 0.01f,1000.0f);
 
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
-    m_default_shader.SetUniform("view_matrix",view_matrix);
-    m_default_shader.SetUniform("projection_matrix",projection_matrix);
+    // m_default_shader.SetUniform("view_matrix",view_matrix);
+    // m_default_shader.SetUniform("projection_matrix",projection_matrix);
     m_default_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
     m_default_shader.SetUniform("blend_color",color);
     m_default_shader.SetUniform("sample_offset",texture.m_sample_offset);

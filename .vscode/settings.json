@@ -68,7 +68,13 @@
         "valarray": "cpp",
         "variant": "cpp",
         "forward_list": "cpp",
-        "*.ipp": "cpp"
+        "*.ipp": "cpp",
+        "any": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "numbers": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp"
     },
     "cmake.configureOnOpen": false
 }
