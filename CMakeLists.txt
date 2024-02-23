@@ -5,6 +5,8 @@ project( payan_name )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_STANDARD 17 )
 
+message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
+
 # if ON, target will be build for 64-bit systems, OFF and target will be build for 32-bit systems.
 option( architecture_64 "select build architecture (32 or 64) bit." ON )
 
@@ -52,6 +54,9 @@ set( GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE )
 set( GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE )
 set( GLFW_INSTALL ON CACHE BOOL "" FORCE )
+set( GLFW_BUILD_X11 ON CACHE BOOL "" FORCE )
+set( GLFW_BUILD_WAYLAND OFF CACHE BOOL "" FORCE )
+set( GLFW_LIBRARY_TYPE "STATIC")
 
 add_subdirectory("${dependencies_directory}/glfw")
 
@@ -64,6 +69,7 @@ add_subdirectory("${dependencies_directory}/freetype")
 
 set_target_properties( freetype PROPERTIES
                             ARCHIVE_OUTPUT_DIRECTORY "${library_directory}"
+                            # COMPILE_OPTIONS "$<$<CONFIG:Release>:-O2>"
                      )
 
 ###########          compiling glad as a a static library          ###########
