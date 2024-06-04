@@ -142,21 +142,23 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
     {
         application_update_time = timer.GetElapsedTime<MicroSeconds>();
         passed_time = application_update_time / 1000000.0;
+        m_one_second_timer += passed_time;
+
+        if( m_should_display_fps_on_window && m_one_second_timer >= 1.0 )
+        {
+            app->m_window->SetTitle("framerate:" + std::to_string(1.0 / passed_time));
+            m_one_second_timer = 0.0;
+        }
+
         timer.Reset();
 
-        double refresh_rate = 1.0 / m_refresh_rate;
-
         // TODO:this should be analyzed and if necessary, be changed later.
+        // double refresh_rate = 1.0 / m_refresh_rate;
         // if( application_update_time / 1000000.0 <= refresh_rate )
         // {
         //     application_update_time = refresh_rate - (static_cast<double>(application_update_time) / 1000000);
         //     std::this_thread::sleep_for(std::chrono::duration<double>(application_update_time));
         // }
-
-        if( m_should_display_fps_on_window )
-        {
-            app->m_window->SetTitle("framerate:" + std::to_string(1.0 / passed_time));
-        }
     }
 }
 

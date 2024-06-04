@@ -112,5 +112,5 @@ void Timer::Reset()
 
 clock_type Timer::ClockFunctionImpl() const
 {
-    return std::chrono::high_resolution_clock::now();
+    return std::chrono::system_clock::now();
 }

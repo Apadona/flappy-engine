@@ -276,7 +276,7 @@ void Window::OnMouseMove( GLFWwindow* window, double x, double y )
 
     Event event;
     event.m_category = EventCategory::MOUSE;
-    event.m_type = EventType::MOUSE_MOVED;
+    event.m_type = EventType::MOUSE_MOVE;
     event.m_data.mouse_move_event.move_x = x;
     event.m_data.mouse_move_event.move_y = y;
 

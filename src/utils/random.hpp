@@ -49,7 +49,16 @@ class Random
         template<typename FloatingType>
         inline static FloatingType Between_0_1() // returns a floating type between 0,1
         {
-                return static_cast<FloatingType>(RandImplemention()) / RAND_MAX;
+            uint32_t dividee;
+            if constexpr( RAND_MAX == INT16_MAX )
+            {
+                dividee = RAND_MAX * RAND_MAX;
+            }
+            else
+            {
+                dividee = RAND_MAX;
+            }
+            return static_cast<FloatingType>(RandImplemention()) / (dividee);
         }
 
         template<typename T>
@@ -70,6 +79,9 @@ class Random
                 return rand();
 
             if constexpr( RAND_MAX == INT16_MAX ) // on some platforms, RAND_MAX is 16-bit.
-                return static_cast<int32_t>(rand()) * static_cast<int32_t>(rand());
+            {
+                auto result = static_cast<int32_t>(rand()) * static_cast<int32_t>(rand());
+                return result;
+            }
         }
 };

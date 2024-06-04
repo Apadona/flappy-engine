@@ -26,6 +26,9 @@ if( WIN32 )
     set( os_title "windows" )
     set( opengl_library "opengl32" )
 
+    set( release_compile_flags "" )
+    set( debug_compile_flags "" )
+
 elseif( UNIX )
     if( CMAKE_SYSTEM_NAME STREQUAL "Linux" )
         set( os_title "linux" )
@@ -203,3 +206,5 @@ else()
                          )
 
 endif()
+
+file(COPY data DESTINATION ${executable_directory})

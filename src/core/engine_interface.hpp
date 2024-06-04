@@ -38,5 +38,6 @@ class EngineInterface
 
         private:
             inline static double m_refresh_rate = 60.0;
+            inline static double m_one_second_timer = 0.0;
             inline static bool m_should_display_fps_on_window = true;
 };

@@ -88,7 +88,7 @@ enum class KeyboardKey
     TAB =                       258,
     BACKSPACE =                 259,
     INSERT =                    260,
-    DELETE =                    261,
+    DELETES =                    261,
     RIGHT =                     262,
     LEFT =                      263,
     DOWN =                      264,
@@ -194,7 +194,7 @@ enum struct EventType : uint8_t
     NONE                                = 0,
     
     MOUSE_CLICK,
-    MOUSE_MOVED,
+    MOUSE_MOVE,
 
     KEYBOARD_BUTTON,
 

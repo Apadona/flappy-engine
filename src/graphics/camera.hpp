@@ -172,16 +172,16 @@ class PerspectiveCamera : public Camera
             CalculateAndSetProjectionMatrix();
         }
 
-        void SetNearPlane( float near )
+        void SetNearPlane( float _near )
         {
-            m_near = near;
+            m_near = _near;
             CalculateAndSetProjectionMatrix();
         }
 
-        void SetFarPlane( float far )
+        void SetFarPlane( float _far )
         {
-            m_far = far;
-            CalculateAndSetProjectionMatrix();
+            m_far = _far;
+//            CalculateAndSetProjectionMatrix();
         }
 
         float GetFieldOfView() const
