@@ -9,6 +9,9 @@
 #include <graphics/renderer.hpp>
 #include <graphics/texture_manager.hpp>
 
+#include <limits>
+#include <numeric>
+
 extern Application* RegisterApplication();
 
 class EngineInterface
@@ -39,5 +42,9 @@ class EngineInterface
         private:
             inline static double m_refresh_rate = 60.0;
             inline static double m_one_second_timer = 0.0;
+            inline static double m_lowest_fps = std::numeric_limits<double>::max();
+            inline static double m_highest_fps = 0.0;
+            inline static double m_avg_fps = 0.0;
+            inline static uint64_t sampleCount = 0;
             inline static bool m_should_display_fps_on_window = true;
 };

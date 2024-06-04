@@ -146,7 +146,23 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
 
         if( m_should_display_fps_on_window && m_one_second_timer >= 1.0 )
         {
-            app->m_window->SetTitle("framerate:" + std::to_string(1.0 / passed_time));
+            ++sampleCount;
+            double currentFPS = 1.0 / passed_time;
+
+            if( currentFPS > m_highest_fps )
+            {
+                m_highest_fps = currentFPS;
+            }
+
+            if( currentFPS < m_lowest_fps )
+            {
+                m_lowest_fps = currentFPS;
+            }
+
+            m_avg_fps += currentFPS;
+
+            app->m_window->SetTitle("current:" + std::to_string(currentFPS) + " lowest:" + std::to_string(m_lowest_fps) +
+                                    " highest:" + std::to_string(m_highest_fps) + " avg:" + std::to_string(m_avg_fps / sampleCount));
             m_one_second_timer = 0.0;
         }
 
