@@ -35,13 +35,14 @@ class EngineInterface
 
         static bool StartApplication( Application* app, int argc, char** argv, char** env );
 
-        static void HandleApplicationUpdateLogic( Application* app );
+        static void updateApplication( Application* app );
 
         static void PrepareForExit( Application* app );
 
         private:
             inline static double m_refresh_rate = 60.0;
-            inline static double m_one_second_timer = 0.0;
+            inline static double m_fps_display_interval = 0.0;
+            inline static double m_wait_time = 0.0;
             inline static double m_lowest_fps = std::numeric_limits<double>::max();
             inline static double m_highest_fps = 0.0;
             inline static double m_avg_fps = 0.0;

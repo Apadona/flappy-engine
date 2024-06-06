@@ -1,6 +1,6 @@
 cmake_minimum_required( VERSION 3.16 )
 
-project( payan_name )
+project( sarhang )
 
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_STANDARD 17 )
@@ -18,7 +18,7 @@ set( sanbox_directory "${CMAKE_SOURCE_DIR}/sandbox" )
 set( include_api_directory "${CMAKE_SOURCE_DIR}/include")
 set( build_directory "${CMAKE_SOURCE_DIR}/build" )
 
-# compile flags used for compiling the engine and it's sanbox (not the dependencies).
+# compile flags used for compiling the engine and it's sandbox (not the dependencies).
 set( release_compile_flags "-O2 -Wall -Wextra -s" )
 set( debug_compile_flags "-g3 -Wall -Wextra" )
 

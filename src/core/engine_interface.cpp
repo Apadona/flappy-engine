@@ -1,5 +1,8 @@
 #include "engine_interface.hpp"
 
+static auto constexpr DISPLAY_FPS_INTERVAL = 1.0;
+static auto constexpr WAIT_TIME = 3.0;
+
 void EngineInterface::ShouldDisplayFpsOnWindowTitle( bool should )
 {
     m_should_display_fps_on_window = should;
@@ -31,7 +34,7 @@ bool EngineInterface::StartEngine( int argc, char** argv, char** env )
         if( StartApplication(app,argc,argv,env) )
         {
             EngineInterface::ShouldDisplayFpsOnWindowTitle(true);
-            HandleApplicationUpdateLogic(app);
+            updateApplication(app);
             PrepareForExit(app);
             CORE_LOG_HINT("Engine Application run successfully!");
             return true;
@@ -132,7 +135,7 @@ bool EngineInterface::StartApplication( Application* app, int argc, char** argv,
     return true;
 }
 
-void EngineInterface::HandleApplicationUpdateLogic( Application* app )
+void EngineInterface::updateApplication( Application* app )
 {
     Timer timer;
     TickType application_update_time = 0;
@@ -142,28 +145,35 @@ void EngineInterface::HandleApplicationUpdateLogic( Application* app )
     {
         application_update_time = timer.GetElapsedTime<MicroSeconds>();
         passed_time = application_update_time / 1000000.0;
-        m_one_second_timer += passed_time;
+        m_fps_display_interval += passed_time;
 
-        if( m_should_display_fps_on_window && m_one_second_timer >= 1.0 )
+        if( m_should_display_fps_on_window )
         {
-            ++sampleCount;
-            double currentFPS = 1.0 / passed_time;
-
-            if( currentFPS > m_highest_fps )
+            if( m_wait_time < WAIT_TIME )
             {
-                m_highest_fps = currentFPS;
+                m_wait_time += passed_time;
             }
-
-            if( currentFPS < m_lowest_fps )
+            else if( m_fps_display_interval >= DISPLAY_FPS_INTERVAL )
             {
-                m_lowest_fps = currentFPS;
+                ++sampleCount;
+                double currentFPS = 1.0 / passed_time;
+
+                if( currentFPS > m_highest_fps )
+                {
+                    m_highest_fps = currentFPS;
+                }
+
+                if( currentFPS < m_lowest_fps )
+                {
+                    m_lowest_fps = currentFPS;
+                }
+
+                m_avg_fps += currentFPS;
+
+                app->m_window->SetTitle("current:" + std::to_string(currentFPS) + " lowest:" + std::to_string(m_lowest_fps) +
+                                        " highest:" + std::to_string(m_highest_fps) + " avg:" + std::to_string(m_avg_fps / sampleCount));
+                m_fps_display_interval = 0.0;
             }
-
-            m_avg_fps += currentFPS;
-
-            app->m_window->SetTitle("current:" + std::to_string(currentFPS) + " lowest:" + std::to_string(m_lowest_fps) +
-                                    " highest:" + std::to_string(m_highest_fps) + " avg:" + std::to_string(m_avg_fps / sampleCount));
-            m_one_second_timer = 0.0;
         }
 
         timer.Reset();
