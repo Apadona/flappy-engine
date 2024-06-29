@@ -80,8 +80,8 @@ bool EngineInterface::InitializeModules()
         io.IniFilename = NULL; // disable constantly saving imgui widgets states into the imgui.ini file, saving performance.
 
         // Setup Dear ImGui style
-        // ImGui::StyleColorsDark();
-        ImGui::StyleColorsClassic();
+        ImGui::StyleColorsDark();
+        // ImGui::StyleColorsClassic();
     }
 
     else
@@ -103,7 +103,7 @@ bool EngineInterface::StartApplication( Application* app, int argc, char** argv,
         return false;
     }
 
-    app->m_window = new Window(app->m_width,app->m_height,app->m_title,400,250,4,6);
+    app->m_window = new Window(app->m_width,app->m_height,app->m_title,400,250,3,3);
 
     // Setup Platform/Renderer backends
     ImGui_ImplGlfw_InitForOpenGL(app->m_window->GetGLFWWindowHandle(), true);

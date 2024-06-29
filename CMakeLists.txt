@@ -5,8 +5,6 @@ project( sarhang )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 set( CMAKE_CXX_STANDARD 17 )
 
-message("CMAKE_CXX_FLAGS_RELEASE is ${CMAKE_CXX_FLAGS_RELEASE}")
-
 # if ON, target will be build for 64-bit systems, OFF and target will be build for 32-bit systems.
 option( architecture_64 "select build architecture (32 or 64) bit." ON )
 

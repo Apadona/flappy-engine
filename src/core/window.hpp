@@ -67,6 +67,7 @@ class Window
 
     private:
         std::int16_t m_width, m_height, m_pos_x, m_pos_y;
+        std::uint8_t m_gl_context_major, m_gl_context_minor;
         std::string m_title;
         
         std::deque<Event> m_event_queue;

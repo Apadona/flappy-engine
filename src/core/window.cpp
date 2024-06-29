@@ -5,13 +5,14 @@ Window::Window( std::int16_t size_x, std::int16_t size_y, const std::string& tit
                 int8_t gl_major_version, int8_t gl_minor_version ) :
 
                 m_width(size_x), m_height(size_y), m_pos_x(pos_x), m_pos_y(pos_y), m_title(title),
-                m_is_vsync_on(false)
+                m_is_vsync_on(false), m_gl_context_major(gl_major_version), m_gl_context_minor(gl_minor_version)
 {
     HandleCreation();
 }
 
-Window::Window( const Window& other ) : m_width(other.m_width), m_height( other.m_height ),
-                 m_pos_x(other.m_pos_x), m_pos_y(other.m_pos_y), m_title(other.m_title)
+Window::Window( const Window& other ) : m_width(other.m_width), m_height( other.m_height ), m_pos_x(other.m_pos_x),
+                                        m_pos_y(other.m_pos_y), m_title(other.m_title),
+                                        m_gl_context_major(other.m_gl_context_major), m_gl_context_minor(other.m_gl_context_minor)
 {
     HandleCreation();
 }
@@ -114,7 +115,7 @@ void Window::MakeGLContext( std::int8_t major_version, std::int8_t minor_version
 {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,major_version);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,minor_version);
-    //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 }
 
 Event Window::PollEvent()
@@ -155,7 +156,7 @@ GLFWwindow* Window::GetGLFWWindowHandle()
 
 void Window::HandleCreation()
 {
-    MakeGLContext(3,3);
+    MakeGLContext(m_gl_context_major, m_gl_context_minor);
 
     m_glfw_window = glfwCreateWindow(m_width,m_height,m_title.data(),nullptr,nullptr);
 

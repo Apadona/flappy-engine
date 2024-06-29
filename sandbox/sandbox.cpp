@@ -6,7 +6,7 @@ class SandBoxApp : public Application
         SandBoxApp()
         {
             m_title = "sandbox";
-            m_width = 2560, m_height = 1440;
+            m_width = 1200, m_height = 800;
         }
 
         bool Init( CommandLineArguments _args ) override
@@ -42,7 +42,7 @@ class SandBoxApp : public Application
             m_particle_system.SetWholeTime(10);
             m_particle_system.SetParticleLifeTime(2.5f);
             m_particle_system.SetEmitionRate(0.125);
-            m_particle_system.SetStartParticleCount(100);
+            m_particle_system.SetStartParticleCount(0);
             m_particle_system.SetMaxAllowedParticles(100);
             m_particle_system.SetRepeating(true);
             m_particle_system.SetTexture("data/textures/fire_4.png");
@@ -131,10 +131,10 @@ class SandBoxApp : public Application
                 // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
                 // renderer.DrawText(text);
 
-                // m_particle_system.Update(dt);
+                m_particle_system.Update(dt);
                 renderer.DrawParticles(m_particle_system);
 
-                // DrawImguiLayer();
+                DrawImguiLayer();
 
                 m_window->ReDraw();
 
