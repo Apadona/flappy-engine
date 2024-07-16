@@ -134,7 +134,9 @@ file( GLOB_RECURSE engine_source_files
                   "${engine_source_directory}/utils/utils_module.cpp"
     )
 
-add_library( engine STATIC ${engine_source_files} )
+add_library( engine STATIC ${engine_source_files}
+    data/shaders/instanced.vert
+    data/shaders/instanced.frag )
 
 target_include_directories( engine PUBLIC
                             "${dependencies_directory}"

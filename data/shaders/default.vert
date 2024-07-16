@@ -13,8 +13,8 @@ void main()
 {
     texture_uv = input_uv;
 
-    // vec4 transformed_vertex = projection_matrix * view_matrix * transform_matrix * vec4(input_pos,1.0f);
-    vec4 transformed_vertex = transform_matrix * vec4(input_pos,1.0f);
+    vec4 transformed_vertex = /*projection_matrix * view_matrix **/ transform_matrix * vec4(input_pos,1.0f);
+    // vec4 transformed_vertex = transform_matrix * vec4(input_pos,1.0f);
 
     gl_Position = transformed_vertex;
 }

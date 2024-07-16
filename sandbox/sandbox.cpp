@@ -41,7 +41,7 @@ class SandBoxApp : public Application
 
             m_particle_system.SetWholeTime(10);
             m_particle_system.SetParticleLifeTime(2.5f);
-            m_particle_system.SetEmitionRate(0.125);
+            m_particle_system.SetEmitionRate(2.5);
             m_particle_system.SetStartParticleCount(0);
             m_particle_system.SetMaxAllowedParticles(100);
             m_particle_system.SetRepeating(true);
@@ -72,6 +72,7 @@ class SandBoxApp : public Application
             m_window->SetIcon(16,16,image_icon);
 
             fps = 0.0;
+            rotate_value = 0.0f;
 
             return true;
         }
@@ -124,15 +125,16 @@ class SandBoxApp : public Application
                     else if( event.m_data.key_event.key == KeyboardKey::SPACE )
                     {
                         bird_atlas.Next();
+                        rotate_value += 6;
                     }
                 }
 
                 renderer.ClearColor(0.2f,0.3f,0.4f,1.0f);
-                // renderer.DrawRectangle(0.0f,0.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
+                renderer.DrawRectangle(2.0f,2.0f,0.2f,0.2f,0.0f,{0.7f,0.4f,0.5f,1.0f},bird_animations);
                 // renderer.DrawText(text);
 
-                m_particle_system.Update(dt);
-                renderer.DrawParticles(m_particle_system);
+                // m_particle_system.Update(dt);
+                // renderer.DrawParticles(m_particle_system);
 
                 DrawImguiLayer();
 
@@ -199,6 +201,7 @@ class SandBoxApp : public Application
         Text text;
 
         double fps;
+        float rotate_value;
 };
 
 REGISTER_APP(SandBoxApp)

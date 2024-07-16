@@ -40,7 +40,7 @@ Vector3D<T> Vector3D<T>::Normal() const
         return { x / length, y / length, z / length };
 
     LOG_SOURCE(LogLevel::DEBUG);
-    throw MathException(VECTOR_ZERO_LENGTH_NORAML_CALCULATE);
+    // throw MathException(VECTOR_ZERO_LENGTH_NORAML_CALCULATE);
 }
 
 template<typename T>

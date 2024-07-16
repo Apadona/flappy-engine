@@ -47,6 +47,15 @@ void Transform2D::CalculateModelMatrix()
     m_model_matrix = Translate(m_position.x,m_position.y,0.0f,m_model_matrix) *
                      Scale(m_scale.x,m_scale.y,1.0f,m_model_matrix) *
                      Rotate(0.0f,0.0f,m_rotation,m_model_matrix);
+
+    glm::mat4 glm_matrix(
+        m_model_matrix.m_data[0][0],m_model_matrix.m_data[0][1],m_model_matrix.m_data[0][2],m_model_matrix.m_data[0][3],
+        m_model_matrix.m_data[1][0],m_model_matrix.m_data[1][1],m_model_matrix.m_data[1][2],m_model_matrix.m_data[1][3],
+        m_model_matrix.m_data[2][0],m_model_matrix.m_data[2][1],m_model_matrix.m_data[2][2],m_model_matrix.m_data[2][3],
+        m_model_matrix.m_data[3][0],m_model_matrix.m_data[3][1],m_model_matrix.m_data[3][2],m_model_matrix.m_data[3][3]);
+    // m_model_matrix = Rotate(m_position.x,m_position.y,0.0f,m_model_matrix) *
+    //                  Scale(m_scale.x,m_scale.y,1.0f,m_model_matrix) *
+    //                  Translate(0.0f,0.0f,m_rotation,m_model_matrix);
 }
 
 Mat4f Transform2D::GetModelMatrix() const

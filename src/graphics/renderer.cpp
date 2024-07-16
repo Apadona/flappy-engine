@@ -100,15 +100,19 @@ bool Renderer::Init( ScreenSize size_x, ScreenSize size_y )
 
     m_default_color = {1.0f,1.0f,1.0f,1.0f};
 
-    if( m_default_shader.Create("data/shaders/default.vert","data/shaders/default.frag") )
+    if( m_default_shader.Create("data/shaders/default.vert","data/shaders/default.frag") &&
+        m_instanced_shader.Create("data/shaders/instanced.vert", "data/shaders/default.frag"))
     {
         m_default_shader.PrintAttributes();
         m_default_shader.PrintUnifroms();
 
+        m_instanced_shader.PrintAttributes();
+        m_instanced_shader.PrintUnifroms();
+
         return true;
     }
 
-    return true;
+    return false;
 }
 // 
 void Renderer::DrawTriangle( ScreenSize a_x, ScreenSize a_y, ScreenSize b_x, ScreenSize b_y,
@@ -262,6 +266,38 @@ void Renderer::DrawParticles( ParticleSystem& particle_system )
     }
 
     BlendCommand(false);
+
+    // glVertexAttribDivisor();
+
+    // auto particles = particle_system.GetParticles();
+    // std::vector<Mat4f> particleTransforms;
+    // std::vector<Vec4f> particleColors;
+
+    // for( auto & particle : particles )
+    // {
+    //     Transform2D transform(particle.m_position.x,particle.m_position.y,particle.m_scale.x,particle.m_scale.y,0.0);
+    //     particleTransforms.push_back(transform.GetModelMatrix());
+    //     particleColors.push_back(particle.m_color);
+    // }
+
+    // BlendCommand(true,EQUAL_SOURCE_ALPHA,EQUAL_ONE_MINUS_SOURCE_ALPHA);
+    // m_instanced_shader.Use();
+
+    // m_rectangle_vao.Bind();
+
+    // auto* texture =  particle_system.GetTexture();
+    // TextureManager::Get().UseTexture(texture ? *texture : m_default_texture01);
+
+    // m_instanced_shader.SetUniform("matrix_count",particleTransforms.size());
+    // m_instanced_shader.SetUniform("transform_matrixes",particleTransforms.data());
+    // m_instanced_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture ? *texture : m_default_texture01).value());
+    // m_instanced_shader.SetUniform("blend_colors",particleColors);
+    // m_instanced_shader.SetUniform("sample_offset",texture->m_sample_offset);
+    // m_instanced_shader.SetUniform("sample_ratio",texture->m_sample_ratio);
+
+    // DrawIndexedCommand(m_rectangle_ebo);
+
+    // BlendCommand(false);
 }
 
 void Renderer::ClearColor( float red, float green, float blue, float alpha ) const
@@ -301,14 +337,20 @@ void Renderer::Prepare( VertexArray& va, const Transform2D& transform, Texture& 
 
     TextureManager::Get().UseTexture(texture);
 
-    glm::mat4 view_matrix = glm::mat4(1), projection_matrix = glm::mat4(1);
+    Mat4f view_matrix_me = LookAt(Vec3f(0.0f,0.0f,3.0f),Vec3f(0.0f,0.0f,0.0f),Vec3f(0.0f,1.0f,0.0f));
+    // Mat4f view_matrix_me;
+    glm::mat4 view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,3.0f),glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,1.0f,0.0f));
 
-    view_matrix = glm::lookAt(glm::vec3(0.0f,0.0f,0.2f),glm::vec3(0.0f,0.0f,0.0f),glm::vec3(0.0f,1.0f,0.0f));
-    projection_matrix = glm::perspective(glm::radians(60.0f), 16.0f / 9.0f, 0.01f,1000.0f);
+    // Mat4f projection_matrix_me;
+    // glm::mat4 projection_matrix = glm::perspective(glm::radians(60.0f), 16.0f / 9.0f, 0.01f,1000.0f);
 
+    Mat4f matrix = transform.GetModelMatrix();
+    // vertex shader uniforms.
     m_default_shader.SetUniform("transform_matrix",transform.GetModelMatrix());
-    // m_default_shader.SetUniform("view_matrix",view_matrix);
+    // m_default_shader.SetUniform("view_matrix",view_matrix_me);
     // m_default_shader.SetUniform("projection_matrix",projection_matrix);
+
+    // fragment shader uniforms.
     m_default_shader.SetUniform("texture_image01",TextureManager::Get().GetTextureUnitLocation(texture).value()); 
     m_default_shader.SetUniform("blend_color",color);
     m_default_shader.SetUniform("sample_offset",texture.m_sample_offset);

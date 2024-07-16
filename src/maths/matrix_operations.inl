@@ -70,9 +70,9 @@ Mat3<T> Translate( T move_x, T move_y, const Mat3<T>& base )
 {
     Mat3<T> temp =
     {
-        1,  0,  move_x,
-        0,  1,  move_y,
-        0,  0,  1
+        1,  0,        0,
+        0,  1,        0,
+        move_x,  move_y,  1
     };
 
     return base * temp;
@@ -147,10 +147,10 @@ Mat4<T> Translate( T move_x, T move_y, T move_z, const Mat4<T>& base )
 {
     Mat4<T> temp =
     {
-        1,  0,  0,  move_x,
-        0,  1,  0,  move_y,
-        0,  0,  1,  move_z,
-        0,  0,  0,  1
+        1,       0,       0,       0,
+        0,       1,       0,       0,
+        0,       0,       1,       0,
+        move_x,  move_y,  move_z,  1
     };
 
     return base * temp;

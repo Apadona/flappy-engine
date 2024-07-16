@@ -139,5 +139,6 @@ class Renderer
         static Vec4f m_default_color; // default white color used in color shader.
 
         Shader m_default_shader;
+        Shader m_instanced_shader;
         Camera* m_scene_camera;
 };

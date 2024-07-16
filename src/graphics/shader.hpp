@@ -64,6 +64,9 @@ class Shader
             if constexpr( std::is_same<T,Vec4>::value )
                 return SetUniformVec4f(uniform_name,data);
 
+            if constexpr( std::is_same<T,std::vector<Vec4>>::value )
+                return SetUniformVec4fv(uniform_name,data);
+
             if constexpr( std::is_same<T,Mat2f>::value )
                 return SetUniformMatrix2f(uniform_name,data);
 
@@ -75,6 +78,9 @@ class Shader
 
             if constexpr( std::is_same<T,glm::mat4>::value )
                 return SetUniformMatrix4f(uniform_name,data);
+
+            if constexpr( std::is_same<T,std::vector<Mat4f>>::value )
+                return SetUniformMatrix4fv(uniform_name,data);
 
             // if constexpr( std::is_same<T,Mat44d>::value )
             // {
@@ -108,11 +114,13 @@ class Shader
         bool SetUniformVec2f( const std::string& uniform_name, const Vec2& value );
         bool SetUniformVec3f( const std::string& uniform_name, const Vec3& value );
         bool SetUniformVec4f( const std::string& uniform_name, const Vec4& value );
+        bool SetUniformVec4fv( const std::string& uniform_name, const std::vector<Vec4>& _data );
 
         bool SetUniformMatrix2f( const std::string& uniform_name, const Mat2f& value );
         bool SetUniformMatrix3f( const std::string& uniform_name, const Mat3f& value );
         bool SetUniformMatrix4f( const std::string& uniform_name, const Mat4f& value );
         bool SetUniformMatrix4f( const std::string& uniform_name, const glm::mat4& value );
+        bool SetUniformMatrix4fv( const std::string& uniform_name, const std::vector<Mat4f>& values );
 
         bool IsMade() const { return m_is_made; }
 

@@ -301,6 +301,11 @@ bool Shader::SetUniformVec4f( const std::string& uniform_name, const Vec4& _data
     SET_UNIFORM_IMPLEMENTION(uniform_name,glUniform4f,_data.x,_data.y,_data.z,_data.w)
 }
 
+bool Shader::SetUniformVec4fv( const std::string& uniform_name, const std::vector<Vec4>& _data )
+{
+    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniform4fv,_data.size(),_data.data()->element)
+}
+
 bool Shader::SetUniformMatrix2f( const std::string& uniform_name, const Mat2f& matrix )
 {
     SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix2fv,1,false,matrix.GetData())
@@ -313,13 +318,20 @@ bool Shader::SetUniformMatrix3f( const std::string& uniform_name, const Mat3f& m
 
 bool Shader::SetUniformMatrix4f( const std::string& uniform_name, const Mat4f& matrix )
 {
-    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,true,matrix.GetData())
+    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,false,matrix.GetData())
 }
 
 bool Shader::SetUniformMatrix4f( const std::string& uniform_name, const glm::mat4& glm_matrix )
 {
-    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,false,glm::value_ptr(glm_matrix))
+    auto data = glm::value_ptr(glm_matrix);
+    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,1,false,data)
 }
+
+bool Shader::SetUniformMatrix4fv( const std::string& uniform_name, const std::vector<Mat4f>& values )
+{
+    SET_UNIFORM_IMPLEMENTION(uniform_name,glUniformMatrix4fv,values.size(),false,values.data()->GetData())
+}
+
 
 void Shader::GetAllAttribs()
 {
